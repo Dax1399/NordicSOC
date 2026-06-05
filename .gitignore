@@ -1,0 +1,20 @@
+# dependencies
+node_modules/
+package.json
+package-lock.json
+
+# local dev tooling / preview server
+server.js
+make-framework-doc.js
+.claude/
+.vercel/
+
+# internal deliverables (not part of the website)
+Nordic-SOC-AI-Framework.md
+Nordic-SOC-Website-Copy.md
+*.docx
+
+# misc
+*.log
+.DS_Store
+Thumbs.db
