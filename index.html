@@ -3,681 +3,760 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Nordic SOC | AI-Driven Managed Security Operations Centre — Stockholm</title>
-<meta name="description" content="Nordic SOC is an AI-driven Security Operations Centre — a Cognitive SOC Engine (detect, decide, respond) wrapped in proven frameworks: 3-in-1 Managed Services, CostlyzrEdge, AI Security & Guardrails and GRC. Human-on-the-loop, operated from Stockholm with EU data residency." />
+<title>Nordic SOC — The EU-sovereign AI SOC for the Nordics</title>
+<meta name="description" content="Your tools already raise the alerts. We investigate, contain and report on them for you — automatically, in seconds. No SIEM to run, no 24/7 team to hire. EU-sovereign, delivered by Nordic SOC and powered by Vokter." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<!-- Brand face is "Google Sans Flex" (already served by the live theme). Inter is loaded only as a
-     local-preview fallback; on the live site Google Sans Flex takes precedence (it is first in the stack). -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <style>
+/* ============================================================
+   NORDIC SOC · Vokter — homepage (light theme, matched to nordicsoc.com)
+   Navy #142E4A · Orchid Green #BCD153 · Charcoal #0E1A1F
+   Cloud White #F6F8FB · Sunset Blue #5E7A93 · Davy Grey #4A555A
+   ============================================================ */
 :root{
-  --navy:#142E4A;      /* primary */
-  --black:#0E1A1F;     /* near-black headings / footer */
-  --lime:#BCD153;      /* accent */
-  --lime-pale:#F2F6D9; /* pale-lime card bg */
-  --lime-mid:#DDE8A6;
-  --slate:#9FB3C4;     /* light slate */
-  --gray:#4A555A;      /* mid gray */
-  --body:#42505a;      /* paragraph text */
-  --line:#E8EEF3;
-  --line-2:#C9D0D4;
-  --bg:#ffffff;
-  --bg-alt:#F6F8FB;
-  --shadow:0 22px 48px -30px rgba(20,46,74,.30);
-  --shadow-sm:0 12px 26px -20px rgba(20,46,74,.34);
-  --radius:18px;
-  --maxw:1160px;
-  --font:"Google Sans Flex","Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --img:"https://nordicsoc.com/wp-content/uploads/2026/02";
+  --white:#FFFFFF; --alt:#F6F8FB; --charcoal:#0E1A1F; --navy:#142E4A;
+  --orchid:#BCD153; --orchid-deep:#7C9A2E; --spring:#C9DC7E; --sunset:#5E7A93;
+  --davy:#4A555A; --slate:#9FB3C4; --mist:#E8EEF3; --orange:#E07B3C;
+  --ink:#0E1A1F; --body:#46535f; --muted:#5E7A93;
+  --line:rgba(20,46,74,.10); --line-2:rgba(20,46,74,.16);
+  --shadow:0 18px 44px -28px rgba(20,46,74,.45);
+  --shadow-sm:0 10px 26px -20px rgba(20,46,74,.4);
+  --radius:18px; --radius-sm:14px; --maxw:1180px;
+  --ease:cubic-bezier(.22,.61,.36,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:78px}
-body{background:var(--bg);color:var(--body);font-family:var(--font);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-h1,h2,h3,h4,h5{font-family:var(--font);color:var(--black);line-height:1.12;letter-spacing:-.02em}
-h1{font-weight:700}h2{font-weight:800}h3,h4{font-weight:700}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:"Google Sans Flex","Google Sans",system-ui,Arial,sans-serif;background:var(--white);
+  color:var(--body);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
-img{max-width:100%;display:block}
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
+img,svg{display:block;max-width:100%}
+::selection{background:var(--orchid);color:var(--charcoal)}
 
-/* buttons (match live site) */
-.btn{display:inline-flex;align-items:center;gap:.5em;font-family:var(--font);font-weight:600;font-size:.95rem;cursor:pointer;transition:transform .2s,background .2s,color .2s,box-shadow .2s}
-.btn-lime{background:var(--lime);color:var(--black);border-radius:10px;padding:.7em 1.3em}
-.btn-lime:hover{background:var(--lime-mid);transform:translateY(-2px)}
-.btn-hero{border:1.5px solid var(--lime);color:var(--lime);background:rgba(53,57,36,.19);border-radius:999px;padding:.95em 2em;font-size:1rem}
-.btn-hero:hover{background:var(--lime);color:var(--black);transform:translateY(-2px)}
-.btn-navy{background:var(--navy);color:#fff;border-radius:10px;padding:.85em 1.5em}
-.btn-navy:hover{background:var(--black);transform:translateY(-2px)}
-.arr{transition:transform .2s}.btn:hover .arr{transform:translateX(4px)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,40px)}
+.section{padding:clamp(50px,5vw,76px) 0;position:relative}
+section[id]{scroll-margin-top:84px}
+.alt{background:var(--alt)}
+h1,h2,h3,h4{line-height:1.12;font-weight:600;letter-spacing:-.02em;color:var(--ink);text-wrap:pretty}
+h2.title{font-size:clamp(24px,2.8vw,36px);letter-spacing:-.025em}
+.lead{font-size:clamp(16px,1.4vw,18px);color:var(--body);max-width:72ch;margin-top:18px;line-height:1.6;text-wrap:balance}
+.center-head{text-align:left;display:flex;flex-direction:column;align-items:flex-start}
 
-/* nav */
-header.nav{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;height:78px}
-.nav-logo img{height:42px;width:auto}
-.nav-links{display:flex;gap:1.9rem;align-items:center;font-size:.95rem;color:var(--navy);font-weight:500}
-.nav-links a:hover{color:var(--lime)}
-.nav-right{display:flex;align-items:center;gap:1.2rem}
-.burger{display:none;background:none;border:0;font-size:1.6rem;color:var(--navy);cursor:pointer}
-@media(max-width:980px){.nav-links{display:none}.burger{display:block}}
+.btn{display:inline-flex;align-items:center;gap:9px;justify-content:center;font-family:inherit;font-weight:600;
+  font-size:15.5px;padding:14px 26px;border-radius:999px;cursor:pointer;border:1.6px solid transparent;
+  transition:transform .25s var(--ease),background .25s var(--ease),box-shadow .25s var(--ease),border-color .25s,color .25s;white-space:nowrap}
+.btn svg{width:16px;height:16px;transition:transform .25s var(--ease)}
+.btn:hover svg{transform:translateX(3px)}
+.btn-primary{background:var(--orchid);color:var(--navy);box-shadow:0 12px 26px -14px rgba(124,154,46,.7)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 36px -14px rgba(124,154,46,.85)}
+.btn-outline{background:transparent;color:var(--navy);border-color:var(--line-2)}
+.btn-outline:hover{border-color:var(--navy);background:rgba(20,46,74,.04)}
+.on-dark .btn-outline{color:#fff;border-color:rgba(255,255,255,.5)}
+.on-dark .btn-outline:hover{background:rgba(255,255,255,.1);border-color:#fff}
 
-/* hero */
-.hero{position:relative;min-height:clamp(400px,32vw,600px);display:flex;align-items:center;justify-content:center;text-align:center;
-  background:linear-gradient(180deg,rgba(14,26,31,.30),rgba(14,26,31,.10) 40%,rgba(14,26,31,0)),
-  url("https://nordicsoc.com/wp-content/uploads/2026/02/NordicHomepage-Banner-1-scaled.webp");
-  background-size:cover;background-position:center;color:#fff}
-.hero-inner{position:relative;z-index:2;max-width:880px;padding:56px 26px}
-.hero h1{font-size:clamp(2.6rem,6vw,4.5rem);color:#fff;margin-bottom:22px;text-shadow:0 2px 30px rgba(0,0,0,.25)}
-.hero .sub{font-size:clamp(1.05rem,2vw,1.35rem);color:var(--lime);font-weight:500;max-width:620px;margin:0 auto 36px}
-.hero .btn-hero{backdrop-filter:blur(2px)}
+/* NAV */
+header.nav{position:fixed;inset:0 0 auto 0;z-index:100;background:#fff;
+  border-bottom:1px solid var(--line);transition:box-shadow .3s,border-color .3s}
+header.nav.scrolled{box-shadow:0 6px 24px -18px rgba(20,46,74,.5);border-bottom-color:var(--line)}
+.nav-inner{max-width:var(--maxw);margin:0 auto;padding:14px clamp(20px,5vw,40px);display:flex;align-items:center;gap:28px}
+.logo-nsoc{height:38px;width:auto}
+.brand{flex-shrink:0;display:flex;align-items:center}
+.nav-links{display:flex;gap:2px;margin-left:auto;align-items:center}
+.nav-links a{font-size:15px;color:var(--navy);padding:9px 14px;border-radius:8px;transition:color .2s,background .2s;font-weight:500}
+.nav-links a:hover{color:var(--orchid-deep);background:rgba(20,46,74,.04)}
+.nav-item{position:relative}
+.nav-item::after{content:"";position:absolute;top:100%;left:0;right:0;height:12px}
+.nav-trigger{display:inline-flex;align-items:center;gap:6px;font-family:inherit;font-size:15px;font-weight:500;color:var(--navy);background:none;border:none;cursor:pointer;padding:9px 14px;border-radius:8px;transition:color .2s,background .2s}
+.nav-trigger svg{width:13px;height:13px;transition:transform .25s var(--ease)}
+.nav-item:hover .nav-trigger,.nav-item:focus-within .nav-trigger{color:var(--orchid-deep);background:rgba(20,46,74,.04)}
+.nav-item:hover .nav-trigger svg,.nav-item:focus-within .nav-trigger svg{transform:rotate(180deg)}
+.drop{position:absolute;top:calc(100% + 12px);left:0;min-width:206px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 20px 44px -22px rgba(20,46,74,.5);padding:8px;display:flex;flex-direction:column;gap:2px;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .2s var(--ease),transform .2s var(--ease),visibility .2s}
+.nav-item:hover .drop,.nav-item:focus-within .drop{opacity:1;visibility:visible;transform:none}
+.drop a{font-size:14.5px;color:var(--navy);padding:10px 12px;border-radius:8px;transition:background .2s,color .2s;font-weight:500}
+.drop a:hover{background:var(--alt);color:var(--orchid-deep)}
+.nav-cta{margin-left:24px;display:flex;align-items:center;gap:10px}
+.nav-cta .btn{padding:11px 20px;font-size:14.5px}
+.menu-toggle{display:none;background:none;border:1px solid var(--line-2);border-radius:10px;width:44px;height:44px;cursor:pointer;color:var(--navy);align-items:center;justify-content:center}
+.menu-toggle svg{width:22px;height:22px}
 
-/* sections */
-.sec{padding:80px 0}
-.sec.alt{background:var(--bg-alt)}
-.sec-head{max-width:760px;margin:0 auto 56px;text-align:center}
-.sec-head h2{font-size:clamp(2rem,4vw,3rem);margin-bottom:16px}
-.sec-head p{color:var(--gray);font-size:1.1rem}
-/* asymmetric header (left title, right paragraph) — matches live site */
-.head-split{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;margin-bottom:50px}
-.head-split h2{font-size:clamp(2rem,4vw,3rem)}
-.head-split p{color:var(--gray);font-size:1.06rem;padding-top:6px}
-@media(max-width:820px){.head-split{grid-template-columns:1fr;gap:14px;margin-bottom:34px}}
+/* HERO */
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;text-align:left;
+  padding:118px 0 64px;overflow:hidden;color:#fff}
+.hero-bg{position:absolute;inset:0;z-index:0;background:url("assets/hero-mosaic.png") center/cover no-repeat;background-color:#0b162f}
+.hero-bg::after{content:"";position:absolute;inset:0;background:
+  linear-gradient(180deg,rgba(9,16,30,.62),rgba(9,16,30,.42) 55%,rgba(9,16,30,.5)),
+  radial-gradient(120% 90% at 50% 40%,transparent 30%,rgba(9,16,30,.45))}
+.hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,4vw,60px);align-items:center}
+.hero h1{color:#fff;font-size:clamp(36px,4.4vw,56px);font-weight:600;letter-spacing:-.035em}
+.hero h1 .accent{color:var(--orchid)}
+.hero p.sub{margin-top:20px;font-size:clamp(16px,1.4vw,19px);color:#EAF1F8;max-width:52ch;line-height:1.55;text-wrap:balance}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px;justify-content:flex-start}
+.hero-video{width:100%}
+.video-ph{position:relative;aspect-ratio:16/9;border-radius:16px;border:1px solid rgba(255,255,255,.22);background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(9,16,30,.28));display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;overflow:hidden;box-shadow:0 34px 70px -34px rgba(0,0,0,.6)}
+.video-ph .play{width:66px;height:66px;border-radius:50%;background:var(--orchid);color:var(--navy);display:grid;place-items:center;box-shadow:0 12px 30px -8px rgba(124,154,46,.6);transition:transform .25s var(--ease)}
+.video-ph:hover .play{transform:scale(1.06)}
+.video-ph .play svg{width:26px;height:26px;margin-left:4px}
+.video-ph .vcap{font-size:13px;color:rgba(234,241,248,.85);font-weight:500}
 
-/* grids */
-.grid{display:grid;gap:24px}
-.g-4{grid-template-columns:repeat(4,1fr)}
-.g-3{grid-template-columns:repeat(3,1fr)}
-.g-2{grid-template-columns:repeat(2,1fr)}
-@media(max-width:1000px){.g-4{grid-template-columns:repeat(2,1fr)}.g-3{grid-template-columns:1fr}}
-@media(max-width:560px){.g-4{grid-template-columns:1fr}}
+/* MEET VOKTER */
+.meet-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,6vw,72px);align-items:center}
+.meet-copy .btn{margin-top:22px}
+.vk-logo-lg{width:min(260px,72%);height:auto;margin-bottom:16px}
+.meet-list{list-style:none;margin:20px 0 0;display:flex;flex-direction:column;gap:12px}
+.meet-list li{display:flex;align-items:flex-start;gap:12px;font-size:15.5px;color:var(--body)}
+.meet-list li svg{width:21px;height:21px;color:var(--orchid-deep);flex-shrink:0;margin-top:2px}
+.meet-list li span{flex:1}
+.meet-list li b{color:var(--navy);font-weight:600}
+/* Vokter platform-layer card */
+.vk-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.vk-top{display:flex;align-items:center;justify-content:space-between;padding:15px 20px;border-bottom:1px solid var(--line);background:var(--alt)}
+.vk-top img{height:20px;width:auto}
+.vk-tag{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--orchid-deep);background:rgba(188,209,83,.18);border:1px solid rgba(124,154,46,.28);padding:4px 10px;border-radius:999px;font-weight:500}
+.vk-body{padding:14px;display:flex;flex-direction:column;gap:6px}
+.vlayer{display:flex;align-items:center;gap:11px;padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;transition:border-color .25s,transform .25s}
+.vlayer:hover{border-color:var(--line-2);transform:translateX(2px)}
+.vlayer .li{width:30px;height:30px;border-radius:8px;flex-shrink:0;display:grid;place-items:center;background:rgba(188,209,83,.18);color:var(--navy)}
+.vlayer .li svg{width:17px;height:17px}
+.vlayer .lt b{display:block;font-size:13.5px;color:var(--ink);font-weight:600;line-height:1.2}
+.vlayer .lt span{font-size:12px;color:var(--muted);line-height:1.3}
+.vk-div{display:flex;align-items:center;gap:10px;margin:1px 2px;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--sunset)}
+.vk-div::before,.vk-div::after{content:"";height:1px;background:var(--line);flex:1}
+.vbase{display:flex;align-items:center;gap:11px;padding:9px 12px;border:1px dashed var(--line-2);border-radius:10px;background:var(--alt)}
+.vbase .li{width:30px;height:30px;border-radius:8px;flex-shrink:0;display:grid;place-items:center;background:rgba(94,122,147,.16);color:var(--sunset)}
+.vbase .li svg{width:17px;height:17px}
+.vbase .lt b{display:block;font-size:13.5px;color:var(--navy);font-weight:600;line-height:1.25}
+.vbase .lt span{font-size:12px;color:var(--muted)}
+.vbase .yours{margin-left:auto;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--sunset);background:#fff;border:1px solid var(--line);padding:3px 8px;border-radius:6px;white-space:nowrap}
+.vk-foot{padding:14px 20px;background:rgba(188,209,83,.14);border-top:1px solid var(--line);display:flex;align-items:center;gap:10px;font-size:13px;color:var(--navy);font-weight:600}
+.vk-foot svg{width:17px;height:17px;color:var(--orchid-deep);flex-shrink:0}
 
-/* capability / engine card (photo header) */
-.pcard{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .22s,box-shadow .22s}
-.pcard:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
-.pcard .ph{aspect-ratio:16/10;width:100%;object-fit:cover;background:var(--black)}
-.pcard .pc{padding:22px}
-.pcard h4{color:var(--navy);font-size:1.08rem;margin-bottom:8px}
-.pcard p{color:var(--gray);font-size:.92rem}
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:40px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);padding:30px 26px;box-shadow:var(--shadow-sm)}
+.stat .n{font-size:clamp(32px,4vw,46px);font-weight:600;letter-spacing:-.03em;color:var(--navy)}
+.stat .n em{color:var(--orchid-deep);font-style:normal}
+.stat .l{font-size:14.5px;color:var(--body);margin-top:8px;line-height:1.4}
 
-/* framework cards */
-.fcard{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow-sm);transition:transform .22s,box-shadow .22s;border-top:4px solid var(--lime)}
-.fcard:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
-.fcard .cat{color:var(--slate);font-weight:600;font-size:.8rem;letter-spacing:.02em;margin-bottom:6px}
-.fcard h4{color:var(--navy);font-size:1.18rem;margin-bottom:10px}
-.fcard p{color:var(--gray);font-size:.92rem}
-.fcard ul{list-style:none;margin-top:14px;display:flex;flex-direction:column;gap:8px}
-.fcard li{position:relative;padding-left:20px;font-size:.89rem;color:var(--body)}
-.fcard li::before{content:"";position:absolute;left:0;top:8px;width:8px;height:8px;border-radius:3px;background:var(--lime)}
+/* PROBLEM */
+.prob-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:40px}
+.prob{background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);padding:26px 24px;transition:transform .3s,box-shadow .3s}
+.prob:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.prob .ix{font-family:"JetBrains Mono",monospace;color:var(--orange);font-size:13px;font-weight:500}
+.prob h4{font-size:17px;color:var(--ink);margin:12px 0 6px}
+.prob p{font-size:14.5px;color:var(--body)}
 
-/* framework — 6-layer horizontal flow */
-.fwh{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;position:relative;margin-top:12px}
-.fwh::before{content:"";position:absolute;top:25px;left:8%;right:8%;height:2px;background:var(--lime-mid);z-index:0}
-.fstep{display:flex;flex-direction:column}
-.fstep .lnum{width:50px;height:50px;border-radius:50%;background:#fff;border:2px solid var(--lime-mid);color:var(--navy);font-weight:800;font-size:1rem;display:grid;place-items:center;margin:0 auto 16px;position:relative;z-index:1}
-.fstep.core .lnum{background:var(--lime);border-color:var(--lime);color:var(--navy)}
-.fcard2{flex:1;background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;box-shadow:var(--shadow-sm);transition:transform .2s,box-shadow .2s}
-.fcard2:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
-.fstep.core .fcard2{background:var(--lime-pale);border-color:var(--lime-mid)}
-.fcard2 h4{color:var(--navy);font-size:.98rem;margin-bottom:5px;line-height:1.2}
-.fcard2 .eng{display:block;color:var(--navy);opacity:.6;font-weight:600;font-size:.66rem;margin-bottom:4px}
-.fcard2 .lstd{display:block;color:var(--slate);font-weight:600;font-size:.7rem;margin-bottom:10px;line-height:1.4}
-.fcard2 .lcaps{color:var(--gray);font-size:.8rem;line-height:1.5}
-.fw-note{text-align:center;margin-top:28px;color:var(--gray);font-size:.96rem}
-.fw-note b{color:var(--navy)}
-@media(max-width:1024px){.fwh{grid-template-columns:repeat(3,1fr);gap:18px}.fwh::before{display:none}}
-@media(max-width:600px){.fwh{grid-template-columns:1fr}}
+/* shared icon card grid */
+.cardgrid{display:grid;gap:18px;margin-top:40px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px 24px;
+  transition:transform .35s var(--ease),box-shadow .35s,border-color .35s;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--line-2)}
+.chip{width:50px;height:50px;border-radius:14px;display:grid;place-items:center;margin-bottom:18px;
+  background:rgba(188,209,83,.18);border:1px solid rgba(124,154,46,.25);color:var(--navy)}
+.chip svg{width:24px;height:24px}
 
-/* capability sections — one point each, own dashboard, alternating (Dropzone-style) */
-.cap-grid{display:grid;grid-template-columns:1fr 1.04fr;gap:50px;align-items:center}
-.cap-grid.flip .cap-txt{order:2}
-@media(max-width:880px){.cap-grid{grid-template-columns:1fr;gap:30px}.cap-grid.flip .cap-txt{order:0}}
-.cap-txt h2{font-size:clamp(1.7rem,3.4vw,2.5rem);margin-bottom:14px;color:var(--ink)}
-.cap-txt p{color:var(--gray);font-size:1.05rem;margin-bottom:18px}
-.cap-txt ul{list-style:none;display:flex;flex-direction:column;gap:10px}
-.cap-txt li{position:relative;padding-left:22px;color:var(--body);font-size:.95rem}
-.cap-txt li::before{content:"";position:absolute;left:0;top:8px;width:8px;height:8px;border-radius:3px;background:var(--lime)}
+/* MODES */
+.modes{grid-template-columns:repeat(3,1fr)}
+.mode .mtag{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--sunset)}
+.mode h3{font-size:22px;color:var(--ink);margin:8px 0 3px;scroll-margin-top:100px}
+.mode .sub{font-size:13.5px;color:var(--orchid-deep);font-weight:600;margin-bottom:14px}
+.mode p{font-size:14.5px;color:var(--body);flex-grow:1}
+.mode .more{margin-top:18px;font-size:14px;font-weight:600;color:var(--orchid-deep);display:inline-flex;align-items:center;gap:7px}
+.mode .more svg{width:15px;height:15px;transition:transform .25s var(--ease)}
+.mode:hover .more svg{transform:translateX(4px)}
 
-/* dashboard shell (dark "product screenshot") */
-.dash{background:#0f2233;border:1px solid rgba(188,209,83,.18);border-radius:16px;padding:20px;box-shadow:0 34px 64px -34px rgba(15,40,28,.55);color:#cfdae6}
-.dash-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;border-bottom:1px solid rgba(255,255,255,.08);padding-bottom:13px;margin-bottom:14px}
-.dash-head .dt{font-size:.9rem;font-weight:700;color:#fff}
-.dash-head .dsub{font-size:.7rem;color:#8ea2b4;margin-top:2px}
-.dash-head .ds{display:inline-flex;align-items:center;gap:.5em;font-size:.7rem;color:var(--lime);font-weight:600;white-space:nowrap}
-.pdot{width:8px;height:8px;border-radius:50%;background:var(--lime);animation:pp 1.6s infinite}
-@keyframes pp{0%{box-shadow:0 0 0 0 rgba(188,209,83,.5)}70%{box-shadow:0 0 0 7px rgba(188,209,83,0)}100%{box-shadow:0 0 0 0 rgba(188,209,83,0)}}
-/* triage */
-.tq-funnel{display:flex;align-items:center;justify-content:space-around;gap:8px;margin-bottom:16px}
-.tq-stat{text-align:center}
-.tq-stat b{display:block;font-family:var(--font);font-weight:800;font-size:1.7rem;color:#fff;line-height:1}
-.tq-stat.green b{color:var(--lime)}
-.tq-stat small{color:#8ea2b4;font-size:.7rem}
-.tq-arrow{color:#56697b;font-size:1.1rem}
-.tq-rows{display:flex;flex-direction:column;gap:8px}
-.tq-row{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.03);border-radius:8px;padding:9px 11px;font-size:.8rem}
-.tq-row .sev{width:8px;height:8px;border-radius:50%;flex:none}
-.sev.low{background:#5E7A93}.sev.med{background:#DDE8A6}.sev.high{background:#e8896b}
-.tq-row .nm{color:#dbe6ef;flex:1}
-.tq-row .tag{font-size:.67rem;color:#8ea2b4}
-.tq-row.esc{background:rgba(188,209,83,.12);border:1px solid rgba(188,209,83,.3)}
-.tq-row.esc .tag{color:var(--lime);font-weight:700}
-/* investigation (glass-box) */
-.ic-steps{display:flex;flex-direction:column;gap:11px;margin-bottom:14px}
-.ic-step{display:flex;gap:12px;align-items:flex-start}
-.ic-step .tick{flex:none;width:20px;height:20px;border-radius:50%;background:rgba(188,209,83,.18);color:var(--lime);font-size:.66rem;display:grid;place-items:center;margin-top:2px}
-.ic-step b{color:#eaf1f7;font-size:.85rem;font-weight:600;display:block}
-.ic-step small{color:#8ea2b4;font-size:.77rem}
-.ic-verdict{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;background:rgba(188,209,83,.1);border:1px solid rgba(188,209,83,.3);border-radius:10px;padding:12px 14px;margin-bottom:12px}
-.ic-verdict .vt{font-size:.6rem;letter-spacing:.1em;color:var(--lime);font-weight:700;width:100%}
-.ic-verdict b{color:#fff;font-size:1rem}
-.ic-verdict small{color:#9fd17a;font-size:.78rem}
-.ic-actions{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
-.ic-await{font-size:.73rem;color:#8ea2b4}
-.ic-btn{font-family:var(--font);font-weight:700;font-size:.75rem;border-radius:8px;padding:.5em .95em;border:0;cursor:pointer;margin-left:8px}
-.ic-btn.dismiss{background:transparent;color:#8ea2b4;border:1px solid rgba(255,255,255,.2)}
-.ic-btn.contain{background:var(--lime);color:var(--navy)}
-/* respond / hunt */
-.rp-sum{font-size:.82rem;color:#dbe6ef;margin-bottom:12px;background:rgba(255,255,255,.03);border-radius:8px;padding:10px 12px}
-.rp-sum b{color:#fff}
-.rp-step{display:flex;align-items:center;gap:10px;font-size:.82rem;color:#cfdae6;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.06)}
-.rp-step .n{flex:none;width:20px;height:20px;border-radius:6px;background:rgba(188,209,83,.18);color:var(--lime);font-size:.7rem;font-weight:700;display:grid;place-items:center}
-.rp-foot{display:flex;justify-content:space-between;align-items:center;margin-top:14px;gap:10px;flex-wrap:wrap}
-.rp-foot .note{font-size:.73rem;color:#8ea2b4}
-/* platform lifecycle line */
-.pf-flow{font-size:.76rem;color:var(--lime);font-weight:700;letter-spacing:.02em;margin-bottom:14px;background:rgba(188,209,83,.08);border:1px solid rgba(188,209,83,.22);border-radius:8px;padding:10px 12px;text-align:center}
-/* compliance posture bars */
-.cp{display:flex;flex-direction:column;gap:10px;margin-bottom:12px}
-.cp-row{display:flex;align-items:center;gap:10px;font-size:.8rem}
-.cp-n{width:78px;color:#dbe6ef;font-weight:600;flex:none}
-.cp-bar{flex:1;height:8px;background:rgba(255,255,255,.08);border-radius:5px;overflow:hidden}
-.cp-bar i{display:block;height:100%;background:var(--lime);border-radius:5px}
-.cp-p{width:38px;text-align:right;color:var(--lime);font-weight:700;flex:none}
-/* proof band (navy) */
-.showcase{background:var(--navy);color:#cfdae6}
-.showcase .sec-head h2{color:#fff}
-.showcase .sec-head p{color:#aebccb}
-.show-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-@media(max-width:680px){.show-metrics{grid-template-columns:repeat(2,1fr)}}
-.show-metrics .m{text-align:center}
-.show-metrics .big{display:block;font-family:var(--font);font-weight:800;color:var(--lime);font-size:clamp(2rem,4vw,2.9rem);line-height:1}
-.show-metrics .ml{color:#aebccb;font-size:.85rem;margin-top:8px;display:block}
-.show-note{text-align:center;color:#6f8194;font-size:.77rem;margin-top:18px}
+/* HOW IT WORKS */
+.flow{margin-top:34px;border:1px solid var(--line);border-radius:var(--radius);background:#fff;padding:clamp(16px,2.4vw,24px);box-shadow:var(--shadow-sm)}
+.flow-meta{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center;margin-bottom:16px;padding-bottom:13px;border-bottom:1px solid var(--line)}
+.flow-meta .timer{font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--orchid-deep);display:flex;align-items:center;gap:10px;font-weight:500}
+.flow-meta .timer .dot{width:8px;height:8px;border-radius:50%;background:var(--orchid);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(124,154,46,.45)}70%{box-shadow:0 0 0 9px rgba(124,154,46,0)}100%{box-shadow:0 0 0 0 rgba(124,154,46,0)}}
+.flow-meta .legend{display:flex;gap:18px;font-size:13px;color:var(--body);flex-wrap:wrap}
+.flow-meta .legend span{display:flex;align-items:center;gap:7px}
+.flow-meta .legend i{width:16px;height:3px;border-radius:2px;display:inline-block}
+.steps{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;counter-reset:step}
+.step{position:relative;padding:13px 12px;border-radius:var(--radius-sm);border:1px solid var(--line);background:var(--alt);transition:transform .3s,box-shadow .3s}
+.step:hover{transform:translateY(-4px);box-shadow:var(--shadow-sm)}
+.step .num{counter-increment:step;font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--orchid-deep)}
+.step .num::before{content:"0" counter(step)}
+.step .ico{width:24px;height:24px;color:var(--navy);margin:6px 0}
+.step h4{font-size:15px;color:var(--ink);margin-bottom:5px;letter-spacing:-.01em}
+.step p{font-size:12px;color:var(--body);line-height:1.4}
+.step.gate{border-color:rgba(224,123,60,.45);background:rgba(224,123,60,.07)}
+.step.gate .num,.step.gate .ico{color:var(--orange)}
+.guard-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:12px}
+.guard{display:flex;gap:10px;align-items:flex-start;padding:10px 13px;border:1px solid var(--line);border-radius:var(--radius-sm);background:var(--alt)}
+.guard .ico{width:20px;height:20px;color:var(--orchid-deep);flex-shrink:0;margin-top:2px}
+.guard h4{font-size:14.5px;color:var(--ink);margin-bottom:2px}
+.guard p{font-size:12px;color:var(--body);line-height:1.4}
 
-/* stockholm centre */
-.stk{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:8px}
-@media(max-width:880px){.stk{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:520px){.stk{grid-template-columns:1fr}}
-.stk .pt{padding:24px;border:1px solid var(--line);border-radius:14px;background:#fff}
-.stk .pt .n{width:38px;height:38px;border-radius:10px;background:var(--lime-pale);border:1px solid var(--lime-mid);display:grid;place-items:center;color:var(--navy);font-weight:700;margin-bottom:14px}
-.stk .pt h4{color:var(--navy);font-size:1.02rem;line-height:1.3}
+/* SOVEREIGNTY */
+.sov-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,72px);align-items:start}
+.sov-sub{font-size:15px;color:var(--body);line-height:1.55;margin-top:14px;max-width:none;text-wrap:balance}
+#sovereignty .title{font-size:clamp(22px,2.3vw,28px)}
+.sov-points{list-style:none;display:flex;flex-direction:column;gap:16px;margin-top:24px}
+.sov-points li{display:flex;gap:14px;align-items:flex-start}
+.sov-points .k{width:36px;height:36px;border-radius:10px;flex-shrink:0;display:grid;place-items:center;background:rgba(188,209,83,.2);border:1px solid rgba(124,154,46,.28);color:var(--navy)}
+.sov-points .k svg{width:18px;height:18px}
+.sov-points h4{font-size:16px;color:var(--ink);margin-bottom:2px}
+.sov-points p{font-size:14px;color:var(--body)}
+.deploy{display:flex;flex-direction:column;gap:16px;margin-top:24px}
+.dep{border:1px solid var(--line);border-radius:var(--radius-sm);padding:20px 22px;background:#fff;display:flex;gap:16px;align-items:flex-start;box-shadow:var(--shadow-sm)}
+.dep .lvl{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;width:96px;text-align:center;padding:5px 6px;border-radius:999px;flex-shrink:0;font-weight:500;white-space:nowrap}
+.dep .lvl.s1{background:rgba(94,122,147,.16);color:var(--sunset)}
+.dep .lvl.s2{background:rgba(124,154,46,.16);color:var(--orchid-deep)}
+.dep .lvl.s3{background:rgba(224,123,60,.16);color:var(--orange)}
+.dep h4{font-size:16px;color:var(--ink);margin-bottom:4px}
+.dep p{font-size:14px;color:var(--body)}
 
-/* architecture cards (pale-lime, green arrow) */
-.acard{background:var(--lime-pale);border:1px solid var(--lime-mid);border-radius:var(--radius);padding:30px;display:flex;flex-direction:column;min-height:230px;transition:transform .22s,box-shadow .22s}
-.acard:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
-.acard h3{color:var(--navy);font-size:1.35rem;margin-bottom:12px}
-.acard p{color:var(--gray);font-size:.96rem;flex:1}
-.acard .arow{display:flex;align-items:center;justify-content:space-between;margin-top:20px}
-.acard .inc{font-size:.8rem;font-weight:600;color:var(--navy);opacity:.8}
-.acard .arow img{height:22px;width:auto}
+/* MOATS */
+.moats{grid-template-columns:repeat(2,1fr)}
+.moat .mn{font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--orchid-deep)}
+.moat h3{font-size:20px;color:var(--ink);margin:10px 0 8px;max-width:26ch}
+.moat p{font-size:14.5px;color:var(--body);max-width:50ch}
 
-/* differentiators (icons) */
-.diff{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
-@media(max-width:900px){.diff{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){.diff{grid-template-columns:1fr}}
-.ditem{display:flex;gap:16px}
-.ditem .ic{flex:none;width:54px;height:54px;border-radius:13px;background:var(--lime-pale);border:1px solid var(--lime-mid);display:grid;place-items:center}
-.ditem .ic img{width:28px;height:28px}
-.ditem h4{color:var(--navy);font-size:1.08rem;margin-bottom:6px}
-.ditem p{color:var(--gray);font-size:.92rem}
-.ditem.lead .ic{background:var(--lime);border-color:var(--lime)}
+/* INTEGRATIONS */
+.int-strip{margin-top:36px;border:1px solid var(--line);border-radius:var(--radius);background:#fff;padding:clamp(22px,3vw,32px);box-shadow:var(--shadow-sm)}
+.int-cats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px 28px}
+.int-cat h4{font-size:12px;font-family:"JetBrains Mono",monospace;letter-spacing:.07em;text-transform:uppercase;color:var(--orchid-deep);margin-bottom:9px;font-weight:500}
+.int-cat span{font-size:13.5px;color:var(--body);line-height:1.6;display:block}
+.int-foot{text-align:center;margin-top:22px;font-size:15px;color:var(--body)}
 
-/* network of trust */
-.logos{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:30px 50px}
-.logos img{height:46px;width:auto;filter:grayscale(1);opacity:.65;transition:filter .2s,opacity .2s}
-.logos img:hover{filter:none;opacity:1}
+/* PARTNER */
+.partner{border:1px solid var(--line);border-radius:var(--radius);padding:clamp(28px,4vw,44px);
+  background:linear-gradient(180deg,#fff,var(--alt));display:flex;gap:32px;align-items:center;flex-wrap:wrap;justify-content:space-between;box-shadow:var(--shadow-sm)}
+.partner h3{font-size:clamp(21px,2.4vw,27px);color:var(--ink);max-width:22ch}
+.partner p{color:var(--body);margin-top:10px;max-width:50ch;font-size:15px}
+.prog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.prog{background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);padding:20px 22px;transition:transform .3s,box-shadow .3s,border-color .3s}
+.prog:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--line-2)}
+.prog h4{font-size:16px;color:var(--navy);margin-bottom:6px}
+.prog p{font-size:13.5px;color:var(--body);line-height:1.5}
+.wl-panel{margin-top:16px;border:1px solid var(--line);border-radius:var(--radius);background:var(--alt);padding:24px 26px}
+.wl-panel h4{font-size:16px;color:var(--ink);margin-bottom:16px}
+.wl-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.wl-grid span{display:flex;gap:9px;align-items:flex-start;font-size:13.5px;color:var(--body)}
+.wl-grid span svg{width:17px;height:17px;color:var(--orchid-deep);flex-shrink:0;margin-top:1px}
+.partner-cta{text-align:center;margin-top:30px}
 
-/* let's talk */
-.talk{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
-@media(max-width:820px){.talk{grid-template-columns:1fr;gap:28px}}
-.talk h2{font-size:clamp(2rem,4vw,2.9rem);margin-bottom:14px}
-.talk p{color:var(--gray);font-size:1.06rem;margin-bottom:24px}
-.talk .ci{display:flex;flex-direction:column;gap:10px;font-size:1rem;color:var(--navy);font-weight:500}
-.talk .ci a{color:var(--navy)}
-.talk-card{background:var(--navy);color:#cfdae6;border-radius:var(--radius);padding:34px;box-shadow:var(--shadow)}
-.talk-card h3{color:#fff;font-size:1.3rem;margin-bottom:12px}
-.talk-card .regs{color:var(--lime);font-weight:700;font-size:1.05rem;line-height:1.9;margin:14px 0}
-.talk-card p{color:#aebccb;font-size:.93rem;margin-bottom:0}
+/* FAQ */
+.faq{margin:32px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
+.faq-col{display:flex;flex-direction:column;gap:12px}
+.faq details{border:1px solid var(--line);border-radius:var(--radius-sm);background:#fff;overflow:hidden;transition:border-color .25s,box-shadow .25s}
+.faq details[open]{border-color:var(--line-2);box-shadow:var(--shadow-sm)}
+.faq summary{list-style:none;cursor:pointer;padding:15px 20px;display:flex;align-items:center;justify-content:space-between;gap:18px;font-size:16px;font-weight:600;color:var(--ink)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .ic{width:20px;height:20px;flex-shrink:0;color:var(--orchid-deep);transition:transform .3s var(--ease)}
+.faq details[open] summary .ic{transform:rotate(45deg)}
+.faq .ans{padding:0 20px 18px;font-size:14.5px;color:var(--body);line-height:1.55;max-width:70ch}
+.faq .ans strong{color:var(--navy);font-weight:600}
+/* FINAL CTA (mosaic band) */
+.cta{position:relative;overflow:hidden;text-align:left;color:#fff}
+.cta-bg{position:absolute;inset:0;z-index:0;background:url("assets/hero-mosaic.png") center/cover no-repeat;background-color:#0b162f}
+.cta-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(9,16,30,.7),rgba(9,16,30,.55))}
+.cta .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,5vw,60px);align-items:center}
+.cta h2{color:#fff;font-size:clamp(28px,3.4vw,42px);letter-spacing:-.03em}
+.cta p{color:#EAF1F8;font-size:clamp(16px,1.5vw,19px);max-width:50ch;margin:16px 0 0;text-wrap:balance}
+.contact-meta{display:flex;flex-direction:column;gap:7px;margin-top:22px;font-size:15px}
+.contact-meta a{color:#cfe0c6;transition:color .2s}
+.contact-meta a:hover{color:var(--orchid)}
+.contact-form{background:#fff;border-radius:18px;padding:clamp(20px,2.2vw,28px);box-shadow:0 34px 70px -34px rgba(0,0,0,.65);display:flex;flex-direction:column;gap:11px}
+.cf-row{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.cf-field label{display:block;font-size:12.5px;font-weight:600;color:var(--navy);margin-bottom:4px}
+.cf-field input,.cf-field textarea{width:100%;font-family:inherit;font-size:15px;color:var(--ink);background:var(--alt);border:1px solid var(--line);border-radius:10px;padding:9px 12px;transition:border-color .2s,box-shadow .2s}
+.cf-field input::placeholder,.cf-field textarea::placeholder{color:var(--slate)}
+.cf-field input:focus,.cf-field textarea:focus{outline:none;border-color:var(--orchid-deep);box-shadow:0 0 0 3px rgba(188,209,83,.25);background:#fff}
+.cf-field textarea{resize:vertical;min-height:52px}
+#contact{padding-top:clamp(40px,4vw,56px);padding-bottom:clamp(40px,4vw,56px)}
+.cf-submit{width:100%;justify-content:center;margin-top:4px}
+.cf-note{font-size:14px;color:var(--orchid-deep);font-weight:600;margin:2px 0 0}
 
-/* footer */
-footer{background:var(--black);color:#9aa7a3;padding:64px 0 30px;font-size:.92rem}
-.foot-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.4fr;gap:34px;margin-bottom:42px}
-@media(max-width:860px){.foot-top{grid-template-columns:1fr 1fr}}
-@media(max-width:520px){.foot-top{grid-template-columns:1fr}}
-.foot-logo img{height:46px;margin-bottom:14px}
-.foot-tag{color:#7f8c88;font-size:.88rem;max-width:300px}
-.foot-col h5{color:#fff;font-size:.98rem;margin-bottom:14px}
-.foot-col a{display:block;color:#9aa7a3;margin-bottom:9px;transition:color .15s}
-.foot-col a:hover{color:var(--lime)}
-.foot-col p{color:#9aa7a3;margin-bottom:8px}
-.offices{font-size:.84rem;color:#6f7c78;line-height:1.85}
-.foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:22px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.84rem;color:#6f7c78}
-.foot-bottom a{color:#6f7c78}.foot-bottom a:hover{color:var(--lime)}
+/* FOOTER */
+footer{background:var(--charcoal);color:#cdd9e2;padding:clamp(56px,7vw,78px) 0 34px}
+.foot-top{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:48px}
+.foot-brand .logo-nsoc{height:40px;margin-bottom:16px}
+.foot-brand p{font-size:14px;color:#9FB3C4;max-width:34ch}
+.foot-contact{font-size:14px;margin-top:18px;display:flex;flex-direction:column;gap:10px}
+.foot-contact-item{display:flex;align-items:flex-start;gap:9px;color:#9FB3C4;text-decoration:none;transition:color .2s}
+.foot-contact-item svg{flex-shrink:0;margin-top:2px;opacity:.75}
+.foot-contact-item:hover{color:var(--orchid)}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:4px}
+.foot-col a{font-size:14.5px;color:#9FB3C4;transition:color .2s}
+.foot-col a:hover{color:#fff}
+.foot-bottom{margin-top:48px;padding-top:24px;border-top:1px solid rgba(159,179,196,.16);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--sunset)}
+.foot-legal{display:flex;gap:22px}
+.foot-legal a{color:var(--sunset);transition:color .2s}
+.foot-legal a:hover{color:var(--orchid)}
 
-/* reveal */
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
 .reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.flow-meta .timer .dot{animation:none}}
+
+@media (max-width:1024px){
+  .nav-links{display:none}.menu-toggle{display:flex}
+  .steps{grid-template-columns:repeat(3,1fr)}
+  .guard-row,.int-cats,.stats,.prob-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:860px){
+  .meet-grid,.sov-grid,.hero .wrap,.cta .wrap{grid-template-columns:1fr;gap:36px}
+  .modes,.moats,.faq{grid-template-columns:1fr}
+  .prog-grid,.wl-grid{grid-template-columns:1fr 1fr}
+  .foot-top{grid-template-columns:1fr 1fr;gap:30px}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .steps,.guard-row,.int-cats,.stats,.prob-grid,.prog-grid,.wl-grid,.cf-row{grid-template-columns:1fr}
+  .foot-top{grid-template-columns:1fr}
+  .hero-actions .btn,.cta-actions .btn{width:100%}
+}
+.mobile-menu{position:fixed;inset:0;z-index:99;background:rgba(255,255,255,.98);backdrop-filter:blur(8px);display:none;flex-direction:column;padding:96px 30px 40px;gap:4px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:19px;color:var(--navy);padding:16px 4px;border-bottom:1px solid var(--line);font-weight:500}
+.mobile-menu .btn{margin-top:22px}
 </style>
 </head>
 <body>
 
-<!-- ============ NAV ============ -->
-<header class="nav">
-  <div class="wrap nav-inner">
-    <a class="nav-logo" href="#" aria-label="Nordic SOC home">
-      <img src="https://nordicsoc.com/wp-content/uploads/2026/02/logo.png" alt="Nordic SOC — Trusted Security for the Nordic Edge" />
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top" aria-label="Nordic SOC home">
+      <img class="logo-nsoc" src="assets/nordic-soc-navy.svg" alt="Nordic SOC" />
     </a>
     <nav class="nav-links">
-      <a href="#architectures">Enterprise SOC</a>
-      <a href="#architectures">Cloud SOC</a>
-      <a href="#architectures">Hybrid SOC</a>
-      <a href="#different">About Us</a>
+      <div class="nav-item">
+        <button class="nav-trigger" aria-haspopup="true">Vokter Modes
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="drop">
+          <a href="#autonomous">Autonomous</a>
+          <a href="#hybrid">Hybrid</a>
+          <a href="#guardian">Guardian</a>
+        </div>
+      </div>
+      <a href="#partners">Partner Program</a>
+      <a href="#insights">Insights</a>
+      <a href="#about">About Us</a>
     </nav>
-    <div class="nav-right">
-      <a class="btn btn-lime" href="#talk">Contact Us</a>
-      <button class="burger" aria-label="Menu">☰</button>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-primary">Contact Us</a>
     </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round"/></svg>
+    </button>
   </div>
 </header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#autonomous">Vokter Autonomous</a>
+  <a href="#hybrid">Vokter Hybrid</a>
+  <a href="#guardian">Vokter Guardian</a>
+  <a href="#partners">Partner Program</a>
+  <a href="#insights">Insights</a>
+  <a href="#about">About Us</a>
+  <a href="#contact" class="btn btn-primary">Contact Us</a>
+</div>
 
-<!-- ============ HERO ============ -->
-<section class="hero">
-  <div class="hero-inner">
-    <h1>The AI-Driven SOC,<br/>Built for Enterprise Trust</h1>
-    <p class="sub">A Cognitive SOC Engine that detects, decides and responds at machine speed — with human expertise on the loop, operated from Stockholm.</p>
-    <a class="btn btn-hero" href="#talk">Let's Assess Your SOC Readiness</a>
+<main id="top">
+
+<!-- HERO -->
+<section class="hero on-dark">
+  <div class="hero-bg"></div>
+  <div class="wrap">
+    <div class="hero-copy">
+      <h1 class="reveal">Your first line of defense, <span class="accent">running itself.</span></h1>
+      <p class="sub reveal">Autonomously triage, investigate, contain and report on the alerts your existing tools already produce. EU-sovereign, compliance-native, and delivered as a fully managed outcome — not another platform to operate.</p>
+      <div class="hero-actions reveal">
+        <a href="#contact" class="btn btn-primary">Request a demo
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#contact" class="btn btn-outline">Assess your SOC readiness</a>
+      </div>
+    </div>
+    <div class="hero-video reveal">
+      <div class="video-ph" role="img" aria-label="Product video — coming soon">
+        <span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+        <span class="vcap">Product walkthrough — coming soon</span>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ============ THE NORDIC AI-SOC FRAMEWORK (proprietary, lead section) ============ -->
-<section class="sec alt" id="framework">
-  <div class="wrap">
-    <div class="head-split">
-      <h2>The Nordic<br/>AI-SOC Framework</h2>
-      <p>AI capabilities on top, recognized standards underneath. One framework across the full lifecycle — reduce the attack surface, then detect, investigate and respond at machine scale, all the way to audit-ready assurance. Every layer is AI-driven and human-on-the-loop.</p>
+<!-- MEET VOKTER (Nordic SOC first, then Vokter) -->
+<section class="section" id="vokter">
+  <div class="wrap meet-grid">
+    <div class="meet-copy">
+      <img class="vk-logo-lg reveal" src="assets/vokter-dark.png" alt="Vokter — AI SOC for the Nordics" />
+      <h2 class="title reveal" style="max-width:15ch">Your entire security operation, in one platform.</h2>
+      <ul class="meet-list">
+        <li class="reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5 9-10" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Runs your first line <b>autonomously</b>, around the clock</span></li>
+        <li class="reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5 9-10" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Works on the security tools <b>you already own</b></span></li>
+        <li class="reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5 9-10" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Delivered and run for you by <b>Nordic SOC</b></span></li>
+      </ul>
+      <a href="#how" class="btn btn-outline reveal">See how it works
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
     </div>
-    <div class="fwh">
-      <div class="fstep reveal">
-        <div class="lnum">00</div>
-        <div class="fcard2"><h4>Foundation</h4><span class="lstd">MITRE ATT&amp;CK</span><p class="lcaps">SIEM · SOAR · log management · 90+ integrations</p></div>
+    <div class="vk-card reveal">
+      <div class="vk-top">
+        <img src="assets/vokter-dark.png" alt="Vokter" />
+        <span class="vk-tag">EU-sovereign</span>
       </div>
-      <div class="fstep reveal">
-        <div class="lnum">01</div>
-        <div class="fcard2"><h4>Reduce</h4><span class="lstd">NIST CSF · Identify / Protect</span><p class="lcaps">Attack surface · Vulnerability · Exposure · Threat intel</p></div>
-      </div>
-      <div class="fstep core reveal">
-        <div class="lnum">02</div>
-        <div class="fcard2"><h4>Detect &amp; Triage</h4><span class="lstd">NIST CSF · Detect</span><p class="lcaps">Triage every alert · Detection engineering · FP suppression</p></div>
-      </div>
-      <div class="fstep core reveal">
-        <div class="lnum">03</div>
-        <div class="fcard2"><h4>Investigate &amp; Hunt</h4><span class="eng">Cognitive SOC Engine</span><span class="lstd">MITRE ATT&amp;CK + OODA</span><p class="lcaps">Investigation · Threat hunting · Blast-radius scoping</p></div>
-      </div>
-      <div class="fstep core reveal">
-        <div class="lnum">04</div>
-        <div class="fcard2"><h4>Respond &amp; Recover</h4><span class="lstd">NIST CSF · Respond / Recover</span><p class="lcaps">Incident response · Containment · SOAR · Case mgmt</p></div>
-      </div>
-      <div class="fstep reveal">
-        <div class="lnum">05</div>
-        <div class="fcard2"><h4>Govern &amp; Assure</h4><span class="lstd">NIST AI RMF · SOC-CMM · ISO</span><p class="lcaps">GRC · Compliance · Maturity · Audit readiness</p></div>
+      <div class="vk-body">
+        <div class="vlayer"><span class="li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 4h11l3 3v13H5z" stroke-linejoin="round"/><path d="M8 11h8M8 15h6" stroke-linecap="round"/></svg></span><div class="lt"><b>Reporting &amp; compliance</b><span>DORA &amp; NIS2 evidence, audit trail</span></div></div>
+        <div class="vlayer"><span class="li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M13 3 6 13h5l-1 8 7-11h-5z" stroke-linejoin="round"/></svg></span><div class="lt"><b>Automated response</b><span>Contain, isolate and revoke access</span></div></div>
+        <div class="vlayer"><span class="li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3" stroke-linecap="round"/></svg></span><div class="lt"><b>AI decision core</b><span>Investigate, score and map to ATT&amp;CK</span></div></div>
+        <div class="vlayer"><span class="li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 13v5a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5" stroke-linejoin="round"/><path d="M12 3v10M8 9l4 4 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div class="lt"><b>Alert ingestion</b><span>Normalise and enrich from your tools</span></div></div>
+        <div class="vk-div">Your detection layer</div>
+        <div class="vbase"><span class="li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l9 5-9 5-9-5z" stroke-linejoin="round"/><path d="M3 13l9 5 9-5" stroke-linejoin="round"/></svg></span><div class="lt"><b>EDR · XDR · SIEM</b><span>Your existing tools</span></div><span class="yours">stays yours</span></div>
       </div>
     </div>
-    <p class="fw-note">Layers <b>02–04</b> are the <b>Cognitive SOC Engine</b>. Human-on-the-loop runs through every layer — AI does the toil; our Stockholm analysts own judgment and the final call.</p>
   </div>
 </section>
 
-<!-- ============ LENS: AI SOC PLATFORM (ref: Prophet) ============ -->
-<section class="sec" id="cap-platform">
+<!-- STATS -->
+<section class="section alt">
   <div class="wrap">
-    <div class="cap-grid">
-      <div class="cap-txt reveal">
-        <h2>One AI platform across your whole SOC.</h2>
-        <p>A fleet of AI agents works every tier — detection, triage, investigation, response and detection tuning — on top of the SIEM, SOAR and 90+ integrations you already run. Not a point tool: the operations layer for the entire SOC.</p>
-        <ul>
-          <li>Tier 1–3 coverage: triage, investigation, response, detection engineering</li>
-          <li>Runs on your existing SIEM / SOAR / EDR / cloud / identity stack</li>
-          <li>Threat intelligence and case management built in</li>
-        </ul>
+    <div class="center-head">
+      <h2 class="title reveal">Less noise. Faster answers.</h2>
+    </div>
+    <div class="stats">
+      <div class="stat reveal"><div class="n"><em>85–90%</em></div><div class="l">of alerts resolved automatically, with no analyst involved</div></div>
+      <div class="stat reveal"><div class="n"><em>40%+</em></div><div class="l">fewer false alarms reaching your team</div></div>
+      <div class="stat reveal"><div class="n"><em>2–3×</em></div><div class="l">faster to detect and respond to real threats</div></div>
+      <div class="stat reveal"><div class="n">EU</div><div class="l">your data stays in the EU, always</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MODES -->
+<section class="section" id="modes">
+  <div class="wrap">
+    <div class="center-head">
+      <h2 class="title reveal">One platform. Three ways to run it.</h2>
+      <p class="lead reveal">Every mode runs on the same AI, the same safeguards and the same reporting. The only choice is how much you want to run yourself, and how much you want us to handle.</p>
+    </div>
+    <div class="cardgrid modes">
+      <div class="card mode reveal">
+        <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="3.2"/><path d="M12 4v3M12 17v3M4 12h3M17 12h3M6.3 6.3l2 2M15.7 15.7l2 2M17.7 6.3l-2 2M8.3 15.7l-2 2" stroke-linecap="round"/></svg></div>
+        <h3 id="autonomous">Vokter Autonomous</h3><div class="sub">We run your whole SOC</div>
+        <p>Vokter connects directly to your security tools and runs the entire first line on its own, triaging, investigating and containing threats with no security team needed on your side. It's built for smaller and growing organisations.</p>
+        <a href="#contact" class="more">Explore Autonomous <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
-      <div class="dash reveal">
-        <div class="dash-head"><div><div class="dt">SOC platform · live</div><div class="dsub">Tier 1–3 · one operations fabric</div></div><span class="ds"><span class="pdot"></span>all agents active</span></div>
-        <div class="pf-flow">Detect → Triage → Investigate → Respond → Tune</div>
-        <div class="tq-rows">
-          <div class="tq-row"><span class="sev low"></span><span class="nm">SOC Analyst agent</span><span class="tag">142 alerts triaged</span></div>
-          <div class="tq-row"><span class="sev low"></span><span class="nm">Threat Hunter agent</span><span class="tag">6 hunts running</span></div>
-          <div class="tq-row"><span class="sev low"></span><span class="nm">Detection Engineer agent</span><span class="tag">3 rules tuned</span></div>
-          <div class="tq-row"><span class="sev low"></span><span class="nm">Response agent</span><span class="tag">2 contained</span></div>
+      <div class="card mode reveal">
+        <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 7h16M4 12h16M4 17h10" stroke-linecap="round"/><circle cx="19" cy="17" r="2.4"/></svg></div>
+        <h3 id="hybrid">Vokter Hybrid</h3><div class="sub">Add AI to your stack</div>
+        <p>Keep the SIEM or XDR you already have. Vokter runs the first line of response on top of it, handling the routine work so your analysts can focus on the complex cases that need real judgement.</p>
+        <a href="#contact" class="more">Explore Hybrid <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+      <div class="card mode reveal">
+        <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.3 3-6 7-6s7 2.7 7 6" stroke-linecap="round"/></svg></div>
+        <h3 id="guardian">Vokter Guardian</h3><div class="sub">AI plus our experts</div>
+        <p>Everything in Autonomous or Hybrid, plus our security experts on call for escalations, threat hunting and forensics under an agreed SLA. It's built for regulated and enterprise teams who want named people behind the service.</p>
+        <a href="#contact" class="more">Explore Guardian <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section alt" id="how">
+  <div class="wrap">
+    <div class="center-head">
+      <h2 class="title reveal">From alert to contained, in seconds.</h2>
+      <p class="lead reveal">From the moment an alert arrives to a contained threat and a written report, the whole process takes seconds. Only the genuinely difficult cases are passed to a person.</p>
+    </div>
+    <div class="flow reveal">
+      <div class="flow-meta">
+        <div class="timer"><span class="dot"></span>Done in 3–8 seconds</div>
+        <div class="legend">
+          <span><i style="background:var(--orchid)"></i> Automatic</span>
+          <span><i style="background:var(--orange)"></i> Decision point</span>
+          <span><i style="background:var(--sunset)"></i> Sent to a person</span>
         </div>
       </div>
+      <div class="steps">
+        <div class="step"><div class="num"></div><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 7l8-4 8 4-8 4-8-4z" stroke-linejoin="round"/><path d="M4 7v10l8 4 8-4V7" stroke-linejoin="round"/></svg><h4>Alerts come in</h4><p>Alerts arrive from any EDR, XDR or SIEM you use, or straight from Windows for smaller setups with no SIEM.</p></div>
+        <div class="step"><div class="num"></div><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 6h18M6 12h12M9 18h6" stroke-linecap="round"/></svg><h4>Cleaned up</h4><p>Each alert is standardised, stripped of personal data, and enriched with context about the asset and identity involved.</p></div>
+        <div class="step"><div class="num"></div><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="3.2"/><path d="M12 4v3M12 17v3M4 12h3M17 12h3M6.3 6.3l2 2M15.7 15.7l2 2M17.7 6.3l-2 2M8.3 15.7l-2 2" stroke-linecap="round"/></svg><h4>AI reviews it</h4><p>Vokter explains what happened, maps it to known attack techniques, and scores how likely it is to be a real threat.</p></div>
+        <div class="step gate"><div class="num"></div><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3v6M5 9l7 4 7-4M5 9v6l7 4 7-4V9" stroke-linejoin="round"/></svg><h4>Decision point</h4><p>Clear, low-risk cases are resolved automatically. Anything serious or uncertain is escalated to one of our analysts.</p></div>
+        <div class="step"><div class="num"></div><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l8 4v5c0 4-3 7-8 9-5-2-8-5-8-9V7l8-4z" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg><h4>Threat shut down</h4><p>The threat is contained by isolating the device, blocking the account or revoking access, automatically or after sign-off for major incidents.</p></div>
+        <div class="step"><div class="num"></div><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 4h11l3 3v13H5z" stroke-linejoin="round"/><path d="M8 11h8M8 15h6" stroke-linecap="round"/></svg><h4>Logged &amp; reported</h4><p>Findings are written back to your tools, a ticket is raised, and the reports for your team and your auditors generate on their own.</p></div>
+      </div>
+      <div class="guard-row">
+        <div class="guard"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l8 4v5c0 4-3 7-8 9-5-2-8-5-8-9V7l8-4z" stroke-linejoin="round"/></svg><div><h4>Always checked</h4><p>Every decision is verified against fixed rules and threat intelligence before any action is taken.</p></div></div>
+        <div class="guard"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><h4>Reversible</h4><p>Vokter can only take pre-approved actions, and every one of them can be undone.</p></div></div>
+        <div class="guard"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="3.2"/><path d="M5 20c0-3.3 3-6 7-6s7 2.7 7 6" stroke-linecap="round"/></svg><div><h4>People in charge</h4><p>High-severity cases always need a person's sign-off before anything happens.</p></div></div>
+        <div class="guard"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 6v6l4 2" stroke-linecap="round"/><circle cx="12" cy="12" r="9"/></svg><div><h4>Safe by default</h4><p>If the AI is ever unsure or unavailable, it waits for a human rather than guessing.</p></div></div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ============ LENS: AI INVESTIGATION (ref: Dropzone) ============ -->
-<section class="sec alt" id="cap-investigate">
+<!-- SOVEREIGNTY -->
+<section class="section" id="sovereignty">
+  <div class="wrap sov-grid">
+    <div>
+      <h2 class="title reveal">Your data never leaves the EU.</h2>
+      <p class="sov-sub reveal">Everything is stored, processed and analysed inside the EU region you choose — the AI included. Sovereignty is built in, not just promised.</p>
+      <ul class="sov-points">
+        <li class="reveal"><span class="k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v5c0 4-3 7-8 9-5-2-8-5-8-9V7l8-4z" stroke-linejoin="round"/></svg></span><div><h4>Stays in your region</h4><p>All of your data, backups and logs remain in the EU country you require.</p></div></li>
+        <li class="reveal"><span class="k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18"/></svg></span><div><h4>Under EU law</h4><p>The platform runs on EU infrastructure and under EU law, out of reach of foreign access requests.</p></div></li>
+        <li class="reveal"><span class="k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16" stroke-linecap="round"/><path d="M9 7l-5 5 5 5M15 7l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><h4>Nothing crosses the border</h4><p>Even the AI analysis runs in-region, so your data is never sent abroad for processing.</p></div></li>
+        <li class="reveal"><span class="k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><div><h4>You stay in control</h4><p>Run it as a dedicated instance or on your own premises, and hold the encryption keys yourself.</p></div></li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="title reveal">Set up wherever your rules require.</h2>
+      <p class="sov-sub reveal">Choose the deployment that meets your regulatory needs — from a shared EU cloud to a dedicated, fully on-premise environment.</p>
+      <div class="deploy">
+        <div class="dep reveal"><span class="lvl s1">Standard</span><div><h4>Shared EU cloud</h4><p>Your own isolated environment within the EU region you need — the fastest way to get started.</p></div></div>
+        <div class="dep reveal"><span class="lvl s2">High</span><div><h4>Dedicated &amp; in-country</h4><p>A private, single-tenant environment in the exact country your regulations demand.</p></div></div>
+        <div class="dep reveal"><span class="lvl s3">Strictest</span><div><h4>On your premises</h4><p>Runs entirely in your own facility or private cloud, with no open path to the internet.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY VOKTER -->
+<section class="section alt" id="why">
   <div class="wrap">
-    <div class="cap-grid flip">
-      <div class="cap-txt reveal">
-        <h2>Investigated like your best analyst — and it shows its work.</h2>
-        <p>The moment an alert escalates, agentic AI builds a decision-ready case: it queries your tools, correlates the evidence, maps to MITRE ATT&amp;CK and reaches a verdict — every step visible and auditable, in minutes not hours.</p>
-        <ul>
-          <li>Autonomous, recursive investigation across the full stack</li>
-          <li>Hundreds of signals consolidated into one entity case</li>
-          <li>Glass-box transparency — human-on-the-loop approves the call</li>
-        </ul>
-      </div>
-      <div class="dash reveal">
-        <div class="dash-head"><div><div class="dt">Investigation · ALERT #4821</div><div class="dsub">Impossible-travel sign-in · OAuth token reuse</div></div><span class="ds"><span class="pdot"></span>investigating</span></div>
-        <div class="ic-steps">
-          <div class="ic-step"><span class="tick">✓</span><div><b>Queried identity logs</b><small>Okta — 2 sign-ins, Stockholm → Lagos, 4 min apart</small></div></div>
-          <div class="ic-step"><span class="tick">✓</span><div><b>Correlated endpoint telemetry</b><small>EDR — no managed device for the second session</small></div></div>
-          <div class="ic-step"><span class="tick">✓</span><div><b>Checked threat intel</b><small>Source IP flagged on GreyNoise · known TOR exit node</small></div></div>
-          <div class="ic-step"><span class="tick">✓</span><div><b>Mapped to MITRE ATT&amp;CK</b><small>T1078 Valid Accounts · T1539 Steal Web Session Cookie</small></div></div>
-        </div>
-        <div class="ic-verdict"><span class="vt">VERDICT</span><b>True positive · Account takeover</b><small>confidence 96%</small></div>
-        <div class="ic-actions">
-          <span class="ic-await">Awaiting analyst approval — Stockholm SOC</span>
-          <span><button class="ic-btn dismiss">Dismiss</button><button class="ic-btn contain">Contain</button></span>
-        </div>
-      </div>
+    <div class="center-head">
+      <h2 class="title reveal">Purpose-built for regulated Europe.</h2>
+      <p class="lead reveal">We don't try to out-spend the global incumbents on raw AI. We compete where they structurally can't follow.</p>
+    </div>
+    <div class="cardgrid moats">
+      <div class="card moat reveal"><div class="mn">01</div><h3>We're EU, end to end</h3><p>The whole platform runs inside the EU and your data stays here — a guarantee non-EU vendors can't make, however they word it.</p></div>
+      <div class="card moat reveal"><div class="mn">02</div><h3>Built for DORA &amp; NIS2</h3><p>The incident classification, evidence and reporting these regulations require are part of the product, not an add-on you assemble yourself.</p></div>
+      <div class="card moat reveal"><div class="mn">03</div><h3>A fully managed outcome</h3><p>Nordic SOC runs the entire service and stands behind the result, so there's no platform to licence, integrate or staff — and it costs a fraction of building an in-house SOC.</p></div>
+      <div class="card moat reveal"><div class="mn">04</div><h3>Enterprise-grade, at any size</h3><p>From a single endpoint upward, smaller organisations get the same SOC-grade protection as a large enterprise — with no SIEM and no in-house team required.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ============ LENS: AGENTIC SECURITY OPERATIONS (ref: Simbian) ============ -->
-<section class="sec" id="cap-agentic">
+<!-- INTEGRATIONS -->
+<section class="section">
   <div class="wrap">
-    <div class="cap-grid">
-      <div class="cap-txt reveal">
-        <h2>Autonomous agents that get stronger every day.</h2>
-        <p>Defensive and offensive agents — SOC, threat hunt, exposure and network — work as one team, sharing context and handing off to each other. Every investigation and analyst correction makes the whole system sharper.</p>
-        <ul>
-          <li>Multi-agent: detection, hunting, exposure testing, network actions</li>
-          <li>Self-improving — learns from every case and your analysts' feedback</li>
-          <li>Autonomous by default, human-in-control on high-stakes calls</li>
-        </ul>
-      </div>
-      <div class="dash reveal">
-        <div class="dash-head"><div><div class="dt">Agent mesh · live</div><div class="dsub">SOC · Hunt · Exposure · NetSec</div></div><span class="ds"><span class="pdot"></span>self-improving</span></div>
-        <div class="tq-rows">
-          <div class="tq-row"><span class="sev high"></span><span class="nm">SOC agent flagged a hot entity</span><span class="tag">→ handed to Hunt</span></div>
-          <div class="tq-row"><span class="sev med"></span><span class="nm">Exposure agent found an unpatched asset</span><span class="tag">→ to SOC</span></div>
-          <div class="tq-row"><span class="sev low"></span><span class="nm">NetSec agent applied a firewall block</span><span class="tag">done</span></div>
-        </div>
-        <div class="rp-sum" style="margin-top:12px;margin-bottom:0">Reasoning improved from <b>3 analyst corrections</b> today — applied to every future case.</div>
+    <div class="center-head">
+      <h2 class="title reveal">Keep the stack you already own.</h2>
+      <p class="lead reveal">Your existing security tools stay exactly where they are. Vokter simply takes the alerts they produce, so there's no new platform to build, migrate to, or pay for.</p>
+    </div>
+    <div class="int-strip reveal">
+      <div class="int-cats">
+        <div class="int-cat"><h4>EDR / XDR</h4><span>Defender XDR · CrowdStrike · SentinelOne · Cortex · Trend Vision One · Sophos</span></div>
+        <div class="int-cat"><h4>SIEM</h4><span>Microsoft Sentinel · Splunk · Elastic · IBM QRadar · Sumo Logic</span></div>
+        <div class="int-cat"><h4>Standalone AV</h4><span>Defender · third-party AV / EDR · via Windows Event Collector</span></div>
+        <div class="int-cat"><h4>Cloud security</h4><span>Defender for Cloud · AWS · GCP · Kubernetes</span></div>
+        <div class="int-cat"><h4>Identity</h4><span>Microsoft Entra ID · Okta</span></div>
+        <div class="int-cat"><h4>Threat intel</h4><span>MISP · VirusTotal · AlienVault OTX · Recorded Future</span></div>
+        <div class="int-cat"><h4>Ticketing</h4><span>Jira · Zendesk · ServiceNow · Freshservice</span></div>
+        <div class="int-cat"><h4>Alerts to you</h4><span>Microsoft Teams · Slack · Email · API</span></div>
       </div>
     </div>
+    <p class="int-foot reveal">Trusted across finance, healthcare, energy, manufacturing, public sector, automotive and retail.</p>
   </div>
 </section>
 
-<!-- ============ LENS: COMPLIANCE & GRC (ref: Vanta) ============ -->
-<section class="sec alt" id="cap-grc">
+<!-- PARTNERS -->
+<section class="section alt" id="partners">
   <div class="wrap">
-    <div class="cap-grid flip">
-      <div class="cap-txt reveal">
-        <h2>Audit-ready — as a by-product of running the SOC.</h2>
-        <p>Because we already operate your detection and response, the evidence and continuous controls monitoring that compliance demands are generated automatically. Months of audit prep become an always-current posture.</p>
-        <ul>
-          <li>Continuous controls monitoring &amp; automated evidence collection</li>
-          <li>Mapped to NIS2, DORA, GDPR, ISO 27001 / 42001 and SOC 2</li>
-          <li>Industry GRC packs for finance and healthcare</li>
-        </ul>
+    <div class="center-head">
+      <h2 class="title reveal">A platform for partners</h2>
+      <p class="lead reveal">Resell it, run it under your own brand, or embed the engine in your own product. Partners stand up a branded AI SOC in days, and serve more clients without scaling the team.</p>
+    </div>
+    <div class="prog-grid">
+      <div class="prog reveal"><h4>Reseller</h4><p>The fastest way to add a security line to your business, with nothing to build.</p></div>
+      <div class="prog reveal"><h4>White label</h4><p>Launch a branded AI SOC as your own flagship product.</p></div>
+      <div class="prog reveal"><h4>Managed service</h4><p>Co-deliver with Nordic SOC: the AI runs the first line, you keep the client relationship.</p></div>
+      <div class="prog reveal"><h4>Strategic alliance</h4><p>Fold Vokter into a wider cloud or compliance offering.</p></div>
+      <div class="prog reveal"><h4>OEM &amp; embedded</h4><p>Run the Vokter engine inside your own product, fully white-labelled.</p></div>
+      <div class="prog reveal"><h4>Why partners win</h4><p>Higher margins, more clients per analyst, and no race to hire scarce talent.</p></div>
+    </div>
+    <div class="wl-panel reveal">
+      <h4>Fully white-labelled — your brand, end to end</h4>
+      <div class="wl-grid">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5 9-10" stroke-linecap="round" stroke-linejoin="round"/></svg>Your logo, colours and custom domains</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5 9-10" stroke-linecap="round" stroke-linejoin="round"/></svg>Customer portals under your own identity</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5 9-10" stroke-linecap="round" stroke-linejoin="round"/></svg>Branded executive and technical reports</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5 9-10" stroke-linecap="round" stroke-linejoin="round"/></svg>Co-branded, fully branded, or Vokter hidden entirely</span>
       </div>
-      <div class="dash reveal">
-        <div class="dash-head"><div><div class="dt">Compliance posture</div><div class="dsub">evidence auto-collected from the SOC</div></div><span class="ds">audit-ready</span></div>
-        <div class="cp">
-          <div class="cp-row"><span class="cp-n">NIS2</span><div class="cp-bar"><i style="width:97%"></i></div><span class="cp-p">97%</span></div>
-          <div class="cp-row"><span class="cp-n">DORA</span><div class="cp-bar"><i style="width:94%"></i></div><span class="cp-p">94%</span></div>
-          <div class="cp-row"><span class="cp-n">GDPR</span><div class="cp-bar"><i style="width:99%"></i></div><span class="cp-p">99%</span></div>
-          <div class="cp-row"><span class="cp-n">ISO 27001</span><div class="cp-bar"><i style="width:96%"></i></div><span class="cp-p">96%</span></div>
-          <div class="cp-row"><span class="cp-n">SOC 2</span><div class="cp-bar"><i style="width:100%"></i></div><span class="cp-p">100%</span></div>
-        </div>
-        <div class="rp-foot"><span class="note">312 controls monitored · evidence refreshed hourly</span></div>
-      </div>
+    </div>
+    <div class="partner-cta reveal">
+      <a href="#contact" class="btn btn-primary">Explore the partner program
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- ============ PROOF METRICS ============ -->
-<section class="sec showcase" id="proof">
+<!-- FAQ -->
+<section class="section" id="faq">
   <div class="wrap">
-    <div class="sec-head">
-      <h2>Outcomes that compound</h2>
-      <p>What an AI-driven SOC changes — typical results across production deployments.</p>
+    <div class="center-head">
+      <h2 class="title reveal">Questions worth asking.</h2>
+      <p class="lead reveal">The honest answers to what Vokter is, how it's different, and what it takes to run.</p>
     </div>
-    <div class="show-metrics">
-      <div class="m reveal"><span class="big" data-count="90" data-suffix="%">0%</span><span class="ml">of Tier-1 triage automated</span></div>
-      <div class="m reveal"><span class="big" data-count="60" data-suffix="%+">0%</span><span class="ml">faster mean time to respond</span></div>
-      <div class="m reveal"><span class="big" data-count="80" data-suffix="%">0%</span><span class="ml">fewer false positives</span></div>
-      <div class="m reveal"><span class="big" data-count="10" data-suffix="×">0×</span><span class="ml">faster investigation</span></div>
+    <div class="faq">
+      <div class="faq-col">
+        <details class="reveal">
+          <summary>Is Vokter a product we buy and run, or a service?
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></summary>
+          <p class="ans">It's a security operations platform that we run for you as a managed service. You don't buy a software licence or operate a console. <strong>Nordic SOC operates the platform and you get the outcome</strong> — autonomous first-line security, with human analysts available on top.</p>
+        </details>
+        <details class="reveal">
+          <summary>Do we need a SIEM, or replace the tools we already have?
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></summary>
+          <p class="ans">No. Vokter works with the EDR, XDR or SIEM you already have, and can run on endpoint tools alone when there's no SIEM at all. It uses the alerts your tools already produce, so there's <strong>nothing to replace or relicense</strong>.</p>
+        </details>
+        <details class="reveal">
+          <summary>Doesn't connecting all these tools create a huge integration and orchestration overhead?
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></summary>
+          <p class="ans">Not for you. The connectors are pre-built, and Nordic SOC handles the integration and the orchestration. Because Vokter works from the finished alerts your tools produce rather than raw logs, <strong>there's no data lake to build and no pipelines for you to maintain</strong> — most customers are live in days.</p>
+        </details>
+        <details class="reveal">
+          <summary>Where does our data go, and who can access it?
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></summary>
+          <p class="ans">Nowhere outside the EU. Your data, logs and backups stay in the region you require, and even the AI analysis runs in-region. For the strictest needs, Vokter runs as a <strong>dedicated or on-premise deployment with encryption keys you hold yourself</strong>.</p>
+        </details>
+        <details class="reveal">
+          <summary>Where do human analysts fit in?
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></summary>
+          <p class="ans">You stay in control of what matters. Routine cases are resolved automatically, while high-severity decisions pass to a person first. With <strong>Vokter Guardian</strong>, named Nordic SOC analysts are on call for escalations, threat hunting and forensics under an SLA.</p>
+        </details>
+      </div>
+      <div class="faq-col">
+        <details class="reveal">
+          <summary>What makes Vokter different from other AI-SOC products?
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></summary>
+          <p class="ans">Three things. It's delivered as an <strong>outcome</strong>, not a tool you operate. It's <strong>EU-sovereign by design</strong> — your data and logs stay in the Nordics, including the AI itself. And it produces the <strong>24-hour DORA and NIS2 incident evidence</strong> compliance teams need, which most AI-SOC products overlook. On top of that, it runs your first line fully autonomously on whatever tools you already own.</p>
+        </details>
+        <details class="reveal">
+          <summary>Can we trust AI to detect threats?
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></summary>
+          <p class="ans">We're deliberate about this. AI-based <strong>detection</strong> is still unproven, so detection stays with the specialist EDR, XDR and SIEM tools you already trust. Vokter applies AI only where it has genuinely proven its value: <strong>cutting false positives</strong> so your team isn't buried in noise, <strong>responding faster</strong> by explaining each incident clearly, and answering the <strong>"why"</strong> — the root cause, and which control or policy to strengthen so it doesn't happen again.</p>
+        </details>
+        <details class="reveal">
+          <summary>What does Vokter do beyond the actions our EDR can already take?
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></summary>
+          <p class="ans">A great deal. It enriches every alert with external threat intelligence and your own asset and identity context, investigates and scores it, maps it to MITRE ATT&amp;CK, and takes automated response actions <strong>across your tools, not just within a single EDR</strong>. Every action is captured in a transparent report showing exactly what was contained and why.</p>
+        </details>
+        <details class="reveal">
+          <summary>Is this realistic and affordable for a smaller organisation?
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></summary>
+          <p class="ans">Yes — that's the point. Reaching SOC-level operations normally means buying several complex products, wiring them together and hiring analysts to run them. Vokter delivers the same outcome simply, by combining external intelligence with the tools you already own, <strong>at a fraction of the cost of an in-house SOC</strong>.</p>
+        </details>
+      </div>
     </div>
-    <p class="show-note">Representative dashboards. Figures are typical outcomes for AI-driven SOCs, not guaranteed results.</p>
   </div>
 </section>
 
-<!-- ============ THE ENGINE BEHIND EVERY SOC (capabilities) ============ -->
-<section class="sec" id="engine">
+<!-- FINAL CTA -->
+<section class="section cta on-dark" id="contact">
+  <div class="cta-bg"></div>
   <div class="wrap">
-    <div class="sec-head">
-      <h2>The Engine Behind Every SOC</h2>
-      <p>A Cognitive SOC Engine — AI collects, enriches and acts on telemetry across your estate, 24×7. Detect, decide, respond, with a human on the loop.</p>
-    </div>
-    <div class="grid g-4">
-      <div class="pcard reveal"><img class="ph" src="https://nordicsoc.com/wp-content/uploads/2026/02/img-1.webp" alt="24×7 Monitoring Coverage"/><div class="pc"><h4>24×7 Monitoring Coverage</h4><p>Continuous ML-driven detection and analyst oversight, powered by our Stockholm operations centre.</p></div></div>
-      <div class="pcard reveal"><img class="ph" src="https://nordicsoc.com/wp-content/uploads/2026/02/img-2.webp" alt="Log Analytics"/><div class="pc"><h4>Log Analytics</h4><p>High-throughput ingestion and normalized logs feeding the detection and threat-intel models.</p></div></div>
-      <div class="pcard reveal"><img class="ph" src="https://nordicsoc.com/wp-content/uploads/2026/02/img-3.webp" alt="Managed Incident Response"/><div class="pc"><h4>Managed Incident Response</h4><p>Agentic AI triage builds a decision-ready case in minutes; SLA-driven escalation to reduce dwell time.</p></div></div>
-      <div class="pcard reveal"><img class="ph" src="https://nordicsoc.com/wp-content/uploads/2026/02/img-4.webp" alt="Auto-Containment & Control"/><div class="pc"><h4>Auto-Containment &amp; Control</h4><p>SOAR-led containment isolates low-risk threats automatically while analysts validate next steps.</p></div></div>
-      <div class="pcard reveal"><img class="ph" src="https://nordicsoc.com/wp-content/uploads/2026/02/img-5.webp" alt="Threat Intelligence"/><div class="pc"><h4>Threat Intelligence</h4><p>GenAI + RAG correlation across regional and global feeds, mapped to MITRE ATT&amp;CK.</p></div></div>
-      <div class="pcard reveal"><img class="ph" src="https://nordicsoc.com/wp-content/uploads/2026/02/img-6.webp" alt="Threat Hunting"/><div class="pc"><h4>Threat Hunting</h4><p>AI generates and tests hypotheses at scale; analysts pursue the strongest leads to uncover stealthy threats.</p></div></div>
-      <div class="pcard reveal"><img class="ph" src="https://nordicsoc.com/wp-content/uploads/2026/02/img-7.webp" alt="User & Entity Behavior Analytics"/><div class="pc"><h4>User &amp; Entity Behavior Analytics (UEBA)</h4><p>ML behavioural baselines that identify credential misuse and insider risk.</p></div></div>
-      <div class="pcard reveal"><img class="ph" src="https://nordicsoc.com/wp-content/uploads/2026/02/img-8.webp" alt="Forensic Analysis"/><div class="pc"><h4>Forensic Analysis</h4><p>Automated evidence capture, timeline reconstruction and AI-assisted root-cause insights.</p></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ STOCKHOLM CENTRE ============ -->
-<section class="sec alt" id="stockholm">
-  <div class="wrap">
-    <div class="head-split">
-      <h2>Nordic SOC Center<br/>in Stockholm</h2>
-      <p>Our Stockholm SOC is the operational heart of Nordic SOC, combining local data sovereignty with global best practices to deliver rapid, accountable security operations — with AI processing kept inside the EU.</p>
-    </div>
-    <div class="stk">
-      <div class="pt reveal"><div class="n">01</div><h4>Continuous security monitoring, staffed around the clock</h4></div>
-      <div class="pt reveal"><div class="n">02</div><h4>EU data residency and regulatory alignment by design</h4></div>
-      <div class="pt reveal"><div class="n">03</div><h4>Faster regional response with an on-ground team in CET time zones</h4></div>
-      <div class="pt reveal"><div class="n">04</div><h4>Global playbooks and threat intelligence tuned for local risk profiles</h4></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ SOC ARCHITECTURES ============ -->
-<section class="sec" id="architectures">
-  <div class="wrap">
-    <div class="head-split">
-      <h2>SOC Architectures<br/>You Can Build On</h2>
-      <p>Choose the SOC setup that matches your control, compliance and cost needs — each running the same AI engine on the same operational fabric.</p>
-    </div>
-    <div class="grid g-3">
-      <div class="acard reveal">
-        <h3>Enterprise SOC</h3>
-        <p>We host and operate your SOC from Stockholm — turnkey, SLA-driven operations.</p>
-        <div class="arow"><span class="inc">AI engine included · EU data residency</span><img src="https://nordicsoc.com/wp-content/uploads/2026/02/green-arrow.png" alt=""/></div>
-      </div>
-      <div class="acard reveal">
-        <h3>Cloud SOC</h3>
-        <p>Cloud-first architecture and telemetry pipelines for AWS, Azure, GCP and SaaS.</p>
-        <div class="arow"><span class="inc">AI-driven across every cloud</span><img src="https://nordicsoc.com/wp-content/uploads/2026/02/green-arrow.png" alt=""/></div>
-      </div>
-      <div class="acard reveal">
-        <h3>Hybrid SOC</h3>
-        <p>Your infrastructure stays with you; we operate and consolidate tools remotely.</p>
-        <div class="arow"><span class="inc">Our AI model · your infrastructure</span><img src="https://nordicsoc.com/wp-content/uploads/2026/02/green-arrow.png" alt=""/></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ EXTENDED SERVICES (title TBD — 4 options rendered for selection) ============ -->
-<section class="sec alt" id="services">
-  <div class="wrap">
-    <div class="head-split">
-      <h2>From SOC to<br/>Full-Stack Security</h2>
-      <p>The SOC isn't an island. It plugs into a wider security, cloud, application and compliance portfolio across the G'Secure Labs &amp; Gateway Digital group — delivered as one, under one accountable team.</p>
-    </div>
-    <div class="grid g-3">
-      <div class="fcard reveal">
-        <h4>3-in-1 Managed Services</h4>
-        <p>Cloud, Cybersecurity and IT Support on one platform — one contract, one SLA. Our AI-driven SOC is the cybersecurity engine inside it.</p>
-        <ul><li>Cloud &amp; security management</li><li>24/7 incident response (our SOC)</li><li>ITIL-aligned service desk</li></ul>
-      </div>
-      <div class="fcard reveal">
-        <h4>Governance, Risk &amp; Compliance</h4>
-        <p>Regulation turned into measurable, audit-ready controls — with industry packs for finance and healthcare.</p>
-        <ul><li>NIS2 · DORA · GDPR · EU AI Act</li><li>ISO 27001 readiness</li><li>Audit-ready evidence</li></ul>
-      </div>
-      <div class="fcard reveal">
-        <h4>Application Security</h4>
-        <p>Find and fix application-layer weaknesses before attackers do — the SOC monitors, AppSec hardens.</p>
-        <ul><li>Pen testing &amp; code review</li><li>API &amp; web app security</li><li>Prioritised remediation</li></ul>
-      </div>
-      <div class="fcard reveal">
-        <h4>Cloud Security &amp; Infrastructure</h4>
-        <p>Identity governance, posture management and continuous monitoring across multi-cloud.</p>
-        <ul><li>Posture across AWS / Azure / GCP</li><li>Identity &amp; access governance</li><li>Managed cloud operations</li></ul>
-      </div>
-      <div class="fcard reveal">
-        <h4>CostlyzrEdge</h4>
-        <p>AI-driven cloud cost, security and observability — Scan → Audit → Report → Consult. Posture signals feed the SOC.</p>
-        <ul><li>GenAI + RAG cloud insights</li><li>Security &amp; compliance visibility</li><li>Cost optimisation across clouds</li></ul>
-      </div>
-      <div class="fcard reveal">
-        <h4>AI Security &amp; Guardrails</h4>
-        <p>Secure your own AI systems as you adopt them — governed to NIST AI RMF and the OWASP Top 10 for LLMs.</p>
-        <ul><li>Access control &amp; data protection</li><li>Model monitoring &amp; guardrails</li><li>Human-on-the-loop governance</li></ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ WHAT MAKES OUR SOCs DIFFERENT ============ -->
-<section class="sec" id="different">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2>What Makes Our SOCs Different</h2>
-      <p>We design SOC setups that unify people, process and tools — delivering operational clarity, regulatory alignment and measurable outcomes, with AI at the core.</p>
-    </div>
-    <div class="diff">
-      <div class="ditem lead reveal"><div class="ic"><img src="https://nordicsoc.com/wp-content/uploads/2026/02/Icon-4.svg" alt=""/></div><div><h4>AI at the Core</h4><p>Agentic AI to detect, triage, prioritize and accelerate resolution — on a human-on-the-loop model.</p></div></div>
-      <div class="ditem reveal"><div class="ic"><img src="https://nordicsoc.com/wp-content/uploads/2026/02/Icon-1.svg" alt=""/></div><div><h4>Integrated Operations</h4><p>SIEM + SOAR + ITSM orchestrated into a single operational fabric.</p></div></div>
-      <div class="ditem reveal"><div class="ic"><img src="https://nordicsoc.com/wp-content/uploads/2026/02/Icon-2.svg" alt=""/></div><div><h4>Industry Delivery Models</h4><p>Templates and compliance packs built for finance, healthcare, energy and manufacturing.</p></div></div>
-      <div class="ditem reveal"><div class="ic"><img src="https://nordicsoc.com/wp-content/uploads/2026/02/Icon-3.svg" alt=""/></div><div><h4>Vendor Consolidation</h4><p>One-pane operations across multiple product vendors and toolchains.</p></div></div>
-      <div class="ditem reveal"><div class="ic"><img src="https://nordicsoc.com/wp-content/uploads/2026/02/Icon-5.svg" alt=""/></div><div><h4>Compliance Alignment</h4><p>ISO 27001, NIS2, DORA, GDPR and EU AI Act-ready reporting and controls.</p></div></div>
-      <div class="ditem reveal"><div class="ic"><img src="https://nordicsoc.com/wp-content/uploads/2026/02/Icon-6.svg" alt=""/></div><div><h4>Service Desk Integration</h4><p>ITSM-connected ticket lifecycle for traceable SLAs and change control.</p></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ NETWORK OF TRUST ============ -->
-<section class="sec alt" id="trust">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2>Our Network of Trust</h2>
-      <p>Trusted by enterprises and partners across the Nordic regions.</p>
-    </div>
-    <div class="logos reveal">
-      <img src="https://nordicsoc.com/wp-content/uploads/2026/02/logo-2.png" alt="Partner"/>
-      <img src="https://nordicsoc.com/wp-content/uploads/2026/02/logo-4.png" alt="Partner"/>
-      <img src="https://nordicsoc.com/wp-content/uploads/2026/02/logo-5.png" alt="Partner"/>
-      <img src="https://nordicsoc.com/wp-content/uploads/2026/02/logo-6.png" alt="Partner"/>
-      <img src="https://nordicsoc.com/wp-content/uploads/2026/02/logo-7.png" alt="Partner"/>
-      <img src="https://nordicsoc.com/wp-content/uploads/2026/02/logo-8.png" alt="Partner"/>
-      <img src="https://nordicsoc.com/wp-content/uploads/2026/02/logo-9.png" alt="Partner"/>
-      <img src="https://nordicsoc.com/wp-content/uploads/2026/02/logo-10.png" alt="Partner"/>
-      <img src="https://nordicsoc.com/wp-content/uploads/2026/02/logo-11.png" alt="Partner"/>
-    </div>
-  </div>
-</section>
-
-<!-- ============ LET'S TALK ============ -->
-<section class="sec" id="talk">
-  <div class="wrap talk">
-    <div class="reveal">
-      <h2>Let's Talk</h2>
-      <p>Book a working session with our Stockholm SOC team. We'll show how AI-driven detection, agentic triage and human-on-the-loop response — inside the 3-in-1 managed service — would run against your environment, and what it changes for your MTTR.</p>
-      <div class="ci">
-        <a href="tel:+46733690899">+46 733 690 899</a>
+    <div class="contact-copy">
+      <h2 class="reveal">See it work on your own alerts.</h2>
+      <p class="reveal">Book a session with our Nordic team for a live walkthrough of Vokter — see exactly how it triages, investigates, contains and reports.</p>
+      <div class="contact-meta reveal">
         <a href="mailto:stockholm@thegatewaydigital.com">stockholm@thegatewaydigital.com</a>
-        <span>Isafjordsgatan 30A 16440, Kista, Stockholm, Sweden</span>
+        <a href="tel:+46733690899">+46 733 690 899</a>
       </div>
-      <div style="margin-top:26px"><a class="btn btn-navy" href="mailto:stockholm@thegatewaydigital.com">Let's Assess Your SOC Readiness <span class="arr">→</span></a></div>
     </div>
-    <div class="talk-card reveal">
-      <h3>AI speed, EU sovereignty</h3>
-      <p>Your telemetry and our AI processing stay inside the EU — operated from Stockholm, not shipped offshore. Every AI decision carries an auditable trail.</p>
-      <div class="regs">EU AI Act · NIS2 · DORA<br/>GDPR · ISO 27001</div>
-      <p>Compliance as an output of the AI core — not a bolt-on.</p>
-    </div>
+    <form class="contact-form reveal" id="contactForm" novalidate>
+      <div class="cf-row">
+        <div class="cf-field">
+          <label for="cf-name">Full name</label>
+          <input id="cf-name" type="text" name="name" placeholder="Jane Larsson" required />
+        </div>
+        <div class="cf-field">
+          <label for="cf-email">Work email</label>
+          <input id="cf-email" type="email" name="email" placeholder="jane@company.com" required />
+        </div>
+      </div>
+      <div class="cf-field">
+        <label for="cf-company">Company</label>
+        <input id="cf-company" type="text" name="company" placeholder="Company name" />
+      </div>
+      <div class="cf-field">
+        <label for="cf-msg">What would you like to see?</label>
+        <textarea id="cf-msg" name="message" rows="3" placeholder="A few words about your environment"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary cf-submit">Request a demo
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <p class="cf-note" id="cfNote" hidden>Thanks — we'll be in touch shortly.</p>
+    </form>
   </div>
 </section>
 
-<!-- ============ FOOTER ============ -->
-<footer id="footer">
+</main>
+
+<!-- FOOTER -->
+<footer>
   <div class="wrap">
     <div class="foot-top">
-      <div>
-        <div class="foot-logo"><img src="https://nordicsoc.com/wp-content/uploads/2026/02/logo-footer.png" alt="Nordic SOC"/></div>
-        <p class="foot-tag">Trusted security for the Nordic edge — an AI-driven SOC wrapped in proven frameworks, operated from Stockholm with EU data sovereignty.</p>
+      <div class="foot-brand">
+        <img class="logo-nsoc" src="assets/nordic-soc-white.svg" alt="Nordic SOC" />
+        <p>Managed security operations for the Nordics — powered by Vokter, our EU-sovereign AI SOC.</p>
+        <div class="foot-contact">
+          <a href="tel:+46733690899" class="foot-contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.72a16 16 0 006.29 6.29l1.25-1.25a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            +46 733 690 899
+          </a>
+          <a href="mailto:stockholm@thegatewaydigital.com" class="foot-contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg>
+            stockholm@thegatewaydigital.com
+          </a>
+          <span class="foot-contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Isafjordsgatan 30A, 16440 Kista, Stockholm
+          </span>
+        </div>
       </div>
-      <div class="foot-col">
-        <h5>SOC Models</h5>
-        <a href="#architectures">Enterprise SOC</a>
-        <a href="#architectures">Cloud SOC</a>
-        <a href="#architectures">Hybrid SOC</a>
-        <a href="#different">About Us</a>
-        <a href="#talk">Contact Us</a>
-      </div>
-      <div class="foot-col">
-        <h5>Contact</h5>
-        <p><a href="tel:+46733690899">+46 733 690 899</a></p>
-        <p><a href="mailto:stockholm@thegatewaydigital.com">stockholm@thegatewaydigital.com</a></p>
-        <p>Isafjordsgatan 30A 16440,<br/>Kista, Stockholm, Sweden</p>
-      </div>
-      <div class="foot-col">
-        <h5>Global Offices</h5>
-        <div class="offices">Sweden · Finland · Norway · Denmark · Iceland · The Netherlands · Belgium · Germany · France · UK · USA · Canada · India · UAE · South Africa</div>
-      </div>
+      <div class="foot-col"><ul>
+        <li><a href="#modes">Vokter Autonomous</a></li>
+        <li><a href="#modes">Vokter Hybrid</a></li>
+        <li><a href="#modes">Vokter Guardian</a></li>
+        <li><a href="#partners">Partner Program</a></li>
+      </ul></div>
+      <div class="foot-col"><ul>
+        <li><a href="#insights">Insights</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#contact">Request a Demo</a></li>
+      </ul></div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 Nordic SOC. All Rights Reserved.</span>
-      <span><a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">Terms of Use</a></span>
+      <div class="foot-legal"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a></div>
+      <span>© 2026 Nordic SOC. All rights reserved.</span>
     </div>
   </div>
 </footer>
 
 <script>
-  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
-  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
-  var b=document.querySelector('.burger'),l=document.querySelector('.nav-links');
-  if(b){b.addEventListener('click',function(){
-    if(l.style.display==='flex'){l.style.display='';}
-    else{l.style.cssText='display:flex;position:absolute;top:78px;left:0;right:0;flex-direction:column;background:#fff;padding:18px 26px;gap:14px;border-bottom:1px solid var(--line);box-shadow:var(--shadow)';}
-  });}
-
-  function fmt(el,v){el.textContent=(el.dataset.prefix||'')+v+(el.dataset.suffix||'');}
-  var co=new IntersectionObserver(function(es){es.forEach(function(e){
-    if(!e.isIntersecting)return;var el=e.target,t=+el.dataset.count,c=0,s=Math.max(1,Math.round(t/40));
-    var id=setInterval(function(){c+=s;if(c>=t){c=t;clearInterval(id);}fmt(el,c);},22);
-    co.unobserve(el);
-  });},{threshold:.6});
-  document.querySelectorAll('.big[data-count]').forEach(function(el){co.observe(el);});
+const nav=document.getElementById('nav');
+const onScroll=()=>nav.classList.toggle('scrolled',window.scrollY>16);
+onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+const toggle=document.getElementById('menuToggle');
+const menu=document.getElementById('mobileMenu');
+toggle.addEventListener('click',()=>menu.classList.toggle('open'));
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+const cForm=document.getElementById('contactForm');
+if(cForm){cForm.addEventListener('submit',(e)=>{
+  e.preventDefault();
+  if(!cForm.checkValidity()){cForm.reportValidity();return;}
+  const note=document.getElementById('cfNote');
+  if(note)note.hidden=false;
+  cForm.querySelectorAll('input,textarea').forEach(f=>f.value='');
+});}
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach((e)=>{
+    if(e.isIntersecting){
+      const sibs=[...e.target.parentElement.children].filter(c=>c.classList.contains('reveal'));
+      e.target.style.transitionDelay=(Math.min(sibs.indexOf(e.target),6)*55)+'ms';
+      e.target.classList.add('in');io.unobserve(e.target);
+    }
+  });
+},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 </script>
 </body>
 </html>
