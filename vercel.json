@@ -2,17 +2,19 @@
   "trailingSlash": true,
   "redirects": [
     { "source": "/enterprise-soc", "destination": "/vokter-guardian/", "permanent": true },
+    { "source": "/enterprise-soc/", "destination": "/vokter-guardian/", "permanent": true },
     { "source": "/cloud-soc", "destination": "/vokter-autonomous/", "permanent": true },
-    { "source": "/hybrid-soc", "destination": "/vokter-hybrid/", "permanent": true }
+    { "source": "/cloud-soc/", "destination": "/vokter-autonomous/", "permanent": true },
+    { "source": "/hybrid-soc", "destination": "/vokter-hybrid/", "permanent": true },
+    { "source": "/hybrid-soc/", "destination": "/vokter-hybrid/", "permanent": true }
   ],
   "rewrites": [
-    { "source": "/about-us", "destination": "/about.html" },
-    { "source": "/contact-us", "destination": "/contact.html" },
-    { "source": "/vokter-autonomous", "destination": "/vokter-autonomous.html" },
-    { "source": "/vokter-hybrid", "destination": "/vokter-hybrid.html" },
-    { "source": "/vokter-guardian", "destination": "/vokter-guardian.html" },
-    { "source": "/partner-program", "destination": "/vokter-partners.html" },
-    { "source": "/insights", "destination": "/insights/index.html" },
-    { "source": "/insights/:slug", "destination": "/insights/:slug.html" }
+    { "source": "/about-us/", "destination": "/about.html" },
+    { "source": "/contact-us/", "destination": "/contact.html" },
+    { "source": "/vokter-autonomous/", "destination": "/vokter-autonomous.html" },
+    { "source": "/vokter-hybrid/", "destination": "/vokter-hybrid.html" },
+    { "source": "/vokter-guardian/", "destination": "/vokter-guardian.html" },
+    { "source": "/partner-program/", "destination": "/vokter-partners.html" },
+    { "source": "/insights/:slug/", "destination": "/insights/:slug.html" }
   ]
 }
