@@ -1,0 +1,75 @@
+<p>An AI SOC and a traditional SOC pursue the same goal &mdash; detecting and responding to threats &mdash; but they differ in how the work is done. In the <strong>AI SOC vs traditional SOC</strong> comparison, the core change is who performs the repetitive analytical work: a traditional SOC relies on human analysts to triage, enrich and investigate alerts, whereas an AI SOC uses machine reasoning to triage and decide at scale, escalating only what genuinely needs human judgement. The result is faster decisions, consistent quality and a lower mean time to respond &mdash; without the staffing burden that constrains conventional operations.</p>
+
+<h2>What is a traditional SOC?</h2>
+<p>A traditional security operations centre is built around people, process and a central log platform, usually a SIEM. Telemetry from endpoints, networks, identity systems and cloud services flows into the SIEM, where correlation rules generate alerts. Tiered analysts then work those alerts:</p>
+<ul>
+<li><strong>L1 analysts</strong> triage incoming alerts, dismiss noise and escalate the rest.</li>
+<li><strong>L2 analysts</strong> investigate escalations, pivot across data sources and confirm scope.</li>
+<li><strong>L3 analysts and threat hunters</strong> handle complex incidents, forensics and proactive hunting.</li>
+</ul>
+<p>This model is well understood and effective when adequately staffed. Its difficulties are structural rather than a failure of effort.</p>
+
+<h3>Traditional SOC limitations</h3>
+<p>The most persistent traditional SOC limitations stem from alert volume outpacing human capacity:</p>
+<ul>
+<li><strong>Alert fatigue:</strong> analysts face far more alerts than they can examine carefully, so genuine threats can be missed amid false positives.</li>
+<li><strong>Inconsistent triage:</strong> decisions vary by analyst, shift and workload, making quality difficult to guarantee.</li>
+<li><strong>Slow investigation:</strong> manual pivoting across consoles extends dwell time and lengthens the mean time to respond.</li>
+<li><strong>Staffing pressure:</strong> 24/7 cover requires night shifts and a deep bench, and skilled analysts are scarce and costly to retain.</li>
+<li><strong>Cost that scales with volume:</strong> more data and more alerts demand more people, so spend rises in step with the environment.</li>
+</ul>
+
+<h2>How an AI SOC differs from a traditional SOC</h2>
+<p>An AI SOC keeps the same objectives but changes the operating model. Instead of routing every alert to a person, an AI layer performs the first pass: it correlates signals, enriches them with context, scores severity and, where appropriate, takes or recommends containment action. SOC automation handles the high-volume, repeatable analysis continuously, while humans concentrate on the decisions that require experience and accountability.</p>
+<p>Three capabilities define the difference:</p>
+<ol>
+<li><strong>Automated alert triage</strong> &mdash; every alert is assessed and scored, not sampled, removing the backlog that drives alert fatigue.</li>
+<li><strong>Machine-speed investigation</strong> &mdash; enrichment and correlation across data sources happen in seconds, mapped to recognised frameworks such as MITRE ATT&amp;CK.</li>
+<li><strong>Guided or autonomous response</strong> &mdash; the system can isolate a host, disable an account or raise a ticket within defined guardrails, compressing the mean time to respond.</li>
+</ol>
+<p>For a fuller definition of the model, see our explainer on <a href="/blog.php?slug=what-is-an-ai-soc">what an AI SOC is and how it works</a>.</p>
+
+<h2>AI SOC vs traditional SOC: side-by-side comparison</h2>
+<p>The table below compares the two models across the dimensions that matter most to security leaders.</p>
+<table>
+<thead>
+<tr><th>Dimension</th><th>Traditional SOC</th><th>AI SOC</th></tr>
+</thead>
+<tbody>
+<tr><td>Detection</td><td>Rule and correlation driven; tuning is manual and ongoing</td><td>Rule and behaviour driven; context applied automatically at scale</td></tr>
+<tr><td>Alert triage</td><td>Human L1 triage; sampling under high volume</td><td>Every alert triaged and scored automatically</td></tr>
+<tr><td>Investigation</td><td>Manual pivoting across consoles; time-intensive</td><td>Automated enrichment and correlation in seconds</td></tr>
+<tr><td>Response</td><td>Manual or scripted; depends on analyst availability</td><td>Guided or autonomous within guardrails; consistent</td></tr>
+<tr><td>Staffing</td><td>Tiered teams plus night shifts for 24/7 cover</td><td>Lean team; AI handles volume, humans handle judgement</td></tr>
+<tr><td>Cost drivers</td><td>Headcount scales with alert and data volume</td><td>Largely fixed AI capacity; headcount decoupled from volume</td></tr>
+<tr><td>Scalability</td><td>Adding capacity means hiring and onboarding</td><td>Scales with data without proportional hiring</td></tr>
+<tr><td>Consistency</td><td>Varies by analyst, shift and workload</td><td>Uniform logic applied to every alert</td></tr>
+<tr><td>Compliance evidence</td><td>Manual notes; coverage gaps possible</td><td>Automatic, time-stamped audit trail of every decision</td></tr>
+</tbody>
+</table>
+
+<h3>Detection and alert triage</h3>
+<p>Both models detect through rules and correlation, but they diverge at triage. A traditional SOC depends on analysts to judge each alert, which works until volume exceeds capacity. An AI SOC applies the same enrichment and scoring logic to every alert, so nothing is skipped because the queue is long. Consistent triage is the foundation for everything downstream; our deeper treatment of <a href="/blog.php?slug=ai-alert-triage-alert-fatigue">AI alert triage and alert fatigue</a> explains how this is achieved in practice.</p>
+
+<h3>Investigation and response</h3>
+<p>Investigation is where time is won or lost. Manual investigation requires an analyst to gather context from multiple systems before deciding. An AI SOC assembles that context automatically and, where policy permits, acts on it &mdash; containing a threat or escalating with a complete case file attached. This is the principal lever on mean time to respond.</p>
+
+<h3>Staffing, cost and scalability</h3>
+<p>In a traditional SOC, capacity is a function of headcount, so cost and resilience are tied to recruitment in a tight labour market. An AI SOC decouples capacity from headcount: the AI absorbs volume, and the human team is sized for oversight and complex cases rather than for raw throughput. This makes 24/7 coverage achievable without expanding night-shift rotas.</p>
+
+<h3>Compliance and auditability</h3>
+<p>Regulatory expectations in the EU continue to rise. DORA has applied to in-scope financial entities since 17 January 2025, NIS2 was adopted in 2022 and is being transposed across member states, and EU AI Act transparency obligations apply from August 2026. Each demands demonstrable detection, response and reporting. An AI SOC produces a consistent, time-stamped record of every alert and decision, which simplifies evidence-gathering compared with reconstructing activity from manual notes.</p>
+
+<div class="takeaways"><h4>Key takeaways</h4><ul><li>A traditional SOC depends on human analysts for triage and investigation; an AI SOC uses machine reasoning to do that work at scale and escalate only what needs judgement.</li><li>The clearest gains are in alert triage, investigation speed and a lower mean time to respond, because every alert is assessed rather than sampled.</li><li>SOC automation decouples cost and capacity from headcount, making 24/7 coverage achievable without large teams or night shifts.</li><li>An AI SOC strengthens compliance through a consistent, time-stamped audit trail aligned to DORA, NIS2 and the EU AI Act.</li><li>An AI SOC is not a single product but an operating model delivered through deployment modes suited to each organisation.</li></ul></div>
+
+<h2>How an AI SOC is delivered in practice</h2>
+<p>An AI SOC is an operating model, not a one-size deployment. Vokter delivers it in three modes so it fits different starting points:</p>
+<ul>
+<li><strong>Autonomous</strong> &mdash; a SIEM-less SOC for organisations with no security team or central platform. The AI triages, scores and contains using existing endpoint telemetry, issuing a daily report and auto-tickets. See <a href="/vokter-autonomous.html">Vokter Autonomous</a>.</li>
+<li><strong>Hybrid</strong> &mdash; the AI runs L1 on your existing SIEM or SOAR, enriching, deciding and writing back so your analysts move up to L2 and L3 work. See <a href="/vokter-hybrid.html">Vokter Hybrid</a>.</li>
+<li><strong>Guardian</strong> &mdash; AI plus named Nordic analysts on a 24/7 basis, with the AI handling the bulk of alerts and humans owning critical cases, threat hunting and forensics under SLA.</li>
+</ul>
+<p>Each mode preserves EU data sovereignty and keeps a human accountable for high-impact outcomes. To discuss which fits your environment, <a href="/contact.html">get in touch with Nordic SOC</a>.</p>
+
+<h2>Conclusion</h2>
+<p>The shift from a traditional SOC to an AI SOC is not about replacing analysts but about reallocating their attention. Machines take the high-volume, repeatable work &mdash; triage, enrichment and routine response &mdash; while skilled people focus on the decisions and investigations that genuinely require them. For most organisations the practical effect is faster, more consistent detection and response, achieved without scaling a team in line with alert volume.</p>

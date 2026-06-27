@@ -1,0 +1,373 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NIS2 SOC Requirements Checklist | Nordic SOC</title>
+<meta name="description" content="A practical checklist of NIS2 SOC requirements: scope, risk management, incident reporting, supply chain and evidence, plus how an AI SOC helps you comply.">
+<link rel="canonical" href="https://nordicsoc.com/insights/nis2-soc-checklist/">
+<meta property="og:title" content="NIS2 and Your SOC: A Practical Compliance Checklist"><meta property="og:description" content="A practical checklist of NIS2 SOC requirements: scope, risk management, incident reporting, supply chain and evidence, plus how an AI SOC helps you comply."><meta property="og:type" content="article"><meta property="og:url" content="https://nordicsoc.com/insights/nis2-soc-checklist/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap" rel="stylesheet">
+<style>/* ============================================================
+   NORDIC SOC · Vokter — shared styles for PHP pages
+   (Insights index + single blog). Matches the static site.
+   Navy #142E4A · Orchid Green #BCD153 · Charcoal #0E1A1F
+   ============================================================ */
+:root{
+  --white:#FFFFFF; --alt:#F6F8FB; --charcoal:#0E1A1F; --navy:#142E4A;
+  --orchid:#BCD153; --orchid-deep:#7C9A2E; --spring:#C9DC7E; --sunset:#5E7A93;
+  --davy:#4A555A; --slate:#9FB3C4; --mist:#E8EEF3; --orange:#E07B3C;
+  --ink:#0E1A1F; --body:#46535f; --muted:#5E7A93;
+  --line:rgba(20,46,74,.10); --line-2:rgba(20,46,74,.16);
+  --shadow:0 18px 44px -28px rgba(20,46,74,.45);
+  --shadow-sm:0 10px 26px -20px rgba(20,46,74,.4);
+  --radius:18px; --radius-sm:14px; --maxw:1180px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:"Google Sans Flex","Google Sans",system-ui,Arial,sans-serif;background:var(--white);
+  color:var(--body);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:clip}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+::selection{background:var(--orchid);color:var(--charcoal)}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,40px)}
+.section{padding:clamp(50px,5vw,76px) 0;position:relative}
+.alt{background:var(--alt)}
+h1,h2,h3,h4{line-height:1.14;font-weight:600;letter-spacing:-.02em;color:var(--ink);text-wrap:pretty}
+h2.title{font-size:clamp(24px,2.8vw,36px);letter-spacing:-.025em}
+.lead{font-size:clamp(16px,1.4vw,18px);color:var(--body);max-width:62ch;margin-top:18px;line-height:1.6;text-wrap:pretty}
+
+.btn{display:inline-flex;align-items:center;gap:9px;justify-content:center;font-family:inherit;font-weight:600;
+  font-size:15.5px;padding:14px 26px;border-radius:999px;cursor:pointer;border:1.6px solid transparent;
+  transition:transform .25s var(--ease),background .25s var(--ease),box-shadow .25s var(--ease),border-color .25s,color .25s;white-space:nowrap}
+.btn svg{width:16px;height:16px;transition:transform .25s var(--ease)}
+.btn:hover svg{transform:translateX(3px)}
+.btn-primary{background:var(--orchid);color:var(--navy);box-shadow:0 12px 26px -14px rgba(124,154,46,.7)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 36px -14px rgba(124,154,46,.85)}
+.btn-outline{background:transparent;color:var(--navy);border-color:var(--line-2)}
+.btn-outline:hover{border-color:var(--navy);background:rgba(20,46,74,.04)}
+.on-dark .btn-outline{color:#fff;border-color:rgba(255,255,255,.5)}
+.on-dark .btn-outline:hover{background:rgba(255,255,255,.1);border-color:#fff}
+
+/* NAV */
+header.nav{position:fixed;inset:0 0 auto 0;z-index:100;background:#fff;border-bottom:1px solid var(--line);transition:box-shadow .3s,border-color .3s}
+header.nav.scrolled{box-shadow:0 6px 24px -18px rgba(20,46,74,.5)}
+.nav-inner{max-width:var(--maxw);margin:0 auto;padding:14px clamp(20px,5vw,40px);display:flex;align-items:center;gap:28px}
+.logo-nsoc{height:38px;width:auto}
+.brand{flex-shrink:0;display:flex;align-items:center}
+.nav-links{display:flex;gap:2px;margin-left:auto;align-items:center}
+.nav-links a{font-size:15px;color:var(--navy);padding:9px 14px;border-radius:8px;transition:color .2s,background .2s;font-weight:500}
+.nav-links a:hover{color:var(--orchid-deep);background:rgba(20,46,74,.04)}
+.nav-links a.active{color:var(--orchid-deep)}
+.nav-item{position:relative}
+.nav-item::after{content:"";position:absolute;top:100%;left:0;right:0;height:12px}
+.nav-trigger{display:inline-flex;align-items:center;gap:6px;font-family:inherit;font-size:15px;font-weight:500;color:var(--navy);background:none;border:none;cursor:pointer;padding:9px 14px;border-radius:8px;transition:color .2s,background .2s}
+.nav-trigger svg{width:13px;height:13px;transition:transform .25s var(--ease)}
+.nav-item:hover .nav-trigger,.nav-item:focus-within .nav-trigger{color:var(--orchid-deep);background:rgba(20,46,74,.04)}
+.nav-item:hover .nav-trigger svg,.nav-item:focus-within .nav-trigger svg{transform:rotate(180deg)}
+.drop{position:absolute;top:calc(100% + 12px);left:0;min-width:206px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 20px 44px -22px rgba(20,46,74,.5);padding:8px;display:flex;flex-direction:column;gap:2px;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .2s var(--ease),transform .2s var(--ease),visibility .2s}
+.nav-item:hover .drop,.nav-item:focus-within .drop{opacity:1;visibility:visible;transform:none}
+.drop a{font-size:14.5px;color:var(--navy);padding:10px 12px;border-radius:8px;transition:background .2s,color .2s;font-weight:500}
+.drop a:hover{background:var(--alt);color:var(--orchid-deep)}
+.nav-cta{margin-left:24px;display:flex;align-items:center;gap:10px}
+.nav-cta .btn{padding:11px 20px;font-size:14.5px}
+.menu-toggle{display:none;background:none;border:1px solid var(--line-2);border-radius:10px;width:44px;height:44px;cursor:pointer;color:var(--navy);align-items:center;justify-content:center}
+.menu-toggle svg{width:22px;height:22px}
+.mobile-menu{position:fixed;inset:0;z-index:99;background:rgba(255,255,255,.98);backdrop-filter:blur(8px);display:none;flex-direction:column;padding:96px 30px 40px;gap:4px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:19px;color:var(--navy);padding:16px 4px;border-bottom:1px solid var(--line);font-weight:500}
+.mobile-menu .btn{margin-top:22px}
+
+/* PAGE HERO (compact, dark) */
+.phero{position:relative;text-align:left;padding:142px 0 60px;overflow:hidden;color:#fff}
+.phero-bg{position:absolute;inset:0;z-index:0;background:url("/assets/hero-mosaic.png") center/cover no-repeat;background-color:#0b162f}
+.phero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(9,16,30,.62),rgba(9,16,30,.45) 60%,rgba(9,16,30,.55))}
+.phero .wrap{position:relative;z-index:2}
+.phero h1{color:#fff;font-size:clamp(32px,4vw,50px);font-weight:600;letter-spacing:-.035em;max-width:20ch}
+.phero h1 .accent{color:var(--orchid)}
+.phero p.sub{margin-top:18px;font-size:clamp(16px,1.4vw,19px);color:#EAF1F8;max-width:60ch;line-height:1.55;text-wrap:pretty}
+.eyebrow{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--orchid);font-weight:600;margin-bottom:16px}
+
+/* FILTERS */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 28px}
+.filter{font-size:13.5px;font-weight:600;color:var(--navy);background:#fff;border:1px solid var(--line-2);padding:8px 16px;border-radius:999px;cursor:pointer;transition:all .2s}
+.filter:hover{border-color:var(--navy)}
+.filter.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+
+/* CARD GRID */
+.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.pcard{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:transform .35s var(--ease),box-shadow .35s,border-color .35s}
+.pcard:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--line-2)}
+.pcard .thumb{height:150px;background:linear-gradient(135deg,#0b162f,#1d3a5f 55%,#3d5a3a);position:relative;overflow:hidden;flex-shrink:0}
+.pcard .thumb img{width:100%;height:100%;object-fit:cover}
+.pcard .thumb .cat{position:absolute;top:12px;left:12px;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--navy);background:var(--orchid);padding:5px 11px;border-radius:999px}
+.pcard .pbody{padding:18px 20px 20px;display:flex;flex-direction:column;flex-grow:1}
+.pcard h3{font-size:16.5px;line-height:1.32;color:var(--ink);margin-bottom:8px}
+.pcard p{font-size:14px;color:var(--body);line-height:1.5;flex-grow:1;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.pcard .pmeta{display:flex;gap:14px;align-items:center;margin-top:16px;font-size:12.5px;color:var(--muted)}
+.pcard .pmeta .dot{width:3px;height:3px;border-radius:50%;background:var(--slate)}
+.pcard .more{margin-top:14px;font-size:14px;font-weight:600;color:var(--orchid-deep);display:inline-flex;align-items:center;gap:7px}
+.pcard .more svg{width:15px;height:15px;transition:transform .25s var(--ease)}
+.pcard:hover .more svg{transform:translateX(4px)}
+.empty{grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--muted);font-size:16px}
+
+/* PAGINATION */
+.pager{display:flex;justify-content:center;gap:10px;margin-top:48px}
+.pager a,.pager span{min-width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;border-radius:10px;border:1px solid var(--line-2);font-weight:600;font-size:14.5px;color:var(--navy);padding:0 14px}
+.pager a:hover{border-color:var(--navy)}
+.pager .cur{background:var(--navy);color:#fff;border-color:var(--navy)}
+.pager .disabled{opacity:.4;pointer-events:none}
+
+/* ARTICLE */
+.article-layout{display:grid;grid-template-columns:minmax(0,1fr) 240px;gap:clamp(32px,4vw,56px);align-items:start;max-width:1060px;margin:0 auto}
+.article-layout .article{max-width:none;margin:0}
+.article-solo{max-width:800px;margin:0 auto}
+.article{max-width:760px;margin:0 auto}
+.toc{position:sticky;top:104px}
+.toc h4{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.toc ul{list-style:none;display:flex;flex-direction:column;gap:11px;border-left:2px solid var(--line);padding-left:16px}
+.toc ul{position:relative}
+.toc a{font-size:14px;color:var(--body);line-height:1.45;transition:color .2s;display:block}
+.toc a:hover{color:var(--orchid-deep)}
+.toc a.active{color:var(--navy);font-weight:600}
+.toc li{position:relative}
+.toc li.active::before{content:"";position:absolute;left:-17px;top:2px;bottom:2px;width:2px;background:var(--orchid)}
+.art-cat{font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--orchid-deep);margin-bottom:14px}
+.article h1{font-size:clamp(28px,3.6vw,44px);letter-spacing:-.03em;line-height:1.1}
+.art-meta{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:20px;font-size:14px;color:var(--muted)}
+.art-meta .dot{width:3px;height:3px;border-radius:50%;background:var(--slate)}
+.art-hero{margin:34px 0;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);aspect-ratio:16/9;background:linear-gradient(135deg,#0b162f,#1d3a5f 55%,#3d5a3a)}
+.art-hero img{width:100%;height:100%;object-fit:cover}
+.art-body{font-size:17px;color:var(--davy);line-height:1.72}
+.art-body h2{font-size:clamp(22px,2.4vw,28px);color:var(--ink);margin:38px 0 14px;letter-spacing:-.02em;scroll-margin-top:96px}
+.art-body h3{font-size:20px;color:var(--ink);margin:28px 0 10px}
+.art-body p{margin:0 0 18px}
+.art-body a{color:var(--orchid-deep);font-weight:600;text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px}
+.art-body a:hover{color:var(--navy)}
+.art-body ul,.art-body ol{margin:0 0 18px;padding-left:22px}
+.art-body li{margin:0 0 9px}
+.art-body strong{color:var(--navy);font-weight:600}
+.art-body blockquote{margin:24px 0;padding:16px 22px;border-left:3px solid var(--orchid);background:var(--alt);border-radius:0 10px 10px 0;color:var(--ink);font-size:18px}
+.art-body table{width:100%;border-collapse:collapse;margin:22px 0;font-size:15px}
+.art-body th,.art-body td{border:1px solid var(--line);padding:11px 14px;text-align:left;vertical-align:top}
+.art-body th{background:var(--alt);color:var(--navy);font-weight:600}
+.art-body .takeaways{margin:28px 0;padding:22px 24px;border:1px solid var(--line);border-left:3px solid var(--orchid);border-radius:var(--radius-sm);background:var(--alt)}
+.art-body .takeaways h4{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--orchid-deep);margin-bottom:12px}
+.art-body .takeaways ul{margin:0;padding-left:20px}
+.art-body .takeaways li{font-size:15px;color:var(--body)}
+.art-body .faq{margin-top:40px}
+.art-body .faq h2{margin-bottom:8px}
+.art-body details{border:1px solid var(--line);border-radius:var(--radius-sm);background:#fff;overflow:hidden;margin-bottom:12px}
+.art-body details[open]{border-color:var(--line-2);box-shadow:var(--shadow-sm)}
+.art-body summary{list-style:none;cursor:pointer;padding:15px 20px;font-size:16.5px;font-weight:600;color:var(--ink);display:flex;justify-content:space-between;gap:16px}
+.art-body summary::-webkit-details-marker{display:none}
+.art-body summary::after{content:"+";color:var(--orchid-deep);font-weight:600;font-size:20px;line-height:1}
+.art-body details[open] summary::after{content:"\2013"}
+.art-body details .a{padding:0 20px 18px;font-size:15.5px;color:var(--body)}
+.art-cta{margin:48px 0 0;padding:clamp(26px,4vw,40px);border-radius:var(--radius);background:linear-gradient(160deg,#142E4A,#0b162f);color:#fff;text-align:center}
+.art-cta h3{color:#fff;font-size:clamp(20px,2.4vw,26px)}
+.art-cta p{color:#cfe0c6;margin:12px auto 0;max-width:46ch;font-size:15.5px}
+.art-cta .btn{margin-top:22px}
+
+/* RELATED */
+.related{border-top:1px solid var(--line);margin-top:60px;padding-top:44px}
+.related h2{font-size:24px;margin-bottom:24px}
+
+/* FOOTER */
+footer{background:var(--charcoal);color:#cdd9e2;padding:clamp(56px,7vw,78px) 0 34px}
+.foot-top{display:grid;grid-template-columns:1.5fr 1fr 1.5fr;gap:44px}
+.foot-brand .logo-nsoc{height:40px;margin-bottom:16px}
+.foot-brand p{font-size:14px;color:#9FB3C4;max-width:34ch}
+.foot-contact{font-size:14px;margin-top:18px;display:flex;flex-direction:column;gap:10px}
+.foot-contact-item{display:flex;align-items:flex-start;gap:9px;color:#9FB3C4;text-decoration:none;transition:color .2s}
+.foot-contact-item svg{flex-shrink:0;margin-top:2px;opacity:.75}
+.foot-contact-item:hover{color:var(--orchid)}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:4px}
+.foot-col a{font-size:14.5px;color:#9FB3C4;transition:color .2s}
+.foot-col a:hover{color:#fff}
+.foot-offices h5{font-size:14.5px;font-weight:600;color:var(--orchid);margin:0 0 16px}
+.foot-offices ul{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:12px 20px}
+.foot-offices li{font-size:14.5px;color:#9FB3C4;white-space:nowrap}
+.foot-bottom{margin-top:48px;padding-top:24px;border-top:1px solid rgba(159,179,196,.16);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--sunset)}
+.foot-legal{display:flex;gap:22px}
+.foot-legal a{color:var(--sunset);transition:color .2s}
+.foot-legal a:hover{color:var(--orchid)}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+@media (max-width:1024px){
+  .nav-links{display:none}.menu-toggle{display:flex}
+  .posts{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:860px){
+  .foot-top{grid-template-columns:1fr 1fr;gap:30px}
+  .article-layout{grid-template-columns:1fr;max-width:800px}
+  .toc{display:none}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .posts{grid-template-columns:1fr}
+}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","@id":"https://nordicsoc.com/insights/nis2-soc-checklist/#article","headline":"NIS2 and Your SOC: A Practical Compliance Checklist","description":"A practical checklist of NIS2 SOC requirements: scope, risk management, incident reporting, supply chain and evidence, plus how an AI SOC helps you comply.","datePublished":"2026-06-11","dateModified":"2026-06-11","author":{"@type":"Organization","name":"Nordic SOC"},"publisher":{"@type":"Organization","name":"Nordic SOC","url":"https://nordicsoc.com"},"mainEntityOfPage":"https://nordicsoc.com/insights/nis2-soc-checklist/","articleSection":"Compliance","inLanguage":"en","keywords":"NIS2 SOC requirements"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nordicsoc.com/"},{"@type":"ListItem","position":2,"name":"Insights","item":"https://nordicsoc.com/insights/"},{"@type":"ListItem","position":3,"name":"NIS2 and Your SOC: A Practical Compliance Checklist","item":"https://nordicsoc.com/insights/nis2-soc-checklist/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What does NIS2 require of a SOC?","acceptedAnswer":{"@type":"Answer","text":"NIS2 expects in-scope organisations to operate risk-based security measures, detect incidents promptly, handle and recover from them, and notify the national CSIRT or competent authority of significant incidents within defined windows. A SOC delivers these outcomes through continuous monitoring, alert triage, investigation, response, and audit-ready evidence."}},{"@type":"Question","name":"When did NIS2 come into force?","acceptedAnswer":{"@type":"Answer","text":"NIS2 was adopted as an EU directive in 2022. Member states transposed it into national law, with a transposition deadline of October 2024. Because it is a directive rather than a regulation, the exact rules, deadlines, and classifications vary by member state, so organisations should confirm their obligations under each relevant national law."}},{"@type":"Question","name":"What is the difference between essential and important entities under NIS2?","acceptedAnswer":{"@type":"Answer","text":"Both essential and important entities must meet comparable risk-management and reporting obligations. The main difference is supervision: essential entities face proactive, ongoing oversight, while important entities are generally supervised reactively, after an incident or indication of non-compliance. Classification depends on sector and organisation size under national law."}},{"@type":"Question","name":"How does NIS2 incident reporting work?","acceptedAnswer":{"@type":"Answer","text":"For significant incidents, NIS2 uses a phased model: an early warning shortly after the organisation becomes aware of the incident, a fuller notification with an initial assessment, and a final report later covering root cause and mitigation. The precise timeframes are set in each member state's transposition of the directive."}},{"@type":"Question","name":"How does an AI SOC help with NIS2 compliance?","acceptedAnswer":{"@type":"Answer","text":"An AI SOC accelerates detection and triage, automates investigation to determine whether an incident is significant, and generates structured, time-stamped records as it works. That documentation supports both incident notifications and supervisory audits, helping organisations meet NIS2's demands for speed, consistency, and evidence at scale."}}]}]}</script></head><body>
+<header class="nav" id="nav"><div class="nav-inner">
+  <a class="brand" href="/" aria-label="Nordic SOC home"><img class="logo-nsoc" src="/assets/nordic-soc-navy.svg" alt="Nordic SOC"></a>
+  <nav class="nav-links">
+    <div class="nav-item"><button class="nav-trigger" aria-haspopup="true">Vokter Modes <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="drop"><a href="/vokter-autonomous/">Autonomous</a><a href="/vokter-hybrid/">Hybrid</a><a href="/vokter-guardian/">Guardian</a></div></div>
+    <a href="/partner-program/">Partner Program</a>
+    <a href="/insights/" class="active">Insights</a>
+    <a href="/about-us/">About Us</a>
+  </nav>
+  <div class="nav-cta"><a href="/contact-us/" class="btn btn-primary">Contact Us</a></div>
+  <button class="menu-toggle" id="menuToggle" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round"/></svg></button>
+</div></header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/vokter-autonomous/">Vokter Autonomous</a><a href="/vokter-hybrid/">Vokter Hybrid</a><a href="/vokter-guardian/">Vokter Guardian</a>
+  <a href="/partner-program/">Partner Program</a><a href="/insights/">Insights</a><a href="/about-us/">About Us</a>
+  <a href="/contact-us/" class="btn btn-primary">Contact Us</a>
+</div>
+<main id="top"><article class="section" style="padding-top:128px"><div class="wrap">
+  <div class="article-layout">
+  <div class="article">
+  <h1>NIS2 and Your SOC: A Practical Compliance Checklist</h1>
+  <div class="art-hero"></div>
+  <div class="art-body"><p><strong>NIS2 SOC requirements</strong> centre on continuous security monitoring, fast incident detection and structured notification to authorities. The NIS2 directive expects in-scope organisations to operate risk-based security measures, detect incidents promptly, and report significant ones to their national CSIRT or competent authority within tight timeframes. A modern security operations centre (SOC) is the operational backbone that makes these obligations achievable, by maintaining 24/7 visibility, triaging alerts, investigating threats, and producing the evidence regulators expect.</p>
+
+<p>This article sets out a practical checklist of what NIS2 expects from security monitoring and incident response, who is in scope, and how a SOC, supported by AI, helps you meet each obligation.</p>
+
+<div class="takeaways"><h4>Key takeaways</h4><ul><li>NIS2 was adopted in 2022 as an EU directive; member states transposed it into national law, with a transposition deadline of October 2024, though timing and detail vary by country.</li><li>The directive distinguishes <em>essential</em> and <em>important</em> entities across critical and digital sectors, with broadly similar obligations but differing supervisory regimes.</li><li>Core NIS2 SOC requirements include risk-management measures, incident detection, structured incident notification, supply-chain security, and management accountability.</li><li>Incident reporting follows a phased model: an early warning shortly after awareness, a fuller notification, and a final report later, with exact windows defined in national law.</li><li>An AI SOC strengthens detection and reporting by accelerating triage, investigation, and the generation of audit-ready evidence.</li></ul></div>
+
+<h2 id="what-does-nis2-require-of-a-soc">What does NIS2 require of a SOC?</h2>
+
+<p>The NIS2 directive modernises and broadens the EU's earlier network and information security rules. For a SOC, the practical implications fall into a handful of areas: you must be able to detect incidents, respond to them, notify the right authorities, manage risk across your supply chain, and demonstrate that senior management oversees all of this. NIS2 does not mandate a specific technology or operating model. It sets outcomes, and a SOC is how most organisations achieve those outcomes day to day.</p>
+
+<p>Crucially, NIS2 raises the bar on accountability. Management bodies are expected to approve and oversee cybersecurity risk-management measures, and members can be held responsible for failures. That shifts security monitoring from a purely technical concern to a governance obligation, and it makes consistent, evidenced SOC operations a board-level priority.</p>
+
+<h2 id="who-is-in-scope-essential-and-important-entities">Who is in scope: essential and important entities</h2>
+
+<p>NIS2 applies to medium and large organisations operating in sectors the directive considers critical, and it classifies them as either <em>essential entities</em> or <em>important entities</em>. The split reflects how critical a sector is and the size of the organisation, rather than a difference in the security expected.</p>
+
+<ul>
+<li><strong>Essential entities</strong> typically include sectors such as energy, transport, banking, financial market infrastructure, health, drinking and waste water, digital infrastructure, and public administration.</li>
+<li><strong>Important entities</strong> typically include sectors such as postal and courier services, waste management, manufacturing of certain products, food production and distribution, and digital providers.</li>
+</ul>
+
+<p>Both categories must implement comparable risk-management measures and meet the same reporting duties. The principal difference lies in supervision: essential entities face proactive, ongoing oversight, while important entities are generally supervised reactively, after an incident or indication of non-compliance. Because national transposition varies, organisations should confirm their classification under the law of each member state in which they operate.</p>
+
+<h2 id="the-core-nis2-soc-requirements-checklist">The core NIS2 SOC requirements checklist</h2>
+
+<p>The table below summarises the main NIS2 obligations relevant to security monitoring and incident response, and how a SOC addresses each one.</p>
+
+<table>
+<thead>
+<tr><th>NIS2 area</th><th>What the directive expects</th><th>How a SOC delivers it</th></tr>
+</thead>
+<tbody>
+<tr><td>Risk-management measures</td><td>An all-hazards, risk-based approach covering policies, asset management, and security of operations.</td><td>Continuous monitoring across endpoints, network, cloud and identity; baseline detection content mapped to known threats.</td></tr>
+<tr><td>Incident detection</td><td>Capability to detect anomalies and significant incidents promptly.</td><td>24/7 telemetry collection, correlation, and alert triage to surface genuine threats quickly.</td></tr>
+<tr><td>Incident handling</td><td>Defined processes to contain, respond to, and recover from incidents.</td><td>Documented response playbooks, containment actions, and coordinated remediation.</td></tr>
+<tr><td>Incident notification</td><td>Phased reporting to the CSIRT or competent authority within defined windows.</td><td>Incident records, timelines, and report drafts that feed regulatory notifications.</td></tr>
+<tr><td>Supply-chain security</td><td>Assessment and management of risks from suppliers and service providers.</td><td>Monitoring of third-party access and integrations; detection of supplier-originated activity.</td></tr>
+<tr><td>Business continuity</td><td>Backup management, disaster recovery, and crisis management.</td><td>Detection of events affecting availability; support for recovery and post-incident review.</td></tr>
+<tr><td>Management accountability</td><td>Approval and oversight of measures by the management body.</td><td>Reporting dashboards and evidence that demonstrate oversight and effectiveness.</td></tr>
+<tr><td>Evidence and audit</td><td>Ability to demonstrate compliance to supervisors.</td><td>Retained logs, investigation records, and audit-ready documentation.</td></tr>
+</tbody>
+</table>
+
+<h2 id="nis2-incident-reporting-what-your-soc-must-support">NIS2 incident reporting: what your SOC must support</h2>
+
+<p>NIS2 incident reporting is one of the directive's most operationally demanding requirements. For significant incidents, the directive sets out a phased notification process to the national CSIRT or competent authority:</p>
+
+<ul>
+<li>An <strong>early warning</strong> shortly after the organisation becomes aware of a significant incident, indicating whether it may be caused by unlawful or malicious acts or could have cross-border impact.</li>
+<li>A fuller <strong>incident notification</strong> with an initial assessment, including severity, impact, and any indicators of compromise.</li>
+<li>A <strong>final report</strong> later, describing the incident, its root cause, mitigation, and any cross-border effects.</li>
+</ul>
+
+<p>The exact deadlines, including the short window for the initial early warning, are defined in each member state's transposition of the directive, so organisations operating across borders should confirm the precise timeframes that apply to them. What matters operationally is that your SOC can determine quickly whether an incident is significant, capture the facts needed for each stage, and produce accurate notifications under time pressure. This is difficult to do manually at scale, which is where automation and AI become decisive.</p>
+
+<h2 id="how-an-ai-soc-meets-nis2-soc-requirements">How an AI SOC meets NIS2 SOC requirements</h2>
+
+<p>The hardest parts of NIS2 compliance are speed and consistency: detecting significant incidents quickly, investigating them thoroughly, and reporting them accurately within tight windows. An AI SOC is built for exactly this. AI-driven triage filters noise and prioritises genuine threats, reducing the delay between an event occurring and an analyst acting on it. Automated investigation correlates signals across the estate, reconstructs the attack path, and assembles the context needed to judge whether an incident is significant under NIS2.</p>
+
+<p>Just as importantly, an AI SOC generates structured, time-stamped records as it works. That documentation, covering detection, investigation, containment, and outcome, becomes the evidence base for both incident notifications and supervisory audits. <a href="/vokter-hybrid/">Vokter Hybrid</a> applies AI-driven Level 1 triage and investigation over your existing SIEM and SOAR, strengthening detection and reporting without replacing your stack. For organisations that need named analysts, threat hunting, forensics, and a contractual SLA alongside the AI, <a href="/vokter-guardian/">Vokter Guardian</a> combines AI with 24/7 human oversight, with NIS2- and DORA-aligned evidence built in.</p>
+
+<p>Because Nordic SOC operates as an independent, EU-sovereign provider with data held in EU cloud regions, monitoring and evidence remain within European jurisdiction, which matters for both NIS2 obligations and broader <a href="/insights/eu-data-sovereignty-soc/">EU data sovereignty</a> requirements. Organisations subject to financial-sector rules should also review how these capabilities map to <a href="/insights/dora-compliance-soc/">DORA compliance</a>, which applies from 17 January 2025 and shares much of NIS2's emphasis on incident reporting and operational resilience.</p>
+
+<h2 id="a-practical-readiness-checklist">A practical readiness checklist</h2>
+
+<p>Use the following checklist to assess whether your security monitoring and incident response are ready for NIS2:</p>
+
+<ul>
+<li>Confirm your classification as an essential or important entity in each member state where you operate.</li>
+<li>Map your risk-management measures to the directive's requirements and document them.</li>
+<li>Ensure 24/7 monitoring coverage across endpoints, network, cloud, and identity.</li>
+<li>Define and test incident-handling playbooks, including containment and recovery.</li>
+<li>Establish a process to assess incident significance quickly and consistently.</li>
+<li>Build a phased notification workflow aligned to your national transposition's deadlines.</li>
+<li>Extend monitoring and risk assessment to suppliers and third-party access.</li>
+<li>Provide management with regular, evidenced reporting on cyber risk and incidents.</li>
+<li>Retain logs, investigation records, and notifications as audit-ready evidence.</li>
+<li>Review readiness regularly and after any significant incident or regulatory change.</li>
+</ul>
+
+<p>If you would like to assess your NIS2 readiness against your current monitoring and reporting capability, <a href="/contact-us/">contact Nordic SOC</a> to discuss your environment.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>NIS2 turns continuous monitoring, rapid incident response, and structured reporting from good practice into a legal and governance obligation. A capable SOC is how organisations meet these expectations in practice, and an AI SOC makes the speed, consistency, and evidence the directive demands realistic at scale. With transposition timelines varying by country, the practical step is to confirm your obligations under the national law that applies to you and ensure your monitoring and reporting can satisfy them.</p>
+
+  <div class="faq"><h2>Frequently asked questions</h2><details><summary>What does NIS2 require of a SOC?</summary><div class="a">NIS2 expects in-scope organisations to operate risk-based security measures, detect incidents promptly, handle and recover from them, and notify the national CSIRT or competent authority of significant incidents within defined windows. A SOC delivers these outcomes through continuous monitoring, alert triage, investigation, response, and audit-ready evidence.</div></details><details><summary>When did NIS2 come into force?</summary><div class="a">NIS2 was adopted as an EU directive in 2022. Member states transposed it into national law, with a transposition deadline of October 2024. Because it is a directive rather than a regulation, the exact rules, deadlines, and classifications vary by member state, so organisations should confirm their obligations under each relevant national law.</div></details><details><summary>What is the difference between essential and important entities under NIS2?</summary><div class="a">Both essential and important entities must meet comparable risk-management and reporting obligations. The main difference is supervision: essential entities face proactive, ongoing oversight, while important entities are generally supervised reactively, after an incident or indication of non-compliance. Classification depends on sector and organisation size under national law.</div></details><details><summary>How does NIS2 incident reporting work?</summary><div class="a">For significant incidents, NIS2 uses a phased model: an early warning shortly after the organisation becomes aware of the incident, a fuller notification with an initial assessment, and a final report later covering root cause and mitigation. The precise timeframes are set in each member state's transposition of the directive.</div></details><details><summary>How does an AI SOC help with NIS2 compliance?</summary><div class="a">An AI SOC accelerates detection and triage, automates investigation to determine whether an incident is significant, and generates structured, time-stamped records as it works. That documentation supports both incident notifications and supervisory audits, helping organisations meet NIS2's demands for speed, consistency, and evidence at scale.</div></details></div>
+  <div class="art-cta"><h3>See Vokter on your own alerts</h3><p>Book a walkthrough with our Nordic team and watch the AI SOC triage, investigate and contain — in seconds.</p><a href="/contact-us/" class="btn btn-primary">Request a demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+  </div>
+  <div class="related"><h2>More insights</h2><div class="posts"><a class="pcard reveal" data-cat="Compliance" href="/insights/dora-compliance-soc/">
+  <div class="thumb"></div>
+  <div class="pbody"><h3>DORA Compliance: What Your SOC Must Deliver</h3><p>DORA applies from 17 January 2025. Here is what the Digital Operational Resilience Act requires of your security operations, and how a modern AI SOC delivers audit-ready detection, classification, reporting and evidence.</p>
+  <span class="more">Read article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></a>
+<a class="pcard reveal" data-cat="Compliance" href="/insights/eu-data-sovereignty-soc/">
+  <div class="thumb"></div>
+  <div class="pbody"><h3>EU Data Sovereignty in Security Operations: Why It Matters</h3><p>EU data sovereignty means your SOC data and the AI processing it stay under EU jurisdiction and law. Learn how it differs from data residency and what to verify with a provider.</p>
+  <span class="more">Read article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></a>
+<a class="pcard reveal" data-cat="AI SOC" href="/insights/what-is-an-ai-soc/">
+  <div class="thumb"></div>
+  <div class="pbody"><h3>What Is an AI SOC? Autonomous Security Operations Explained</h3><p>An AI SOC uses artificial intelligence to autonomously triage, investigate, contain and report on threats. This pillar guide explains how it works, how it differs from a traditional SOC, where humans fit, and what to evaluate.</p>
+  <span class="more">Read article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></a></div></div>
+  </div>
+  <aside class="toc"><h4>On this page</h4><ul><li><a href="#what-does-nis2-require-of-a-soc">What does NIS2 require of a SOC?</a></li><li><a href="#who-is-in-scope-essential-and-important-entities">Who is in scope: essential and important entities</a></li><li><a href="#the-core-nis2-soc-requirements-checklist">The core NIS2 SOC requirements checklist</a></li><li><a href="#nis2-incident-reporting-what-your-soc-must-support">NIS2 incident reporting: what your SOC must support</a></li><li><a href="#how-an-ai-soc-meets-nis2-soc-requirements">How an AI SOC meets NIS2 SOC requirements</a></li><li><a href="#a-practical-readiness-checklist">A practical readiness checklist</a></li><li><a href="#conclusion">Conclusion</a></li></ul></aside>
+  </div>
+</div></article></main>
+<footer><div class="wrap"><div class="foot-top">
+  <div class="foot-brand"><img class="logo-nsoc" src="/assets/nordic-soc-white.svg" alt="Nordic SOC">
+    <p>Managed security operations for the Nordics — powered by Vokter, our EU-sovereign AI SOC.</p>
+    <div class="foot-contact">
+      <a href="tel:+46733690899" class="foot-contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.72a16 16 0 006.29 6.29l1.25-1.25a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> +46 733 690899</a>
+      <a href="mailto:consult@gsecurelabs.com" class="foot-contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg> consult@gsecurelabs.com</a>
+      <span class="foot-contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Isafjordsgatan 30A, 16440 Kista, Sweden</span>
+    </div></div>
+  <div class="foot-col"><ul>
+    <li><a href="/vokter-autonomous/">Vokter Autonomous</a></li><li><a href="/vokter-hybrid/">Vokter Hybrid</a></li>
+    <li><a href="/vokter-guardian/">Vokter Guardian</a></li><li><a href="/partner-program/">Partner Program</a></li>
+    <li><a href="/insights/">Insights</a></li><li><a href="/about-us/">About Us</a></li><li><a href="/contact-us/">Contact Us</a></li>
+  </ul></div>
+  <div class="foot-offices"><h5>Global Offices:</h5><ul>
+    <li>Belgium</li><li>Canada</li><li>Denmark</li><li>Finland</li><li>France</li><li>Germany</li><li>India</li><li>Iceland</li><li>Norway</li><li>South Africa</li><li>The Netherlands</li><li>UAE</li><li>UK</li><li>USA</li>
+  </ul></div>
+  </div>
+  <div class="foot-bottom"><div class="foot-legal"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a></div><span>&copy; 2026 Nordic SOC. All rights reserved.</span></div>
+</div></footer>
+<script>
+const nav=document.getElementById('nav');const os=()=>nav.classList.toggle('scrolled',window.scrollY>16);os();addEventListener('scroll',os,{passive:true});
+const t=document.getElementById('menuToggle'),m=document.getElementById('mobileMenu');
+if(t&&m){t.onclick=()=>m.classList.toggle('open');m.querySelectorAll('a').forEach(a=>a.onclick=()=>m.classList.remove('open'));}
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}}),{threshold:.1,rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const fb=document.querySelectorAll('.filter');
+if(fb.length){fb.forEach(b=>b.onclick=()=>{fb.forEach(x=>x.classList.remove('active'));b.classList.add('active');const c=b.dataset.cat;document.querySelectorAll('.pcard').forEach(k=>{k.style.display=(c==='all'||k.dataset.cat===c)?'':'none';});});}
+const tl={};document.querySelectorAll('.toc a').forEach(a=>tl[a.getAttribute('href').slice(1)]=a);
+const hd=[...document.querySelectorAll('.art-body h2[id]')];
+if(hd.length&&Object.keys(tl).length){const spy=()=>{const L=Math.max(110,innerHeight*0.28);let c=hd[0];for(const h of hd){if(h.getBoundingClientRect().top<=L)c=h;else break;}for(const k in tl){tl[k].classList.remove('active');tl[k].parentElement.classList.remove('active');}if(c&&tl[c.id]){tl[c.id].classList.add('active');tl[c.id].parentElement.classList.add('active');}};addEventListener('scroll',spy,{passive:true});addEventListener('resize',spy,{passive:true});spy();}
+</script>
+</body></html>

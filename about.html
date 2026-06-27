@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="canonical" href="https://nordicsoc.com/about-us/" />
+<title>About Us — Born in the Nordics, built for the world | Nordic SOC</title>
+<meta name="description" content="Nordic SOC is an independent cyber operations hub headquartered in Stockholm. We design, deploy and operate complete SOC ecosystems — powered by Vokter, our EU-sovereign AI SOC — for enterprises across the Nordics, DACH and beyond." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap" rel="stylesheet" />
+<style>
+/* ============================================================
+   NORDIC SOC · Vokter — About Us page (matches homepage)
+   Navy #142E4A · Orchid Green #BCD153 · Charcoal #0E1A1F
+   ============================================================ */
+:root{
+  --white:#FFFFFF; --alt:#F6F8FB; --charcoal:#0E1A1F; --navy:#142E4A;
+  --orchid:#BCD153; --orchid-deep:#7C9A2E; --spring:#C9DC7E; --sunset:#5E7A93;
+  --davy:#4A555A; --slate:#9FB3C4; --mist:#E8EEF3; --orange:#E07B3C;
+  --ink:#0E1A1F; --body:#46535f; --muted:#5E7A93;
+  --line:rgba(20,46,74,.10); --line-2:rgba(20,46,74,.16);
+  --shadow:0 18px 44px -28px rgba(20,46,74,.45);
+  --shadow-sm:0 10px 26px -20px rgba(20,46,74,.4);
+  --radius:18px; --radius-sm:14px; --maxw:1180px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:"Google Sans Flex","Google Sans",system-ui,Arial,sans-serif;background:var(--white);
+  color:var(--body);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+::selection{background:var(--orchid);color:var(--charcoal)}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,40px)}
+.section{padding:clamp(50px,5vw,76px) 0;position:relative}
+section[id]{scroll-margin-top:84px}
+.alt{background:var(--alt)}
+h1,h2,h3,h4{line-height:1.12;font-weight:600;letter-spacing:-.02em;color:var(--ink);text-wrap:pretty}
+h2.title{font-size:clamp(24px,2.8vw,36px);letter-spacing:-.025em}
+.lead{font-size:clamp(16px,1.4vw,18px);color:var(--body);max-width:72ch;margin-top:18px;line-height:1.6;text-wrap:pretty}
+.center-head{text-align:left;display:flex;flex-direction:column;align-items:flex-start}
+
+.btn{display:inline-flex;align-items:center;gap:9px;justify-content:center;font-family:inherit;font-weight:600;
+  font-size:15.5px;padding:14px 26px;border-radius:999px;cursor:pointer;border:1.6px solid transparent;
+  transition:transform .25s var(--ease),background .25s var(--ease),box-shadow .25s var(--ease),border-color .25s,color .25s;white-space:nowrap}
+.btn svg{width:16px;height:16px;transition:transform .25s var(--ease)}
+.btn:hover svg{transform:translateX(3px)}
+.btn-primary{background:var(--orchid);color:var(--navy);box-shadow:0 12px 26px -14px rgba(124,154,46,.7)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 36px -14px rgba(124,154,46,.85)}
+.btn-outline{background:transparent;color:var(--navy);border-color:var(--line-2)}
+.btn-outline:hover{border-color:var(--navy);background:rgba(20,46,74,.04)}
+.on-dark .btn-outline{color:#fff;border-color:rgba(255,255,255,.5)}
+.on-dark .btn-outline:hover{background:rgba(255,255,255,.1);border-color:#fff}
+
+/* NAV */
+header.nav{position:fixed;inset:0 0 auto 0;z-index:100;background:#fff;
+  border-bottom:1px solid var(--line);transition:box-shadow .3s,border-color .3s}
+header.nav.scrolled{box-shadow:0 6px 24px -18px rgba(20,46,74,.5);border-bottom-color:var(--line)}
+.nav-inner{max-width:var(--maxw);margin:0 auto;padding:14px clamp(20px,5vw,40px);display:flex;align-items:center;gap:28px}
+.logo-nsoc{height:38px;width:auto}
+.brand{flex-shrink:0;display:flex;align-items:center}
+.nav-links{display:flex;gap:2px;margin-left:auto;align-items:center}
+.nav-links a{font-size:15px;color:var(--navy);padding:9px 14px;border-radius:8px;transition:color .2s,background .2s;font-weight:500}
+.nav-links a:hover{color:var(--orchid-deep);background:rgba(20,46,74,.04)}
+.nav-links a.active{color:var(--orchid-deep)}
+.nav-item{position:relative}
+.nav-item::after{content:"";position:absolute;top:100%;left:0;right:0;height:12px}
+.nav-trigger{display:inline-flex;align-items:center;gap:6px;font-family:inherit;font-size:15px;font-weight:500;color:var(--navy);background:none;border:none;cursor:pointer;padding:9px 14px;border-radius:8px;transition:color .2s,background .2s}
+.nav-trigger svg{width:13px;height:13px;transition:transform .25s var(--ease)}
+.nav-item:hover .nav-trigger,.nav-item:focus-within .nav-trigger{color:var(--orchid-deep);background:rgba(20,46,74,.04)}
+.nav-item:hover .nav-trigger svg,.nav-item:focus-within .nav-trigger svg{transform:rotate(180deg)}
+.drop{position:absolute;top:calc(100% + 12px);left:0;min-width:206px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 20px 44px -22px rgba(20,46,74,.5);padding:8px;display:flex;flex-direction:column;gap:2px;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .2s var(--ease),transform .2s var(--ease),visibility .2s}
+.nav-item:hover .drop,.nav-item:focus-within .drop{opacity:1;visibility:visible;transform:none}
+.drop a{font-size:14.5px;color:var(--navy);padding:10px 12px;border-radius:8px;transition:background .2s,color .2s;font-weight:500}
+.drop a:hover{background:var(--alt);color:var(--orchid-deep)}
+.nav-cta{margin-left:24px;display:flex;align-items:center;gap:10px}
+.nav-cta .btn{padding:11px 20px;font-size:14.5px}
+.menu-toggle{display:none;background:none;border:1px solid var(--line-2);border-radius:10px;width:44px;height:44px;cursor:pointer;color:var(--navy);align-items:center;justify-content:center}
+.menu-toggle svg{width:22px;height:22px}
+
+/* HERO */
+.hero{position:relative;display:flex;align-items:center;text-align:left;
+  padding:148px 0 76px;overflow:hidden;color:#fff}
+.hero-bg{position:absolute;inset:0;z-index:0;background:url("/assets/hero-mosaic.png") center/cover no-repeat;background-color:#0b162f}
+.hero-bg::after{content:"";position:absolute;inset:0;background:
+  linear-gradient(180deg,rgba(9,16,30,.62),rgba(9,16,30,.42) 55%,rgba(9,16,30,.5)),
+  radial-gradient(120% 90% at 50% 40%,transparent 30%,rgba(9,16,30,.45))}
+.hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,4vw,60px);align-items:center}
+.hero h1{color:#fff;font-size:clamp(34px,4.1vw,52px);font-weight:600;letter-spacing:-.035em}
+.hero h1 .accent{color:var(--orchid)}
+.hero p.sub{margin-top:20px;font-size:clamp(16px,1.4vw,19px);color:#EAF1F8;max-width:56ch;line-height:1.55;text-wrap:pretty}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px;justify-content:flex-start}
+.eyebrow{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--orchid);font-weight:600;margin-bottom:18px}
+
+/* hero identity card */
+.vk-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.vk-top{display:flex;align-items:center;justify-content:space-between;padding:15px 20px;border-bottom:1px solid var(--line);background:var(--alt)}
+.vk-top b{font-size:15px;color:var(--ink);font-weight:600}
+.vk-tag{font-family:inherit;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--orchid-deep);background:rgba(188,209,83,.18);border:1px solid rgba(124,154,46,.28);padding:4px 10px;border-radius:999px;font-weight:500}
+.vk-body{padding:14px;display:flex;flex-direction:column;gap:6px}
+.vlayer{display:flex;align-items:center;gap:11px;padding:11px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;transition:border-color .25s,transform .25s}
+.vlayer:hover{border-color:var(--line-2);transform:translateX(2px)}
+.vlayer .li{width:30px;height:30px;border-radius:8px;flex-shrink:0;display:grid;place-items:center;background:rgba(188,209,83,.18);color:var(--navy)}
+.vlayer .li svg{width:17px;height:17px}
+.vlayer .lt b{display:block;font-size:13.5px;color:var(--ink);font-weight:600;line-height:1.2}
+.vlayer .lt span{font-size:12px;color:var(--muted);line-height:1.3}
+.vk-foot{padding:14px 20px;background:rgba(188,209,83,.14);border-top:1px solid var(--line);display:flex;align-items:center;gap:10px;font-size:13px;color:var(--navy);font-weight:600}
+.vk-foot svg{width:17px;height:17px;color:var(--orchid-deep);flex-shrink:0}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:40px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);padding:30px 26px;box-shadow:var(--shadow-sm)}
+.stat .n{font-size:clamp(28px,3.4vw,42px);font-weight:600;letter-spacing:-.03em;color:var(--navy)}
+.stat .n em{color:var(--orchid-deep);font-style:normal}
+.stat .l{font-size:14.5px;color:var(--body);margin-top:8px;line-height:1.4}
+
+/* shared icon card grid */
+.cardgrid{display:grid;gap:18px;margin-top:40px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px 24px;
+  transition:transform .35s var(--ease),box-shadow .35s,border-color .35s;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--line-2)}
+.chip{width:50px;height:50px;border-radius:14px;display:grid;place-items:center;margin-bottom:18px;
+  background:rgba(188,209,83,.18);border:1px solid rgba(124,154,46,.25);color:var(--navy)}
+.chip svg{width:24px;height:24px}
+.grid-4{grid-template-columns:repeat(4,1fr)}
+.grid-4 h3{font-size:16px;color:var(--ink);margin-bottom:7px}
+.grid-4 p{font-size:13.5px;color:var(--body)}
+.grid-4 .more{margin-top:auto;padding-top:12px;font-size:13.5px;font-weight:600;color:var(--orchid-deep);display:inline-flex;align-items:center;gap:6px}
+.grid-4 .more svg{width:14px;height:14px;transition:transform .25s var(--ease)}
+.card:hover .more svg{transform:translateX(3px)}
+/* solutions (5 linked cards, 3 + 2 balanced) */
+.solutions{display:flex;flex-wrap:wrap;gap:18px;margin-top:40px}
+.solutions .card{flex:1 1 300px}
+.solutions h3{font-size:16.5px;color:var(--ink);margin-bottom:7px}
+.solutions p{font-size:13.5px;color:var(--body)}
+.solutions .more{margin-top:auto;padding-top:14px;font-size:13.5px;font-weight:600;color:var(--orchid-deep);display:inline-flex;align-items:center;gap:6px}
+.solutions .more svg{width:14px;height:14px;transition:transform .25s var(--ease)}
+
+/* MISSION SPLIT */
+.story{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,5vw,64px);align-items:center;margin-top:0}
+.story .lead{margin-top:14px}
+.story-img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid var(--line);display:block}
+
+/* REGIONS */
+.regions{display:grid;grid-template-columns:repeat(7,1fr);gap:12px;margin-top:40px}
+.region{border:1px solid var(--line);border-radius:var(--radius-sm);background:#fff;padding:16px 10px;text-align:center;font-size:14px;color:var(--navy);font-weight:500;box-shadow:var(--shadow-sm);transition:transform .25s,border-color .25s}
+.region:hover{transform:translateY(-3px);border-color:var(--line-2)}
+
+/* FINAL CTA (mosaic band) */
+.cta{position:relative;overflow:hidden;text-align:center;color:#fff}
+.cta-bg{position:absolute;inset:0;z-index:0;background:url("/assets/hero-mosaic.png") center/cover no-repeat;background-color:#0b162f}
+.cta-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(9,16,30,.7),rgba(9,16,30,.55))}
+.cta .wrap{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center}
+.cta h2{color:#fff;font-size:clamp(28px,3.4vw,42px);letter-spacing:-.03em;max-width:20ch}
+.cta p{color:#EAF1F8;font-size:clamp(16px,1.5vw,19px);max-width:56ch;margin:16px auto 0;text-wrap:pretty}
+.cta-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px;justify-content:center}
+
+/* FOOTER */
+footer{background:var(--charcoal);color:#cdd9e2;padding:clamp(56px,7vw,78px) 0 34px}
+.foot-top{display:grid;grid-template-columns:1.5fr 1fr 1.5fr;gap:44px}
+.foot-brand .logo-nsoc{height:40px;margin-bottom:16px}
+.foot-brand p{font-size:14px;color:#9FB3C4;max-width:34ch}
+.foot-contact{font-size:14px;margin-top:18px;display:flex;flex-direction:column;gap:10px}
+.foot-contact-item{display:flex;align-items:flex-start;gap:9px;color:#9FB3C4;text-decoration:none;transition:color .2s}
+.foot-contact-item svg{flex-shrink:0;margin-top:2px;opacity:.75}
+.foot-contact-item:hover{color:var(--orchid)}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:4px}
+.foot-col a{font-size:14.5px;color:#9FB3C4;transition:color .2s}
+.foot-col a:hover{color:#fff}
+.foot-offices h5{font-size:14.5px;font-weight:600;color:var(--orchid);margin:0 0 16px}
+.foot-offices ul{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:12px 20px}
+.foot-offices li{font-size:14.5px;color:#9FB3C4;white-space:nowrap}
+.foot-bottom{margin-top:48px;padding-top:24px;border-top:1px solid rgba(159,179,196,.16);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--sunset)}
+.foot-legal{display:flex;gap:22px}
+.foot-legal a{color:var(--sunset);transition:color .2s}
+.foot-legal a:hover{color:var(--orchid)}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+@media (max-width:1024px){
+  .nav-links{display:none}.menu-toggle{display:flex}
+  .stats,.grid-4{grid-template-columns:repeat(2,1fr)}
+  .regions{grid-template-columns:repeat(4,1fr)}
+}
+@media (max-width:860px){
+  .hero .wrap,.story{grid-template-columns:1fr;gap:36px}
+  .foot-top{grid-template-columns:1fr 1fr;gap:30px}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .stats,.grid-4{grid-template-columns:1fr}
+  .regions{grid-template-columns:repeat(2,1fr)}
+  .hero-actions .btn,.cta-actions .btn{width:100%}
+}
+.mobile-menu{position:fixed;inset:0;z-index:99;background:rgba(255,255,255,.98);backdrop-filter:blur(8px);display:none;flex-direction:column;padding:96px 30px 40px;gap:4px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:19px;color:var(--navy);padding:16px 4px;border-bottom:1px solid var(--line);font-weight:500}
+.mobile-menu .btn{margin-top:22px}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/" aria-label="Nordic SOC home">
+      <img class="logo-nsoc" src="/assets/nordic-soc-navy.svg" alt="Nordic SOC" />
+    </a>
+    <nav class="nav-links">
+      <div class="nav-item">
+        <button class="nav-trigger" aria-haspopup="true">Vokter Modes
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="drop">
+          <a href="/vokter-autonomous/">Autonomous</a>
+          <a href="/vokter-hybrid/">Hybrid</a>
+          <a href="/vokter-guardian/">Guardian</a>
+        </div>
+      </div>
+      <a href="/partner-program/">Partner Program</a>
+      <a href="/insights/">Insights</a>
+      <a href="/about-us/" class="active">About Us</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="/contact-us/" class="btn btn-primary">Contact Us</a>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/vokter-autonomous/">Vokter Autonomous</a>
+  <a href="/vokter-hybrid/">Vokter Hybrid</a>
+  <a href="/vokter-guardian/">Vokter Guardian</a>
+  <a href="/partner-program/">Partner Program</a>
+  <a href="/insights/">Insights</a>
+  <a href="/about-us/">About Us</a>
+  <a href="/contact-us/" class="btn btn-primary">Contact Us</a>
+</div>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero on-dark">
+  <div class="hero-bg"></div>
+  <div class="wrap">
+    <div class="hero-copy">
+      <div class="eyebrow reveal">About Us</div>
+      <h1 class="reveal">Born in the Nordics, <span class="accent">built for the world.</span></h1>
+      <p class="sub reveal">Nordic SOC is an independent cyber operations hub, headquartered in Stockholm. We design, deploy and operate complete SOC ecosystems — now powered by Vokter, our EU-sovereign AI SOC — for enterprises across the Nordics, DACH and beyond.</p>
+      <div class="hero-actions reveal">
+        <a href="/contact-us/" class="btn btn-primary">Talk to us
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="/vokter-autonomous/" class="btn btn-outline">Explore Vokter</a>
+      </div>
+    </div>
+    <div class="hero-card reveal">
+      <div class="vk-card">
+        <div class="vk-top"><b>Nordic SOC</b><span class="vk-tag">Stockholm, Sweden</span></div>
+        <div class="vk-body">
+          <div class="vlayer"><span class="li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l8 4v5c0 4-3 7-8 9-5-2-8-5-8-9V7l8-4z" stroke-linejoin="round"/></svg></span><div class="lt"><b>Independent SOC provider</b><span>We operate our own ecosystems, not a reseller</span></div></div>
+          <div class="vlayer"><span class="li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></span><div class="lt"><b>Operated from Stockholm</b><span>Regional proximity, global standards</span></div></div>
+          <div class="vlayer"><span class="li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M2 12h20M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18"/></svg></span><div class="lt"><b>EU-sovereign by design</b><span>Your data stays inside the EU</span></div></div>
+          <div class="vlayer"><span class="li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="6" cy="7" r="2.4"/><circle cx="18" cy="7" r="2.4"/><circle cx="12" cy="17" r="2.4"/><path d="M7.7 8.6L11 15M16.3 8.6L13 15" stroke-linecap="round"/></svg></span><div class="lt"><b>Part of The Gateway Group</b><span>A worldwide technology network</span></div></div>
+        </div>
+        <div class="vk-foot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5 9-10" stroke-linecap="round" stroke-linejoin="round"/></svg>Two decades of security experience</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE ARE -->
+<section class="section" id="who">
+  <div class="wrap">
+    <div class="story">
+      <div class="reveal">
+        <h2 class="title">An independent operations hub, built for the region.</h2>
+        <p class="lead">We are a purpose-built cyber operations hub for enterprises across the Nordics and DACH. As an independent provider — not a reseller — we design, deploy and operate complete SOC ecosystems that meet strict regional regulations while delivering global standards.</p>
+        <p class="lead">Everything runs from our Stockholm operations centre, built on G'secure Labs' global security platform and backed by the worldwide reach of The Gateway Group — with two decades of hands-on security experience behind it.</p>
+      </div>
+      <img class="story-img reveal" src="/assets/nordics-building.webp" alt="Nordic SOC operations, Stockholm" loading="lazy" />
+    </div>
+    <div class="stats">
+      <div class="stat reveal"><div class="n"><em>20</em>+ yrs</div><div class="l">Of hands-on security operations experience.</div></div>
+      <div class="stat reveal"><div class="n">24/7</div><div class="l">Continuous monitoring and response.</div></div>
+      <div class="stat reveal"><div class="n">14</div><div class="l">Regions of global delivery and presence.</div></div>
+      <div class="stat reveal"><div class="n">EU</div><div class="l">Sovereign by design — data stays in the EU.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY VOKTER -->
+<section class="section alt" id="why">
+  <div class="wrap">
+    <div class="center-head">
+      <h2 class="title reveal">Why we built Vokter.</h2>
+      <p class="lead reveal">Enterprise-grade protection has always demanded enterprise-grade headcount — a 24/7 team, a SIEM to feed, and analysts buried in alerts. We built Vokter to change that equation. Our AI SOC runs the first line of defense at machine speed, contains threats in seconds, and keeps human expertise for the decisions that genuinely need it — all inside the EU, under our own operation.</p>
+    </div>
+    <div class="cardgrid grid-4">
+      <div class="card reveal">
+        <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="3.2"/><path d="M12 4v3M12 17v3M4 12h3M17 12h3M6.3 6.3l2 2M15.7 15.7l2 2M17.7 6.3l-2 2M8.3 15.7l-2 2" stroke-linecap="round"/></svg></div>
+        <h3>Outcomes, not tools</h3>
+        <p>We deliver security as a managed result, not another platform for clients to staff and operate.</p>
+      </div>
+      <div class="card reveal">
+        <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M2 12h20M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18"/></svg></div>
+        <h3>Sovereignty first</h3>
+        <p>Data is stored, processed and analysed inside the EU — the AI included. Sovereignty is built in, not promised.</p>
+      </div>
+      <div class="card reveal">
+        <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 4h11l3 3v13H5z" stroke-linejoin="round"/><path d="M8 11h8M8 15h6" stroke-linecap="round"/></svg></div>
+        <h3>Transparent by default</h3>
+        <p>Every action is verified, reversible and explained — so clients always see what was done and why.</p>
+      </div>
+      <div class="card reveal">
+        <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.3 3-6 7-6s7 2.7 7 6" stroke-linecap="round"/></svg></div>
+        <h3>People where it counts</h3>
+        <p>The AI carries the volume; our analysts apply judgement to the cases that need experience.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE DO -->
+<section class="section" id="what">
+  <div class="wrap">
+    <div class="center-head">
+      <h2 class="title reveal">About G'secure Labs — our cybersecurity backbone.</h2>
+      <p class="lead reveal">G'secure Labs is the cybersecurity arm of The Gateway Group, providing the technical foundation and operational muscle behind Nordic SOC. We design, build and operate security operations ecosystems that combine engineering rigour with real-world operations — delivering real-time visibility, automated response and measurable assurance.</p>
+    </div>
+    <div class="solutions">
+      <a class="card reveal" href="https://www.gsecurelabs.com/ai-security/" target="_blank" rel="noopener noreferrer">
+        <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="6" y="6" width="12" height="12" rx="2.5"/><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2" stroke-linecap="round"/><path d="M10 14l1.5-4 1.5 4M10.4 12.7h2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>AI Security &amp; Guardrails</h3>
+        <p>Access control, guardrails, data protection and governance for every AI system.</p>
+        <span class="more">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <a class="card reveal" href="https://www.gsecurelabs.com/application-security/" target="_blank" rel="noopener noreferrer">
+        <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 9l-3 3 3 3M16 9l3 3-3 3M13.5 7l-3 10" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Application Security</h3>
+        <p>Structured testing that exposes application-layer risk and confirms what is genuinely exploitable.</p>
+        <span class="more">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <a class="card reveal" href="https://www.gsecurelabs.com/cloud-security/" target="_blank" rel="noopener noreferrer">
+        <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M7 18a4 4 0 010-8 5 5 0 019.6-1.3A3.5 3.5 0 0118 18H7z" stroke-linejoin="round"/></svg></div>
+        <h3>Cloud Security</h3>
+        <p>Identity governance, configuration control and continuous monitoring across multi-cloud.</p>
+        <span class="more">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <a class="card reveal" href="https://www.gsecurelabs.com/soc/" target="_blank" rel="noopener noreferrer">
+        <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 12h4l2 7 4-14 2 7h6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>SOC 24×7</h3>
+        <p>Detect, investigate and respond to threats continuously through adaptive SOC models.</p>
+        <span class="more">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <a class="card reveal" href="https://www.gsecurelabs.com/grc/" target="_blank" rel="noopener noreferrer">
+        <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 4h11l3 3v13H5z" stroke-linejoin="round"/><path d="M9 11l1.4 1.4L13 10M8 16h8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Governance, Risk &amp; Compliance</h3>
+        <p>Regulatory requirements turned into measurable controls, automated workflows and audit-ready evidence.</p>
+        <span class="more">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT SETS US APART -->
+<section class="section alt" id="apart">
+  <div class="wrap">
+    <div class="center-head">
+      <h2 class="title reveal">What sets us apart.</h2>
+      <p class="lead reveal">A regional hub with the proximity to understand your regulations, and the platform and group behind it to deliver at a global standard.</p>
+    </div>
+    <div class="cardgrid grid-4">
+      <div class="card reveal">
+        <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l8 4v5c0 4-3 7-8 9-5-2-8-5-8-9V7l8-4z" stroke-linejoin="round"/></svg></div>
+        <h3>Independent, not a reseller</h3>
+        <p>We design and operate our own SOC ecosystems and stand behind the outcome end to end.</p>
+      </div>
+      <div class="card reveal">
+        <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M2 12h20M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18"/></svg></div>
+        <h3>EU-sovereign by design</h3>
+        <p>Everything runs and stays inside the EU region you choose — sovereignty built in, not promised.</p>
+      </div>
+      <div class="card reveal">
+        <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 7l8-4 8 4-8 4-8-4z" stroke-linejoin="round"/><path d="M4 7v10l8 4 8-4V7" stroke-linejoin="round"/></svg></div>
+        <h3>A proven platform</h3>
+        <p>Built on G'secure Labs' global security platform, with ISO-aligned practices and two decades behind it.</p>
+      </div>
+      <div class="card reveal">
+        <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="6" cy="7" r="2.4"/><circle cx="18" cy="7" r="2.4"/><circle cx="12" cy="17" r="2.4"/><path d="M7.7 8.6L11 15M16.3 8.6L13 15" stroke-linecap="round"/></svg></div>
+        <h3>Part of a global group</h3>
+        <p>Backed by The Gateway Group's worldwide technology network, with presence across 14 regions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GLOBAL PRESENCE -->
+<section class="section" id="presence">
+  <div class="wrap">
+    <div class="center-head">
+      <h2 class="title reveal">Born in the Nordics. Present worldwide.</h2>
+      <p class="lead reveal">Headquartered in Stockholm, with delivery and presence across fourteen regions on four continents.</p>
+    </div>
+    <div class="regions">
+      <div class="region reveal">Belgium</div>
+      <div class="region reveal">Canada</div>
+      <div class="region reveal">Denmark</div>
+      <div class="region reveal">Finland</div>
+      <div class="region reveal">France</div>
+      <div class="region reveal">Germany</div>
+      <div class="region reveal">Iceland</div>
+      <div class="region reveal">India</div>
+      <div class="region reveal">Norway</div>
+      <div class="region reveal">South Africa</div>
+      <div class="region reveal">The Netherlands</div>
+      <div class="region reveal">UAE</div>
+      <div class="region reveal">UK</div>
+      <div class="region reveal">USA</div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="section cta on-dark">
+  <div class="cta-bg"></div>
+  <div class="wrap">
+    <h2 class="reveal">Let's talk about your security operations.</h2>
+    <p class="reveal">Speak with our Stockholm team about protecting your organisation with an EU-sovereign AI SOC — and see Vokter on your own alerts.</p>
+    <div class="cta-actions reveal">
+      <a href="/contact-us/" class="btn btn-primary">Talk to us
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="/vokter-autonomous/" class="btn btn-outline">Explore the platform</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <img class="logo-nsoc" src="/assets/nordic-soc-white.svg" alt="Nordic SOC" />
+        <p>Managed security operations for the Nordics — powered by Vokter, our EU-sovereign AI SOC.</p>
+        <div class="foot-contact">
+          <a href="tel:+46733690899" class="foot-contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.72a16 16 0 006.29 6.29l1.25-1.25a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            +46 733 690899
+          </a>
+          <a href="mailto:consult@gsecurelabs.com" class="foot-contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg>
+            consult@gsecurelabs.com
+          </a>
+          <span class="foot-contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Isafjordsgatan 30A, 16440 Kista, Sweden
+          </span>
+        </div>
+      </div>
+      <div class="foot-col"><ul>
+        <li><a href="/vokter-autonomous/">Vokter Autonomous</a></li>
+        <li><a href="/vokter-hybrid/">Vokter Hybrid</a></li>
+        <li><a href="/vokter-guardian/">Vokter Guardian</a></li>
+        <li><a href="/partner-program/">Partner Program</a></li>
+        <li><a href="/insights/">Insights</a></li>
+        <li><a href="/about-us/">About Us</a></li>
+        <li><a href="/contact-us/">Contact Us</a></li>
+      </ul></div>
+      <div class="foot-offices">
+        <h5>Global Offices:</h5>
+        <ul>
+          <li>Belgium</li><li>Canada</li><li>Denmark</li>
+          <li>Finland</li><li>France</li><li>Germany</li>
+          <li>India</li><li>Iceland</li><li>Norway</li>
+          <li>South Africa</li><li>The Netherlands</li><li>UAE</li>
+          <li>UK</li><li>USA</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div class="foot-legal"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a></div>
+      <span>© 2026 Nordic SOC. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const nav=document.getElementById('nav');
+const onScroll=()=>nav.classList.toggle('scrolled',window.scrollY>16);
+onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+const toggle=document.getElementById('menuToggle');
+const menu=document.getElementById('mobileMenu');
+toggle.addEventListener('click',()=>menu.classList.toggle('open'));
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach((e)=>{
+    if(e.isIntersecting){
+      const sibs=[...e.target.parentElement.children].filter(c=>c.classList.contains('reveal'));
+      e.target.style.transitionDelay=(Math.min(sibs.indexOf(e.target),6)*55)+'ms';
+      e.target.classList.add('in');io.unobserve(e.target);
+    }
+  });
+},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

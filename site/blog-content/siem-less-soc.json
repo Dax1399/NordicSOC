@@ -1,0 +1,38 @@
+{
+  "title": "Do You Still Need a SIEM? The Rise of the SIEM-less SOC",
+  "slug": "siem-less-soc",
+  "meta_title": "SIEM-less SOC: Do You Still Need a SIEM? | Nordic SOC",
+  "meta_description": "Can you run security operations without a SIEM? How a SIEM-less SOC ingests from EDR/XDR and the Windows Event Collector, and when you still need a SIEM.",
+  "excerpt": "Many organisations can now run effective security operations without a SIEM. We explain what a SIEM does, how a SIEM-less SOC works on EDR/XDR and the Windows Event Collector, and when you still want one.",
+  "focus_keyword": "SIEM-less SOC",
+  "secondary_keywords": ["SOC without SIEM", "do I need a SIEM", "EDR XDR SOC", "Windows Event Collector"],
+  "category": "AI SOC",
+  "tags": ["SIEM-less SOC", "AI SOC", "EDR XDR", "Windows Event Collector", "security operations", "Nordic SOC"],
+  "author": "Nordic SOC",
+  "date": "2026-06-20",
+  "reading_time": "8 min",
+  "hero_image": "",
+  "hero_image_alt": "Diagram comparing a traditional SIEM SOC with a SIEM-less SOC ingesting from EDR/XDR and the Windows Event Collector",
+  "faq": [
+    {
+      "q": "Can you run a SOC without a SIEM?",
+      "a": "Yes. A SIEM-less SOC ingests telemetry directly from EDR/XDR platforms or the Windows Event Collector and uses AI to triage, score and contain threats. For organisations whose risk is concentrated on endpoints and Windows infrastructure, this covers the signal that matters without the cost and tuning burden of a SIEM."
+    },
+    {
+      "q": "Do I still need a SIEM?",
+      "a": "It depends on your estate. A SIEM is still the stronger choice for broad, heterogeneous environments, long-term searchable log retention, specific compliance evidence, or where you already run a tuned SIEM with skilled analysts. For endpoint-heavy estates without a dedicated team, a SIEM-less SOC is often sufficient."
+    },
+    {
+      "q": "How does an AI SOC ingest data without a SIEM?",
+      "a": "It connects directly to source telemetry. EDR/XDR platforms record process, network, file and identity events on each device, and the Windows Event Collector forwards Windows event logs natively. The AI reads these sources, correlates across them and reasons about threats, replacing both the SIEM rules engine and much of the L1 analyst function."
+    },
+    {
+      "q": "What is the difference between SIEM-less and SIEM-plus-AI?",
+      "a": "SIEM-less runs security operations on EDR/XDR and the Windows Event Collector with no SIEM, suited to endpoint-heavy estates and teams without analysts. SIEM-plus-AI keeps an existing SIEM and adds AI as an automated L1 layer that enriches, decides, acts and writes back, freeing analysts for L2 and L3 work."
+    },
+    {
+      "q": "Is a SIEM-less SOC compliant with DORA and NIS2?",
+      "a": "Compliance depends on your specific obligations and the evidence your auditors expect. DORA and NIS2 make demonstrable logging and monitoring important for in-scope entities, and some frameworks expect centralised log management with defined retention. Where long retention or broad source coverage is required, a SIEM or a hybrid model may be the better fit."
+    }
+  ]
+}

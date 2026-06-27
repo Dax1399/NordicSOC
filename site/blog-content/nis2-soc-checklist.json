@@ -1,0 +1,38 @@
+{
+  "title": "NIS2 and Your SOC: A Practical Compliance Checklist",
+  "slug": "nis2-soc-checklist",
+  "meta_title": "NIS2 SOC Requirements Checklist | Nordic SOC",
+  "meta_description": "A practical checklist of NIS2 SOC requirements: scope, risk management, incident reporting, supply chain and evidence, plus how an AI SOC helps you comply.",
+  "excerpt": "What does NIS2 require of your SOC? A practical checklist covering scope, risk-management measures, incident reporting, supply-chain security and evidence, and how an AI SOC supports faster detection and accurate, audit-ready reporting.",
+  "focus_keyword": "NIS2 SOC requirements",
+  "secondary_keywords": ["NIS2 directive", "NIS2 incident reporting", "NIS2 checklist", "essential and important entities"],
+  "category": "Compliance",
+  "tags": ["NIS2", "compliance", "incident reporting", "SOC", "EU regulation", "risk management"],
+  "author": "Nordic SOC",
+  "date": "2026-06-11",
+  "reading_time": "8 min",
+  "hero_image": "",
+  "hero_image_alt": "Security operations centre dashboard showing NIS2 compliance monitoring and incident reporting",
+  "faq": [
+    {
+      "q": "What does NIS2 require of a SOC?",
+      "a": "NIS2 expects in-scope organisations to operate risk-based security measures, detect incidents promptly, handle and recover from them, and notify the national CSIRT or competent authority of significant incidents within defined windows. A SOC delivers these outcomes through continuous monitoring, alert triage, investigation, response, and audit-ready evidence."
+    },
+    {
+      "q": "When did NIS2 come into force?",
+      "a": "NIS2 was adopted as an EU directive in 2022. Member states transposed it into national law, with a transposition deadline of October 2024. Because it is a directive rather than a regulation, the exact rules, deadlines, and classifications vary by member state, so organisations should confirm their obligations under each relevant national law."
+    },
+    {
+      "q": "What is the difference between essential and important entities under NIS2?",
+      "a": "Both essential and important entities must meet comparable risk-management and reporting obligations. The main difference is supervision: essential entities face proactive, ongoing oversight, while important entities are generally supervised reactively, after an incident or indication of non-compliance. Classification depends on sector and organisation size under national law."
+    },
+    {
+      "q": "How does NIS2 incident reporting work?",
+      "a": "For significant incidents, NIS2 uses a phased model: an early warning shortly after the organisation becomes aware of the incident, a fuller notification with an initial assessment, and a final report later covering root cause and mitigation. The precise timeframes are set in each member state's transposition of the directive."
+    },
+    {
+      "q": "How does an AI SOC help with NIS2 compliance?",
+      "a": "An AI SOC accelerates detection and triage, automates investigation to determine whether an incident is significant, and generates structured, time-stamped records as it works. That documentation supports both incident notifications and supervisory audits, helping organisations meet NIS2's demands for speed, consistency, and evidence at scale."
+    }
+  ]
+}

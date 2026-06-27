@@ -1,0 +1,80 @@
+<p>MITRE ATT&CK is a globally accessible, free knowledge base of adversary tactics and techniques, maintained by MITRE and built on observations of real-world attacks. For a SOC, MITRE ATT&CK provides a shared vocabulary that turns a raw alert into context: instead of an isolated signal, an event becomes a recognised step in an attacker's playbook. That context is what makes the difference between alert noise and an investigation a team can act on quickly.</p>
+
+<p>This primer explains what the framework contains, how ATT&CK mapping improves detection coverage, and how an AI SOC uses the framework to explain and prioritise incidents during automated investigation.</p>
+
+<div class="takeaways"><h4>Key takeaways</h4><ul><li>MITRE ATT&CK is a free, MITRE-maintained knowledge base organising adversary behaviour into tactics, techniques and sub-techniques.</li><li>ATT&CK mapping gives every alert shared context, exposes detection gaps and connects related events into a coherent attack narrative.</li><li>The framework spans Enterprise, Mobile and ICS matrices, covering IT, endpoint and operational technology environments.</li><li>An AI SOC maps alerts to ATT&CK tactics and techniques automatically, accelerating triage and producing explainable, prioritised incidents.</li><li>Consistent ATT&CK mapping supports measurable detection coverage and clearer reporting for auditors and stakeholders.</li></ul></div>
+
+<h2>What is MITRE ATT&CK and why does it matter to a SOC?</h2>
+
+<p>ATT&CK stands for Adversarial Tactics, Techniques and Common Knowledge. It is a structured catalogue of how attackers behave once they have a foothold or are attempting to gain one. Rather than focusing on specific malware signatures, MITRE ATT&CK SOC practice centres on behaviour: what an adversary is trying to do and the methods they use to do it. Because the knowledge base is free and openly maintained, any security team can adopt it without licensing barriers.</p>
+
+<p>The value to a SOC is consistency. When every analyst, tool and report describes activity using the same framework, investigations become repeatable and comparable. An alert mapped to a known technique carries instant context about likely intent, typical follow-on activity and appropriate response, which shortens the path from detection to decision.</p>
+
+<h2>Tactics, techniques and procedures explained</h2>
+
+<p>ATT&CK is organised into a hierarchy. Understanding the three layers, often summarised as tactics, techniques and procedures (TTPs), is the foundation for any ATT&CK mapping work.</p>
+
+<ul>
+<li><strong>Tactics</strong> describe the attacker's goal at a given stage, the <em>why</em>. Examples include Initial Access, Persistence, Privilege Escalation and Exfiltration. Tactics form the columns of the ATT&CK matrix.</li>
+<li><strong>Techniques</strong> describe <em>how</em> an attacker achieves a tactic. Many techniques are further broken down into sub-techniques that capture specific variations of a method.</li>
+<li><strong>Procedures</strong> are the concrete, observed implementations of a technique by a particular adversary or tool, the real-world detail seen in telemetry.</li>
+</ul>
+
+<p>The framework is published as several matrices to reflect different environments. The Enterprise matrix covers IT systems, endpoints, cloud and network. The Mobile matrix addresses mobile platforms, and the ICS matrix covers industrial control systems and operational technology. This separation lets a SOC apply the framework accurately to the estate it actually defends.</p>
+
+<table>
+<thead>
+<tr><th>ATT&CK tactic (the goal)</th><th>Example technique (the method)</th></tr>
+</thead>
+<tbody>
+<tr><td>Initial Access</td><td>Phishing</td></tr>
+<tr><td>Execution</td><td>Command and scripting interpreter</td></tr>
+<tr><td>Persistence</td><td>Account manipulation</td></tr>
+<tr><td>Privilege Escalation</td><td>Valid accounts</td></tr>
+<tr><td>Defense Evasion</td><td>Impair defenses</td></tr>
+<tr><td>Credential Access</td><td>Brute force</td></tr>
+<tr><td>Lateral Movement</td><td>Remote services</td></tr>
+<tr><td>Exfiltration</td><td>Exfiltration over web service</td></tr>
+</tbody>
+</table>
+
+<p>The techniques above are illustrative examples drawn from the framework's structure; the authoritative and complete catalogue is maintained by MITRE.</p>
+
+<h2>How does ATT&CK mapping improve threat detection coverage?</h2>
+
+<p>ATT&CK mapping means associating detections, alerts and telemetry with the relevant tactics and techniques. Done consistently, it changes how a SOC understands its own capability and its incidents.</p>
+
+<p><strong>Coverage visibility.</strong> By mapping existing detection rules to the ATT&CK matrix, a team can see which techniques are well covered and which are blind spots. This turns an abstract question, "are we protected?", into a concrete heat map of strengths and gaps that informs tuning and investment.</p>
+
+<p><strong>Context on every alert.</strong> An alert tagged with a technique tells the analyst what the activity represents and what commonly follows it. A credential-access alert, for instance, signals the need to check for subsequent lateral movement, guiding the investigation rather than leaving the analyst to start from scratch.</p>
+
+<p><strong>Connected narratives.</strong> Real intrusions span multiple techniques across several tactics. Mapping individual alerts to ATT&CK lets a SOC stitch separate signals into a single chain of behaviour, distinguishing a genuine multi-stage attack from unrelated noise. This is central to reducing the alert overload many teams face; our note on <a href="/blog.php?slug=ai-alert-triage-alert-fatigue">AI alert triage and alert fatigue</a> explores that challenge in more detail.</p>
+
+<h2>How an AI SOC uses MITRE ATT&CK for automated investigation</h2>
+
+<p>Manual ATT&CK mapping is valuable but slow, and it depends on analyst availability and expertise. An AI SOC applies the same framework programmatically, at machine speed, across every alert. This is where MITRE ATT&CK SOC practice scales from a reference exercise to an operational engine for automated investigation.</p>
+
+<p>When an alert arrives, the AI correlates the underlying telemetry against ATT&CK techniques, assigns the most likely tactic and technique, gathers related events, and assembles a structured account of what appears to be happening. Crucially, the mapping is explainable: the incident summary states which technique was matched and on what evidence, so analysts and auditors can follow the reasoning rather than trust a black box.</p>
+
+<table>
+<thead>
+<tr><th>Aspect</th><th>Manual ATT&CK mapping</th><th>AI-assisted ATT&CK mapping</th></tr>
+</thead>
+<tbody>
+<tr><td>Speed</td><td>Minutes to hours per alert</td><td>Continuous, near real time</td></tr>
+<tr><td>Coverage</td><td>Limited by analyst capacity</td><td>Applied to every alert</td></tr>
+<tr><td>Consistency</td><td>Varies by analyst and shift</td><td>Uniform across all events</td></tr>
+<tr><td>Correlation</td><td>Manual cross-referencing</td><td>Automated linking of related events</td></tr>
+<tr><td>Output</td><td>Analyst notes</td><td>Structured, explainable incident with technique references</td></tr>
+</tbody>
+</table>
+
+<p>The result is faster, better-prioritised investigation. By placing each event in the context of the wider attack, the AI can rank incidents by likely severity and stage, so the most advanced or impactful activity rises to the top. The <a href="/vokter-hybrid.html">Hybrid</a> mode applies this AI mapping as a first analyst layer over an existing SIEM and SOAR, while the <a href="/vokter-autonomous.html">Autonomous</a> mode runs investigation without a separate SIEM. ATT&CK context also underpins safe response decisions, a topic covered in our piece on <a href="/blog.php?slug=autonomous-containment-safe">autonomous containment done safely</a>.</p>
+
+<h2>ATT&CK mapping, reporting and assurance</h2>
+
+<p>Beyond live investigation, consistent ATT&CK mapping strengthens reporting. Mapping incidents to recognised techniques gives leadership and auditors a defensible, standardised view of what the SOC detects and how it responds. As obligations under frameworks such as DORA, applicable from 17 January 2025, and NIS2, adopted in 2022, raise expectations around incident handling and reporting, a common behavioural vocabulary makes evidence clearer and comparisons across time and teams more meaningful.</p>
+
+<h2>Conclusion</h2>
+
+<p>MITRE ATT&CK gives a SOC a free, structured language for adversary behaviour, organised into tactics, techniques and procedures across Enterprise, Mobile and ICS matrices. Mapping alerts to this framework improves detection coverage, adds context to every event and connects isolated signals into coherent attack narratives. When an AI SOC performs that mapping automatically, the framework becomes a practical engine for fast, explainable and well-prioritised investigation, helping analysts focus on what matters and respond with confidence.</p>

@@ -1,0 +1,38 @@
+{
+  "title": "How AI Triage Ends Alert Fatigue in the SOC",
+  "slug": "ai-alert-triage-alert-fatigue",
+  "meta_title": "AI Triage Ends Alert Fatigue | Nordic SOC",
+  "meta_description": "Alert fatigue buries real threats in noise. Learn how AI alert triage enriches, correlates, scores, and auto-closes benign alerts to cut false positives.",
+  "excerpt": "Alert fatigue causes missed threats and analyst burnout. This article explains its causes and cost, and how AI-driven triage enriches, correlates, scores, and auto-closes benign alerts to escalate only what matters.",
+  "focus_keyword": "alert fatigue",
+  "secondary_keywords": ["AI alert triage", "reduce false positives", "SOC analyst burnout", "alert overload"],
+  "category": "AI SOC",
+  "tags": ["alert fatigue", "AI alert triage", "false positives", "SOC burnout", "alert overload", "AI SOC"],
+  "author": "Nordic SOC",
+  "date": "2026-06-04",
+  "reading_time": "7 min read",
+  "hero_image": "",
+  "hero_image_alt": "Security analyst reviewing a prioritised queue of triaged alerts in an AI-driven SOC",
+  "faq": [
+    {
+      "q": "What is alert fatigue in a SOC?",
+      "a": "Alert fatigue is the desensitisation that occurs when security analysts face more alerts than they can investigate. The constant volume, much of it false positives or duplicates, erodes attention and increases the risk that a genuine threat is dismissed as routine noise."
+    },
+    {
+      "q": "How does AI alert triage reduce false positives?",
+      "a": "AI triage applies consistent enrichment and correlation to every alert, weighing evidence such as user privilege, asset criticality, and historical behaviour. This lets it distinguish benign activity from genuine threats uniformly and resolve false positives correctly rather than ignoring them."
+    },
+    {
+      "q": "Is it safe for AI to auto-close alerts?",
+      "a": "Yes, when it operates within guardrails. Auto-closure applies only to alerts that meet defined confidence thresholds and scope rules, and every action is logged for audit. Anything ambiguous or high-impact is escalated to a human analyst rather than closed."
+    },
+    {
+      "q": "How does AI triage help with SOC analyst burnout?",
+      "a": "By handling repetitive first-line review automatically, AI triage frees analysts to focus on investigation, threat hunting, and response. Changing the nature of the work, rather than simply adding capacity, is the most durable way to address burnout and improve retention."
+    },
+    {
+      "q": "What is the difference between Vokter Hybrid and Vokter Autonomous for triage?",
+      "a": "Vokter Hybrid applies AI as the first line over your existing SIEM and SOAR, freeing analysts for L2 and L3 work. Vokter Autonomous performs SIEM-less detection and triage end to end, escalating only what needs a human decision. Both run within EU data sovereignty boundaries."
+    }
+  ]
+}

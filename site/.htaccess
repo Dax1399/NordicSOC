@@ -1,0 +1,49 @@
+# ============================================================
+# Nordic SOC — clean URLs + legacy redirects (Apache / cPanel)
+# ============================================================
+Options -MultiViews
+RewriteEngine On
+RewriteBase /
+
+# ------------------------------------------------------------
+# 1) 301 redirects from the previous site's service pages
+# ------------------------------------------------------------
+RewriteRule ^enterprise-soc/?$   /vokter-guardian/    [R=301,L]
+RewriteRule ^cloud-soc/?$        /vokter-autonomous/  [R=301,L]
+RewriteRule ^hybrid-soc/?$       /vokter-hybrid/      [R=301,L]
+
+# ------------------------------------------------------------
+# 2) Canonicalise: 301 the raw files to their clean URL.
+#    THE_REQUEST = the original browser request, so internal
+#    rewrites in section 3 do not trigger these (no loops).
+# ------------------------------------------------------------
+RewriteCond %{THE_REQUEST} \s/+index\.html[\s?]            [NC]
+RewriteRule ^ / [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+about\.html[\s?]            [NC]
+RewriteRule ^ /about-us/ [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+contact\.html[\s?]          [NC]
+RewriteRule ^ /contact-us/ [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+vokter-autonomous\.html[\s?] [NC]
+RewriteRule ^ /vokter-autonomous/ [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+vokter-hybrid\.html[\s?]    [NC]
+RewriteRule ^ /vokter-hybrid/ [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+vokter-guardian\.html[\s?]  [NC]
+RewriteRule ^ /vokter-guardian/ [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+vokter-partners\.html[\s?]  [NC]
+RewriteRule ^ /partner-program/ [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+insights/index\.html[\s?]   [NC]
+RewriteRule ^ /insights/ [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+insights/([a-z0-9-]+)\.html[\s?] [NC]
+RewriteRule ^ /insights/%1/ [R=301,L]
+
+# ------------------------------------------------------------
+# 3) Serve the clean URLs from the underlying files
+#    (/insights/ is served by insights/index.html via DirectoryIndex)
+# ------------------------------------------------------------
+RewriteRule ^about-us/?$            about.html              [L]
+RewriteRule ^contact-us/?$          contact.html            [L]
+RewriteRule ^vokter-autonomous/?$   vokter-autonomous.html  [L]
+RewriteRule ^vokter-hybrid/?$       vokter-hybrid.html      [L]
+RewriteRule ^vokter-guardian/?$     vokter-guardian.html    [L]
+RewriteRule ^partner-program/?$     vokter-partners.html    [L]
+RewriteRule ^insights/([a-z0-9-]+)/?$ insights/$1.html      [L]

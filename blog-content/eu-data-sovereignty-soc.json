@@ -1,0 +1,38 @@
+{
+  "title": "EU Data Sovereignty in Security Operations: Why It Matters",
+  "slug": "eu-data-sovereignty-soc",
+  "meta_title": "EU Data Sovereignty for the SOC | Nordic SOC",
+  "meta_description": "What EU data sovereignty means for security operations, how it differs from data residency, and what to verify with a provider before sharing SOC telemetry.",
+  "excerpt": "EU data sovereignty means your SOC data and the AI processing it stay under EU jurisdiction and law. Learn how it differs from data residency and what to verify with a provider.",
+  "focus_keyword": "EU data sovereignty",
+  "secondary_keywords": ["sovereign SOC", "data residency EU", "sovereign cybersecurity", "where does SOC data go"],
+  "category": "Compliance",
+  "tags": ["EU data sovereignty", "data residency", "GDPR", "EU AI Act", "sovereign SOC", "compliance"],
+  "author": "Nordic SOC",
+  "date": "2026-06-09",
+  "reading_time": "7 min",
+  "hero_image": "",
+  "hero_image_alt": "Map of the European Union representing EU-sovereign security operations data and AI processing",
+  "faq": [
+    {
+      "q": "What is EU data sovereignty in security operations?",
+      "a": "It means the data flowing through your SOC — logs, alerts, telemetry, case files and the AI that processes them — remains under EU jurisdiction and EU law, not exposed to non-EU lawful-access regimes, regardless of where the servers physically sit."
+    },
+    {
+      "q": "What is the difference between EU data residency and sovereignty?",
+      "a": "Data residency is a physical question — where data is stored and processed. Sovereignty is a legal and operational one — under whose jurisdiction the data falls and who can be compelled to access it. A provider can offer EU residency while remaining controlled by a non-EU parent."
+    },
+    {
+      "q": "Why does EU data sovereignty matter now?",
+      "a": "Non-EU lawful-access exposure, GDPR, sector rules such as DORA and NIS2, and the EU AI Act's transparency obligations (applying from August 2026) all require organisations to know where SOC data sits and where the AI that processes it operates."
+    },
+    {
+      "q": "Does the EU AI Act affect AI used in a SOC?",
+      "a": "Yes. A modern SOC uses AI for alert triage and investigation, bringing it into scope of the EU AI Act. Its transparency obligations begin to apply from August 2026, reinforcing the need to know where and how the AI processing your telemetry operates."
+    },
+    {
+      "q": "What should I verify with a SOC provider on sovereignty?",
+      "a": "Confirm the specific EU storage region, the controlling legal entity and its jurisdiction, where AI inference runs, the sub-processor chain, encryption key custody, who can access data, and whether any parent could be compelled to disclose data under non-EU law."
+    }
+  ]
+}

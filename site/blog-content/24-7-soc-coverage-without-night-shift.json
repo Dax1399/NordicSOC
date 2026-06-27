@@ -1,0 +1,38 @@
+{
+  "title": "How to Get 24/7 SOC Coverage Without a Night Shift",
+  "slug": "24-7-soc-coverage-without-night-shift",
+  "meta_title": "24/7 SOC Coverage Without a Night Shift | Nordic SOC",
+  "meta_description": "How lean teams get genuine 24/7 SOC coverage without staffing a night shift: compare in-house, follow-the-sun, MDR and AI SOC, with human escalation.",
+  "excerpt": "Round-the-clock protection no longer requires a night-shift rota. This guide compares the options for 24/7 SOC coverage and shows how an AI SOC delivers continuous first-line monitoring with human escalation.",
+  "focus_keyword": "24/7 SOC coverage",
+  "secondary_keywords": ["round-the-clock SOC", "SOC staffing", "lean security team", "after-hours security monitoring"],
+  "category": "Guides",
+  "tags": ["24/7 SOC coverage", "SOC staffing", "AI SOC", "MDR", "round-the-clock SOC", "after-hours monitoring"],
+  "author": "Nordic SOC",
+  "date": "2026-06-02",
+  "reading_time": "7 min",
+  "hero_image": "",
+  "hero_image_alt": "A lean security team relying on continuous AI-led SOC monitoring for 24/7 coverage without a night shift",
+  "faq": [
+    {
+      "q": "How can a small team get 24/7 SOC coverage without a night shift?",
+      "a": "Route continuous first-line detection and triage to an AI SOC that operates around the clock, then escalate only confirmed, prioritised incidents to your people during working hours or to a managed analyst team under an SLA. The automation absorbs the overnight volume, so you do not need analysts on rotating night shifts."
+    },
+    {
+      "q": "Why is staffing a 24/7 SOC in-house so difficult?",
+      "a": "Continuous coverage requires several rotating shifts plus additional cover for annual leave, sickness, training and attrition. Night and weekend rotations are unpopular and accelerate burnout, and the shortage of experienced security analysts makes sustaining quality coverage at every hour especially hard for a lean security team."
+    },
+    {
+      "q": "What are the options for round-the-clock SOC coverage?",
+      "a": "The main routes are building an in-house team, follow-the-sun handovers between time zones, outsourcing to MDR or SOC-as-a-service, and using an AI SOC for continuous monitoring. In-house and follow-the-sun assume scale most mid-market firms lack, so outsourcing and AI-led automation, often combined, are the realistic options."
+    },
+    {
+      "q": "Does an AI SOC remove the need for human analysts?",
+      "a": "No. An AI SOC excels at continuous first-line detection and triage, resolving overnight noise before anyone is woken, but human expertise remains essential for disruptive containment decisions, regulatory notification, leadership communication and deep forensics. The strongest models combine automation for first response with human escalation for judgement."
+    },
+    {
+      "q": "What is the difference between Vokter Autonomous and Vokter Guardian for after-hours coverage?",
+      "a": "Vokter Autonomous provides continuous, SIEM-less coverage with no in-house SOC team required. Vokter Guardian pairs the same continuous AI coverage with named Nordic analysts available 24/7 under a contractual SLA, adding threat hunting, forensics and defined response commitments for teams that want guaranteed human accountability."
+    }
+  ]
+}

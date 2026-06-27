@@ -1,0 +1,38 @@
+{
+  "title": "Choosing an AI SOC Provider in Europe: 10 Questions to Ask",
+  "slug": "choosing-ai-soc-provider-europe",
+  "meta_title": "AI SOC Provider Europe: 10 Questions | Nordic SOC",
+  "meta_description": "How to choose an AI SOC provider in Europe: 10 questions on data sovereignty, autonomy, explainability, SLAs, DORA/NIS2 evidence and exit terms.",
+  "excerpt": "A practical evaluation guide for CISOs and procurement leaders choosing an AI SOC provider in Europe, built around ten questions covering sovereignty, autonomy, compliance, human escalation and lock-in.",
+  "focus_keyword": "AI SOC provider Europe",
+  "secondary_keywords": ["European SOC provider", "AI SOC vendor", "MDR provider Europe", "how to choose a SOC"],
+  "category": "Guides",
+  "tags": ["AI SOC", "vendor evaluation", "data sovereignty", "DORA", "NIS2", "MDR"],
+  "author": "Nordic SOC",
+  "date": "2026-05-23",
+  "reading_time": "8 min",
+  "hero_image": "",
+  "hero_image_alt": "CISO evaluating AI SOC providers against a European data sovereignty and compliance checklist",
+  "faq": [
+    {
+      "q": "What is the most important question to ask an AI SOC provider in Europe?",
+      "a": "Where both your data and the AI inference actually run. A genuinely European SOC provider keeps telemetry and AI processing inside your chosen EU region, with contractual guarantees and no offshore access or model training on your data."
+    },
+    {
+      "q": "How do I know if an AI SOC's automation is safe?",
+      "a": "Look for guardrails: containment actions that are pre-approved against playbooks, reversible, and verified before and after execution, with human sign-off required on major incidents. Safe autonomy is bounded autonomy."
+    },
+    {
+      "q": "Why does explainability matter when choosing a SOC?",
+      "a": "EU AI Act transparency obligations apply from August 2026, and DORA and NIS2 already require auditable operations. Every detection and action should carry a human-readable rationale and full audit trail, mapped to frameworks such as MITRE ATT&CK."
+    },
+    {
+      "q": "Does an AI SOC replace my existing SIEM and SOAR?",
+      "a": "Not necessarily. A flexible AI SOC vendor can operate SIEM-less where suitable, or layer AI-driven L1 triage over your existing SIEM and SOAR, so you preserve prior investment while gaining automation."
+    },
+    {
+      "q": "What should I check about exit terms and vendor lock-in?",
+      "a": "Confirm portable data in standard formats, a defined offboarding process in the contract, and no proprietary traps. An independent European MDR provider should make leaving straightforward."
+    }
+  ]
+}

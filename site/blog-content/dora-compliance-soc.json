@@ -1,0 +1,38 @@
+{
+  "title": "DORA Compliance: What Your SOC Must Deliver",
+  "slug": "dora-compliance-soc",
+  "meta_title": "DORA Compliance SOC Requirements | Nordic SOC",
+  "meta_description": "What DORA requires of your SOC: ICT risk management, incident classification and reporting timelines, testing, third-party risk and audit-ready evidence.",
+  "excerpt": "DORA applies from 17 January 2025. Here is what the Digital Operational Resilience Act requires of your security operations, and how a modern AI SOC delivers audit-ready detection, classification, reporting and evidence.",
+  "focus_keyword": "DORA compliance SOC",
+  "secondary_keywords": ["Digital Operational Resilience Act", "DORA incident reporting", "operational resilience", "ICT risk management"],
+  "category": "Compliance",
+  "tags": ["DORA", "compliance", "incident reporting", "ICT risk management", "operational resilience", "AI SOC"],
+  "author": "Nordic SOC",
+  "date": "2026-06-13",
+  "reading_time": "8 min",
+  "hero_image": "",
+  "hero_image_alt": "DORA compliance and SOC operational resilience for EU financial entities",
+  "faq": [
+    {
+      "q": "When does DORA apply?",
+      "a": "DORA, the Digital Operational Resilience Act (Regulation (EU) 2022/2554), applies from 17 January 2025. It is a directly applicable EU regulation, meaning financial entities must comply without waiting for national transposition."
+    },
+    {
+      "q": "Who does DORA cover?",
+      "a": "DORA covers a broad range of financial entities, including banks, insurers, investment firms, payment institutions and crypto-asset service providers, as well as the critical ICT third-party providers that supply services to them."
+    },
+    {
+      "q": "What must a SOC deliver for DORA incident reporting?",
+      "a": "A SOC must consistently detect and classify incidents against DORA criteria and produce initial, intermediate and final reports to the competent authority within regulator-defined timelines, supported by a complete, time-stamped incident timeline."
+    },
+    {
+      "q": "How does an AI SOC help with DORA compliance?",
+      "a": "An AI SOC provides continuous detection, consistent classification and automatically generated, audit-ready evidence. This reduces reporting latency and ensures the trail DORA expects is captured as events unfold rather than reconstructed afterwards."
+    },
+    {
+      "q": "How does DORA relate to NIS2?",
+      "a": "NIS2 is a broad cross-sector cybersecurity directive, while DORA is the sector-specific, directly applicable regulation for financial services. Entities subject to both benefit from aligning incident classification and reporting processes across the two frameworks."
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "title": "What Is MDR? Managed Detection and Response Explained",
+  "slug": "mdr-explained",
+  "meta_title": "What Is MDR? Explained | Nordic SOC",
+  "meta_description": "What is MDR? A clear guide to managed detection and response: what it includes, MDR vs EDR vs MSSP vs SOC, who needs it, and how AI is reshaping MDR.",
+  "excerpt": "Managed detection and response (MDR) delivers 24/7 monitoring, detection, investigation, and response as a managed service. This guide explains what MDR is, how it differs from EDR, MSSP, and a full SOC, and how AI is reshaping it.",
+  "focus_keyword": "what is MDR",
+  "secondary_keywords": ["managed detection and response", "MDR vs MSSP", "MDR vs EDR", "MDR services"],
+  "category": "MDR",
+  "tags": ["MDR", "managed detection and response", "MDR vs EDR", "MDR vs MSSP", "AI SOC", "EU-sovereign"],
+  "author": "Nordic SOC",
+  "date": "2026-06-06",
+  "reading_time": "8 min",
+  "hero_image": "",
+  "hero_image_alt": "Diagram of managed detection and response covering monitoring, detection, investigation, and response",
+  "faq": [
+    {
+      "q": "What is MDR in simple terms?",
+      "a": "MDR (managed detection and response) is a security service where an external provider continuously monitors your environment, detects threats, investigates alerts, and responds to confirmed incidents on your behalf. It delivers detection and response as an outcome rather than as a tool you operate yourself."
+    },
+    {
+      "q": "What is the difference between MDR and EDR?",
+      "a": "EDR (Endpoint Detection and Response) is a technology product that detects malicious activity on endpoints and must be operated by your team. MDR is a managed service that operates detection technology — which may include EDR, SIEM, identity, network, and cloud telemetry — and delivers human or AI-driven investigation and response."
+    },
+    {
+      "q": "How is MDR different from an MSSP?",
+      "a": "A traditional MSSP manages security devices and forwards alerts, often leaving investigation and response to your in-house team. MDR takes ownership of detection engineering, investigates alerts to a verdict, and drives or executes response, focusing on threat outcomes and reduced dwell time rather than device management alone."
+    },
+    {
+      "q": "Who needs MDR services?",
+      "a": "MDR suits organisations that need mature 24/7 detection and response without building a full in-house SOC, including mid-sized enterprises, regulated firms in finance, healthcare, and critical infrastructure, lean security teams, and MSPs adding detection and response to their portfolios."
+    },
+    {
+      "q": "How is AI changing MDR?",
+      "a": "AI automates alert triage, signal correlation, and attack reconstruction, reducing response times and analyst alert fatigue. This allows MDR providers to sustain 24/7 coverage with more consistent triage and faster mean time to detect and respond, without scaling headcount proportionally."
+    }
+  ]
+}

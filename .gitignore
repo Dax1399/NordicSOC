@@ -18,3 +18,13 @@ Nordic-SOC-Website-Copy.md
 *.log
 .DS_Store
 Thumbs.db
+
+# scratch / dev artifacts (screenshots, mosaic generation)
+_shots/
+_extract/
+
+# internal source files (not part of the website)
+*.pptx
+/Nordic Soc logo.svg
+/Vokter_AI_SOC_for_the_Nordics.svg
+/nordics-building.webp

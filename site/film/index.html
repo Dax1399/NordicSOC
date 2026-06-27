@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Vokter — Brand Film</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --navy:#142E4A; --deep:#08111d; --deep2:#0c1a2c;
+  --orchid:#BCD153; --orchid-soft:rgba(188,209,83,.16);
+  --ink:#EAF1F8; --muted:#9FB3C4;
+  --glass:rgba(255,255,255,.055); --glass-line:rgba(255,255,255,.14);
+  --ease:cubic-bezier(.22,.61,.18,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  background:#05090f;
+  font-family:"Google Sans Flex","Google Sans",system-ui,Arial,sans-serif;
+  color:var(--ink);overflow:hidden;
+}
+.viewport{position:fixed;inset:0;display:grid;place-items:center;background:#05090f}
+.stage{
+  position:relative;width:min(100vw,177.78vh);aspect-ratio:16/9;overflow:hidden;
+  background:radial-gradient(120% 130% at 50% -10%,#16314f 0%,#0c1a2c 45%,#08111d 100%);
+  --u:10px;
+}
+/* ===== ambient backdrop ===== */
+.aurora{position:absolute;inset:-20%;pointer-events:none;filter:blur(calc(var(--u)*8));opacity:.8}
+.aurora span{position:absolute;border-radius:50%;mix-blend-mode:screen;opacity:.5}
+.a1{width:55%;height:55%;left:-8%;top:-12%;background:radial-gradient(circle,#1d6e7a,transparent 60%);animation:drift1 26s var(--ease) infinite alternate}
+.a2{width:50%;height:50%;right:-6%;top:8%;background:radial-gradient(circle,#2a5fb0,transparent 60%);animation:drift2 32s var(--ease) infinite alternate}
+.a3{width:42%;height:42%;left:30%;bottom:-14%;background:radial-gradient(circle,rgba(188,209,83,.5),transparent 60%);animation:drift3 30s var(--ease) infinite alternate}
+@keyframes drift1{to{transform:translate(12%,10%) scale(1.15)}}
+@keyframes drift2{to{transform:translate(-10%,8%) scale(1.1)}}
+@keyframes drift3{to{transform:translate(8%,-12%) scale(1.2)}}
+.grid-floor{position:absolute;inset:0;pointer-events:none;opacity:.10;
+  background-image:linear-gradient(rgba(255,255,255,.5) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.5) 1px,transparent 1px);
+  background-size:calc(var(--u)*6) calc(var(--u)*6);
+  -webkit-mask-image:radial-gradient(80% 80% at 50% 60%,#000 30%,transparent 78%);
+  mask-image:radial-gradient(80% 80% at 50% 60%,#000 30%,transparent 78%);}
+.vignette{position:absolute;inset:0;pointer-events:none;background:radial-gradient(110% 100% at 50% 45%,transparent 55%,rgba(2,6,12,.62));}
+
+/* ===== scene system ===== */
+.scene{position:absolute;inset:0;display:grid;place-items:center;opacity:0;transition:opacity .9s var(--ease);will-change:opacity}
+.scene.active{opacity:1}
+.reveal{opacity:0;transform:translateY(calc(var(--u)*1.4));filter:blur(calc(var(--u)*.6));
+  transition:opacity 1.1s var(--ease),transform 1.1s var(--ease),filter 1.1s var(--ease)}
+.scene.in .reveal{opacity:1;transform:none;filter:none}
+
+.wrap{width:78%;text-align:center}
+.eyebrow{font-size:calc(var(--u)*1.25);letter-spacing:.34em;text-transform:uppercase;color:var(--orchid);font-weight:600;opacity:.9}
+.lead{font-size:calc(var(--u)*3.4);font-weight:600;letter-spacing:-.02em;line-height:1.14}
+.lead.sm{font-size:calc(var(--u)*2.5)}
+.sub{font-size:calc(var(--u)*1.7);color:var(--muted);font-weight:400;line-height:1.5}
+.thin{font-weight:300}
+.accent{color:var(--orchid)}
+.stack>*+*{margin-top:calc(var(--u)*1.6)}
+
+/* ===== S1 signals ===== */
+.signals{position:absolute;inset:0;pointer-events:none}
+.sig{position:absolute;height:2px;border-radius:2px;background:linear-gradient(90deg,transparent,rgba(188,209,83,.0),rgba(188,209,83,.85),transparent);opacity:0;animation:sweep linear infinite}
+@keyframes sweep{0%{transform:translateX(-30%);opacity:0}10%{opacity:.9}90%{opacity:.9}100%{transform:translateX(130%);opacity:0}}
+.s1-copy{position:relative;z-index:3}
+
+/* ===== S2 logo assemble ===== */
+.brandmark{width:46%;filter:drop-shadow(0 calc(var(--u)*1) calc(var(--u)*2.4) rgba(0,0,0,.5))}
+.converge{position:absolute;inset:0;pointer-events:none}
+.converge i{position:absolute;width:calc(var(--u)*.7);height:calc(var(--u)*.7);border-radius:50%;background:var(--orchid);opacity:0;animation:conv 2.6s var(--ease) forwards}
+@keyframes conv{0%{opacity:0;transform:translate(var(--fx),var(--fy)) scale(.4)}30%{opacity:.9}100%{opacity:0;transform:translate(0,0) scale(.2)}}
+
+/* ===== S3 pipeline / dashboard ===== */
+.panel{position:relative;background:var(--glass);border:1px solid var(--glass-line);border-radius:calc(var(--u)*1.6);
+  backdrop-filter:blur(calc(var(--u)*1.4));-webkit-backdrop-filter:blur(calc(var(--u)*1.4));
+  box-shadow:0 calc(var(--u)*2) calc(var(--u)*5) rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.08)}
+.dash{display:grid;grid-template-columns:1.7fr 1fr;gap:calc(var(--u)*2.2);width:84%;padding:calc(var(--u)*2.6)}
+.dash .hd{display:flex;align-items:center;gap:calc(var(--u)*1);margin-bottom:calc(var(--u)*2)}
+.dash .hd img{height:calc(var(--u)*2.1)}
+.dash .hd .live{margin-left:auto;display:flex;align-items:center;gap:calc(var(--u)*.7);font-size:calc(var(--u)*1.1);color:var(--muted)}
+.dash .hd .live b{width:calc(var(--u)*.8);height:calc(var(--u)*.8);border-radius:50%;background:var(--orchid);box-shadow:0 0 0 0 rgba(188,209,83,.5);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 calc(var(--u)*1.1) rgba(188,209,83,0)}100%{box-shadow:0 0 0 0 rgba(188,209,83,0)}}
+.flow{position:relative;display:flex;flex-direction:column;gap:calc(var(--u)*1.05)}
+.node{display:flex;align-items:center;gap:calc(var(--u)*1.2);padding:calc(var(--u)*1) calc(var(--u)*1.2);border-radius:calc(var(--u)*1);
+  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);opacity:.4;transform:translateX(calc(var(--u)*-.8));}
+.node .ic{width:calc(var(--u)*2.4);height:calc(var(--u)*2.4);border-radius:calc(var(--u)*.7);display:grid;place-items:center;background:rgba(255,255,255,.06);flex-shrink:0}
+.node .ic svg{width:calc(var(--u)*1.4);height:calc(var(--u)*1.4);stroke:var(--muted);fill:none;stroke-width:1.8}
+.node .tx{font-size:calc(var(--u)*1.5);font-weight:500}
+.node .st{margin-left:auto;font-size:calc(var(--u)*1.05);color:var(--muted)}
+.scene.in .node{animation:nodeOn .55s var(--ease) forwards}
+@keyframes nodeOn{to{opacity:1;transform:none}}
+.scene.in .node.done .ic{background:var(--orchid-soft)}
+.scene.in .node.done .ic svg{stroke:var(--orchid)}
+.scene.in .node.done .st{color:var(--orchid)}
+.side{display:flex;flex-direction:column;gap:calc(var(--u)*1.4);padding:calc(var(--u)*2);justify-content:center}
+.kv{display:flex;justify-content:space-between;align-items:center;font-size:calc(var(--u)*1.35)}
+.kv span{color:var(--muted)}
+.kv b{font-weight:600}
+.kv .pill{font-size:calc(var(--u)*1.1);padding:calc(var(--u)*.35) calc(var(--u)*1);border-radius:99px;background:var(--orchid-soft);color:var(--orchid);border:1px solid rgba(188,209,83,.3)}
+.timer{font-size:calc(var(--u)*4.6);font-weight:600;letter-spacing:-.03em}
+.timer small{font-size:calc(var(--u)*1.5);color:var(--muted);font-weight:400;margin-left:calc(var(--u)*.5)}
+.cap{position:absolute;bottom:6%;left:0;right:0;text-align:center}
+
+/* ===== S4 ecosystem ===== */
+.eco{position:relative;width:80%;height:70%;}
+.eco .core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:3}
+.eco .core img{width:calc(var(--u)*18)}
+.chip{position:absolute;transform:translate(-50%,-50%) scale(.85);background:var(--glass);border:1px solid var(--glass-line);
+  border-radius:99px;padding:calc(var(--u)*.85) calc(var(--u)*1.5);font-size:calc(var(--u)*1.35);font-weight:500;white-space:nowrap;
+  backdrop-filter:blur(calc(var(--u)*1));-webkit-backdrop-filter:blur(calc(var(--u)*1));box-shadow:0 calc(var(--u)*1) calc(var(--u)*2.4) rgba(0,0,0,.35);
+  opacity:0}
+.scene.in .chip{animation:chipIn .7s var(--ease) forwards}
+@keyframes chipIn{to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+.eco svg.lines{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.eco svg.lines path{stroke:rgba(188,209,83,.45);stroke-width:1.4;fill:none;stroke-dasharray:6 6;stroke-dashoffset:200;opacity:0}
+.scene.in svg.lines path{animation:draw 1.3s var(--ease) forwards}
+@keyframes draw{to{stroke-dashoffset:0;opacity:.7}}
+
+/* ===== S5 sovereignty ===== */
+.boundary{position:relative;width:62%;aspect-ratio:1.6/1;border-radius:calc(var(--u)*3);
+  border:1.5px solid rgba(188,209,83,.55);background:rgba(188,209,83,.04);
+  box-shadow:0 0 calc(var(--u)*5) rgba(188,209,83,.12) inset,0 0 calc(var(--u)*4) rgba(188,209,83,.1);
+  display:grid;grid-template-columns:1fr 1fr;gap:calc(var(--u)*1.8);place-content:center;padding:calc(var(--u)*3);}
+.boundary::before{content:"EU REGION";position:absolute;top:calc(var(--u)*-1.1);left:50%;transform:translateX(-50%);
+  background:#0c1a2c;padding:0 calc(var(--u)*1.2);font-size:calc(var(--u)*1.05);letter-spacing:.3em;color:var(--orchid);font-weight:600}
+.bnode{display:flex;align-items:center;gap:calc(var(--u)*1);font-size:calc(var(--u)*1.6);font-weight:500}
+.bnode i{width:calc(var(--u)*1);height:calc(var(--u)*1);border-radius:50%;background:var(--orchid)}
+.ping{position:absolute;inset:-2px;border-radius:inherit;border:1.5px solid rgba(188,209,83,.5);opacity:0}
+.scene.in .ping{animation:ping 3.4s var(--ease) infinite}
+@keyframes ping{0%{opacity:.6;transform:scale(1)}70%{opacity:0;transform:scale(1.04)}100%{opacity:0}}
+
+/* ===== S6 human ===== */
+.review{display:flex;align-items:center;gap:calc(var(--u)*3);width:74%}
+.review .col{flex:1}
+.rcard{padding:calc(var(--u)*2.2);text-align:left}
+.rcard h4{font-size:calc(var(--u)*1.7);font-weight:600;margin-bottom:calc(var(--u)*1)}
+.rcard p{font-size:calc(var(--u)*1.3);color:var(--muted);line-height:1.5}
+.approve{margin-top:calc(var(--u)*1.6);display:inline-flex;align-items:center;gap:calc(var(--u)*.8);
+  background:var(--orchid);color:var(--navy);font-weight:600;font-size:calc(var(--u)*1.35);
+  padding:calc(var(--u)*.8) calc(var(--u)*1.6);border-radius:99px;opacity:.55}
+.scene.in .approve{animation:appr 1s var(--ease) 1.6s forwards}
+@keyframes appr{0%{opacity:.55;transform:scale(1)}50%{transform:scale(.94)}60%{opacity:1;transform:scale(1.02)}100%{opacity:1;transform:scale(1)}}
+.approve svg{width:calc(var(--u)*1.5);height:calc(var(--u)*1.5);stroke:var(--navy);fill:none;stroke-width:2.4}
+.flowline{position:relative;height:2px;background:rgba(255,255,255,.12);border-radius:2px;overflow:hidden}
+.flowline::after{content:"";position:absolute;inset:0;width:30%;background:linear-gradient(90deg,transparent,var(--orchid),transparent);
+  transform:translateX(-120%);}
+.scene.in .flowline::after{animation:run 2.4s linear .3s infinite}
+@keyframes run{to{transform:translateX(420%)}}
+
+/* ===== S7 close (light) ===== */
+.scene.close{background:radial-gradient(120% 130% at 50% 0%,#ffffff 0%,#eef2f7 60%,#e6ecf3 100%)}
+.scene.close .lead{color:var(--navy)}
+.scene.close .sub{color:#5E7A93}
+.close-logo{width:34%}
+.demo{display:inline-flex;align-items:center;gap:calc(var(--u)*.9);background:var(--orchid);color:var(--navy);
+  font-weight:600;font-size:calc(var(--u)*1.6);padding:calc(var(--u)*1.1) calc(var(--u)*2.4);border-radius:99px;
+  box-shadow:0 calc(var(--u)*1.4) calc(var(--u)*3) rgba(124,154,46,.4)}
+.demo svg{width:calc(var(--u)*1.6);height:calc(var(--u)*1.6);stroke:var(--navy);fill:none;stroke-width:2.4}
+.poweredby{display:flex;align-items:center;gap:calc(var(--u)*1);justify-content:center;color:#5E7A93;font-size:calc(var(--u)*1.2)}
+.poweredby img{height:calc(var(--u)*2.2)}
+
+/* ===== start overlay + controls ===== */
+.start{position:absolute;inset:0;z-index:30;display:grid;place-items:center;background:rgba(5,9,15,.72);backdrop-filter:blur(6px);transition:opacity .6s}
+.start.hide{opacity:0;pointer-events:none}
+.start .inner{text-align:center}
+.start img{width:calc(var(--u)*22);margin-bottom:calc(var(--u)*3)}
+.playbtn{display:inline-flex;align-items:center;gap:calc(var(--u)*1.1);background:var(--orchid);color:var(--navy);
+  font-family:inherit;font-weight:600;font-size:calc(var(--u)*1.8);border:none;cursor:pointer;
+  padding:calc(var(--u)*1.2) calc(var(--u)*2.8);border-radius:99px}
+.playbtn svg{width:calc(var(--u)*1.8);height:calc(var(--u)*1.8);fill:var(--navy)}
+.hint{margin-top:calc(var(--u)*2);color:var(--muted);font-size:calc(var(--u)*1.15)}
+.bar{position:fixed;left:0;right:0;bottom:0;height:3px;background:rgba(255,255,255,.12);z-index:40}
+.bar i{display:block;height:100%;width:0;background:var(--orchid)}
+.ui{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);z-index:40;display:flex;gap:10px;
+  font-family:inherit;opacity:.0;transition:opacity .3s}
+.viewport:hover .ui{opacity:.85}
+.ui button{font-family:inherit;font-size:13px;color:#cfe;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);
+  border-radius:8px;padding:7px 14px;cursor:pointer}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.001s!important}}
+</style>
+</head>
+<body>
+<div class="viewport" id="viewport">
+  <div class="stage" id="stage">
+
+    <!-- ambient -->
+    <div class="aurora"><span class="a1"></span><span class="a2"></span><span class="a3"></span></div>
+    <div class="grid-floor"></div>
+
+    <!-- SCENE 1 — The New Reality -->
+    <section class="scene" data-dur="13000">
+      <div class="signals" id="signals"></div>
+      <div class="wrap s1-copy stack">
+        <div class="eyebrow reveal" style="transition-delay:.1s">The new reality</div>
+        <div class="lead reveal" style="transition-delay:.35s">Every enterprise now generates<br>thousands of security signals a day.</div>
+        <div class="sub reveal" style="transition-delay:3.4s">Most are routine. A few demand attention.<br><span class="accent">Knowing the difference is everything.</span></div>
+      </div>
+    </section>
+
+    <!-- SCENE 2 — Introducing Vokter -->
+    <section class="scene" data-dur="12000">
+      <div class="converge" id="converge"></div>
+      <div class="wrap stack">
+        <img class="brandmark reveal" src="../assets/vokter-light.png" alt="Vokter" style="transition-delay:.3s" />
+        <div class="lead sm reveal" style="transition-delay:1.2s">The AI SOC built for the Nordics.</div>
+        <div class="sub reveal" style="transition-delay:2.2s">Understand every alert. Investigate every incident.<br>Respond with confidence.</div>
+      </div>
+    </section>
+
+    <!-- SCENE 3 — Autonomous Operations -->
+    <section class="scene" data-dur="23000">
+      <div class="dash panel reveal" style="transition-delay:.2s">
+        <div>
+          <div class="hd"><img src="../assets/vokter-light.png" alt="Vokter" /><span class="live"><b></b>Autonomous · live</span></div>
+          <div class="flow" id="flow">
+            <div class="node" data-i="0"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7l8-4 8 4-8 4-8-4zM4 7v10l8 4 8-4V7"/></svg></span><span class="tx">Alert received</span><span class="st">in</span></div>
+            <div class="node" data-i="1"><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 6h18M6 12h12M9 18h6"/></svg></span><span class="tx">Context &amp; identity</span><span class="st">added</span></div>
+            <div class="node" data-i="2"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M12 4v3M12 17v3M4 12h3M17 12h3"/></svg></span><span class="tx">Threat intel &amp; AI reasoning</span><span class="st">complete</span></div>
+            <div class="node" data-i="3"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 4-3 7-8 9-5-2-8-5-8-9V7z"/></svg></span><span class="tx">Policy validated</span><span class="st">passed</span></div>
+            <div class="node" data-i="4"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 4-3 7-8 9-5-2-8-5-8-9V7zM9 12l2 2 4-4"/></svg></span><span class="tx">Threat contained</span><span class="st">done</span></div>
+            <div class="node" data-i="5"><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 4h11l3 3v13H5zM8 11h8M8 15h6"/></svg></span><span class="tx">Documented &amp; reported</span><span class="st">written</span></div>
+          </div>
+        </div>
+        <div class="side">
+          <div class="kv"><span>Severity</span><b>Resolved</b></div>
+          <div class="kv"><span>MITRE ATT&amp;CK</span><b>Mapped</b></div>
+          <div class="kv"><span>Decision</span><span class="pill">Auto-resolve</span></div>
+          <div style="margin-top:auto">
+            <div class="timer" id="timer">0.0<small>s</small></div>
+            <div class="sub" style="font-size:calc(var(--u)*1.2)">alert → contained → reported</div>
+          </div>
+        </div>
+      </div>
+      <div class="cap reveal" style="transition-delay:1.2s"><div class="lead sm">Security operations that simply keep moving.</div></div>
+    </section>
+
+    <!-- SCENE 4 — Works with what you have -->
+    <section class="scene" data-dur="13000">
+      <div class="wrap stack" style="position:absolute;top:9%">
+        <div class="eyebrow reveal" style="transition-delay:.1s">Continuity, not replacement</div>
+      </div>
+      <div class="eco">
+        <svg class="lines" viewBox="0 0 100 70" preserveAspectRatio="none" id="ecolines"></svg>
+        <div class="core reveal" style="transition-delay:.2s"><img src="../assets/vokter-light.png" alt="Vokter" /></div>
+        <!-- chips positioned via JS -->
+        <div class="chip" data-x="14" data-y="16">Microsoft Defender</div>
+        <div class="chip" data-x="50" data-y="8">Microsoft Sentinel</div>
+        <div class="chip" data-x="86" data-y="16">CrowdStrike</div>
+        <div class="chip" data-x="8" data-y="50">WithSecure</div>
+        <div class="chip" data-x="92" data-y="50">Splunk</div>
+        <div class="chip" data-x="18" data-y="84">Identity providers</div>
+        <div class="chip" data-x="50" data-y="92">Threat intelligence</div>
+        <div class="chip" data-x="82" data-y="84">Ticketing &amp; alerts</div>
+      </div>
+      <div class="cap reveal" style="transition-delay:2.2s"><div class="lead sm">Keep the stack you already trust.</div>
+        <div class="sub" style="margin-top:calc(var(--u)*1)">Autonomous operations — with no rip and replace.</div></div>
+    </section>
+
+    <!-- SCENE 5 — Built for Europe -->
+    <section class="scene" data-dur="12000">
+      <div class="wrap stack" style="position:absolute;top:11%">
+        <div class="eyebrow reveal" style="transition-delay:.1s">Built for Europe</div>
+        <div class="lead sm reveal" style="transition-delay:.4s">Sovereign by design.</div>
+      </div>
+      <div class="boundary reveal" style="transition-delay:.9s">
+        <span class="ping"></span>
+        <div class="bnode"><i></i>Infrastructure</div>
+        <div class="bnode"><i></i>Processing</div>
+        <div class="bnode"><i></i>AI inference</div>
+        <div class="bnode"><i></i>Reporting</div>
+      </div>
+      <div class="cap reveal" style="transition-delay:1.6s"><div class="sub">Every investigation, every report, every AI decision —<br>within the EU region you choose.</div></div>
+    </section>
+
+    <!-- SCENE 6 — Human expertise -->
+    <section class="scene" data-dur="10000">
+      <div class="wrap stack" style="position:absolute;top:11%">
+        <div class="eyebrow reveal" style="transition-delay:.1s">Human expertise, when it matters</div>
+      </div>
+      <div class="review">
+        <div class="col reveal" style="transition-delay:.3s">
+          <div class="panel rcard">
+            <h4>Routine incident</h4>
+            <p>Cleared, contained and documented automatically.</p>
+            <div class="flowline" style="margin-top:calc(var(--u)*1.4)"></div>
+          </div>
+        </div>
+        <div class="col reveal" style="transition-delay:.7s">
+          <div class="panel rcard">
+            <h4>High-impact decision</h4>
+            <p>Routed to a Nordic SOC analyst for review.</p>
+            <span class="approve"><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg>Approved</span>
+          </div>
+        </div>
+      </div>
+      <div class="cap reveal" style="transition-delay:1.2s">
+        <div class="lead sm">Automation where it creates value.</div>
+        <div class="sub" style="margin-top:calc(var(--u)*1)">Expert judgement where it matters most.</div>
+      </div>
+    </section>
+
+    <!-- SCENE 7 — Close (light) -->
+    <section class="scene close" data-dur="8000">
+      <div class="wrap stack">
+        <img class="close-logo reveal" src="../assets/vokter-dark.png" alt="Vokter" style="transition-delay:.2s" />
+        <div class="lead sm reveal" style="transition-delay:.8s">Your first line of defense.<br>Running itself.</div>
+        <div class="reveal" style="transition-delay:1.6s"><span class="demo"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>Request a Demo</span></div>
+        <div class="poweredby reveal" style="transition-delay:2.2s">Powered by Vokter · <img src="../assets/nordic-soc-navy.svg" alt="Nordic SOC" /></div>
+      </div>
+    </section>
+
+    <div class="vignette"></div>
+
+    <!-- start overlay -->
+    <div class="start" id="start">
+      <div class="inner">
+        <img src="../assets/vokter-light.png" alt="Vokter" />
+        <div><button class="playbtn" id="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Play the film</button></div>
+        <div class="hint">~90 seconds · best viewed fullscreen · press <b>F</b> for fullscreen</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="bar"><i id="progress"></i></div>
+<div class="ui">
+  <button id="replay">↺ Replay</button>
+  <button id="fs">⛶ Fullscreen</button>
+</div>
+
+<script>
+const stage=document.getElementById('stage');
+const scenes=[...document.querySelectorAll('.scene')];
+const start=document.getElementById('start');
+const progress=document.getElementById('progress');
+let total=0;const marks=[];
+scenes.forEach(s=>{const d=+s.dataset.dur;marks.push({el:s,start:total,dur:d});total+=d;});
+total-=900; // overlap last crossfade
+
+// responsive unit
+function sizeUnit(){stage.style.setProperty('--u',(stage.clientWidth/100)+'px');}
+sizeUnit();addEventListener('resize',sizeUnit);
+
+// build S1 signals
+const sig=document.getElementById('signals');
+for(let i=0;i<26;i++){const e=document.createElement('div');e.className='sig';
+  e.style.top=(4+Math.random()*92)+'%';e.style.width=(12+Math.random()*26)+'%';
+  e.style.left=(-20+Math.random()*30)+'%';
+  e.style.animationDuration=(3.4+Math.random()*3.6)+'s';
+  e.style.animationDelay=(-Math.random()*6)+'s';
+  e.style.opacity=(.3+Math.random()*.5);sig.appendChild(e);}
+
+// build S2 converge particles
+const conv=document.getElementById('converge');
+for(let i=0;i<40;i++){const e=document.createElement('i');
+  const ang=Math.random()*Math.PI*2,r=30+Math.random()*40;
+  e.style.left='50%';e.style.top='50%';
+  e.style.setProperty('--fx',(Math.cos(ang)*r)+'vw');
+  e.style.setProperty('--fy',(Math.sin(ang)*r*0.6)+'vh');
+  e.style.animationDelay=(Math.random()*1.6)+'s';conv.appendChild(e);}
+
+// position S4 chips + draw lines
+const chips=[...document.querySelectorAll('.eco .chip')];
+const ecolines=document.getElementById('ecolines');
+chips.forEach((c,i)=>{const x=+c.dataset.x,y=+c.dataset.y;
+  c.style.left=x+'%';c.style.top=y+'%';c.style.animationDelay=(.3+i*.12)+'s';
+  const p=document.createElementNS('http://www.w3.org/2000/svg','path');
+  p.setAttribute('d',`M ${x} ${y} L 50 35`);p.style.animationDelay=(.5+i*.12)+'s';ecolines.appendChild(p);});
+
+// S3 node sequencing + timer (driven while scene active)
+const flowNodes=[...document.querySelectorAll('#flow .node')];
+const timerEl=document.getElementById('timer');
+flowNodes.forEach((n,i)=>n.style.animationDelay=(.5+i*.55)+'s');
+
+let raf,t0,running=false,timerRaf;
+function setProgress(t){progress.style.width=Math.min(100,(t/total)*100)+'%';}
+function reset(){
+  scenes.forEach(s=>s.classList.remove('active','in'));
+  flowNodes.forEach(n=>n.classList.remove('done'));
+  timerEl.innerHTML='0.0<small>s</small>';
+  void stage.offsetWidth;
+}
+let curIdx=-1;
+function tick(now){
+  const t=now-t0;setProgress(t);
+  let idx=marks.findIndex(m=>t>=m.start&&t<m.start+m.dur);
+  if(idx===-1&&t>=total)idx=marks.length-1;
+  if(idx!==curIdx&&idx>=0){
+    if(curIdx>=0){marks[curIdx].el.classList.remove('active','in');}
+    curIdx=idx;
+    const sc=marks[idx].el;sc.classList.add('active');
+    requestAnimationFrame(()=>sc.classList.add('in'));
+    if(idx===2)runTimer(); // scene 3
+  }
+  if(t<total)raf=requestAnimationFrame(tick);
+  else finish();
+}
+function runTimer(){
+  const begin=performance.now();const target=3.8;const dur=3300;
+  // reveal nodes "done" in step with their animation delays
+  flowNodes.forEach((n,i)=>setTimeout(()=>n.classList.add('done'),(700+i*550)));
+  function tk(now){const p=Math.min(1,(now-begin)/dur);
+    const v=(target*(1-Math.pow(1-p,2))).toFixed(1);
+    timerEl.innerHTML=v+'<small>s</small>';
+    if(p<1)timerRaf=requestAnimationFrame(tk);}
+  timerRaf=requestAnimationFrame(tk);
+}
+function playFilm(){
+  cancelAnimationFrame(raf);cancelAnimationFrame(timerRaf);
+  reset();curIdx=-1;running=true;
+  start.classList.add('hide');
+  t0=performance.now();raf=requestAnimationFrame(tick);
+}
+function finish(){running=false;setProgress(total);}
+
+document.getElementById('play').onclick=playFilm;
+document.getElementById('replay').onclick=playFilm;
+document.getElementById('fs').onclick=goFs;
+function goFs(){const v=document.getElementById('viewport');
+  if(!document.fullscreenElement)v.requestFullscreen&&v.requestFullscreen();
+  else document.exitFullscreen();}
+addEventListener('keydown',e=>{
+  if(e.key==='f'||e.key==='F')goFs();
+  if(e.key===' '){e.preventDefault();playFilm();}
+});
+</script>
+</body>
+</html>

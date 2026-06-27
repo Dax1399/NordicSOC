@@ -1,0 +1,78 @@
+<p>For a growing number of organisations, the answer is no — you can run effective security operations without a SIEM. A <strong>SIEM-less SOC</strong> ingests telemetry directly from EDR/XDR or the Windows Event Collector and lets AI handle triage, scoring and containment, removing the cost, tuning burden and specialist overhead of a traditional SIEM. That said, a SIEM still earns its place when you need long-term log retention, broad source coverage and rich correlation across dozens of systems. The right choice depends on your estate, your regulatory obligations and the team you have to run it.</p>
+
+<p>This article explains what a SIEM actually does, why it has become heavy and costly for many teams, how a SOC without a SIEM works in practice, and when you genuinely still want one. The goal is a balanced, practical view — not a claim that SIEM is dead.</p>
+
+<div class="takeaways"><h4>Key takeaways</h4><ul><li>A SIEM-less SOC is viable for many small and mid-sized organisations whose telemetry is concentrated in EDR/XDR and Windows endpoints.</li><li>An AI SOC can ingest directly from EDR/XDR or the Windows Event Collector, triaging and containing threats without a SIEM or a dedicated analyst team.</li><li>You still want a SIEM when you need years of searchable log retention, broad multi-source correlation, or specific compliance evidence.</li><li>The two models are not mutually exclusive — AI can run SIEM-less for endpoint-heavy estates, or sit on top of an existing SIEM to cut analyst load.</li><li>Decide on telemetry coverage, retention requirements and operating capacity, not on the SIEM label alone.</li></ul></div>
+
+<h2>What does a SIEM actually do?</h2>
+<p>A Security Information and Event Management platform collects logs and events from across an estate — endpoints, servers, firewalls, identity providers, cloud services and applications — then normalises, stores and correlates them. On top of that data sits a rules engine that generates alerts when activity matches known-bad patterns, and a search interface analysts use to investigate and hunt.</p>
+<p>In principle this is the central nervous system of a SOC: one place to see everything and ask questions across all of it. In practice, a SIEM delivers four core functions:</p>
+<ul>
+<li><strong>Aggregation</strong> — pulling disparate log sources into a single pipeline.</li>
+<li><strong>Normalisation</strong> — making different log formats comparable.</li>
+<li><strong>Correlation</strong> — linking events across sources to surface multi-stage activity.</li>
+<li><strong>Retention</strong> — keeping logs searchable for investigation and compliance.</li>
+</ul>
+<p>Those functions are valuable. The question is whether every organisation needs all four, delivered through a heavyweight SIEM, to operate securely.</p>
+
+<h2>Why a SIEM is costly and heavy for many organisations</h2>
+<p>SIEM platforms were designed for large enterprises with broad estates, dedicated engineering teams and deep budgets. Smaller organisations frequently inherit the cost and complexity without the resources to match. Several burdens recur:</p>
+<ul>
+<li><strong>Ingestion-based cost.</strong> Most SIEM commercial models scale with data volume. As logging grows, so does the bill — which pushes teams to log less, undermining the very visibility the SIEM is meant to provide.</li>
+<li><strong>Tuning and maintenance.</strong> Rules need constant adjustment. Poorly tuned SIEMs generate overwhelming alert noise, driving the alert fatigue that erodes SOC effectiveness.</li>
+<li><strong>Specialist staffing.</strong> Running a SIEM well requires engineers who understand its query language, data model and detection content — scarce and expensive skills in the Nordics and across the EU.</li>
+<li><strong>Slow time to value.</strong> Deployment, source onboarding and detection development can take months before the platform earns its keep.</li>
+</ul>
+<p>For organisations whose attack surface is concentrated on endpoints and Windows infrastructure, that overhead is disproportionate to the risk it addresses. This is the gap a SIEM-less SOC is built to fill.</p>
+
+<h2>How does a SOC without a SIEM work?</h2>
+<p>A SOC without a SIEM does not abandon telemetry — it changes where that telemetry comes from and what processes it. Modern endpoint and detection tools already collect rich, security-relevant data at source. An AI SOC connects to those sources directly and applies automated reasoning to the events.</p>
+
+<h3>Ingesting directly from EDR/XDR</h3>
+<p>EDR and XDR platforms continuously record process execution, network connections, file changes and identity events on every protected device. In an EDR XDR SOC model, this data is the primary signal. Rather than forwarding it into a SIEM for correlation, an AI SOC reads it directly, correlates across endpoints, and reasons about whether a sequence of events represents a genuine threat. For estates where most risk lives on endpoints, this captures the signal that matters without a separate aggregation layer.</p>
+
+<h3>Ingesting from the Windows Event Collector</h3>
+<p>For Windows-centric environments, the <strong>Windows Event Collector</strong> (WEC) provides native, agentless centralisation of event logs using Windows Event Forwarding. Authentication events, process creation, PowerShell activity, account changes and service installations are forwarded to a collector. An AI SOC can ingest from the Windows Event Collector to gain visibility into Active Directory and Windows host activity — covering a large share of common attack techniques — without licensing and operating a full SIEM.</p>
+
+<h3>AI as the analysis layer</h3>
+<p>In a SIEM-less SOC, the AI replaces both the SIEM's rules engine and much of the human L1 analyst function. It triages every event, scores severity in context, investigates suspicious activity, and where appropriate executes containment such as isolating a host or disabling an account. The output is a daily report and auto-generated tickets rather than a flood of raw alerts for a human to sift. This is the model behind <a href="/vokter-autonomous.html">Vokter Autonomous</a> — SIEM-less operations with no SIEM and no in-house team required. To understand the broader category, see <a href="/blog.php?slug=what-is-an-ai-soc">what is an AI SOC</a>.</p>
+
+<h2>SIEM vs SIEM-less SOC: a practical comparison</h2>
+<p>Neither model is universally better. The table below sets out where each fits.</p>
+<table>
+<thead>
+<tr><th>Dimension</th><th>Traditional SIEM SOC</th><th>SIEM-less SOC (AI)</th></tr>
+</thead>
+<tbody>
+<tr><td>Primary telemetry</td><td>All log sources via central pipeline</td><td>EDR/XDR and Windows Event Collector at source</td></tr>
+<tr><td>Source breadth</td><td>Very broad — dozens of integrations</td><td>Focused on endpoint and identity signal</td></tr>
+<tr><td>Long-term log retention</td><td>Built in; years of searchable data</td><td>Limited; relies on source-tool retention</td></tr>
+<tr><td>Correlation</td><td>Cross-source rules engine</td><td>AI reasoning across connected sources</td></tr>
+<tr><td>Tuning burden</td><td>High — ongoing rule maintenance</td><td>Low — AI adapts to context</td></tr>
+<tr><td>Staffing needed</td><td>SIEM engineers and L1 analysts</td><td>None in-house for Autonomous mode</td></tr>
+<tr><td>Time to value</td><td>Weeks to months</td><td>Days</td></tr>
+<tr><td>Best fit</td><td>Large, complex, multi-source estates</td><td>Endpoint-heavy small and mid-sized estates</td></tr>
+</tbody>
+</table>
+
+<h2>Do I need a SIEM? When you still want one</h2>
+<p>The honest answer to "do I need a SIEM" is: sometimes. A SIEM remains the stronger choice in several situations:</p>
+<ul>
+<li><strong>Broad, heterogeneous estates.</strong> When critical signal lives in firewalls, custom applications, OT systems and many cloud services at once, a central aggregation and correlation layer is hard to replace.</li>
+<li><strong>Long retention requirements.</strong> Where regulation or investigation needs demand years of searchable logs, a SIEM's retention model is purpose-built for it.</li>
+<li><strong>Specific compliance evidence.</strong> Some frameworks and auditors expect centralised log management with defined retention. Obligations under <a href="/blog.php?slug=dora-compliance-soc">DORA</a> and NIS2 make demonstrable logging and monitoring important for in-scope entities.</li>
+<li><strong>Mature in-house SOC teams.</strong> Organisations that already run a tuned SIEM with skilled analysts have sunk cost and capability worth preserving.</li>
+</ul>
+<p>Crucially, keeping a SIEM does not mean foregoing AI. An AI SOC can sit on top of an existing SIEM and SOAR as an automated L1 layer — enriching, deciding and acting, then writing results back so analysts focus on L2 and L3 work. This is the <a href="/vokter-hybrid.html">Vokter Hybrid</a> approach, and it suits teams that have invested in a SIEM but are drowning in alert volume.</p>
+
+<h2>Choosing between SIEM-less and SIEM-plus-AI</h2>
+<p>The decision rarely turns on the SIEM label itself. It turns on three practical questions:</p>
+<ul>
+<li><strong>Where is your telemetry?</strong> If most security-relevant signal is already in EDR/XDR and Windows, a SIEM-less SOC likely covers your risk. If it is scattered across many disparate systems, a SIEM adds real value.</li>
+<li><strong>What must you retain, and for how long?</strong> Short operational retention favours SIEM-less; long compliance-driven retention favours a SIEM.</li>
+<li><strong>Who operates it?</strong> No team and no appetite to build one points to Autonomous; an existing SIEM and analysts points to Hybrid AI on top.</li>
+</ul>
+<p>For a deeper look at how automated operations differ from the legacy model, compare <a href="/blog.php?slug=ai-soc-vs-traditional-soc">AI SOC versus traditional SOC</a>.</p>
+
+<h2>Conclusion</h2>
+<p>The SIEM is no longer the only foundation for credible security operations. For endpoint-heavy organisations without a dedicated team, a SIEM-less SOC built on EDR/XDR and the Windows Event Collector, with AI doing the triage and containment, can deliver strong outcomes at far lower overhead. For broad estates, long retention needs or mature SOC teams, a SIEM still has a clear role — increasingly with AI layered on top to tame alert volume. The practical question is not whether SIEM is finished, but which model matches your telemetry, your obligations and your capacity to operate it.</p>

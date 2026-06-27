@@ -1,0 +1,83 @@
+<p>An <strong>AI SOC</strong> is a security operations centre in which artificial intelligence performs the core detection, triage, investigation and response work that human analysts have traditionally carried out by hand. Rather than presenting raw alerts to a queue of people, an AI SOC reasons over each signal, enriches it with context, decides whether it represents a genuine threat, and acts within policy-defined limits. The result is a faster, more consistent and continuously available security operation, with people retained for judgement, escalation and oversight rather than repetitive first-line work.</p>
+
+<p>This article defines what an AI SOC is, how it differs from a traditional SOC, the capabilities that distinguish a credible platform, where humans remain essential, and what security leaders should evaluate. It uses Nordic SOC's Vokter platform as a real-world reference point.</p>
+
+<div class="takeaways"><h4>Key takeaways</h4><ul><li>An AI SOC uses autonomous reasoning to triage, investigate, contain and report on threats, replacing the manual first line of a traditional SOC.</li><li>It addresses alert fatigue, analyst shortages and slow response times by acting in seconds rather than queueing work for people.</li><li>Humans remain central for governance, critical-case ownership, threat hunting and forensics.</li><li>An agentic SOC plans and executes multi-step investigations rather than running fixed rules.</li><li>EU-based organisations should prioritise data sovereignty, auditability and alignment with DORA and NIS2 when choosing a provider.</li></ul></div>
+
+<h2>What is an AI SOC, exactly?</h2>
+<p>A traditional security operations centre depends on people watching dashboards, reading alerts and manually piecing together what happened. An <strong>AI security operations center</strong> reverses that model. The platform ingests telemetry from endpoints, identity systems, networks and cloud workloads, then applies machine reasoning to each event: it correlates related signals, gathers supporting evidence, assesses severity and recommends or executes a response.</p>
+<p>The defining characteristic of an AI SOC is autonomy across the alert lifecycle. It does not simply score alerts and hand them on. It investigates, reaches a conclusion, documents its reasoning, and, where authorised, contains the threat. This shifts the human role from processing volume to supervising outcomes.</p>
+
+<h3>Why does the AI SOC model matter now?</h3>
+<p>Three pressures have made the AI SOC necessary rather than optional. Alert volumes have outpaced the capacity of any realistic analyst team, producing chronic alert fatigue. Skilled security professionals remain scarce and expensive, particularly for round-the-clock cover. Attackers, meanwhile, move quickly and increasingly use automation themselves. An <strong>autonomous SOC</strong> answers all three by handling routine work at machine speed and reserving human attention for what genuinely requires it.</p>
+
+<h2>How does an AI SOC differ from a traditional SOC?</h2>
+<p>The clearest way to understand an AI SOC is by contrast with the conventional, analyst-led model.</p>
+
+<table>
+<thead>
+<tr><th>Dimension</th><th>Traditional SOC</th><th>AI SOC</th></tr>
+</thead>
+<tbody>
+<tr><td>First-line triage</td><td>Manual, queue-based, limited by headcount</td><td>Autonomous, instant, scales with volume</td></tr>
+<tr><td>Investigation</td><td>Analyst gathers evidence by hand</td><td>AI assembles and correlates evidence automatically</td></tr>
+<tr><td>Response time</td><td>Minutes to hours, depending on staffing</td><td>Seconds, within policy boundaries</td></tr>
+<tr><td>Coverage</td><td>Shift-dependent; night and weekend gaps common</td><td>Continuous, 24/7, without rota strain</td></tr>
+<tr><td>Consistency</td><td>Varies by analyst and fatigue</td><td>Uniform reasoning applied to every alert</td></tr>
+<tr><td>Human focus</td><td>Repetitive alert processing</td><td>Oversight, critical cases, hunting, forensics</td></tr>
+</tbody>
+</table>
+
+<p>An AI SOC does not eliminate the need for the underlying disciplines of security operations. It changes who, or what, performs each step. For a fuller treatment of the contrast, see <a href="/blog.php?slug=ai-soc-vs-traditional-soc">AI SOC vs traditional SOC</a>.</p>
+
+<h2>What are the core capabilities of an AI SOC?</h2>
+<p>A credible <strong>AI-driven SOC</strong> delivers four capabilities end to end. Each maps to a stage that analysts perform manually in a traditional operation.</p>
+
+<h3>1. Autonomous triage</h3>
+<p>The platform evaluates every incoming alert, removes obvious false positives, and prioritises genuine signals by severity and business impact. This is where alert fatigue is resolved: analysts no longer wade through noise, because the AI has already separated the meaningful from the irrelevant. For more on this stage, see <a href="/blog.php?slug=ai-alert-triage-alert-fatigue">AI alert triage and alert fatigue</a>.</p>
+
+<h3>2. Automated investigation</h3>
+<p>For each prioritised alert, the AI builds the full picture. It pulls related events, traces the sequence of activity, maps observed behaviour to known adversary techniques, and reaches a documented verdict. A strong platform aligns this reasoning to a recognised framework such as MITRE ATT&CK, producing an auditable investigation rather than an opaque score.</p>
+
+<h3>3. Autonomous containment</h3>
+<p>Where policy permits, the AI acts: isolating an endpoint, disabling a compromised account, or blocking a malicious connection. Containment is bounded by guardrails that the organisation defines, so automated action never exceeds approved limits. This is what allows an AI SOC to stop threats in seconds rather than waiting for a human to wake up.</p>
+
+<h3>4. Continuous reporting</h3>
+<p>The platform documents what it found, what it decided and what it did, in language suitable for both technical teams and management. Clear, automatic reporting is essential for governance and for demonstrating control to auditors and regulators.</p>
+
+<h2>What makes a SOC "agentic"?</h2>
+<p>The term <strong>agentic SOC</strong> describes the most capable form of an AI SOC. A rules-based system executes fixed logic: if X, then Y. An agentic system plans. It decides which evidence to gather next based on what it has already found, adapts its investigation to the case in front of it, and chains multiple steps together to reach a conclusion, much as a skilled analyst would. This adaptability is what separates genuine autonomy from simple automation. The distinction is explored further in <a href="/blog.php?slug=agentic-soc-explained">agentic SOC explained</a>.</p>
+
+<h2>Where do humans fit in an AI SOC?</h2>
+<p>An AI SOC does not remove people; it repositions them. The platform handles the high-volume, repetitive first line, which frees skilled professionals for the work that genuinely requires human judgement:</p>
+<ul>
+<li><strong>Oversight and governance</strong> — defining policy, setting containment boundaries and reviewing automated decisions.</li>
+<li><strong>Critical-case ownership</strong> — taking command of complex or high-impact incidents that warrant a human lead.</li>
+<li><strong>Threat hunting</strong> — proactively searching for adversaries that have not yet triggered an alert.</li>
+<li><strong>Digital forensics</strong> — deep post-incident analysis and evidence handling.</li>
+</ul>
+<p>The most effective operating model treats AI and human expertise as complementary rather than competing. The AI scales coverage and speed; people supply accountability, context and depth.</p>
+
+<h2>How does Vokter put the AI SOC model into practice?</h2>
+<p>Nordic SOC delivers the AI SOC through its Vokter platform, offered in three modes so that organisations can adopt autonomous security operations at whatever level suits their stack and maturity.</p>
+<ul>
+<li><a href="/vokter-autonomous.html"><strong>Vokter Autonomous</strong></a> is the SIEM-less SOC. It connects directly to your EDR/XDR or the Windows Event Collector, with no SIEM and no in-house team required. The AI triages, scores and contains, then delivers a daily report and auto-generated tickets.</li>
+<li><a href="/vokter-hybrid.html"><strong>Vokter Hybrid</strong></a> runs the AI first line on top of your existing SIEM and SOAR. It enriches, decides, acts and writes back, freeing your analysts to concentrate on L2 and L3 work.</li>
+<li><a href="/vokter-guardian.html"><strong>Vokter Guardian</strong></a> combines AI with named Nordic analysts, 24/7. The AI handles the large majority of alerts; human experts own critical cases, threat hunting and digital forensics under a contractual SLA.</li>
+</ul>
+<p>All three modes run on EU infrastructure, keeping data within EU cloud regions under European control.</p>
+
+<h2>What should you look for when evaluating an AI SOC?</h2>
+<p>Not every platform marketed as an AI SOC delivers genuine autonomy. Security leaders should assess the following:</p>
+<ol>
+<li><strong>Depth of autonomy.</strong> Does the platform truly investigate and contain, or merely score alerts and pass them on?</li>
+<li><strong>Transparency.</strong> Are the AI's decisions documented and auditable, ideally mapped to a recognised framework?</li>
+<li><strong>Bounded action.</strong> Can you define exactly what the platform is permitted to do automatically?</li>
+<li><strong>Data sovereignty.</strong> Where is your data processed and stored? For EU organisations, EU infrastructure and European control matter for both trust and compliance.</li>
+<li><strong>Regulatory alignment.</strong> Does the operating model support obligations under DORA, which applies from 17 January 2025, and NIS2?</li>
+<li><strong>Human backstop.</strong> Is expert human support available for the cases that demand it?</li>
+</ol>
+<p>For a structured approach to selection, see <a href="/blog.php?slug=choosing-ai-soc-provider-europe">choosing an AI SOC provider in Europe</a>.</p>
+
+<h2>Conclusion</h2>
+<p>An AI SOC represents a structural change in how security operations are run. By assigning autonomous triage, investigation, containment and reporting to artificial intelligence, it resolves the long-standing problems of alert fatigue, analyst scarcity and slow response, while keeping people in the roles where their judgement is indispensable. For organisations in the Nordics and across the EU, an AI SOC built on sovereign infrastructure and aligned with European regulation offers a way to achieve continuous, consistent protection without the cost and strain of scaling a traditional team. Vokter's three modes show how the model can be adopted incrementally, from a fully autonomous, SIEM-less deployment to a human-backed service governed by a contractual SLA.</p>

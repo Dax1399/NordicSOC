@@ -1,0 +1,52 @@
+<p>An <strong>agentic SOC</strong> is a security operations centre in which AI agents independently triage, enrich, investigate and act on alerts within defined policy guardrails, escalating to human analysts only when judgement or authority is required. Unlike fixed automation scripts, these agents reason over context, choose their next step, and follow an investigation wherever the evidence leads. The result is a security operations model where the bulk of routine detection and response work is carried out by software that behaves less like a rule and more like a junior analyst. This article explains how the agentic SOC works, how it differs from traditional automation, and why it has become the dominant architectural direction for modern security operations.</p>
+
+<h2>What is an agentic SOC?</h2>
+<p>The term agentic refers to AI systems that can pursue a goal across multiple steps, making decisions at each stage rather than executing a single pre-programmed instruction. In a security context, an agentic SOC applies this capability to the alert lifecycle. When a detection fires, an AI agent does not simply forward it to a queue. It interprets the alert, gathers the surrounding evidence, forms a hypothesis about whether the activity is malicious, tests that hypothesis against further data, and then either resolves the alert, contains the threat, or hands a structured case to a human.</p>
+<p>This matters because the volume of alerts in a typical environment far exceeds what human teams can examine. Most alerts are benign or low priority, yet each still demands attention. Agentic AI in cybersecurity addresses this by giving every alert a genuine investigation, not just a rule match, at a scale and speed that human staffing cannot reach.</p>
+
+<h2>How does an agentic SOC differ from SOAR and traditional automation?</h2>
+<p>Security teams have automated parts of their work for years through SOAR platforms and scripted playbooks. The difference between that approach and an agentic SOC is the difference between a fixed recipe and a decision-maker. A SOAR playbook executes a predetermined sequence: if condition A, perform action B. It cannot deviate, reason about an unusual case, or decide that the evidence points somewhere the author never anticipated. When reality does not match the playbook, the case stalls or escalates by default.</p>
+<p>An agentic system, by contrast, selects its own actions based on what it finds. It can pivot from an endpoint alert to identity data to network telemetry because the investigation warranted it, not because a branch was hard-coded for that path. This makes autonomous alert triage adaptive rather than brittle.</p>
+
+<table>
+  <thead>
+    <tr><th>Dimension</th><th>Traditional automation / SOAR</th><th>Agentic SOC</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Decision model</td><td>Pre-defined if/then playbooks</td><td>Goal-driven reasoning at each step</td></tr>
+    <tr><td>Handling novel cases</td><td>Escalates or stalls when no rule matches</td><td>Investigates dynamically using available evidence</td></tr>
+    <tr><td>Investigation depth</td><td>Fixed enrichment steps</td><td>Pursues evidence across data sources as needed</td></tr>
+    <tr><td>Maintenance</td><td>Playbooks require constant manual tuning</td><td>Adapts to context with policy-level oversight</td></tr>
+    <tr><td>Output</td><td>Enriched ticket for human review</td><td>Resolved alert or structured case with reasoning</td></tr>
+  </tbody>
+</table>
+
+<div class="takeaways"><h4>Key takeaways</h4><ul><li>An agentic SOC uses AI agents that triage, enrich, investigate and act on alerts within policy guardrails, escalating to humans by exception.</li><li>It differs from SOAR and scripted automation by reasoning over context and choosing its own next step rather than following fixed playbooks.</li><li>The agent workflow follows clear stages: detect, triage, enrich, investigate, decide, act and document.</li><li>Guardrails and human oversight keep high-impact actions reversible, scoped and approvable, with a full decision trail.</li><li>EU AI Act transparency obligations applying from August 2026 reinforce the need for explainable automated decisions, which agentic systems are built to provide.</li></ul></div>
+
+<h2>The agentic SOC workflow: how AI agents run security operations</h2>
+<p>The work of an agentic SOC can be understood as a repeatable sequence of stages. Each stage is something a human analyst would otherwise perform manually, now carried out by an AI SOC analyst that documents its reasoning as it goes.</p>
+<ul>
+  <li><strong>Detect:</strong> a signal arrives from an endpoint, identity provider, network sensor or log source.</li>
+  <li><strong>Triage:</strong> the agent assesses severity, deduplicates against related signals and decides whether the alert merits deeper work.</li>
+  <li><strong>Enrich:</strong> it gathers context such as asset criticality, user behaviour, threat intelligence and historical activity.</li>
+  <li><strong>Investigate:</strong> it forms and tests hypotheses, pivoting across data sources and mapping observed behaviour to known adversary techniques.</li>
+  <li><strong>Decide:</strong> it reaches a conclusion: benign, suspicious or malicious, with a confidence assessment.</li>
+  <li><strong>Act:</strong> within its guardrails, it resolves the alert, takes a contained response action, or escalates a structured case to a human.</li>
+  <li><strong>Document:</strong> it records the full chain of reasoning and evidence so the decision can be reviewed and audited.</li>
+</ul>
+<p>This is the practical meaning of AI agents in cybersecurity: not a single model answering a question, but a coordinated workflow that mirrors how a skilled analyst actually thinks and works.</p>
+
+<h2>Guardrails and human oversight in an agentic SOC</h2>
+<p>Autonomy without constraint is unacceptable in security operations, where a wrong action can disrupt a business as severely as the threat it was meant to stop. An agentic SOC is therefore defined as much by its guardrails as by its capabilities. Guardrails specify what an agent may do on its own, what requires approval, and what is never permitted without a human decision.</p>
+<p>In practice this means high-impact actions, such as isolating a critical server or disabling a privileged account, are scoped, reversible where possible, and subject to policy. Lower-impact actions, such as closing a confirmed false positive or isolating a single non-critical endpoint, can proceed automatically because the blast radius is small and the action is recoverable. Human oversight is preserved through clear escalation paths, approval gates for sensitive operations, and a complete record of every decision the agent made and why. This is the foundation of <a href="/blog.php?slug=autonomous-containment-safe">safe autonomous containment</a>: the goal is fast action that remains accountable and within defined limits.</p>
+
+<h2>Agentic AI security and the EU AI Act transparency obligations</h2>
+<p>Explainability is not only good practice; it is becoming a regulatory expectation. The EU AI Act introduces transparency obligations that apply from August 2026, requiring that certain automated decisions be explainable and that organisations can account for how those decisions were reached. For security leaders, this places a clear demand on any system that takes automated action: it must be able to show its reasoning.</p>
+<p>Agentic AI security aligns naturally with this requirement. Because each agent documents its investigation, evidence and decision rationale at every stage, the audit trail is a built-in property of the architecture rather than an afterthought. This complements existing obligations under <a href="/blog.php?slug=dora-compliance-soc">DORA, in force since 17 January 2025</a>, and the operational expectations introduced by NIS2, adopted in 2022. An agentic SOC that records its reasoning makes regulatory demonstration of control far more tractable than opaque automation ever could.</p>
+
+<h2>Why the agentic SOC is the current architectural direction</h2>
+<p>The shift towards agentic operations is driven by a structural mismatch: alert volumes and attacker speed continue to rise, while skilled analysts remain scarce and expensive. Scripted automation reduced some of the load but could not investigate, and adding more analysts does not scale economically or sustainably. An architecture in which AI agents perform the investigative work, supervised by humans who concentrate on judgement, complex cases and strategy, resolves that mismatch directly. It is a continuation of the broader move described in <a href="/blog.php?slug=what-is-an-ai-soc">what an AI SOC is</a>, taken to the point where the AI is an active operator rather than an assistant.</p>
+<p>Vokter applies this model in practice. In its <a href="/vokter-autonomous.html">Autonomous mode</a>, AI agents run the full triage and response workflow without requiring a SIEM or an in-house team, operating directly from endpoint or event-collector telemetry. In <a href="/vokter-guardian.html">Guardian mode</a>, the same agentic engine handles the large majority of detection and response work, while named Nordic analysts take on critical cases, threat hunting and forensics under a defined service level agreement. The agentic SOC is not a single product feature; it is the operating model, with the degree of human involvement chosen to match each organisation's risk appetite and resources. Organisations evaluating the model can <a href="/contact.html">discuss their requirements</a> against these modes.</p>
+
+<h2>Conclusion</h2>
+<p>The agentic SOC marks a genuine change in how security operations are run. By giving AI agents the ability to reason, investigate and act within firm guardrails, it brings real investigation to every alert at a scale humans cannot match, while keeping people in control of consequential decisions. As transparency and resilience obligations tighten across the EU, the explainable, documented nature of agentic operations becomes not just an efficiency gain but a compliance advantage. It is, for these reasons, the direction in which modern security operations are now moving.</p>

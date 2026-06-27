@@ -1,0 +1,38 @@
+{
+  "title": "SOC-as-a-Service in the Nordics: A Buyer's Guide",
+  "slug": "soc-as-a-service-nordics",
+  "meta_title": "SOC as a Service Nordics: Buyer's Guide | Nordic SOC",
+  "meta_description": "A practical buyer's guide to SOC as a service in the Nordics: what SOCaaS includes, in-house vs managed, DORA and NIS2 relevance, EU data residency and AI.",
+  "excerpt": "What SOC-as-a-Service includes, why Nordic organisations adopt it, how in-house and managed models compare, what to evaluate in a provider, and the role of AI and EU data sovereignty.",
+  "focus_keyword": "SOC as a service Nordics",
+  "secondary_keywords": ["managed SOC Sweden", "outsourced SOC", "Nordic MSSP", "SOCaaS"],
+  "category": "Nordics",
+  "tags": ["SOC-as-a-Service", "managed SOC", "Nordic MSSP", "DORA", "NIS2", "EU data sovereignty"],
+  "author": "Nordic SOC",
+  "date": "2026-06-16",
+  "reading_time": "8 min",
+  "hero_image": "",
+  "hero_image_alt": "Security operations analyst monitoring threats from a Stockholm-based SOC serving Nordic organisations",
+  "faq": [
+    {
+      "q": "What is SOC-as-a-Service?",
+      "a": "SOC-as-a-Service is a subscription model in which an external provider delivers continuous security monitoring, threat detection, investigation and response as a managed service, removing the need for an organisation to build and staff its own security operations centre."
+    },
+    {
+      "q": "Why do Nordic organisations choose SOC as a service?",
+      "a": "The main drivers are security talent scarcity, the high cost of genuine 24/7 coverage, and EU regulatory pressure from DORA and NIS2. A managed model provides round-the-clock detection and response, pooled expertise and the evidence trail regulators expect, often within EU data boundaries."
+    },
+    {
+      "q": "How does an outsourced SOC compare to building one in-house?",
+      "a": "An in-house SOC offers full control but requires months to stand up, a full staffing rota for 24/7 cover, and high fixed costs in salaries and tooling. SOC-as-a-Service provides faster coverage, pooled specialist skills and a predictable subscription, though data residency and response authority must be verified contractually."
+    },
+    {
+      "q": "Is SOC-as-a-Service compliant with DORA and NIS2?",
+      "a": "A well-run managed SOC can support compliance with both. DORA has applied to financial entities since 17 January 2025, and NIS2, adopted in 2022, extends obligations across sectors such as energy and manufacturing. Buyers should confirm the provider supplies monitoring, incident handling and reporting evidence aligned to their sector's obligations."
+    },
+    {
+      "q": "What should Nordic buyers evaluate when choosing an MSSP?",
+      "a": "Key criteria include data residency within EU cloud regions, alignment with DORA and NIS2, genuine 24/7 coverage and SLAs, the provider's authority to take response action, transparency of detection and investigation, integration with the existing stack, and regional proximity in time zone and language."
+    }
+  ]
+}

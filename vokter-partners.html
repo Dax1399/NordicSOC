@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="canonical" href="https://nordicsoc.com/partner-program/" />
+<title>Partner Program — Build your security business on Vokter | Nordic SOC</title>
+<meta name="description" content="Resell Vokter, run it under your own brand, or embed the engine in your product. Partners stand up a branded, EU-sovereign AI SOC in days and serve more clients without scaling the team. Explore the Nordic SOC Partner Program." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap" rel="stylesheet" />
+<style>
+/* ============================================================
+   NORDIC SOC · Vokter — Partner Program page (matches homepage)
+   Navy #142E4A · Orchid Green #BCD153 · Charcoal #0E1A1F
+   ============================================================ */
+:root{
+  --white:#FFFFFF; --alt:#F6F8FB; --charcoal:#0E1A1F; --navy:#142E4A;
+  --orchid:#BCD153; --orchid-deep:#7C9A2E; --spring:#C9DC7E; --sunset:#5E7A93;
+  --davy:#4A555A; --slate:#9FB3C4; --mist:#E8EEF3; --orange:#E07B3C;
+  --ink:#0E1A1F; --body:#46535f; --muted:#5E7A93;
+  --line:rgba(20,46,74,.10); --line-2:rgba(20,46,74,.16);
+  --shadow:0 18px 44px -28px rgba(20,46,74,.45);
+  --shadow-sm:0 10px 26px -20px rgba(20,46,74,.4);
+  --radius:18px; --radius-sm:14px; --maxw:1180px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:"Google Sans Flex","Google Sans",system-ui,Arial,sans-serif;background:var(--white);
+  color:var(--body);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+::selection{background:var(--orchid);color:var(--charcoal)}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,40px)}
+.section{padding:clamp(50px,5vw,76px) 0;position:relative}
+section[id]{scroll-margin-top:84px}
+.alt{background:var(--alt)}
+h1,h2,h3,h4{line-height:1.12;font-weight:600;letter-spacing:-.02em;color:var(--ink);text-wrap:pretty}
+h2.title{font-size:clamp(24px,2.8vw,36px);letter-spacing:-.025em}
+.lead{font-size:clamp(16px,1.4vw,18px);color:var(--body);max-width:72ch;margin-top:18px;line-height:1.6;text-wrap:pretty}
+.center-head{text-align:left;display:flex;flex-direction:column;align-items:flex-start}
+
+.btn{display:inline-flex;align-items:center;gap:9px;justify-content:center;font-family:inherit;font-weight:600;
+  font-size:15.5px;padding:14px 26px;border-radius:999px;cursor:pointer;border:1.6px solid transparent;
+  transition:transform .25s var(--ease),background .25s var(--ease),box-shadow .25s var(--ease),border-color .25s,color .25s;white-space:nowrap}
+.btn svg{width:16px;height:16px;transition:transform .25s var(--ease)}
+.btn:hover svg{transform:translateX(3px)}
+.btn-primary{background:var(--orchid);color:var(--navy);box-shadow:0 12px 26px -14px rgba(124,154,46,.7)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 36px -14px rgba(124,154,46,.85)}
+.btn-outline{background:transparent;color:var(--navy);border-color:var(--line-2)}
+.btn-outline:hover{border-color:var(--navy);background:rgba(20,46,74,.04)}
+.on-dark .btn-outline{color:#fff;border-color:rgba(255,255,255,.5)}
+.on-dark .btn-outline:hover{background:rgba(255,255,255,.1);border-color:#fff}
+
+/* NAV */
+header.nav{position:fixed;inset:0 0 auto 0;z-index:100;background:#fff;
+  border-bottom:1px solid var(--line);transition:box-shadow .3s,border-color .3s}
+header.nav.scrolled{box-shadow:0 6px 24px -18px rgba(20,46,74,.5);border-bottom-color:var(--line)}
+.nav-inner{max-width:var(--maxw);margin:0 auto;padding:14px clamp(20px,5vw,40px);display:flex;align-items:center;gap:28px}
+.logo-nsoc{height:38px;width:auto}
+.brand{flex-shrink:0;display:flex;align-items:center}
+.nav-links{display:flex;gap:2px;margin-left:auto;align-items:center}
+.nav-links a{font-size:15px;color:var(--navy);padding:9px 14px;border-radius:8px;transition:color .2s,background .2s;font-weight:500}
+.nav-links a:hover{color:var(--orchid-deep);background:rgba(20,46,74,.04)}
+.nav-links a.active{color:var(--orchid-deep)}
+.nav-item{position:relative}
+.nav-item::after{content:"";position:absolute;top:100%;left:0;right:0;height:12px}
+.nav-trigger{display:inline-flex;align-items:center;gap:6px;font-family:inherit;font-size:15px;font-weight:500;color:var(--navy);background:none;border:none;cursor:pointer;padding:9px 14px;border-radius:8px;transition:color .2s,background .2s}
+.nav-trigger svg{width:13px;height:13px;transition:transform .25s var(--ease)}
+.nav-item:hover .nav-trigger,.nav-item:focus-within .nav-trigger{color:var(--orchid-deep);background:rgba(20,46,74,.04)}
+.nav-item:hover .nav-trigger svg,.nav-item:focus-within .nav-trigger svg{transform:rotate(180deg)}
+.drop{position:absolute;top:calc(100% + 12px);left:0;min-width:206px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 20px 44px -22px rgba(20,46,74,.5);padding:8px;display:flex;flex-direction:column;gap:2px;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .2s var(--ease),transform .2s var(--ease),visibility .2s}
+.nav-item:hover .drop,.nav-item:focus-within .drop{opacity:1;visibility:visible;transform:none}
+.drop a{font-size:14.5px;color:var(--navy);padding:10px 12px;border-radius:8px;transition:background .2s,color .2s;font-weight:500}
+.drop a:hover{background:var(--alt);color:var(--orchid-deep)}
+.nav-cta{margin-left:24px;display:flex;align-items:center;gap:10px}
+.nav-cta .btn{padding:11px 20px;font-size:14.5px}
+.menu-toggle{display:none;background:none;border:1px solid var(--line-2);border-radius:10px;width:44px;height:44px;cursor:pointer;color:var(--navy);align-items:center;justify-content:center}
+.menu-toggle svg{width:22px;height:22px}
+
+/* HERO */
+.hero{position:relative;display:flex;align-items:center;text-align:left;
+  padding:148px 0 76px;overflow:hidden;color:#fff}
+.hero-bg{position:absolute;inset:0;z-index:0;background:url("/assets/hero-mosaic.png") center/cover no-repeat;background-color:#0b162f}
+.hero-bg::after{content:"";position:absolute;inset:0;background:
+  linear-gradient(180deg,rgba(9,16,30,.62),rgba(9,16,30,.42) 55%,rgba(9,16,30,.5)),
+  radial-gradient(120% 90% at 50% 40%,transparent 30%,rgba(9,16,30,.45))}
+.hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,4vw,60px);align-items:center}
+.hero h1{color:#fff;font-size:clamp(34px,4.1vw,52px);font-weight:600;letter-spacing:-.035em}
+.hero h1 .accent{color:var(--orchid)}
+.hero p.sub{margin-top:20px;font-size:clamp(16px,1.4vw,19px);color:#EAF1F8;max-width:54ch;line-height:1.55;text-wrap:pretty}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px;justify-content:flex-start}
+.eyebrow{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--orchid);font-weight:600;margin-bottom:18px}
+
+/* hero summary card (reused homepage card styling) */
+.vk-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.vk-top{display:flex;align-items:center;justify-content:space-between;padding:15px 20px;border-bottom:1px solid var(--line);background:var(--alt)}
+.vk-top b{font-size:15px;color:var(--ink);font-weight:600}
+.vk-tag{font-family:inherit;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--orchid-deep);background:rgba(188,209,83,.18);border:1px solid rgba(124,154,46,.28);padding:4px 10px;border-radius:999px;font-weight:500}
+.vk-body{padding:14px;display:flex;flex-direction:column;gap:6px}
+.vlayer{display:flex;align-items:center;gap:11px;padding:11px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;transition:border-color .25s,transform .25s}
+.vlayer:hover{border-color:var(--line-2);transform:translateX(2px)}
+.vlayer .li{width:30px;height:30px;border-radius:8px;flex-shrink:0;display:grid;place-items:center;background:rgba(188,209,83,.18);color:var(--navy)}
+.vlayer .li svg{width:17px;height:17px}
+.vlayer .lt b{display:block;font-size:13.5px;color:var(--ink);font-weight:600;line-height:1.2}
+.vlayer .lt span{font-size:12px;color:var(--muted);line-height:1.3}
+.vk-foot{padding:14px 20px;background:rgba(188,209,83,.14);border-top:1px solid var(--line);display:flex;align-items:center;gap:10px;font-size:13px;color:var(--navy);font-weight:600}
+.vk-foot svg{width:17px;height:17px;color:var(--orchid-deep);flex-shrink:0}
+
+/* shared icon card grid */
+.cardgrid{display:grid;gap:18px;margin-top:40px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px 24px;
+  transition:transform .35s var(--ease),box-shadow .35s,border-color .35s;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--line-2)}
+.chip{width:50px;height:50px;border-radius:14px;display:grid;place-items:center;margin-bottom:18px;
+  background:rgba(188,209,83,.18);border:1px solid rgba(124,154,46,.25);color:var(--navy)}
+.chip svg{width:24px;height:24px}
+.who-grid{grid-template-columns:repeat(3,1fr)}
+.who-grid h3{font-size:18px;color:var(--ink);margin-bottom:7px}
+.who-grid p{font-size:14.5px;color:var(--body)}
+
+/* PARTNERSHIP MODELS */
+.prog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.prog{background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);padding:24px 24px;transition:transform .3s,box-shadow .3s,border-color .3s}
+.prog:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--line-2)}
+.prog .pico{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;margin-bottom:14px;background:rgba(188,209,83,.18);border:1px solid rgba(124,154,46,.25);color:var(--navy)}
+.prog .pico svg{width:20px;height:20px}
+.prog h4{font-size:17px;color:var(--navy);margin-bottom:6px}
+.prog p{font-size:14px;color:var(--body);line-height:1.5}
+
+/* WHITE LABEL */
+.wl{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,5vw,64px);align-items:center;margin-top:40px}
+.wl-copy h3{font-size:clamp(20px,2.2vw,26px);color:var(--ink);max-width:18ch}
+.wl-copy p{font-size:15px;color:var(--body);margin-top:14px;max-width:46ch}
+.wl-list{list-style:none;display:flex;flex-direction:column;gap:14px}
+.wl-list li{display:flex;gap:12px;align-items:flex-start;font-size:15px;color:var(--body)}
+.wl-list li svg{width:20px;height:20px;flex-shrink:0;margin-top:2px;color:var(--orchid-deep)}
+.wl-list li b{color:var(--navy);font-weight:600}
+
+/* HOW IT WORKS */
+.start-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px;counter-reset:st}
+.start{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px 24px;box-shadow:var(--shadow-sm)}
+.start .sn{counter-increment:st;width:34px;height:34px;border-radius:10px;background:rgba(188,209,83,.18);border:1px solid rgba(124,154,46,.25);color:var(--navy);display:grid;place-items:center;font-weight:600;font-size:15px;margin-bottom:14px}
+.start .sn::before{content:counter(st)}
+.start h4{font-size:17px;color:var(--ink);margin-bottom:6px}
+.start p{font-size:14px;color:var(--body)}
+
+/* FAQ */
+.faq{margin:32px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
+.faq-col{display:flex;flex-direction:column;gap:12px}
+.faq details{border:1px solid var(--line);border-radius:var(--radius-sm);background:#fff;overflow:hidden;transition:border-color .25s,box-shadow .25s}
+.faq details[open]{border-color:var(--line-2);box-shadow:var(--shadow-sm)}
+.faq summary{list-style:none;cursor:pointer;padding:15px 20px;display:flex;align-items:center;justify-content:space-between;gap:18px;font-size:16px;font-weight:600;color:var(--ink)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .ic{width:20px;height:20px;flex-shrink:0;color:var(--orchid-deep);transition:transform .3s var(--ease)}
+.faq details[open] summary .ic{transform:rotate(45deg)}
+.faq .ans{padding:0 20px 18px;font-size:14.5px;color:var(--body);line-height:1.55;max-width:70ch}
+.faq .ans strong{color:var(--navy);font-weight:600}
+
+/* FINAL CTA (mosaic band) */
+.cta{position:relative;overflow:hidden;text-align:center;color:#fff}
+.cta-bg{position:absolute;inset:0;z-index:0;background:url("/assets/hero-mosaic.png") center/cover no-repeat;background-color:#0b162f}
+.cta-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(9,16,30,.7),rgba(9,16,30,.55))}
+.cta .wrap{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center}
+.cta h2{color:#fff;font-size:clamp(28px,3.4vw,42px);letter-spacing:-.03em;max-width:20ch}
+.cta p{color:#EAF1F8;font-size:clamp(16px,1.5vw,19px);max-width:56ch;margin:16px auto 0;text-wrap:pretty}
+.cta-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px;justify-content:center}
+
+/* FOOTER */
+footer{background:var(--charcoal);color:#cdd9e2;padding:clamp(56px,7vw,78px) 0 34px}
+.foot-top{display:grid;grid-template-columns:1.5fr 1fr 1.5fr;gap:44px}
+.foot-brand .logo-nsoc{height:40px;margin-bottom:16px}
+.foot-brand p{font-size:14px;color:#9FB3C4;max-width:34ch}
+.foot-contact{font-size:14px;margin-top:18px;display:flex;flex-direction:column;gap:10px}
+.foot-contact-item{display:flex;align-items:flex-start;gap:9px;color:#9FB3C4;text-decoration:none;transition:color .2s}
+.foot-contact-item svg{flex-shrink:0;margin-top:2px;opacity:.75}
+.foot-contact-item:hover{color:var(--orchid)}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:4px}
+.foot-col a{font-size:14.5px;color:#9FB3C4;transition:color .2s}
+.foot-col a:hover{color:#fff}
+.foot-offices h5{font-size:14.5px;font-weight:600;color:var(--orchid);margin:0 0 16px}
+.foot-offices ul{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:12px 20px}
+.foot-offices li{font-size:14.5px;color:#9FB3C4;white-space:nowrap}
+.foot-bottom{margin-top:48px;padding-top:24px;border-top:1px solid rgba(159,179,196,.16);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--sunset)}
+.foot-legal{display:flex;gap:22px}
+.foot-legal a{color:var(--sunset);transition:color .2s}
+.foot-legal a:hover{color:var(--orchid)}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+@media (max-width:1024px){
+  .nav-links{display:none}.menu-toggle{display:flex}
+  .prog-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:860px){
+  .hero .wrap,.wl{grid-template-columns:1fr;gap:36px}
+  .who-grid,.start-grid,.faq{grid-template-columns:1fr}
+  .foot-top{grid-template-columns:1fr 1fr;gap:30px}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .prog-grid,.start-grid{grid-template-columns:1fr}
+  .hero-actions .btn,.cta-actions .btn{width:100%}
+}
+.mobile-menu{position:fixed;inset:0;z-index:99;background:rgba(255,255,255,.98);backdrop-filter:blur(8px);display:none;flex-direction:column;padding:96px 30px 40px;gap:4px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:19px;color:var(--navy);padding:16px 4px;border-bottom:1px solid var(--line);font-weight:500}
+.mobile-menu .btn{margin-top:22px}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/" aria-label="Nordic SOC home">
+      <img class="logo-nsoc" src="/assets/nordic-soc-navy.svg" alt="Nordic SOC" />
+    </a>
+    <nav class="nav-links">
+      <div class="nav-item">
+        <button class="nav-trigger" aria-haspopup="true">Vokter Modes
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="drop">
+          <a href="/vokter-autonomous/">Autonomous</a>
+          <a href="/vokter-hybrid/">Hybrid</a>
+          <a href="/vokter-guardian/">Guardian</a>
+        </div>
+      </div>
+      <a href="/partner-program/" class="active">Partner Program</a>
+      <a href="/insights/">Insights</a>
+      <a href="/about-us/">About Us</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="/contact-us/" class="btn btn-primary">Contact Us</a>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/vokter-autonomous/">Vokter Autonomous</a>
+  <a href="/vokter-hybrid/">Vokter Hybrid</a>
+  <a href="/vokter-guardian/">Vokter Guardian</a>
+  <a href="/partner-program/">Partner Program</a>
+  <a href="/insights/">Insights</a>
+  <a href="/about-us/">About Us</a>
+  <a href="/contact-us/" class="btn btn-primary">Contact Us</a>
+</div>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero on-dark">
+  <div class="hero-bg"></div>
+  <div class="wrap">
+    <div class="hero-copy">
+      <div class="eyebrow reveal">Partner Program</div>
+      <h1 class="reveal">Build your security business <span class="accent">on Vokter.</span></h1>
+      <p class="sub reveal">Resell Vokter, run it under your own brand, or embed the engine in your product. Partners stand up a branded, EU-sovereign AI SOC in days — and serve more clients without scaling the team.</p>
+      <div class="hero-actions reveal">
+        <a href="/contact-us/" class="btn btn-primary">Become a partner
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#models" class="btn btn-outline">See partnership models</a>
+      </div>
+    </div>
+    <div class="hero-card reveal">
+      <div class="vk-card">
+        <div class="vk-top"><b>Partner Program</b><span class="vk-tag">Your brand, our engine</span></div>
+        <div class="vk-body">
+          <div class="vlayer"><span class="li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 7h18v13H3z" stroke-linejoin="round"/><path d="M3 7l9-4 9 4" stroke-linejoin="round"/></svg></span><div class="lt"><b>Resell or white-label</b><span>Offer an AI SOC as your own</span></div></div>
+          <div class="vlayer"><span class="li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div class="lt"><b>Branded in days</b><span>Your logo, domains and reports</span></div></div>
+          <div class="vlayer"><span class="li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 2.7-5 6-5s6 2 6 5" stroke-linecap="round"/><path d="M16 5a3 3 0 010 6M21 20c0-2.4-1.5-4.3-4-4.8" stroke-linecap="round"/></svg></span><div class="lt"><b>Serve more clients</b><span>Without scaling your team</span></div></div>
+          <div class="vlayer"><span class="li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 17l6-6 4 4 8-8" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 7v5h-5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div class="lt"><b>Higher margins</b><span>More clients per analyst</span></div></div>
+        </div>
+        <div class="vk-foot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5 9-10" stroke-linecap="round" stroke-linejoin="round"/></svg>A new security line, nothing to build</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE OPPORTUNITY -->
+<section class="section" id="why">
+  <div class="wrap">
+    <div class="center-head">
+      <h2 class="title reveal">Expand into security, without building a SOC.</h2>
+      <p class="lead reveal">Security operations is one of the most requested services and the hardest to staff. Vokter enables you to deliver it profitably, without recruiting and retaining a specialist team of your own.</p>
+    </div>
+    <div class="cardgrid who-grid">
+      <div class="card reveal">
+        <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></div>
+        <h3>A new revenue line</h3>
+        <p>Add a fully managed AI SOC to your portfolio without engineering, hosting or staffing a 24/7 operation.</p>
+      </div>
+      <div class="card reveal">
+        <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 17l6-6 4 4 8-8" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 7v5h-5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Greater capacity per analyst</h3>
+        <p>With the AI handling the first line, each member of your team can support considerably more accounts.</p>
+      </div>
+      <div class="card reveal">
+        <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.3 3-6 7-6s7 2.7 7 6" stroke-linecap="round"/></svg></div>
+        <h3>Independent of the talent market</h3>
+        <p>Grow your security revenue without competing to recruit and retain analysts who are scarce and costly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERSHIP MODELS -->
+<section class="section alt" id="models">
+  <div class="wrap">
+    <div class="center-head">
+      <h2 class="title reveal">A model for how you go to market.</h2>
+      <p class="lead reveal">However you sell and deliver today, there's a way to bring Vokter into it — from a simple referral to fully embedding the engine in your own product.</p>
+    </div>
+    <div class="prog-grid">
+      <div class="prog reveal">
+        <div class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 12h12M12 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h4>Referral</h4><p>Introduce the opportunity. We close and deliver, and you earn on every deal.</p>
+      </div>
+      <div class="prog reveal">
+        <div class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 7h18v13H3z" stroke-linejoin="round"/><path d="M3 7l9-4 9 4" stroke-linejoin="round"/></svg></div>
+        <h4>Reseller</h4><p>The fastest way to add a security line to your business, with nothing to build.</p>
+      </div>
+      <div class="prog reveal">
+        <div class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h4>White label</h4><p>Launch a branded AI SOC as your own flagship product, end to end.</p>
+      </div>
+      <div class="prog reveal">
+        <div class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 2.7-5 6-5s6 2 6 5" stroke-linecap="round"/><path d="M16 5a3 3 0 010 6" stroke-linecap="round"/></svg></div>
+        <h4>Managed service</h4><p>Co-deliver with Nordic SOC: the AI runs the first line, you keep the client relationship.</p>
+      </div>
+      <div class="prog reveal">
+        <div class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h4>OEM &amp; embedded</h4><p>Run the Vokter engine inside your own product, fully white-labelled.</p>
+      </div>
+      <div class="prog reveal">
+        <div class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l8 4v5c0 4-3 7-8 9-5-2-8-5-8-9V7l8-4z" stroke-linejoin="round"/></svg></div>
+        <h4>Strategic alliance</h4><p>Fold Vokter into a wider cloud, managed-IT or compliance offering.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHITE LABEL -->
+<section class="section" id="whitelabel">
+  <div class="wrap">
+    <div class="wl">
+      <div class="wl-copy reveal">
+        <h3>Fully white-labelled — your brand, end to end.</h3>
+        <p>Present Vokter entirely as your own. From the portal your clients log into to the reports that land on their desk, the experience carries your identity, not ours.</p>
+      </div>
+      <ul class="wl-list reveal">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12l5 5 9-10" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Your <b>logo, colours and custom domains</b> throughout</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12l5 5 9-10" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Customer <b>portals under your own identity</b></span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12l5 5 9-10" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Branded <b>executive and technical reports</b></span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12l5 5 9-10" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Co-branded, fully branded, or <b>Vokter hidden entirely</b></span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- WHO PARTNERS -->
+<section class="section alt" id="who">
+  <div class="wrap">
+    <div class="center-head">
+      <h2 class="title reveal">Who partners with us.</h2>
+      <p class="lead reveal">If your clients trust you with their technology, Vokter lets you extend that trust into security — without becoming a SOC yourself.</p>
+    </div>
+    <div class="cardgrid who-grid">
+      <div class="card reveal">
+        <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 7h16M4 12h16M4 17h10" stroke-linecap="round"/><circle cx="19" cy="17" r="2.4"/></svg></div>
+        <h3>MSPs &amp; MSSPs</h3>
+        <p>Add a managed AI SOC to your stack, or replace a first line you can no longer staff economically.</p>
+      </div>
+      <div class="card reveal">
+        <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 7h18v13H3z" stroke-linejoin="round"/><path d="M3 7l9-4 9 4" stroke-linejoin="round"/></svg></div>
+        <h3>Resellers &amp; VARs</h3>
+        <p>Bring a high-margin security service to your catalogue with no platform to build or operate.</p>
+      </div>
+      <div class="card reveal">
+        <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M2 12h20M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18"/></svg></div>
+        <h3>Consultancies &amp; cloud vendors</h3>
+        <p>Fold a sovereign AI SOC into your compliance, cloud or managed-IT engagements.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW PARTNERING WORKS -->
+<section class="section" id="start">
+  <div class="wrap">
+    <div class="center-head">
+      <h2 class="title reveal">Go to market in days.</h2>
+      <p class="lead reveal">There's no platform to build and no infrastructure to run. We get you enabled and branded quickly, so you can start selling.</p>
+    </div>
+    <div class="start-grid">
+      <div class="start reveal"><div class="sn"></div><h4>Apply</h4><p>Tell us your model and market. We agree the right partnership and commercial terms together.</p></div>
+      <div class="start reveal"><div class="sn"></div><h4>Enable</h4><p>Onboarding, technical training and branded materials get your team ready to sell and deliver.</p></div>
+      <div class="start reveal"><div class="sn"></div><h4>Launch</h4><p>Stand up a branded AI SOC and take it to your clients — with Nordic SOC behind you.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section alt" id="faq">
+  <div class="wrap">
+    <div class="center-head">
+      <h2 class="title reveal">Questions about partnering.</h2>
+    </div>
+    <div class="faq">
+      <div class="faq-col">
+        <details class="reveal"><summary>How quickly can we launch?<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></summary>
+          <p class="ans">In days. There's no platform to build or infrastructure to host — once you're enabled and branded, you can take a working AI SOC to your clients straight away.</p></details>
+        <details class="reveal"><summary>Can it be entirely our brand?<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></summary>
+          <p class="ans">Yes. White-label is end to end — portals, domains and reports carry your identity. You can run it <strong>co-branded, fully branded, or with Vokter hidden entirely</strong>.</p></details>
+        <details class="reveal"><summary>Do we need our own analysts?<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></summary>
+          <p class="ans">Not necessarily. With the Autonomous and Guardian modes the first line — and critical-case response — can be fully delivered for you, so you can offer a complete service even without a SOC team.</p></details>
+      </div>
+      <div class="faq-col">
+        <details class="reveal"><summary>How do commercial terms work?<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></summary>
+          <p class="ans">They're agreed per partnership and model. Partners earn margin on what they resell or deliver; the specifics are set out when we establish the agreement together.</p></details>
+        <details class="reveal"><summary>What support do partners get?<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></summary>
+          <p class="ans">Onboarding, technical enablement, branded sales materials and ongoing support from the Nordic SOC team — so you can sell and deliver with confidence.</p></details>
+        <details class="reveal"><summary>Where is client data hosted?<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></summary>
+          <p class="ans">In the EU. Everything runs inside the EU region you and your clients choose — the AI included — so you can sell on <strong>genuine sovereignty</strong>, not a promise.</p></details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="section cta on-dark">
+  <div class="cta-bg"></div>
+  <div class="wrap">
+    <h2 class="reveal">Add an AI SOC to your business.</h2>
+    <p class="reveal">Talk to our team about the partnership model that fits how you sell — and what it takes to launch a branded AI SOC of your own.</p>
+    <div class="cta-actions reveal">
+      <a href="/contact-us/" class="btn btn-primary">Become a partner
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="/vokter-autonomous/" class="btn btn-outline">Explore the platform</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <img class="logo-nsoc" src="/assets/nordic-soc-white.svg" alt="Nordic SOC" />
+        <p>Managed security operations for the Nordics — powered by Vokter, our EU-sovereign AI SOC.</p>
+        <div class="foot-contact">
+          <a href="tel:+46733690899" class="foot-contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.72a16 16 0 006.29 6.29l1.25-1.25a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            +46 733 690899
+          </a>
+          <a href="mailto:consult@gsecurelabs.com" class="foot-contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg>
+            consult@gsecurelabs.com
+          </a>
+          <span class="foot-contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Isafjordsgatan 30A, 16440 Kista, Sweden
+          </span>
+        </div>
+      </div>
+      <div class="foot-col"><ul>
+        <li><a href="/vokter-autonomous/">Vokter Autonomous</a></li>
+        <li><a href="/vokter-hybrid/">Vokter Hybrid</a></li>
+        <li><a href="/vokter-guardian/">Vokter Guardian</a></li>
+        <li><a href="/partner-program/">Partner Program</a></li>
+        <li><a href="/insights/">Insights</a></li>
+        <li><a href="/about-us/">About Us</a></li>
+        <li><a href="/contact-us/">Contact Us</a></li>
+      </ul></div>
+      <div class="foot-offices">
+        <h5>Global Offices:</h5>
+        <ul>
+          <li>Belgium</li><li>Canada</li><li>Denmark</li>
+          <li>Finland</li><li>France</li><li>Germany</li>
+          <li>India</li><li>Iceland</li><li>Norway</li>
+          <li>South Africa</li><li>The Netherlands</li><li>UAE</li>
+          <li>UK</li><li>USA</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div class="foot-legal"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a></div>
+      <span>© 2026 Nordic SOC. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const nav=document.getElementById('nav');
+const onScroll=()=>nav.classList.toggle('scrolled',window.scrollY>16);
+onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+const toggle=document.getElementById('menuToggle');
+const menu=document.getElementById('mobileMenu');
+toggle.addEventListener('click',()=>menu.classList.toggle('open'));
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach((e)=>{
+    if(e.isIntersecting){
+      const sibs=[...e.target.parentElement.children].filter(c=>c.classList.contains('reveal'));
+      e.target.style.transitionDelay=(Math.min(sibs.indexOf(e.target),6)*55)+'ms';
+      e.target.classList.add('in');io.unobserve(e.target);
+    }
+  });
+},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

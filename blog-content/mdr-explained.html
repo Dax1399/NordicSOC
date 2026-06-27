@@ -1,0 +1,49 @@
+<p>Managed Detection and Response (MDR) is a security service in which an external provider monitors an organisation's IT environment around the clock, detects threats, investigates alerts, and responds to confirmed incidents on the customer's behalf. So <strong>what is MDR</strong> in practice? It combines technology, threat intelligence, and human or AI-driven expertise to deliver continuous detection and active response as an outcome — not just tooling. Unlike a product an organisation buys and operates itself, MDR is a managed service: the provider owns the detection engineering, the triage, and the remediation workflow. This makes managed detection and response well suited to organisations that lack a fully staffed in-house security operations centre but still require 24/7 protection.</p>
+
+<div class="takeaways"><h4>Key takeaways</h4><ul><li>MDR is a managed service delivering continuous monitoring, detection, investigation, and response as an outcome, not a tool to operate.</li><li>MDR differs from EDR (a product), MSSP (alert forwarding), and a full in-house SOC (build-and-staff) in scope and ownership.</li><li>Effective MDR covers the full incident lifecycle: telemetry collection, detection, triage, investigation, response, and reporting.</li><li>AI is reshaping MDR by automating triage and investigation, cutting response times and reducing analyst alert fatigue.</li><li>EU-sovereign MDR keeps data, processing, and operations within European jurisdiction, supporting DORA and NIS2 obligations.</li></ul></div>
+
+<h2>What is MDR and what does it include?</h2>
+<p>At its core, managed detection and response packages a set of capabilities that an organisation would otherwise have to build, integrate, and staff itself. A credible MDR service spans the full incident lifecycle rather than a single point in it.</p>
+<ul>
+<li><strong>Telemetry collection:</strong> ingesting logs, endpoint signals, network data, identity events, and cloud activity into a central analysis layer.</li>
+<li><strong>Threat detection:</strong> applying detection rules, behavioural analytics, threat intelligence, and correlation to surface suspicious activity.</li>
+<li><strong>Alert triage and investigation:</strong> separating true threats from noise, enriching alerts with context, and reconstructing what happened across the kill chain.</li>
+<li><strong>Incident response:</strong> containing, isolating, or remediating confirmed threats — and, in advanced services, taking automated containment actions within agreed guardrails.</li>
+<li><strong>Reporting and continuous improvement:</strong> regular reporting, detection tuning, threat hunting, and post-incident review.</li>
+</ul>
+<p>The defining characteristic of MDR services is the <em>response</em> element. Many monitoring offerings stop at raising an alert; MDR commits to acting on it, whether by guiding the customer's team or by executing containment directly.</p>
+
+<h2>MDR vs EDR: service versus product</h2>
+<p>The most common point of confusion is MDR vs EDR. Endpoint Detection and Response (EDR) is a technology product that detects and records malicious activity on endpoints such as laptops and servers. It is powerful, but it is something an organisation buys and must operate — someone still has to watch the console, interpret detections, and respond. MDR is the service layer that operates detection technology (which may include EDR, but also SIEM, identity, network, and cloud telemetry) and delivers the human or AI-driven response. In short: EDR is a tool; MDR is an outcome built on tools.</p>
+
+<h2>MDR vs MSSP: detection depth versus alert forwarding</h2>
+<p>The MDR vs MSSP distinction matters when comparing managed offerings. A traditional Managed Security Service Provider (MSSP) typically manages security devices and forwards alerts to the customer, often leaving investigation and response to the in-house team. MDR goes further: it takes ownership of detection engineering, investigates alerts to a verdict, and drives or executes response. MSSPs tend to optimise for device management and volume; MDR optimises for threat outcomes and reduced dwell time.</p>
+
+<h2>Comparison: MDR vs EDR vs MSSP vs in-house SOC</h2>
+<table>
+<thead>
+<tr><th>Dimension</th><th>EDR</th><th>MSSP</th><th>MDR</th><th>In-house SOC</th></tr>
+</thead>
+<tbody>
+<tr><td>What it is</td><td>Endpoint security product</td><td>Managed device/alert service</td><td>Managed detection &amp; response service</td><td>Internally built &amp; staffed function</td></tr>
+<tr><td>Scope</td><td>Endpoints</td><td>Devices and log sources</td><td>Endpoints, network, identity, cloud</td><td>Full environment (as resourced)</td></tr>
+<tr><td>Investigation</td><td>Customer's job</td><td>Limited; often forwarded</td><td>Performed to a verdict</td><td>Performed by internal analysts</td></tr>
+<tr><td>Response</td><td>Customer's job</td><td>Usually advisory</td><td>Guided or executed</td><td>Executed internally</td></tr>
+<tr><td>24/7 coverage</td><td>Tool only</td><td>Varies</td><td>Yes</td><td>Requires significant staffing</td></tr>
+<tr><td>Best for</td><td>Teams with capacity to operate it</td><td>Device management at scale</td><td>Outcome-focused detection &amp; response</td><td>Large, well-resourced organisations</td></tr>
+</tbody>
+</table>
+
+<h2>Who needs MDR services?</h2>
+<p>MDR services suit organisations that need mature detection and response capability without the cost and complexity of building a 24/7 SOC from scratch. This commonly includes mid-sized enterprises, regulated firms in finance, healthcare, and critical infrastructure, and organisations with lean security teams facing persistent alert volumes. It is also relevant to companies subject to European regulation: under <a href="/blog.php?slug=dora-compliance-soc">DORA</a>, applicable from 17 January 2025, and the NIS2 Directive adopted in 2022, in-scope organisations must demonstrate continuous monitoring, incident detection, and timely response. MDR provides a structured way to meet these expectations.</p>
+<p>Managed service providers (MSPs) also turn to MDR to add detection and response to their portfolios without standing up their own security operations centre.</p>
+
+<h2>How AI is reshaping MDR</h2>
+<p>Traditional MDR depends heavily on human analysts working through alert queues, which constrains speed and scale. AI is changing the economics of managed detection and response. AI-driven systems can triage alerts, correlate signals across sources, and reconstruct attack narratives in seconds rather than hours — reducing the analyst alert fatigue that erodes detection quality. This shift is closely tied to the rise of the <a href="/blog.php?slug=what-is-an-ai-soc">AI SOC</a>, where automation handles the high-volume, repeatable work and human expertise concentrates on complex investigation and decision-making.</p>
+<p>The practical effect is faster mean time to detect and respond, more consistent triage, and the ability to sustain 24/7 coverage without proportionally scaling headcount. As the EU AI Act's transparency obligations take effect from August 2026, the governance and explainability of these AI systems also becomes a procurement consideration for European buyers.</p>
+
+<h2>AI-driven, EU-sovereign MDR with Vokter</h2>
+<p>Nordic SOC delivers AI-driven MDR through the Vokter platform, operated EU-sovereign — data, processing, and operations remain within European jurisdiction and EU cloud regions, supporting DORA and NIS2 obligations. <a href="/vokter-guardian.html">Vokter Guardian</a> combines AI that handles 85–90% of detection and triage with named Nordic analysts providing 24/7 oversight, threat hunting, forensics, and a defined SLA — a complete managed detection and response service. For organisations that already run a SIEM and SOAR stack, <a href="/vokter-hybrid.html">Vokter Hybrid</a> layers AI-driven Level 1 detection and triage over the existing toolset, freeing analysts for higher-value Level 2 and Level 3 work. Both deliver the response outcome that distinguishes MDR from monitoring alone. For a broader view of managed operations in the region, see our overview of <a href="/blog.php?slug=soc-as-a-service-nordics">SOC as a service in the Nordics</a>, or <a href="/contact.html">contact us</a> to discuss requirements.</p>
+
+<h2>Conclusion</h2>
+<p>MDR closes the gap between owning security tools and achieving security outcomes. By combining continuous monitoring, expert detection, investigation, and active response into a managed service, it gives organisations the protection of a mature SOC without the burden of building one. As AI absorbs the repetitive work of triage and investigation, MDR is becoming faster, more consistent, and — when delivered EU-sovereign — better aligned with European regulatory and data-sovereignty requirements.</p>

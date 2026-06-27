@@ -1,0 +1,70 @@
+<p>Choosing an AI SOC provider in Europe is, at heart, a procurement and risk decision: you are deciding who detects, investigates and contains threats across your estate, where the underlying AI runs, and how much autonomy it holds. The right provider combines genuine European data sovereignty, transparent and reversible automation, and human accountability that maps cleanly onto DORA, NIS2 and the EU AI Act. The wrong one introduces opacity, lock-in and regulatory exposure. This guide sets out ten questions to ask any AI SOC vendor, why each matters, and what a strong answer looks like.</p>
+
+<p>Use it as an evaluation framework whether you are replacing a traditional managed service, augmenting an in-house team, or selecting a first SOC. Each question is designed to separate marketing claims from operational reality.</p>
+
+<div class="takeaways"><h4>Key takeaways</h4><ul><li>An AI SOC provider in Europe should keep both data and AI inference inside your chosen EU region, with contractual guarantees rather than verbal assurances.</li><li>Autonomy is only safe when actions are pre-approved, reversible and verified, with human sign-off on major incidents.</li><li>Explainability and audit trails are now compliance requirements, not nice-to-haves, given DORA, NIS2 and the EU AI Act.</li><li>Insist on named human escalation, contractual SLAs and clear exit terms to avoid operational and vendor lock-in.</li><li>A good provider integrates with your existing stack and proves coverage, reporting and reversibility before you sign.</li></ul></div>
+
+<h2>1. Where does your data — and your AI — actually run?</h2>
+<p><strong>Why it matters:</strong> Data residency is only half the question. Many providers store logs in an EU region but route AI inference, model training or support operations outside it. For regulated Nordic and DACH organisations, the location of processing — including AI processing — determines sovereignty and legal exposure.</p>
+<p><strong>What a good answer looks like:</strong> A credible European SOC provider keeps both telemetry and AI inference inside your chosen EU cloud regions, with no model training on your data outside that boundary and no offshore administrative access. Sovereignty should be the default architecture, not a premium add-on. Nordic SOC is EU-sovereign by design: data and AI stay in the chosen EU region. For the full picture, see <a href="/blog.php?slug=eu-data-sovereignty-soc">EU data sovereignty in the SOC</a>.</p>
+
+<h2>2. How much can the AI act on its own — and what are the guardrails?</h2>
+<p><strong>Why it matters:</strong> Autonomy without controls is a liability. An AI that can isolate hosts, disable accounts or block traffic can also cause outages if it acts on a false positive. The question is not whether the AI acts, but how its actions are bounded.</p>
+<p><strong>What a good answer looks like:</strong> Containment actions should be pre-approved against defined playbooks, reversible, and verified before and after execution, with human sign-off required on major incidents. Ask the AI SOC vendor to demonstrate the guardrail model, not just describe it. Vokter operates this way across its modes — see <a href="/blog.php?slug=autonomous-containment-safe">how autonomous containment stays safe</a>.</p>
+
+<h2>3. Can the provider explain every decision the AI makes?</h2>
+<p><strong>Why it matters:</strong> EU AI Act transparency obligations apply from August 2026, and DORA and NIS2 already require demonstrable, auditable security operations. A black-box model that cannot justify a triage decision or a containment action is a regulatory and operational risk.</p>
+<p><strong>What a good answer looks like:</strong> Every detection, triage decision and action should carry a clear, human-readable rationale and a full audit trail, mapped to recognised frameworks such as MITRE ATT&CK. Explainability should be built into the workflow, not reconstructed after the fact.</p>
+
+<h2>4. How does the AI SOC integrate with your existing stack?</h2>
+<p><strong>Why it matters:</strong> Few organisations want to rip out their SIEM, SOAR, EDR or identity tooling. A provider that demands wholesale replacement increases cost, risk and time-to-value.</p>
+<p><strong>What a good answer looks like:</strong> A strong AI SOC vendor offers flexibility: operating SIEM-less where appropriate, or layering AI-driven L1 triage over your existing SIEM and SOAR where you have already invested. Vokter's <a href="/vokter-hybrid.html">Hybrid mode</a> runs over your current stack, while <a href="/vokter-autonomous.html">Autonomous mode</a> removes the SIEM dependency entirely.</p>
+
+<h2>5. When does a human get involved, and what is the SLA?</h2>
+<p><strong>Why it matters:</strong> AI handles the volume, but serious incidents demand human judgement, threat hunting and forensics. A provider that cannot tell you precisely when a person engages — and how fast — is selling automation, not security operations.</p>
+<p><strong>What a good answer looks like:</strong> Named analysts, defined escalation thresholds and a contractual SLA. Look for a model where AI resolves the routine majority and skilled humans own the consequential minority. Nordic SOC's <a href="/vokter-guardian.html">Guardian mode</a> pairs AI handling roughly 85–90% of activity with named Nordic analysts, threat hunting, forensics and a contractual SLA.</p>
+
+<h2>6. What compliance evidence does the AI SOC provider produce for DORA and NIS2?</h2>
+<p><strong>Why it matters:</strong> DORA has applied since 17 January 2025 and NIS2 was adopted in 2022; both place direct accountability on the regulated entity. Your SOC must generate the evidence auditors and regulators expect, not leave you to assemble it.</p>
+<p><strong>What a good answer looks like:</strong> Ready reporting that maps to regulatory expectations — incident timelines, detection and response metrics, action logs and retention aligned to your obligations. The provider should treat compliance evidence as a standing output of the service.</p>
+
+<h2>7. Are the AI's actions reversible?</h2>
+<p><strong>Why it matters:</strong> Reversibility is the safety net that makes autonomy acceptable. If a containment action proves wrong, you need to undo it quickly and cleanly, with a record of what changed.</p>
+<p><strong>What a good answer looks like:</strong> Every automated action should be designed to be reversed, with clear rollback procedures and verification that the environment returned to its prior state. Reversibility plus verification is what separates responsible automation from reckless automation.</p>
+
+<h2>8. What coverage hours do you genuinely provide?</h2>
+<p><strong>Why it matters:</strong> Attackers do not keep office hours. Some providers advertise 24/7 coverage that, on inspection, means after-hours alerting rather than active response. The distinction is critical at 3am.</p>
+<p><strong>What a good answer looks like:</strong> Continuous detection and response, with AI providing always-on coverage and humans available around the clock for escalations — without depending on exhausting night-shift rotations to function. See <a href="/blog.php?slug=soc-as-a-service-nordics">SOC-as-a-service for the Nordics</a> for how this model works in practice.</p>
+
+<h2>9. What does reporting look like for the board and for the SOC team?</h2>
+<p><strong>Why it matters:</strong> A SOC that cannot communicate clearly to both technical and executive audiences erodes trust and slows decision-making. Reporting is where the value of the service becomes visible.</p>
+<p><strong>What a good answer looks like:</strong> Layered reporting — concise, risk-framed summaries for leadership and detailed, evidence-rich output for analysts — delivered on a predictable cadence and on demand. Metrics should reflect outcomes, not just alert counts.</p>
+
+<h2>10. How do you handle exit and lock-in?</h2>
+<p><strong>Why it matters:</strong> The hardest provider to evaluate is the one you cannot leave. Proprietary data formats, opaque tooling and unclear offboarding terms turn a security decision into a long-term dependency.</p>
+<p><strong>What a good answer looks like:</strong> Clear exit terms, portable data in standard formats, and an offboarding process defined in the contract. An independent European MDR provider should be confident enough in its service to make leaving straightforward.</p>
+
+<h2>A quick AI SOC provider evaluation scorecard</h2>
+<p>Use the following table to score candidates consistently. Rate each criterion from 1 (weak) to 5 (strong) and compare totals across shortlisted vendors.</p>
+<table>
+<thead>
+<tr><th>#</th><th>Evaluation criterion</th><th>What "strong" looks like</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>Data &amp; AI location</td><td>Both data and inference stay in your chosen EU region</td></tr>
+<tr><td>2</td><td>Autonomy &amp; guardrails</td><td>Pre-approved, reversible, verified actions</td></tr>
+<tr><td>3</td><td>Explainability</td><td>Human-readable rationale and full audit trail</td></tr>
+<tr><td>4</td><td>Stack integration</td><td>Works SIEM-less or over your existing tooling</td></tr>
+<tr><td>5</td><td>Human escalation &amp; SLA</td><td>Named analysts and contractual response times</td></tr>
+<tr><td>6</td><td>Compliance evidence</td><td>Reporting mapped to DORA and NIS2</td></tr>
+<tr><td>7</td><td>Reversibility</td><td>Clean rollback with verification</td></tr>
+<tr><td>8</td><td>Coverage hours</td><td>Genuine 24/7 detection and response</td></tr>
+<tr><td>9</td><td>Reporting</td><td>Board-level and analyst-level outputs</td></tr>
+<tr><td>10</td><td>Exit &amp; lock-in</td><td>Portable data and clear offboarding terms</td></tr>
+</tbody>
+</table>
+
+<p>A provider that answers all ten questions convincingly is rare, and worth shortlisting. To understand how Nordic SOC approaches these criteria, explore <a href="/vokter-guardian.html">Vokter Guardian</a>, read more <a href="/about.html">about Nordic SOC</a>, or <a href="/contact.html">get in touch</a> to discuss your environment. MSPs and technology partners can review the <a href="/vokter-partners.html">partner programme</a>.</p>
+
+<h2>Conclusion</h2>
+<p>Selecting an AI SOC provider in Europe comes down to a simple test: can the vendor demonstrate sovereignty, accountability and reversibility, and prove it against your regulatory obligations rather than assert it? The ten questions above turn an abstract comparison into a structured, defensible evaluation. Ask them of every candidate, score the answers, and you will move from vendor claims to operational certainty.</p>

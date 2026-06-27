@@ -1,0 +1,38 @@
+{
+  "title": "Autonomous Containment: How AI Stops Threats Safely",
+  "slug": "autonomous-containment-safe",
+  "meta_title": "Autonomous Containment: Safe AI Response | Nordic SOC",
+  "meta_description": "Can AI safely contain threats? How automated incident response uses guardrails, reversible actions and human sign-off to stop threats without breaking things.",
+  "excerpt": "Can AI safely isolate devices, block accounts and revoke access without breaking things? How automated incident response uses guardrails, reversible actions, verification and human sign-off to contain threats safely and meet EU AI Act transparency obligations.",
+  "focus_keyword": "automated incident response",
+  "secondary_keywords": ["autonomous containment", "automated remediation", "security guardrails", "human in the loop"],
+  "category": "AI SOC",
+  "tags": ["autonomous containment", "automated incident response", "security guardrails", "human in the loop", "EU AI Act", "automated remediation"],
+  "author": "Nordic SOC",
+  "date": "2026-05-26",
+  "reading_time": "7 min read",
+  "hero_image": "",
+  "hero_image_alt": "Autonomous containment guardrails verifying an automated incident response action before execution",
+  "faq": [
+    {
+      "q": "Can AI contain threats without breaking production systems?",
+      "a": "Yes, when automated incident response operates inside guardrails. The system uses pre-approved, reversible actions, verifies each decision before acting, and routes high-impact actions affecting critical systems or privileged accounts to a human for sign-off rather than acting unilaterally."
+    },
+    {
+      "q": "What are security guardrails in autonomous containment?",
+      "a": "Guardrails are engineered constraints that keep autonomous containment safe: a catalogue of pre-approved actions, a preference for reversible actions, verification against rules and threat intelligence before execution, human sign-off for high-severity cases, and fail-safe behaviour that holds and escalates when the system is uncertain."
+    },
+    {
+      "q": "Which containment actions require human approval?",
+      "a": "High blast-radius actions always require human sign-off — for example, isolating a critical production server, blocking a privileged or executive account, or applying firm-wide access changes. Low-risk, reversible actions such as isolating a non-critical endpoint can run autonomously within agreed policy."
+    },
+    {
+      "q": "How does autonomous containment meet EU AI Act requirements?",
+      "a": "The EU AI Act introduces transparency obligations applying from August 2026, requiring automated decisions to be explainable and auditable. A containment model that records the rationale, evidence and authorisation for every action, and keeps actions reversible and logged, aligns with these obligations and with DORA and NIS2."
+    },
+    {
+      "q": "What does Vokter do when it is unsure about an action?",
+      "a": "Vokter is safe by default. If confidence is low, context is missing, or it cannot reach a clear decision, it holds rather than guesses and escalates to an analyst. It takes only pre-approved, reversible actions, verifies every decision before acting, and requires human sign-off for high-severity cases."
+    }
+  ]
+}

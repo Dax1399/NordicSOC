@@ -1,0 +1,38 @@
+{
+  "title": "MITRE ATT&CK and Automated Investigation: A Primer",
+  "slug": "mitre-attack-automated-investigation",
+  "meta_title": "MITRE ATT&CK for the SOC | Nordic SOC",
+  "meta_description": "How MITRE ATT&CK structures adversary behaviour into tactics and techniques, and how an AI SOC maps alerts to ATT&CK to speed up automated investigation.",
+  "excerpt": "A practical primer on the MITRE ATT&CK framework for SOC teams: what tactics, techniques and procedures are, how ATT&CK mapping improves detection coverage, and how an AI SOC uses it to accelerate investigation.",
+  "focus_keyword": "MITRE ATT&CK SOC",
+  "secondary_keywords": ["ATT&CK mapping", "automated investigation", "tactics techniques and procedures", "threat detection"],
+  "category": "Guides",
+  "tags": ["MITRE ATT&CK", "threat detection", "automated investigation", "AI SOC", "TTPs", "incident response"],
+  "author": "Nordic SOC",
+  "date": "2026-05-30",
+  "reading_time": "7 min",
+  "hero_image": "",
+  "hero_image_alt": "Diagram of MITRE ATT&CK tactics and techniques mapped during automated SOC investigation",
+  "faq": [
+    {
+      "q": "What is MITRE ATT&CK?",
+      "a": "MITRE ATT&CK is a globally accessible, free knowledge base of adversary tactics and techniques maintained by MITRE, based on real-world observations. It organises attacker behaviour into tactics, techniques and sub-techniques across Enterprise, Mobile and ICS matrices."
+    },
+    {
+      "q": "What is the difference between tactics, techniques and procedures?",
+      "a": "Tactics describe an attacker's goal at a given stage, such as Initial Access or Exfiltration. Techniques describe how that goal is achieved, often with sub-techniques. Procedures are the concrete, observed implementations of a technique by a specific adversary or tool."
+    },
+    {
+      "q": "How does ATT&CK mapping improve threat detection?",
+      "a": "Mapping detections and alerts to ATT&CK exposes which techniques are covered and which are blind spots, adds intent and context to each alert, and connects related events into a single attack narrative rather than isolated signals."
+    },
+    {
+      "q": "How does an AI SOC use MITRE ATT&CK?",
+      "a": "An AI SOC maps every alert to ATT&CK tactics and techniques automatically, correlates related telemetry, and produces an explainable, structured incident. This speeds up investigation and lets incidents be prioritised by likely severity and attack stage."
+    },
+    {
+      "q": "Is MITRE ATT&CK free to use?",
+      "a": "Yes. MITRE ATT&CK is a free, openly maintained knowledge base, so any security team can adopt it as a common framework without licensing barriers."
+    }
+  ]
+}

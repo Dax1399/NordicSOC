@@ -1,0 +1,38 @@
+{
+  "title": "Agentic SOC: How AI Agents Run Security Operations",
+  "slug": "agentic-soc-explained",
+  "meta_title": "Agentic SOC: How AI Agents Run SecOps | Nordic SOC",
+  "meta_description": "An agentic SOC uses AI agents to triage, investigate and act on alerts within guardrails. Learn how it differs from SOAR, the workflow, oversight and EU AI Act.",
+  "excerpt": "An agentic SOC uses AI agents that triage, enrich, investigate and act on alerts within policy guardrails. Learn how it differs from SOAR, the agent workflow, human oversight and the EU AI Act transparency angle.",
+  "focus_keyword": "agentic SOC",
+  "secondary_keywords": ["AI agents in cybersecurity", "autonomous alert triage", "agentic AI security", "AI SOC analyst"],
+  "category": "AI SOC",
+  "tags": ["agentic SOC", "AI agents", "autonomous alert triage", "agentic AI security", "EU AI Act", "security operations"],
+  "author": "Nordic SOC",
+  "date": "2026-06-18",
+  "reading_time": "7 min",
+  "hero_image": "",
+  "hero_image_alt": "AI agents triaging and investigating security alerts within policy guardrails in an agentic SOC",
+  "faq": [
+    {
+      "q": "What is an agentic SOC?",
+      "a": "An agentic SOC is a security operations centre in which AI agents independently triage, enrich, investigate and act on alerts within defined policy guardrails, escalating to human analysts only when judgement or authority is required. The agents reason over context and choose their next step rather than following a fixed script."
+    },
+    {
+      "q": "How is an agentic SOC different from SOAR automation?",
+      "a": "SOAR platforms run predetermined if/then playbooks and stall or escalate when a case does not match a rule. An agentic SOC selects its own actions based on the evidence it finds, pivoting across data sources to investigate dynamically. It behaves like a decision-maker rather than a fixed recipe."
+    },
+    {
+      "q": "What are the stages of the agentic SOC workflow?",
+      "a": "The workflow follows clear stages: detect a signal, triage its severity, enrich it with context, investigate by forming and testing hypotheses, decide whether activity is malicious, act within guardrails, and document the full reasoning for review and audit."
+    },
+    {
+      "q": "How are guardrails and human oversight handled?",
+      "a": "Guardrails define what an agent may do alone, what needs approval, and what is never permitted without a human. High-impact actions are scoped, reversible where possible and subject to policy, while low-impact actions can proceed automatically. Every decision is recorded with its reasoning."
+    },
+    {
+      "q": "How does an agentic SOC relate to the EU AI Act?",
+      "a": "EU AI Act transparency obligations applying from August 2026 require certain automated decisions to be explainable. An agentic SOC documents its evidence and decision rationale at every stage, so the audit trail is built into the architecture, supporting both the AI Act and obligations under DORA and NIS2."
+    }
+  ]
+}

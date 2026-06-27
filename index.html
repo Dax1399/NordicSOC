@@ -3,11 +3,12 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="canonical" href="https://nordicsoc.com/" />
 <title>Nordic SOC — The EU-sovereign AI SOC for the Nordics</title>
 <meta name="description" content="Your tools already raise the alerts. We investigate, contain and report on them for you — automatically, in seconds. No SIEM to run, no 24/7 team to hire. EU-sovereign, delivered by Nordic SOC and powered by Vokter." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap" rel="stylesheet" />
 <style>
 /* ============================================================
    NORDIC SOC · Vokter — homepage (light theme, matched to nordicsoc.com)
@@ -39,7 +40,7 @@ section[id]{scroll-margin-top:84px}
 .alt{background:var(--alt)}
 h1,h2,h3,h4{line-height:1.12;font-weight:600;letter-spacing:-.02em;color:var(--ink);text-wrap:pretty}
 h2.title{font-size:clamp(24px,2.8vw,36px);letter-spacing:-.025em}
-.lead{font-size:clamp(16px,1.4vw,18px);color:var(--body);max-width:72ch;margin-top:18px;line-height:1.6;text-wrap:balance}
+.lead{font-size:clamp(16px,1.4vw,18px);color:var(--body);max-width:72ch;margin-top:18px;line-height:1.6;text-wrap:pretty}
 .center-head{text-align:left;display:flex;flex-direction:column;align-items:flex-start}
 
 .btn{display:inline-flex;align-items:center;gap:9px;justify-content:center;font-family:inherit;font-weight:600;
@@ -82,7 +83,7 @@ header.nav.scrolled{box-shadow:0 6px 24px -18px rgba(20,46,74,.5);border-bottom-
 /* HERO */
 .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;text-align:left;
   padding:118px 0 64px;overflow:hidden;color:#fff}
-.hero-bg{position:absolute;inset:0;z-index:0;background:url("assets/hero-mosaic.png") center/cover no-repeat;background-color:#0b162f}
+.hero-bg{position:absolute;inset:0;z-index:0;background:url("/assets/hero-mosaic.png") center/cover no-repeat;background-color:#0b162f}
 .hero-bg::after{content:"";position:absolute;inset:0;background:
   linear-gradient(180deg,rgba(9,16,30,.62),rgba(9,16,30,.42) 55%,rgba(9,16,30,.5)),
   radial-gradient(120% 90% at 50% 40%,transparent 30%,rgba(9,16,30,.45))}
@@ -111,7 +112,7 @@ header.nav.scrolled{box-shadow:0 6px 24px -18px rgba(20,46,74,.5);border-bottom-
 .vk-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
 .vk-top{display:flex;align-items:center;justify-content:space-between;padding:15px 20px;border-bottom:1px solid var(--line);background:var(--alt)}
 .vk-top img{height:20px;width:auto}
-.vk-tag{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--orchid-deep);background:rgba(188,209,83,.18);border:1px solid rgba(124,154,46,.28);padding:4px 10px;border-radius:999px;font-weight:500}
+.vk-tag{font-family:inherit;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--orchid-deep);background:rgba(188,209,83,.18);border:1px solid rgba(124,154,46,.28);padding:4px 10px;border-radius:999px;font-weight:500}
 .vk-body{padding:14px;display:flex;flex-direction:column;gap:6px}
 .vlayer{display:flex;align-items:center;gap:11px;padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;transition:border-color .25s,transform .25s}
 .vlayer:hover{border-color:var(--line-2);transform:translateX(2px)}
@@ -119,14 +120,14 @@ header.nav.scrolled{box-shadow:0 6px 24px -18px rgba(20,46,74,.5);border-bottom-
 .vlayer .li svg{width:17px;height:17px}
 .vlayer .lt b{display:block;font-size:13.5px;color:var(--ink);font-weight:600;line-height:1.2}
 .vlayer .lt span{font-size:12px;color:var(--muted);line-height:1.3}
-.vk-div{display:flex;align-items:center;gap:10px;margin:1px 2px;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--sunset)}
+.vk-div{display:flex;align-items:center;gap:10px;margin:1px 2px;font-family:inherit;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--sunset)}
 .vk-div::before,.vk-div::after{content:"";height:1px;background:var(--line);flex:1}
 .vbase{display:flex;align-items:center;gap:11px;padding:9px 12px;border:1px dashed var(--line-2);border-radius:10px;background:var(--alt)}
 .vbase .li{width:30px;height:30px;border-radius:8px;flex-shrink:0;display:grid;place-items:center;background:rgba(94,122,147,.16);color:var(--sunset)}
 .vbase .li svg{width:17px;height:17px}
 .vbase .lt b{display:block;font-size:13.5px;color:var(--navy);font-weight:600;line-height:1.25}
 .vbase .lt span{font-size:12px;color:var(--muted)}
-.vbase .yours{margin-left:auto;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--sunset);background:#fff;border:1px solid var(--line);padding:3px 8px;border-radius:6px;white-space:nowrap}
+.vbase .yours{margin-left:auto;font-family:inherit;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--sunset);background:#fff;border:1px solid var(--line);padding:3px 8px;border-radius:6px;white-space:nowrap}
 .vk-foot{padding:14px 20px;background:rgba(188,209,83,.14);border-top:1px solid var(--line);display:flex;align-items:center;gap:10px;font-size:13px;color:var(--navy);font-weight:600}
 .vk-foot svg{width:17px;height:17px;color:var(--orchid-deep);flex-shrink:0}
 
@@ -141,7 +142,7 @@ header.nav.scrolled{box-shadow:0 6px 24px -18px rgba(20,46,74,.5);border-bottom-
 .prob-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:40px}
 .prob{background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);padding:26px 24px;transition:transform .3s,box-shadow .3s}
 .prob:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
-.prob .ix{font-family:"JetBrains Mono",monospace;color:var(--orange);font-size:13px;font-weight:500}
+.prob .ix{font-family:inherit;color:var(--orange);font-size:13px;font-weight:500}
 .prob h4{font-size:17px;color:var(--ink);margin:12px 0 6px}
 .prob p{font-size:14.5px;color:var(--body)}
 
@@ -156,7 +157,7 @@ header.nav.scrolled{box-shadow:0 6px 24px -18px rgba(20,46,74,.5);border-bottom-
 
 /* MODES */
 .modes{grid-template-columns:repeat(3,1fr)}
-.mode .mtag{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--sunset)}
+.mode .mtag{font-family:inherit;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--sunset)}
 .mode h3{font-size:22px;color:var(--ink);margin:8px 0 3px;scroll-margin-top:100px}
 .mode .sub{font-size:13.5px;color:var(--orchid-deep);font-weight:600;margin-bottom:14px}
 .mode p{font-size:14.5px;color:var(--body);flex-grow:1}
@@ -167,7 +168,7 @@ header.nav.scrolled{box-shadow:0 6px 24px -18px rgba(20,46,74,.5);border-bottom-
 /* HOW IT WORKS */
 .flow{margin-top:34px;border:1px solid var(--line);border-radius:var(--radius);background:#fff;padding:clamp(16px,2.4vw,24px);box-shadow:var(--shadow-sm)}
 .flow-meta{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center;margin-bottom:16px;padding-bottom:13px;border-bottom:1px solid var(--line)}
-.flow-meta .timer{font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--orchid-deep);display:flex;align-items:center;gap:10px;font-weight:500}
+.flow-meta .timer{font-family:inherit;font-size:13px;color:var(--orchid-deep);display:flex;align-items:center;gap:10px;font-weight:500}
 .flow-meta .timer .dot{width:8px;height:8px;border-radius:50%;background:var(--orchid);animation:pulse 2s infinite}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(124,154,46,.45)}70%{box-shadow:0 0 0 9px rgba(124,154,46,0)}100%{box-shadow:0 0 0 0 rgba(124,154,46,0)}}
 .flow-meta .legend{display:flex;gap:18px;font-size:13px;color:var(--body);flex-wrap:wrap}
@@ -176,9 +177,13 @@ header.nav.scrolled{box-shadow:0 6px 24px -18px rgba(20,46,74,.5);border-bottom-
 .steps{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;counter-reset:step}
 .step{position:relative;padding:13px 12px;border-radius:var(--radius-sm);border:1px solid var(--line);background:var(--alt);transition:transform .3s,box-shadow .3s}
 .step:hover{transform:translateY(-4px);box-shadow:var(--shadow-sm)}
-.step .num{counter-increment:step;font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--orchid-deep)}
+.step .num{counter-increment:step;font-family:inherit;font-size:12px;color:var(--orchid-deep)}
 .step .num::before{content:"0" counter(step)}
-.step .ico{width:24px;height:24px;color:var(--navy);margin:6px 0}
+.step .ico{width:24px;height:24px;color:var(--orchid-deep);margin:6px 0}
+.step .fork{display:flex;flex-direction:column;gap:3px;margin-top:7px;font-size:11px;line-height:1.3}
+.step .fork b{font-weight:600}
+.step .fork .auto b{color:var(--orchid-deep)}
+.step .fork .human b{color:var(--sunset)}
 .step h4{font-size:15px;color:var(--ink);margin-bottom:5px;letter-spacing:-.01em}
 .step p{font-size:12px;color:var(--body);line-height:1.4}
 .step.gate{border-color:rgba(224,123,60,.45);background:rgba(224,123,60,.07)}
@@ -191,7 +196,7 @@ header.nav.scrolled{box-shadow:0 6px 24px -18px rgba(20,46,74,.5);border-bottom-
 
 /* SOVEREIGNTY */
 .sov-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,72px);align-items:start}
-.sov-sub{font-size:15px;color:var(--body);line-height:1.55;margin-top:14px;max-width:none;text-wrap:balance}
+.sov-sub{font-size:15px;color:var(--body);line-height:1.55;margin-top:14px;max-width:42ch;text-wrap:balance}
 #sovereignty .title{font-size:clamp(22px,2.3vw,28px)}
 .sov-points{list-style:none;display:flex;flex-direction:column;gap:16px;margin-top:24px}
 .sov-points li{display:flex;gap:14px;align-items:flex-start}
@@ -201,7 +206,7 @@ header.nav.scrolled{box-shadow:0 6px 24px -18px rgba(20,46,74,.5);border-bottom-
 .sov-points p{font-size:14px;color:var(--body)}
 .deploy{display:flex;flex-direction:column;gap:16px;margin-top:24px}
 .dep{border:1px solid var(--line);border-radius:var(--radius-sm);padding:20px 22px;background:#fff;display:flex;gap:16px;align-items:flex-start;box-shadow:var(--shadow-sm)}
-.dep .lvl{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;width:96px;text-align:center;padding:5px 6px;border-radius:999px;flex-shrink:0;font-weight:500;white-space:nowrap}
+.dep .lvl{font-family:inherit;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;width:96px;text-align:center;padding:5px 6px;border-radius:999px;flex-shrink:0;font-weight:500;white-space:nowrap}
 .dep .lvl.s1{background:rgba(94,122,147,.16);color:var(--sunset)}
 .dep .lvl.s2{background:rgba(124,154,46,.16);color:var(--orchid-deep)}
 .dep .lvl.s3{background:rgba(224,123,60,.16);color:var(--orange)}
@@ -210,16 +215,15 @@ header.nav.scrolled{box-shadow:0 6px 24px -18px rgba(20,46,74,.5);border-bottom-
 
 /* MOATS */
 .moats{grid-template-columns:repeat(2,1fr)}
-.moat .mn{font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--orchid-deep)}
+.moat .mn{font-family:inherit;font-size:13px;color:var(--orchid-deep)}
 .moat h3{font-size:20px;color:var(--ink);margin:10px 0 8px;max-width:26ch}
 .moat p{font-size:14.5px;color:var(--body);max-width:50ch}
 
 /* INTEGRATIONS */
 .int-strip{margin-top:36px;border:1px solid var(--line);border-radius:var(--radius);background:#fff;padding:clamp(22px,3vw,32px);box-shadow:var(--shadow-sm)}
 .int-cats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px 28px}
-.int-cat h4{font-size:12px;font-family:"JetBrains Mono",monospace;letter-spacing:.07em;text-transform:uppercase;color:var(--orchid-deep);margin-bottom:9px;font-weight:500}
+.int-cat h4{font-size:12.5px;font-family:inherit;letter-spacing:.04em;text-transform:uppercase;color:var(--orchid-deep);margin-bottom:9px;font-weight:600}
 .int-cat span{font-size:13.5px;color:var(--body);line-height:1.6;display:block}
-.int-foot{text-align:center;margin-top:22px;font-size:15px;color:var(--body)}
 
 /* PARTNER */
 .partner{border:1px solid var(--line);border-radius:var(--radius);padding:clamp(28px,4vw,44px);
@@ -251,7 +255,7 @@ header.nav.scrolled{box-shadow:0 6px 24px -18px rgba(20,46,74,.5);border-bottom-
 .faq .ans strong{color:var(--navy);font-weight:600}
 /* FINAL CTA (mosaic band) */
 .cta{position:relative;overflow:hidden;text-align:left;color:#fff}
-.cta-bg{position:absolute;inset:0;z-index:0;background:url("assets/hero-mosaic.png") center/cover no-repeat;background-color:#0b162f}
+.cta-bg{position:absolute;inset:0;z-index:0;background:url("/assets/hero-mosaic.png") center/cover no-repeat;background-color:#0b162f}
 .cta-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(9,16,30,.7),rgba(9,16,30,.55))}
 .cta .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,5vw,60px);align-items:center}
 .cta h2{color:#fff;font-size:clamp(28px,3.4vw,42px);letter-spacing:-.03em}
@@ -282,7 +286,7 @@ footer{background:var(--charcoal);color:#cdd9e2;padding:clamp(56px,7vw,78px) 0 3
 .foot-col ul{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:4px}
 .foot-col a{font-size:14.5px;color:#9FB3C4;transition:color .2s}
 .foot-col a:hover{color:#fff}
-.foot-offices h5{font-size:14.5px;font-weight:600;color:var(--sunset);margin:0 0 16px}
+.foot-offices h5{font-size:14.5px;font-weight:600;color:var(--orchid);margin:0 0 16px}
 .foot-offices ul{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:12px 20px}
 .foot-offices li{font-size:14.5px;color:#9FB3C4;white-space:nowrap}
 .foot-bottom{margin-top:48px;padding-top:24px;border-top:1px solid rgba(159,179,196,.16);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--sunset)}
@@ -323,7 +327,7 @@ footer{background:var(--charcoal);color:#cdd9e2;padding:clamp(56px,7vw,78px) 0 3
 <header class="nav" id="nav">
   <div class="nav-inner">
     <a class="brand" href="#top" aria-label="Nordic SOC home">
-      <img class="logo-nsoc" src="assets/nordic-soc-navy.svg" alt="Nordic SOC" />
+      <img class="logo-nsoc" src="/assets/nordic-soc-navy.svg" alt="Nordic SOC" />
     </a>
     <nav class="nav-links">
       <div class="nav-item">
@@ -331,17 +335,17 @@ footer{background:var(--charcoal);color:#cdd9e2;padding:clamp(56px,7vw,78px) 0 3
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <div class="drop">
-          <a href="#autonomous">Autonomous</a>
-          <a href="#hybrid">Hybrid</a>
-          <a href="#guardian">Guardian</a>
+          <a href="/vokter-autonomous/">Autonomous</a>
+          <a href="/vokter-hybrid/">Hybrid</a>
+          <a href="/vokter-guardian/">Guardian</a>
         </div>
       </div>
-      <a href="#partners">Partner Program</a>
-      <a href="#insights">Insights</a>
-      <a href="#about">About Us</a>
+      <a href="/partner-program/">Partner Program</a>
+      <a href="/insights/">Insights</a>
+      <a href="/about-us/">About Us</a>
     </nav>
     <div class="nav-cta">
-      <a href="#contact" class="btn btn-primary">Contact Us</a>
+      <a href="/contact-us/" class="btn btn-primary">Contact Us</a>
     </div>
     <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round"/></svg>
@@ -349,13 +353,13 @@ footer{background:var(--charcoal);color:#cdd9e2;padding:clamp(56px,7vw,78px) 0 3
   </div>
 </header>
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#autonomous">Vokter Autonomous</a>
-  <a href="#hybrid">Vokter Hybrid</a>
-  <a href="#guardian">Vokter Guardian</a>
-  <a href="#partners">Partner Program</a>
-  <a href="#insights">Insights</a>
-  <a href="#about">About Us</a>
-  <a href="#contact" class="btn btn-primary">Contact Us</a>
+  <a href="/vokter-autonomous/">Vokter Autonomous</a>
+  <a href="/vokter-hybrid/">Vokter Hybrid</a>
+  <a href="/vokter-guardian/">Vokter Guardian</a>
+  <a href="/partner-program/">Partner Program</a>
+  <a href="/insights/">Insights</a>
+  <a href="/about-us/">About Us</a>
+  <a href="/contact-us/" class="btn btn-primary">Contact Us</a>
 </div>
 
 <main id="top">
@@ -368,10 +372,10 @@ footer{background:var(--charcoal);color:#cdd9e2;padding:clamp(56px,7vw,78px) 0 3
       <h1 class="reveal">Your first line of defense, <span class="accent">running itself.</span></h1>
       <p class="sub reveal">Autonomously triage, investigate, contain and report on the alerts your existing tools already produce. EU-sovereign, compliance-native, and delivered as a fully managed outcome — not another platform to operate.</p>
       <div class="hero-actions reveal">
-        <a href="#contact" class="btn btn-primary">Request a demo
+        <a href="/contact-us/" class="btn btn-primary">Request a demo
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-        <a href="#contact" class="btn btn-outline">Assess your SOC readiness</a>
+        <a href="/contact-us/" class="btn btn-outline">Assess your SOC readiness</a>
       </div>
     </div>
     <div class="hero-video reveal">
@@ -387,8 +391,8 @@ footer{background:var(--charcoal);color:#cdd9e2;padding:clamp(56px,7vw,78px) 0 3
 <section class="section" id="vokter">
   <div class="wrap meet-grid">
     <div class="meet-copy">
-      <img class="vk-logo-lg reveal" src="assets/vokter-dark.png" alt="Vokter — AI SOC for the Nordics" />
-      <h2 class="title reveal" style="max-width:15ch">Your entire security operation, in one platform.</h2>
+      <img class="vk-logo-lg reveal" src="/assets/vokter-dark.png" alt="Vokter — AI SOC for the Nordics" />
+      <h2 class="title reveal" style="text-wrap:balance">Your entire security operation, in one platform.</h2>
       <ul class="meet-list">
         <li class="reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5 9-10" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Runs your first line <b>autonomously</b>, around the clock</span></li>
         <li class="reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5 9-10" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Works on the security tools <b>you already own</b></span></li>
@@ -400,7 +404,7 @@ footer{background:var(--charcoal);color:#cdd9e2;padding:clamp(56px,7vw,78px) 0 3
     </div>
     <div class="vk-card reveal">
       <div class="vk-top">
-        <img src="assets/vokter-dark.png" alt="Vokter" />
+        <img src="/assets/vokter-dark.png" alt="Vokter" />
         <span class="vk-tag">EU-sovereign</span>
       </div>
       <div class="vk-body">
@@ -425,7 +429,7 @@ footer{background:var(--charcoal);color:#cdd9e2;padding:clamp(56px,7vw,78px) 0 3
       <div class="stat reveal"><div class="n"><em>85–90%</em></div><div class="l">of alerts resolved automatically, with no analyst involved</div></div>
       <div class="stat reveal"><div class="n"><em>40%+</em></div><div class="l">fewer false alarms reaching your team</div></div>
       <div class="stat reveal"><div class="n"><em>2–3×</em></div><div class="l">faster to detect and respond to real threats</div></div>
-      <div class="stat reveal"><div class="n">EU</div><div class="l">your data stays in the EU, always</div></div>
+      <div class="stat reveal"><div class="n">EU</div><div class="l">your data is stored in the EU, always</div></div>
     </div>
   </div>
 </section>
@@ -434,7 +438,7 @@ footer{background:var(--charcoal);color:#cdd9e2;padding:clamp(56px,7vw,78px) 0 3
 <section class="section" id="modes">
   <div class="wrap">
     <div class="center-head">
-      <h2 class="title reveal">One platform. Three ways to run it.</h2>
+      <h2 class="title reveal">Choose How Vokter Runs for You</h2>
       <p class="lead reveal">Every mode runs on the same AI, the same safeguards and the same reporting. The only choice is how much you want to run yourself, and how much you want us to handle.</p>
     </div>
     <div class="cardgrid modes">
@@ -442,19 +446,19 @@ footer{background:var(--charcoal);color:#cdd9e2;padding:clamp(56px,7vw,78px) 0 3
         <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="3.2"/><path d="M12 4v3M12 17v3M4 12h3M17 12h3M6.3 6.3l2 2M15.7 15.7l2 2M17.7 6.3l-2 2M8.3 15.7l-2 2" stroke-linecap="round"/></svg></div>
         <h3 id="autonomous">Vokter Autonomous</h3><div class="sub">We run your whole SOC</div>
         <p>Vokter connects directly to your security tools and runs the entire first line on its own, triaging, investigating and containing threats with no security team needed on your side. It's built for smaller and growing organisations.</p>
-        <a href="#contact" class="more">Explore Autonomous <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="/vokter-autonomous/" class="more">Explore Autonomous <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
       <div class="card mode reveal">
         <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 7h16M4 12h16M4 17h10" stroke-linecap="round"/><circle cx="19" cy="17" r="2.4"/></svg></div>
         <h3 id="hybrid">Vokter Hybrid</h3><div class="sub">Add AI to your stack</div>
         <p>Keep the SIEM or XDR you already have. Vokter runs the first line of response on top of it, handling the routine work so your analysts can focus on the complex cases that need real judgement.</p>
-        <a href="#contact" class="more">Explore Hybrid <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="/vokter-hybrid/" class="more">Explore Hybrid <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
       <div class="card mode reveal">
         <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.3 3-6 7-6s7 2.7 7 6" stroke-linecap="round"/></svg></div>
         <h3 id="guardian">Vokter Guardian</h3><div class="sub">AI plus our experts</div>
         <p>Everything in Autonomous or Hybrid, plus our security experts on call for escalations, threat hunting and forensics under an agreed SLA. It's built for regulated and enterprise teams who want named people behind the service.</p>
-        <a href="#contact" class="more">Explore Guardian <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="/vokter-guardian/" class="more">Explore Guardian <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
     </div>
   </div>
@@ -471,7 +475,7 @@ footer{background:var(--charcoal);color:#cdd9e2;padding:clamp(56px,7vw,78px) 0 3
       <div class="flow-meta">
         <div class="timer"><span class="dot"></span>Done in 3–8 seconds</div>
         <div class="legend">
-          <span><i style="background:var(--orchid)"></i> Automatic</span>
+          <span><i style="background:var(--orchid-deep)"></i> Automatic</span>
           <span><i style="background:var(--orange)"></i> Decision point</span>
           <span><i style="background:var(--sunset)"></i> Sent to a person</span>
         </div>
@@ -480,7 +484,7 @@ footer{background:var(--charcoal);color:#cdd9e2;padding:clamp(56px,7vw,78px) 0 3
         <div class="step"><div class="num"></div><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 7l8-4 8 4-8 4-8-4z" stroke-linejoin="round"/><path d="M4 7v10l8 4 8-4V7" stroke-linejoin="round"/></svg><h4>Alerts come in</h4><p>Alerts arrive from any EDR, XDR or SIEM you use, or straight from Windows for smaller setups with no SIEM.</p></div>
         <div class="step"><div class="num"></div><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 6h18M6 12h12M9 18h6" stroke-linecap="round"/></svg><h4>Cleaned up</h4><p>Each alert is standardised, stripped of personal data, and enriched with context about the asset and identity involved.</p></div>
         <div class="step"><div class="num"></div><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="3.2"/><path d="M12 4v3M12 17v3M4 12h3M17 12h3M6.3 6.3l2 2M15.7 15.7l2 2M17.7 6.3l-2 2M8.3 15.7l-2 2" stroke-linecap="round"/></svg><h4>AI reviews it</h4><p>Vokter explains what happened, maps it to known attack techniques, and scores how likely it is to be a real threat.</p></div>
-        <div class="step gate"><div class="num"></div><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3v6M5 9l7 4 7-4M5 9v6l7 4 7-4V9" stroke-linejoin="round"/></svg><h4>Decision point</h4><p>Clear, low-risk cases are resolved automatically. Anything serious or uncertain is escalated to one of our analysts.</p></div>
+        <div class="step gate"><div class="num"></div><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3v6M5 9l7 4 7-4M5 9v6l7 4 7-4V9" stroke-linejoin="round"/></svg><h4>Decision point</h4><p>Vokter weighs the risk and splits the path:</p><div class="fork"><span class="auto"><b>Auto-resolve</b> — clear, low-risk cases close on their own</span><span class="human"><b>Sent to a person</b> — anything serious or uncertain goes to an analyst</span></div></div>
         <div class="step"><div class="num"></div><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l8 4v5c0 4-3 7-8 9-5-2-8-5-8-9V7l8-4z" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg><h4>Threat shut down</h4><p>The threat is contained by isolating the device, blocking the account or revoking access, automatically or after sign-off for major incidents.</p></div>
         <div class="step"><div class="num"></div><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 4h11l3 3v13H5z" stroke-linejoin="round"/><path d="M8 11h8M8 15h6" stroke-linecap="round"/></svg><h4>Logged &amp; reported</h4><p>Findings are written back to your tools, a ticket is raised, and the reports for your team and your auditors generate on their own.</p></div>
       </div>
@@ -524,7 +528,6 @@ footer{background:var(--charcoal);color:#cdd9e2;padding:clamp(56px,7vw,78px) 0 3
   <div class="wrap">
     <div class="center-head">
       <h2 class="title reveal">Purpose-built for regulated Europe.</h2>
-      <p class="lead reveal">We don't try to out-spend the global incumbents on raw AI. We compete where they structurally can't follow.</p>
     </div>
     <div class="cardgrid moats">
       <div class="card moat reveal"><div class="mn">01</div><h3>We're EU, end to end</h3><p>The whole platform runs inside the EU and your data stays here — a guarantee non-EU vendors can't make, however they word it.</p></div>
@@ -544,17 +547,16 @@ footer{background:var(--charcoal);color:#cdd9e2;padding:clamp(56px,7vw,78px) 0 3
     </div>
     <div class="int-strip reveal">
       <div class="int-cats">
-        <div class="int-cat"><h4>EDR / XDR</h4><span>Defender XDR · CrowdStrike · SentinelOne · Cortex · Trend Vision One · Sophos</span></div>
-        <div class="int-cat"><h4>SIEM</h4><span>Microsoft Sentinel · Splunk · Elastic · IBM QRadar · Sumo Logic</span></div>
+        <div class="int-cat"><h4>EDR / XDR</h4><span>Defender XDR · CrowdStrike · SentinelOne · Cortex · Trend Vision One · Sophos · Bitdefender · WithSecure</span></div>
+        <div class="int-cat"><h4>SIEM</h4><span>Microsoft Sentinel · Splunk · Elastic · IBM QRadar · Exabeam · Graylog · Guardsix</span></div>
         <div class="int-cat"><h4>Standalone AV</h4><span>Defender · third-party AV / EDR · via Windows Event Collector</span></div>
         <div class="int-cat"><h4>Cloud security</h4><span>Defender for Cloud · AWS · GCP · Kubernetes</span></div>
-        <div class="int-cat"><h4>Identity</h4><span>Microsoft Entra ID · Okta</span></div>
-        <div class="int-cat"><h4>Threat intel</h4><span>MISP · VirusTotal · AlienVault OTX · Recorded Future</span></div>
-        <div class="int-cat"><h4>Ticketing</h4><span>Jira · Zendesk · ServiceNow · Freshservice</span></div>
+        <div class="int-cat"><h4>Identity</h4><span>Microsoft Entra ID · Okta · CyberArk · Check Point</span></div>
+        <div class="int-cat"><h4>Threat intel</h4><span>MISP · VirusTotal · AlienVault OTX · Recorded Future · Sekoia · ZeroFox · CloudSEK</span></div>
+        <div class="int-cat"><h4>Ticketing</h4><span>Jira · Zendesk · ServiceNow · Freshservice · Halo</span></div>
         <div class="int-cat"><h4>Alerts to you</h4><span>Microsoft Teams · Slack · Email · API</span></div>
       </div>
     </div>
-    <p class="int-foot reveal">Trusted across finance, healthcare, energy, manufacturing, public sector, automotive and retail.</p>
   </div>
 </section>
 
@@ -583,7 +585,7 @@ footer{background:var(--charcoal);color:#cdd9e2;padding:clamp(56px,7vw,78px) 0 3
       </div>
     </div>
     <div class="partner-cta reveal">
-      <a href="#contact" class="btn btn-primary">Explore the partner program
+      <a href="/partner-program/" class="btn btn-primary">Explore the partner program
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
     </div>
@@ -659,8 +661,8 @@ footer{background:var(--charcoal);color:#cdd9e2;padding:clamp(56px,7vw,78px) 0 3
       <h2 class="reveal">See it work on your own alerts.</h2>
       <p class="reveal">Book a session with our Nordic team for a live walkthrough of Vokter — see exactly how it triages, investigates, contains and reports.</p>
       <div class="contact-meta reveal">
-        <a href="mailto:stockholm@thegatewaydigital.com">stockholm@thegatewaydigital.com</a>
-        <a href="tel:+46733690899">+46 733 690 899</a>
+        <a href="mailto:consult@gsecurelabs.com">consult@gsecurelabs.com</a>
+        <a href="tel:+46733690899">+46 733 690899</a>
       </div>
     </div>
     <form class="contact-form reveal" id="contactForm" novalidate>
@@ -697,31 +699,31 @@ footer{background:var(--charcoal);color:#cdd9e2;padding:clamp(56px,7vw,78px) 0 3
   <div class="wrap">
     <div class="foot-top">
       <div class="foot-brand">
-        <img class="logo-nsoc" src="assets/nordic-soc-white.svg" alt="Nordic SOC" />
+        <img class="logo-nsoc" src="/assets/nordic-soc-white.svg" alt="Nordic SOC" />
         <p>Managed security operations for the Nordics — powered by Vokter, our EU-sovereign AI SOC.</p>
         <div class="foot-contact">
           <a href="tel:+46733690899" class="foot-contact-item">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.72a16 16 0 006.29 6.29l1.25-1.25a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-            +46 733 690 899
+            +46 733 690899
           </a>
-          <a href="mailto:stockholm@thegatewaydigital.com" class="foot-contact-item">
+          <a href="mailto:consult@gsecurelabs.com" class="foot-contact-item">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg>
-            stockholm@thegatewaydigital.com
+            consult@gsecurelabs.com
           </a>
           <span class="foot-contact-item">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Isafjordsgatan 30A, 16440 Kista, Stockholm
+            Isafjordsgatan 30A, 16440 Kista, Sweden
           </span>
         </div>
       </div>
       <div class="foot-col"><ul>
-        <li><a href="#modes">Vokter Autonomous</a></li>
-        <li><a href="#modes">Vokter Hybrid</a></li>
-        <li><a href="#modes">Vokter Guardian</a></li>
-        <li><a href="#partners">Partner Program</a></li>
-        <li><a href="#insights">Insights</a></li>
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#contact">Contact Us</a></li>
+        <li><a href="/vokter-autonomous/">Vokter Autonomous</a></li>
+        <li><a href="/vokter-hybrid/">Vokter Hybrid</a></li>
+        <li><a href="/vokter-guardian/">Vokter Guardian</a></li>
+        <li><a href="/partner-program/">Partner Program</a></li>
+        <li><a href="/insights/">Insights</a></li>
+        <li><a href="/about-us/">About Us</a></li>
+        <li><a href="/contact-us/">Contact Us</a></li>
       </ul></div>
       <div class="foot-offices">
         <h5>Global Offices:</h5>

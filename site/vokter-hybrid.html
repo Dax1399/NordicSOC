@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="canonical" href="https://nordicsoc.com/vokter-hybrid/" />
+<title>Vokter Hybrid — AI on top of your existing stack | Nordic SOC</title>
+<meta name="description" content="Vokter Hybrid runs the first line of response on top of the SIEM or XDR you already operate — automating routine triage and containment so your analysts focus on the complex cases that need real judgement. EU-sovereign, delivered by Nordic SOC." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap" rel="stylesheet" />
+<style>
+/* ============================================================
+   NORDIC SOC · Vokter — Hybrid mode page (matches homepage)
+   Navy #142E4A · Orchid Green #BCD153 · Charcoal #0E1A1F
+   ============================================================ */
+:root{
+  --white:#FFFFFF; --alt:#F6F8FB; --charcoal:#0E1A1F; --navy:#142E4A;
+  --orchid:#BCD153; --orchid-deep:#7C9A2E; --spring:#C9DC7E; --sunset:#5E7A93;
+  --davy:#4A555A; --slate:#9FB3C4; --mist:#E8EEF3; --orange:#E07B3C;
+  --ink:#0E1A1F; --body:#46535f; --muted:#5E7A93;
+  --line:rgba(20,46,74,.10); --line-2:rgba(20,46,74,.16);
+  --shadow:0 18px 44px -28px rgba(20,46,74,.45);
+  --shadow-sm:0 10px 26px -20px rgba(20,46,74,.4);
+  --radius:18px; --radius-sm:14px; --maxw:1180px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:"Google Sans Flex","Google Sans",system-ui,Arial,sans-serif;background:var(--white);
+  color:var(--body);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+::selection{background:var(--orchid);color:var(--charcoal)}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,40px)}
+.section{padding:clamp(50px,5vw,76px) 0;position:relative}
+section[id]{scroll-margin-top:84px}
+.alt{background:var(--alt)}
+h1,h2,h3,h4{line-height:1.12;font-weight:600;letter-spacing:-.02em;color:var(--ink);text-wrap:pretty}
+h2.title{font-size:clamp(24px,2.8vw,36px);letter-spacing:-.025em}
+.lead{font-size:clamp(16px,1.4vw,18px);color:var(--body);max-width:72ch;margin-top:18px;line-height:1.6;text-wrap:pretty}
+.center-head{text-align:left;display:flex;flex-direction:column;align-items:flex-start}
+
+.btn{display:inline-flex;align-items:center;gap:9px;justify-content:center;font-family:inherit;font-weight:600;
+  font-size:15.5px;padding:14px 26px;border-radius:999px;cursor:pointer;border:1.6px solid transparent;
+  transition:transform .25s var(--ease),background .25s var(--ease),box-shadow .25s var(--ease),border-color .25s,color .25s;white-space:nowrap}
+.btn svg{width:16px;height:16px;transition:transform .25s var(--ease)}
+.btn:hover svg{transform:translateX(3px)}
+.btn-primary{background:var(--orchid);color:var(--navy);box-shadow:0 12px 26px -14px rgba(124,154,46,.7)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 36px -14px rgba(124,154,46,.85)}
+.btn-outline{background:transparent;color:var(--navy);border-color:var(--line-2)}
+.btn-outline:hover{border-color:var(--navy);background:rgba(20,46,74,.04)}
+.on-dark .btn-outline{color:#fff;border-color:rgba(255,255,255,.5)}
+.on-dark .btn-outline:hover{background:rgba(255,255,255,.1);border-color:#fff}
+
+/* NAV */
+header.nav{position:fixed;inset:0 0 auto 0;z-index:100;background:#fff;
+  border-bottom:1px solid var(--line);transition:box-shadow .3s,border-color .3s}
+header.nav.scrolled{box-shadow:0 6px 24px -18px rgba(20,46,74,.5);border-bottom-color:var(--line)}
+.nav-inner{max-width:var(--maxw);margin:0 auto;padding:14px clamp(20px,5vw,40px);display:flex;align-items:center;gap:28px}
+.logo-nsoc{height:38px;width:auto}
+.brand{flex-shrink:0;display:flex;align-items:center}
+.nav-links{display:flex;gap:2px;margin-left:auto;align-items:center}
+.nav-links a{font-size:15px;color:var(--navy);padding:9px 14px;border-radius:8px;transition:color .2s,background .2s;font-weight:500}
+.nav-links a:hover{color:var(--orchid-deep);background:rgba(20,46,74,.04)}
+.nav-item{position:relative}
+.nav-item::after{content:"";position:absolute;top:100%;left:0;right:0;height:12px}
+.nav-trigger{display:inline-flex;align-items:center;gap:6px;font-family:inherit;font-size:15px;font-weight:500;color:var(--navy);background:none;border:none;cursor:pointer;padding:9px 14px;border-radius:8px;transition:color .2s,background .2s}
+.nav-trigger svg{width:13px;height:13px;transition:transform .25s var(--ease)}
+.nav-item:hover .nav-trigger,.nav-item:focus-within .nav-trigger{color:var(--orchid-deep);background:rgba(20,46,74,.04)}
+.nav-item:hover .nav-trigger svg,.nav-item:focus-within .nav-trigger svg{transform:rotate(180deg)}
+.drop{position:absolute;top:calc(100% + 12px);left:0;min-width:206px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 20px 44px -22px rgba(20,46,74,.5);padding:8px;display:flex;flex-direction:column;gap:2px;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .2s var(--ease),transform .2s var(--ease),visibility .2s}
+.nav-item:hover .drop,.nav-item:focus-within .drop{opacity:1;visibility:visible;transform:none}
+.drop a{font-size:14.5px;color:var(--navy);padding:10px 12px;border-radius:8px;transition:background .2s,color .2s;font-weight:500}
+.drop a:hover{background:var(--alt);color:var(--orchid-deep)}
+.drop a.active{color:var(--orchid-deep);background:var(--alt)}
+.nav-cta{margin-left:24px;display:flex;align-items:center;gap:10px}
+.nav-cta .btn{padding:11px 20px;font-size:14.5px}
+.menu-toggle{display:none;background:none;border:1px solid var(--line-2);border-radius:10px;width:44px;height:44px;cursor:pointer;color:var(--navy);align-items:center;justify-content:center}
+.menu-toggle svg{width:22px;height:22px}
+
+/* HERO */
+.hero{position:relative;display:flex;align-items:center;text-align:left;
+  padding:148px 0 76px;overflow:hidden;color:#fff}
+.hero-bg{position:absolute;inset:0;z-index:0;background:url("/assets/hero-mosaic.png") center/cover no-repeat;background-color:#0b162f}
+.hero-bg::after{content:"";position:absolute;inset:0;background:
+  linear-gradient(180deg,rgba(9,16,30,.62),rgba(9,16,30,.42) 55%,rgba(9,16,30,.5)),
+  radial-gradient(120% 90% at 50% 40%,transparent 30%,rgba(9,16,30,.45))}
+.hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,4vw,60px);align-items:center}
+.hero h1{color:#fff;font-size:clamp(34px,4.1vw,52px);font-weight:600;letter-spacing:-.035em}
+.hero h1 .accent{color:var(--orchid)}
+.hero p.sub{margin-top:20px;font-size:clamp(16px,1.4vw,19px);color:#EAF1F8;max-width:54ch;line-height:1.55;text-wrap:pretty}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px;justify-content:flex-start}
+
+.eyebrow{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--orchid);font-weight:600;margin-bottom:18px}
+.mode-switch{display:inline-flex;gap:5px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);padding:5px;border-radius:999px;margin-bottom:26px;flex-wrap:wrap}
+.mode-switch a{font-size:13.5px;font-weight:600;padding:8px 16px;border-radius:999px;color:#cfe0c6;transition:background .2s,color .2s}
+.mode-switch a.active{background:var(--orchid);color:var(--navy)}
+.mode-switch a:not(.active):hover{color:#fff;background:rgba(255,255,255,.09)}
+
+/* hero summary card (reused homepage card styling) */
+.vk-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.vk-top{display:flex;align-items:center;justify-content:space-between;padding:15px 20px;border-bottom:1px solid var(--line);background:var(--alt)}
+.vk-top b{font-size:15px;color:var(--ink);font-weight:600}
+.vk-tag{font-family:inherit;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--orchid-deep);background:rgba(188,209,83,.18);border:1px solid rgba(124,154,46,.28);padding:4px 10px;border-radius:999px;font-weight:500}
+.vk-body{padding:14px;display:flex;flex-direction:column;gap:6px}
+.vlayer{display:flex;align-items:center;gap:11px;padding:11px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;transition:border-color .25s,transform .25s}
+.vlayer:hover{border-color:var(--line-2);transform:translateX(2px)}
+.vlayer .li{width:30px;height:30px;border-radius:8px;flex-shrink:0;display:grid;place-items:center;background:rgba(188,209,83,.18);color:var(--navy)}
+.vlayer .li svg{width:17px;height:17px}
+.vlayer.team .li{background:rgba(94,122,147,.16);color:var(--sunset)}
+.vlayer .lt b{display:block;font-size:13.5px;color:var(--ink);font-weight:600;line-height:1.2}
+.vlayer .lt span{font-size:12px;color:var(--muted);line-height:1.3}
+.vk-foot{padding:14px 20px;background:rgba(188,209,83,.14);border-top:1px solid var(--line);display:flex;align-items:center;gap:10px;font-size:13px;color:var(--navy);font-weight:600}
+.vk-foot svg{width:17px;height:17px;color:var(--orchid-deep);flex-shrink:0}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:40px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);padding:30px 26px;box-shadow:var(--shadow-sm)}
+.stat .n{font-size:clamp(26px,3vw,36px);font-weight:600;letter-spacing:-.03em;color:var(--navy)}
+.stat .n em{color:var(--orchid-deep);font-style:normal}
+.stat .l{font-size:14.5px;color:var(--body);margin-top:8px;line-height:1.4}
+
+/* shared icon card grid */
+.cardgrid{display:grid;gap:18px;margin-top:40px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px 24px;
+  transition:transform .35s var(--ease),box-shadow .35s,border-color .35s;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--line-2)}
+.chip{width:50px;height:50px;border-radius:14px;display:grid;place-items:center;margin-bottom:18px;
+  background:rgba(188,209,83,.18);border:1px solid rgba(124,154,46,.25);color:var(--navy)}
+.chip svg{width:24px;height:24px}
+.who-grid{grid-template-columns:repeat(3,1fr)}
+.who-grid h3{font-size:18px;color:var(--ink);margin-bottom:7px}
+.who-grid p{font-size:14.5px;color:var(--body)}
+
+/* FLOW (with human handoff) */
+.flow{margin-top:40px;border:1px solid var(--line);border-radius:var(--radius);background:#fff;padding:clamp(16px,2.4vw,24px);box-shadow:var(--shadow-sm)}
+.flow-meta{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center;margin-bottom:16px;padding-bottom:13px;border-bottom:1px solid var(--line)}
+.flow-meta .timer{font-family:inherit;font-size:13px;color:var(--orchid-deep);display:flex;align-items:center;gap:10px;font-weight:500}
+.flow-meta .timer .dot{width:8px;height:8px;border-radius:50%;background:var(--orchid);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(124,154,46,.45)}70%{box-shadow:0 0 0 9px rgba(124,154,46,0)}100%{box-shadow:0 0 0 0 rgba(124,154,46,0)}}
+.flow-meta .legend{display:flex;gap:18px;font-size:13px;color:var(--body);flex-wrap:wrap}
+.flow-meta .legend span{display:flex;align-items:center;gap:7px}
+.flow-meta .legend i{width:16px;height:3px;border-radius:2px;display:inline-block}
+.steps{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;counter-reset:step}
+.step{position:relative;padding:13px 12px;border-radius:var(--radius-sm);border:1px solid var(--line);background:var(--alt);transition:transform .3s,box-shadow .3s}
+.step:hover{transform:translateY(-4px);box-shadow:var(--shadow-sm)}
+.step .num{counter-increment:step;font-family:inherit;font-size:12px;color:var(--orchid-deep)}
+.step .num::before{content:"0" counter(step)}
+.step .ico{width:24px;height:24px;color:var(--orchid-deep);margin:6px 0}
+.step .fork{display:flex;flex-direction:column;gap:3px;margin-top:7px;font-size:11px;line-height:1.3}
+.step .fork b{font-weight:600}
+.step .fork .auto b{color:var(--orchid-deep)}
+.step .fork .human b{color:var(--sunset)}
+.step h4{font-size:15px;color:var(--ink);margin-bottom:5px;letter-spacing:-.01em}
+.step p{font-size:12px;color:var(--body);line-height:1.4}
+.step.gate{border-color:rgba(224,123,60,.45);background:rgba(224,123,60,.07)}
+.step.gate .num,.step.gate .ico{color:var(--orange)}
+
+/* DIVISION OF LABOUR */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:40px}
+.split-col{border:1px solid var(--line);border-radius:var(--radius);background:#fff;padding:clamp(24px,2.6vw,32px);box-shadow:var(--shadow-sm)}
+.split-col.them{background:var(--alt)}
+.split-col h3{font-size:18px;color:var(--ink);display:flex;align-items:center;gap:11px;margin-bottom:18px}
+.split-col .badge{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;flex-shrink:0;background:rgba(188,209,83,.2);border:1px solid rgba(124,154,46,.28);color:var(--navy)}
+.split-col.them .badge{background:rgba(94,122,147,.16);border-color:rgba(94,122,147,.3);color:var(--sunset)}
+.split-col .badge svg{width:18px;height:18px}
+.split-col ul{list-style:none;display:flex;flex-direction:column;gap:13px}
+.split-col li{display:flex;gap:11px;align-items:flex-start;font-size:14.5px;color:var(--body)}
+.split-col li svg{width:18px;height:18px;flex-shrink:0;margin-top:2px;color:var(--orchid-deep)}
+.split-col.them li svg{color:var(--sunset)}
+
+/* GUARDRAILS */
+.guard-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:40px}
+.guard{display:flex;flex-direction:column;gap:8px;padding:22px 22px;border:1px solid var(--line);border-radius:var(--radius-sm);background:#fff;box-shadow:var(--shadow-sm)}
+.guard .ico{width:26px;height:26px;color:var(--orchid-deep)}
+.guard h4{font-size:16px;color:var(--ink);margin-bottom:2px}
+.guard p{font-size:13.5px;color:var(--body);line-height:1.45}
+
+/* INTEGRATIONS */
+.int-strip{margin-top:40px;border:1px solid var(--line);border-radius:var(--radius);background:#fff;padding:clamp(22px,3vw,32px);box-shadow:var(--shadow-sm)}
+.int-cats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px 28px}
+.int-cat h4{font-size:12.5px;font-family:inherit;letter-spacing:.04em;text-transform:uppercase;color:var(--orchid-deep);margin-bottom:9px;font-weight:600}
+.int-cat span{font-size:13.5px;color:var(--body);line-height:1.6;display:block}
+
+/* GET STARTED */
+.start-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px;counter-reset:st}
+.start{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px 24px;box-shadow:var(--shadow-sm)}
+.start .sn{counter-increment:st;width:34px;height:34px;border-radius:10px;background:rgba(188,209,83,.18);border:1px solid rgba(124,154,46,.25);color:var(--navy);display:grid;place-items:center;font-weight:600;font-size:15px;margin-bottom:14px}
+.start .sn::before{content:counter(st)}
+.start h4{font-size:17px;color:var(--ink);margin-bottom:6px}
+.start p{font-size:14px;color:var(--body)}
+
+/* FAQ */
+.faq{margin:32px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
+.faq-col{display:flex;flex-direction:column;gap:12px}
+.faq details{border:1px solid var(--line);border-radius:var(--radius-sm);background:#fff;overflow:hidden;transition:border-color .25s,box-shadow .25s}
+.faq details[open]{border-color:var(--line-2);box-shadow:var(--shadow-sm)}
+.faq summary{list-style:none;cursor:pointer;padding:15px 20px;display:flex;align-items:center;justify-content:space-between;gap:18px;font-size:16px;font-weight:600;color:var(--ink)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .ic{width:20px;height:20px;flex-shrink:0;color:var(--orchid-deep);transition:transform .3s var(--ease)}
+.faq details[open] summary .ic{transform:rotate(45deg)}
+.faq .ans{padding:0 20px 18px;font-size:14.5px;color:var(--body);line-height:1.55;max-width:70ch}
+.faq .ans strong{color:var(--navy);font-weight:600}
+
+/* FINAL CTA (mosaic band) */
+.cta{position:relative;overflow:hidden;text-align:center;color:#fff}
+.cta-bg{position:absolute;inset:0;z-index:0;background:url("/assets/hero-mosaic.png") center/cover no-repeat;background-color:#0b162f}
+.cta-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(9,16,30,.7),rgba(9,16,30,.55))}
+.cta .wrap{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center}
+.cta h2{color:#fff;font-size:clamp(28px,3.4vw,42px);letter-spacing:-.03em;max-width:20ch}
+.cta p{color:#EAF1F8;font-size:clamp(16px,1.5vw,19px);max-width:56ch;margin:16px auto 0;text-wrap:pretty}
+.cta-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px;justify-content:center}
+
+/* FOOTER */
+footer{background:var(--charcoal);color:#cdd9e2;padding:clamp(56px,7vw,78px) 0 34px}
+.foot-top{display:grid;grid-template-columns:1.5fr 1fr 1.5fr;gap:44px}
+.foot-brand .logo-nsoc{height:40px;margin-bottom:16px}
+.foot-brand p{font-size:14px;color:#9FB3C4;max-width:34ch}
+.foot-contact{font-size:14px;margin-top:18px;display:flex;flex-direction:column;gap:10px}
+.foot-contact-item{display:flex;align-items:flex-start;gap:9px;color:#9FB3C4;text-decoration:none;transition:color .2s}
+.foot-contact-item svg{flex-shrink:0;margin-top:2px;opacity:.75}
+.foot-contact-item:hover{color:var(--orchid)}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:4px}
+.foot-col a{font-size:14.5px;color:#9FB3C4;transition:color .2s}
+.foot-col a:hover{color:#fff}
+.foot-offices h5{font-size:14.5px;font-weight:600;color:var(--orchid);margin:0 0 16px}
+.foot-offices ul{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:12px 20px}
+.foot-offices li{font-size:14.5px;color:#9FB3C4;white-space:nowrap}
+.foot-bottom{margin-top:48px;padding-top:24px;border-top:1px solid rgba(159,179,196,.16);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--sunset)}
+.foot-legal{display:flex;gap:22px}
+.foot-legal a{color:var(--sunset);transition:color .2s}
+.foot-legal a:hover{color:var(--orchid)}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.flow-meta .timer .dot{animation:none}}
+
+@media (max-width:1024px){
+  .nav-links{display:none}.menu-toggle{display:flex}
+  .steps{grid-template-columns:repeat(3,1fr)}
+  .guard-row,.stats,.int-cats{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:860px){
+  .hero .wrap{grid-template-columns:1fr;gap:36px}
+  .who-grid,.start-grid,.faq,.split{grid-template-columns:1fr}
+  .foot-top{grid-template-columns:1fr 1fr;gap:30px}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .steps,.guard-row,.stats,.start-grid,.int-cats{grid-template-columns:1fr}
+  .hero-actions .btn,.cta-actions .btn{width:100%}
+}
+.mobile-menu{position:fixed;inset:0;z-index:99;background:rgba(255,255,255,.98);backdrop-filter:blur(8px);display:none;flex-direction:column;padding:96px 30px 40px;gap:4px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:19px;color:var(--navy);padding:16px 4px;border-bottom:1px solid var(--line);font-weight:500}
+.mobile-menu .btn{margin-top:22px}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/" aria-label="Nordic SOC home">
+      <img class="logo-nsoc" src="/assets/nordic-soc-navy.svg" alt="Nordic SOC" />
+    </a>
+    <nav class="nav-links">
+      <div class="nav-item">
+        <button class="nav-trigger" aria-haspopup="true">Vokter Modes
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="drop">
+          <a href="/vokter-autonomous/">Autonomous</a>
+          <a href="/vokter-hybrid/" class="active">Hybrid</a>
+          <a href="/vokter-guardian/">Guardian</a>
+        </div>
+      </div>
+      <a href="/partner-program/">Partner Program</a>
+      <a href="/insights/">Insights</a>
+      <a href="/about-us/">About Us</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="/contact-us/" class="btn btn-primary">Contact Us</a>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/vokter-autonomous/">Vokter Autonomous</a>
+  <a href="/vokter-hybrid/">Vokter Hybrid</a>
+  <a href="/vokter-guardian/">Vokter Guardian</a>
+  <a href="/partner-program/">Partner Program</a>
+  <a href="/insights/">Insights</a>
+  <a href="/about-us/">About Us</a>
+  <a href="/contact-us/" class="btn btn-primary">Contact Us</a>
+</div>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero on-dark">
+  <div class="hero-bg"></div>
+  <div class="wrap">
+    <div class="hero-copy">
+      <div class="eyebrow reveal">Vokter Modes — Hybrid</div>
+      <div class="mode-switch reveal">
+        <a href="/vokter-autonomous/">Autonomous</a>
+        <a href="/vokter-hybrid/" class="active">Hybrid</a>
+        <a href="/vokter-guardian/">Guardian</a>
+      </div>
+      <h1 class="reveal">Scale your SOC, <span class="accent">not your headcount.</span></h1>
+      <p class="sub reveal">Vokter Hybrid runs the first line (L1) on top of the SIEM, SOAR or XDR you already operate. It enriches, decides, acts and writes back automatically — freeing your analysts for the L2 and L3 work that genuinely needs their judgement.</p>
+      <div class="hero-actions reveal">
+        <a href="/contact-us/" class="btn btn-primary">Request a demo
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#how" class="btn btn-outline">See how it works</a>
+      </div>
+    </div>
+    <div class="hero-card reveal">
+      <div class="vk-card">
+        <div class="vk-top"><b>Vokter Hybrid</b><span class="vk-tag">Augments your team</span></div>
+        <div class="vk-body">
+          <div class="vlayer"><span class="li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 6h18M6 12h12M9 18h6" stroke-linecap="round"/></svg></span><div class="lt"><b>Tier-1 triage</b><span>Automated, enriched and scored on arrival</span></div></div>
+          <div class="vlayer"><span class="li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l8 4v5c0 4-3 7-8 9-5-2-8-5-8-9V7l8-4z" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div class="lt"><b>Routine response</b><span>Low-risk cases contained automatically</span></div></div>
+          <div class="vlayer team"><span class="li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.3 3-6 7-6s7 2.7 7 6" stroke-linecap="round"/></svg></span><div class="lt"><b>Complex cases</b><span>Escalated to your analysts, fully prepared</span></div></div>
+          <div class="vlayer team"><span class="li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 7l8-4 8 4-8 4-8-4z" stroke-linejoin="round"/><path d="M4 7v10l8 4 8-4V7" stroke-linejoin="round"/></svg></span><div class="lt"><b>Your SIEM / XDR</b><span>Stays exactly where it is</span></div></div>
+        </div>
+        <div class="vk-foot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5 9-10" stroke-linecap="round" stroke-linejoin="round"/></svg>Keeps your team and tools in place</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO IT'S FOR -->
+<section class="section" id="who">
+  <div class="wrap">
+    <div class="center-head">
+      <h2 class="title reveal">Built for teams that already have a SOC.</h2>
+      <p class="lead reveal">Hybrid is the right fit when you have analysts and tooling in place, but the volume of routine work is holding the team back from the cases that matter.</p>
+    </div>
+    <div class="cardgrid who-grid">
+      <div class="card reveal">
+        <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 7h16M4 12h16M4 17h10" stroke-linecap="round"/><circle cx="19" cy="17" r="2.4"/></svg></div>
+        <h3>You run a SIEM or XDR</h3>
+        <p>You have invested in tooling and want to extend its value — not replace it or start over with another platform.</p>
+      </div>
+      <div class="card reveal">
+        <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 6h18M6 12h12M9 18h6" stroke-linecap="round"/></svg></div>
+        <h3>Analysts overloaded with tier-1</h3>
+        <p>Skilled people spend their day clearing routine alerts instead of investigating the threats that need real expertise.</p>
+      </div>
+      <div class="card reveal">
+        <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Coverage beyond your headcount</h3>
+        <p>You need broader, around-the-clock coverage, but expanding the team to reach it isn't practical or affordable.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section alt" id="how">
+  <div class="wrap">
+    <div class="center-head">
+      <h2 class="title reveal">Vokter takes the first line. Your analysts take the hard calls.</h2>
+      <p class="lead reveal">Every alert runs through Vokter first. Routine cases are resolved automatically; the genuinely difficult ones reach your analysts already triaged, enriched and prioritised.</p>
+    </div>
+    <div class="flow reveal">
+      <div class="flow-meta">
+        <div class="timer"><span class="dot"></span>First line handled in seconds</div>
+        <div class="legend">
+          <span><i style="background:var(--orchid-deep)"></i> Automated by Vokter</span>
+          <span><i style="background:var(--orange)"></i> Decision point</span>
+          <span><i style="background:var(--sunset)"></i> To your analysts</span>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="num"></div><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 7l8-4 8 4-8 4-8-4z" stroke-linejoin="round"/><path d="M4 7v10l8 4 8-4V7" stroke-linejoin="round"/></svg><h4>Alerts arrive</h4><p>Vokter ingests alerts directly from your existing SIEM, XDR and EDR tools.</p></div>
+        <div class="step"><div class="num"></div><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 6h18M6 12h12M9 18h6" stroke-linecap="round"/></svg><h4>Triaged &amp; enriched</h4><p>Each alert is normalised and given asset and identity context automatically.</p></div>
+        <div class="step"><div class="num"></div><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg><h4>Investigated</h4><p>Vokter scores the alert, maps it to ATT&amp;CK and assembles the full picture.</p></div>
+        <div class="step gate"><div class="num"></div><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3v6M5 9l7 4 7-4M5 9v6l7 4 7-4V9" stroke-linejoin="round"/></svg><h4>Decision point</h4><p>Vokter routes the work:</p><div class="fork"><span class="auto"><b>Routine</b> — contained automatically</span><span class="human"><b>Complex</b> — escalated to your analysts</span></div></div>
+        <div class="step"><div class="num"></div><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.3 3-6 7-6s7 2.7 7 6" stroke-linecap="round"/></svg><h4>Your team decides</h4><p>Escalations land in your queue fully prepared, so analysts act on judgement, not legwork.</p></div>
+        <div class="step"><div class="num"></div><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 4h11l3 3v13H5z" stroke-linejoin="round"/><path d="M8 11h8M8 15h6" stroke-linecap="round"/></svg><h4>Logged &amp; reported</h4><p>Every action is written back to your tools, with reports generated for the team and auditors.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIVISION OF LABOUR -->
+<section class="section" id="split">
+  <div class="wrap">
+    <div class="center-head">
+      <h2 class="title reveal">A clear division of the work.</h2>
+      <p class="lead reveal">Vokter absorbs the high-volume, repetitive work that exhausts a team. Your analysts keep the decisions that depend on context and experience.</p>
+    </div>
+    <div class="split">
+      <div class="split-col reveal">
+        <h3><span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3.2"/><path d="M12 4v3M12 17v3M4 12h3M17 12h3M6.3 6.3l2 2M15.7 15.7l2 2M17.7 6.3l-2 2M8.3 15.7l-2 2" stroke-linecap="round"/></svg></span>Vokter handles</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12l5 5 9-10" stroke-linecap="round" stroke-linejoin="round"/></svg>High-volume tier-1 triage, around the clock</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12l5 5 9-10" stroke-linecap="round" stroke-linejoin="round"/></svg>Enrichment with asset, identity and threat context</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12l5 5 9-10" stroke-linecap="round" stroke-linejoin="round"/></svg>Containment of clear, low-risk incidents</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12l5 5 9-10" stroke-linecap="round" stroke-linejoin="round"/></svg>Reporting, ticketing and audit evidence</li>
+        </ul>
+      </div>
+      <div class="split-col them reveal">
+        <h3><span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.3 3-6 7-6s7 2.7 7 6" stroke-linecap="round"/></svg></span>Your analysts handle</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12l5 5 9-10" stroke-linecap="round" stroke-linejoin="round"/></svg>Complex, high-severity investigations</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12l5 5 9-10" stroke-linecap="round" stroke-linejoin="round"/></svg>Decisions that depend on business context</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12l5 5 9-10" stroke-linecap="round" stroke-linejoin="round"/></svg>Threat hunting and proactive work</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12l5 5 9-10" stroke-linecap="round" stroke-linejoin="round"/></svg>Final sign-off on major incidents</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUTCOMES -->
+<section class="section alt" id="outcomes">
+  <div class="wrap">
+    <div class="center-head">
+      <h2 class="title reveal">More from the team you already have.</h2>
+      <p class="lead reveal">Hybrid raises your coverage and response speed without adding headcount or replacing the tools you depend on.</p>
+    </div>
+    <div class="stats">
+      <div class="stat reveal"><div class="n">24/7</div><div class="l">First-line coverage, without adding shifts or rotas.</div></div>
+      <div class="stat reveal"><div class="n"><em>Tier 1</em></div><div class="l">Routine work handled, so analysts skip the noise.</div></div>
+      <div class="stat reveal"><div class="n">Your&nbsp;stack</div><div class="l">No rip-and-replace — your SIEM and XDR stay in place.</div></div>
+      <div class="stat reveal"><div class="n">EU</div><div class="l">Your data is stored and processed in the EU, always.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKS WITH YOUR STACK -->
+<section class="section" id="stack">
+  <div class="wrap">
+    <div class="center-head">
+      <h2 class="title reveal">Sits on top of what you already run.</h2>
+      <p class="lead reveal">Vokter uses the alerts your tools already produce, so there is nothing to replace or relicense.</p>
+    </div>
+    <div class="int-strip reveal">
+      <div class="int-cats">
+        <div class="int-cat"><h4>EDR / XDR</h4><span>Defender XDR · CrowdStrike · SentinelOne · Cortex · Trend Vision One · Sophos · Bitdefender · WithSecure</span></div>
+        <div class="int-cat"><h4>SIEM</h4><span>Microsoft Sentinel · Splunk · Elastic · IBM QRadar · Exabeam · Graylog · Guardsix</span></div>
+        <div class="int-cat"><h4>Identity</h4><span>Microsoft Entra ID · Okta · CyberArk · Check Point</span></div>
+        <div class="int-cat"><h4>Threat intel</h4><span>MISP · VirusTotal · AlienVault OTX · Recorded Future · Sekoia · ZeroFox · CloudSEK</span></div>
+        <div class="int-cat"><h4>Ticketing</h4><span>Jira · Zendesk · ServiceNow · Freshservice · Halo</span></div>
+        <div class="int-cat"><h4>Alerts to your team</h4><span>Microsoft Teams · Slack · Email · API</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GUARDRAILS -->
+<section class="section alt" id="safety">
+  <div class="wrap">
+    <div class="center-head">
+      <h2 class="title reveal">Your analysts stay in control.</h2>
+      <p class="lead reveal">Vokter accelerates the team — it never works around it. Every automated action is bounded, verified and visible.</p>
+    </div>
+    <div class="guard-row">
+      <div class="guard reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l8 4v5c0 4-3 7-8 9-5-2-8-5-8-9V7l8-4z" stroke-linejoin="round"/></svg><h4>Always checked</h4><p>Every decision is verified against fixed rules and threat intelligence before any action is taken.</p></div>
+      <div class="guard reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg><h4>Reversible</h4><p>Vokter can only take pre-approved actions, and every one of them can be undone.</p></div>
+      <div class="guard reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="3.2"/><path d="M5 20c0-3.3 3-6 7-6s7 2.7 7 6" stroke-linecap="round"/></svg><h4>Analysts in the loop</h4><p>Complex and high-severity cases are routed to your team, with sign-off kept in their hands.</p></div>
+      <div class="guard reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 6v6l4 2" stroke-linecap="round"/><circle cx="12" cy="12" r="9"/></svg><h4>Fully transparent</h4><p>Every automated action is logged and explained, so the team always sees what was done and why.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- GET STARTED -->
+<section class="section" id="start">
+  <div class="wrap">
+    <div class="center-head">
+      <h2 class="title reveal">Rapid deployment.</h2>
+      <p class="lead reveal">Vokter requires no new platform to build or migrate to. It connects to the tools your team already operates and begins handling the first line within days.</p>
+    </div>
+    <div class="start-grid">
+      <div class="start reveal"><div class="sn"></div><h4>Connect your stack</h4><p>Vokter integrates with your existing SIEM, XDR and EDR through their standard interfaces.</p></div>
+      <div class="start reveal"><div class="sn"></div><h4>Agree the split</h4><p>You define what Vokter handles automatically and what is escalated to your analysts.</p></div>
+      <div class="start reveal"><div class="sn"></div><h4>Run together</h4><p>Vokter takes the first line; your team focuses on the complex work, with full visibility throughout.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section alt" id="faq">
+  <div class="wrap">
+    <div class="center-head">
+      <h2 class="title reveal">Questions about Hybrid.</h2>
+    </div>
+    <div class="faq">
+      <div class="faq-col">
+        <details class="reveal"><summary>Does Vokter replace our SIEM or our analysts?<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></summary>
+          <p class="ans">No. Hybrid is designed to keep both. Vokter runs on top of your existing SIEM or XDR and <strong>augments your analysts</strong> by taking the routine first-line work off their plate.</p></details>
+        <details class="reveal"><summary>How do we decide what Vokter handles?<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></summary>
+          <p class="ans">You set the split. During onboarding we agree which cases Vokter resolves automatically and which are <strong>escalated to your team</strong>, and that boundary can be adjusted at any time.</p></details>
+        <details class="reveal"><summary>Will it work with the specific tools we use?<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></summary>
+          <p class="ans">In most cases, yes. Vokter integrates with the common EDR, XDR and SIEM platforms and uses the alerts they already produce, so there is <strong>nothing to replace or relicense</strong>.</p></details>
+      </div>
+      <div class="faq-col">
+        <details class="reveal"><summary>How do escalations reach our analysts?<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></summary>
+          <p class="ans">Through the channels you already use — your ticketing system, Teams, Slack or email. Each escalation arrives <strong>fully triaged and enriched</strong>, so analysts can act immediately.</p></details>
+        <details class="reveal"><summary>Do our existing workflows have to change?<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></summary>
+          <p class="ans">Minimally. Vokter writes its findings and actions back into your tools, so the team continues to work where they already do — now with the routine load removed.</p></details>
+        <details class="reveal"><summary>Where does our data live?<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></summary>
+          <p class="ans">In the EU. Everything is stored, processed and analysed inside the EU region you choose — the AI included. <strong>Sovereignty is built in</strong>, not bolted on.</p></details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="section cta on-dark">
+  <div class="cta-bg"></div>
+  <div class="wrap">
+    <h2 class="reveal">See Vokter Hybrid on your own stack.</h2>
+    <p class="reveal">Book a walkthrough with our Nordic team and see how Vokter takes the first line on top of your existing tools — and what it gives your analysts back.</p>
+    <div class="cta-actions reveal">
+      <a href="/contact-us/" class="btn btn-primary">Request a demo
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="/vokter-autonomous/" class="btn btn-outline">Compare the other modes</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <img class="logo-nsoc" src="/assets/nordic-soc-white.svg" alt="Nordic SOC" />
+        <p>Managed security operations for the Nordics — powered by Vokter, our EU-sovereign AI SOC.</p>
+        <div class="foot-contact">
+          <a href="tel:+46733690899" class="foot-contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.72a16 16 0 006.29 6.29l1.25-1.25a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            +46 733 690899
+          </a>
+          <a href="mailto:consult@gsecurelabs.com" class="foot-contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg>
+            consult@gsecurelabs.com
+          </a>
+          <span class="foot-contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Isafjordsgatan 30A, 16440 Kista, Sweden
+          </span>
+        </div>
+      </div>
+      <div class="foot-col"><ul>
+        <li><a href="/vokter-autonomous/">Vokter Autonomous</a></li>
+        <li><a href="/vokter-hybrid/">Vokter Hybrid</a></li>
+        <li><a href="/vokter-guardian/">Vokter Guardian</a></li>
+        <li><a href="/partner-program/">Partner Program</a></li>
+        <li><a href="/insights/">Insights</a></li>
+        <li><a href="/about-us/">About Us</a></li>
+        <li><a href="/contact-us/">Contact Us</a></li>
+      </ul></div>
+      <div class="foot-offices">
+        <h5>Global Offices:</h5>
+        <ul>
+          <li>Belgium</li><li>Canada</li><li>Denmark</li>
+          <li>Finland</li><li>France</li><li>Germany</li>
+          <li>India</li><li>Iceland</li><li>Norway</li>
+          <li>South Africa</li><li>The Netherlands</li><li>UAE</li>
+          <li>UK</li><li>USA</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div class="foot-legal"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a></div>
+      <span>© 2026 Nordic SOC. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const nav=document.getElementById('nav');
+const onScroll=()=>nav.classList.toggle('scrolled',window.scrollY>16);
+onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+const toggle=document.getElementById('menuToggle');
+const menu=document.getElementById('mobileMenu');
+toggle.addEventListener('click',()=>menu.classList.toggle('open'));
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach((e)=>{
+    if(e.isIntersecting){
+      const sibs=[...e.target.parentElement.children].filter(c=>c.classList.contains('reveal'));
+      e.target.style.transitionDelay=(Math.min(sibs.indexOf(e.target),6)*55)+'ms';
+      e.target.classList.add('in');io.unobserve(e.target);
+    }
+  });
+},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

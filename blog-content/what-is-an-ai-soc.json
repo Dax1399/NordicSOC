@@ -1,0 +1,38 @@
+{
+  "title": "What Is an AI SOC? Autonomous Security Operations Explained",
+  "slug": "what-is-an-ai-soc",
+  "meta_title": "What Is an AI SOC? | Nordic SOC",
+  "meta_description": "An AI SOC uses AI to autonomously triage, investigate, contain and report on threats. Learn how it differs from a traditional SOC and what to evaluate.",
+  "excerpt": "An AI SOC uses artificial intelligence to autonomously triage, investigate, contain and report on threats. This pillar guide explains how it works, how it differs from a traditional SOC, where humans fit, and what to evaluate.",
+  "focus_keyword": "AI SOC",
+  "secondary_keywords": ["autonomous SOC", "AI security operations center", "agentic SOC", "AI-driven SOC"],
+  "category": "AI SOC",
+  "tags": ["AI SOC", "autonomous SOC", "agentic SOC", "security operations", "SOC automation", "EU data sovereignty"],
+  "author": "Nordic SOC",
+  "date": "2026-06-25",
+  "reading_time": "8 min read",
+  "hero_image": "",
+  "hero_image_alt": "Diagram of an AI SOC autonomously triaging, investigating and containing security alerts",
+  "faq": [
+    {
+      "q": "What is an AI SOC?",
+      "a": "An AI SOC is a security operations centre in which artificial intelligence performs the core detection, triage, investigation and response work traditionally done by human analysts. It reasons over each alert, enriches it with context, decides whether it is a genuine threat, and acts within defined policy limits."
+    },
+    {
+      "q": "How is an AI SOC different from a traditional SOC?",
+      "a": "A traditional SOC relies on analysts manually processing an alert queue. An AI SOC automates first-line triage, investigation and containment, acting in seconds rather than minutes or hours and providing continuous 24/7 coverage without shift gaps. Humans focus on oversight, critical cases, hunting and forensics."
+    },
+    {
+      "q": "Does an AI SOC replace human analysts?",
+      "a": "No. An AI SOC removes the repetitive first-line workload and repositions people onto governance, critical-case ownership, threat hunting and digital forensics. The most effective model treats AI and human expertise as complementary."
+    },
+    {
+      "q": "What is an agentic SOC?",
+      "a": "An agentic SOC is the most capable form of AI SOC. Rather than executing fixed rules, it plans multi-step investigations, decides which evidence to gather next based on what it has found, and adapts to each case much as a skilled analyst would."
+    },
+    {
+      "q": "Is an AI SOC suitable for EU organisations with sovereignty requirements?",
+      "a": "Yes, provided it runs on EU infrastructure under European control. Organisations should confirm where data is processed and stored, that decisions are auditable, and that the operating model aligns with DORA and NIS2."
+    }
+  ]
+}

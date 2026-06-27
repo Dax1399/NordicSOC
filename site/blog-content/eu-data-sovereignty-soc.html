@@ -1,0 +1,61 @@
+<p><strong>EU data sovereignty</strong> in security operations means that the data flowing through your security operations centre (SOC) — logs, alerts, telemetry, case files and the AI processing applied to them — remains under EU jurisdiction and EU law, not exposed to foreign lawful-access regimes. It matters because a SOC sees almost everything: authentication events, network traffic, endpoint activity and the detail of every incident. If that data, or the AI that analyses it, can be compelled out of the EU, sovereignty is lost regardless of where the servers physically sit. This article explains what sovereignty means for security operations, how it differs from simple data residency, and what to verify before you trust a provider with your most sensitive telemetry.</p>
+
+<div class="takeaways">
+<h4>Key takeaways</h4>
+<ul>
+<li>EU data sovereignty means SOC data and the AI processing it stay under EU jurisdiction and EU law — not merely stored at an EU address.</li>
+<li>Data residency (where data is stored) is necessary but not sufficient; true sovereignty also governs who can compel access and where AI inference happens.</li>
+<li>Non-EU corporate control can create lawful-access exposure even when infrastructure is located inside the EU.</li>
+<li>GDPR, sector rules such as DORA and NIS2, and the EU AI Act transparency obligations (applying from August 2026) all shape what a compliant, sovereign SOC must demonstrate.</li>
+<li>Verify residency, control, sub-processors, encryption key custody and AI inference location in writing before sharing telemetry.</li>
+</ul>
+</div>
+
+<h2>What does EU data sovereignty mean for a SOC?</h2>
+<p>Sovereignty is a question of control and jurisdiction, not just geography. A sovereign SOC is one where every place your data lives and is processed — including the machine-learning and AI components that triage alerts and drive investigations — is governed exclusively by EU law and operated by an entity that cannot be compelled to hand that data to a non-EU authority.</p>
+<p>This is a higher bar than it first appears. A SOC is among the most data-rich functions in any organisation. It ingests identity events, email metadata, network flows, cloud audit trails, endpoint detections and the full narrative of every security incident. Concentrated in one place, that telemetry is a map of how the business operates and where it is weakest. The question <em>where does SOC data go</em> is therefore not a procurement footnote — it is a core risk decision.</p>
+
+<h2>Data residency EU versus true sovereign cybersecurity</h2>
+<p>The terms are often used interchangeably, but they describe different things. <strong>Data residency</strong> answers a physical question: in which country or region is the data stored and processed? <strong>Sovereignty</strong> answers a legal and operational one: under whose jurisdiction does the data fall, and who can be lawfully compelled to access it?</p>
+<p>A provider can offer EU data residency — storing your data in an EU cloud region — while remaining a subsidiary of a non-EU parent subject to foreign disclosure laws. In that case the bytes sit in Europe, but the legal control does not. Genuine <strong>sovereign cybersecurity</strong> closes that gap by ensuring both the location and the controlling entity sit inside the EU, and by ensuring AI inference happens in-region rather than being routed to an external model endpoint elsewhere.</p>
+
+<table>
+<thead>
+<tr><th>Dimension</th><th>EU data residency</th><th>True EU sovereignty</th></tr>
+</thead>
+<tbody>
+<tr><td>Where data is stored</td><td>EU region</td><td>EU region</td></tr>
+<tr><td>Controlling legal entity</td><td>May be non-EU owned</td><td>EU jurisdiction, EU governed</td></tr>
+<tr><td>Foreign lawful-access exposure</td><td>Possible via parent company</td><td>Minimised by design</td></tr>
+<tr><td>Where AI / model inference runs</td><td>Often unspecified or external</td><td>Inside the chosen EU region</td></tr>
+<tr><td>Encryption key custody</td><td>Frequently provider-held abroad</td><td>EU-held, customer-controlled options</td></tr>
+<tr><td>Sub-processor chain</td><td>May extend outside EU</td><td>EU-scoped and disclosed</td></tr>
+</tbody>
+</table>
+
+<h2>Why EU data sovereignty matters now</h2>
+<p>Three forces have moved sovereignty from a nice-to-have to a board-level concern.</p>
+<p><strong>Non-EU lawful access.</strong> Some jurisdictions assert authority to compel companies under their control to disclose data they hold, including data stored abroad. Where a provider is owned or controlled outside the EU, that exposure can in principle reach EU-hosted telemetry — a structural risk that EU residency alone does not remove.</p>
+<p><strong>Regulation.</strong> GDPR remains the EU's baseline data-protection regulation and governs the personal data inevitably present in security logs. Sector rules raise the bar further: DORA has applied to financial entities and their ICT providers since 17 January 2025, and NIS2 (adopted in 2022) widens cybersecurity and oversight duties across essential and important entities. Both push organisations to understand and govern their third-party security supply chain.</p>
+<p><strong>The EU AI Act.</strong> A modern SOC runs on AI for alert triage and investigation, which brings it into scope of the EU AI Act. The Act's transparency obligations begin to apply from August 2026, requiring clarity about AI systems and how they are used. For security operations this reinforces a sovereignty principle: you must know not only where your data sits, but where and how the AI that processes it operates.</p>
+
+<h2>Where does SOC data go? A provider verification checklist</h2>
+<p>Sovereignty claims are only as good as the answers a provider can give in writing. Use the following to test any managed security operations or AI-SOC vendor.</p>
+<ul>
+<li><strong>Region:</strong> In which specific EU region is data stored, and can you choose it?</li>
+<li><strong>Control:</strong> Which legal entity controls the data, and to which jurisdiction is it subject?</li>
+<li><strong>AI inference:</strong> Where does AI processing physically occur — in-region, or routed to an external endpoint?</li>
+<li><strong>Sub-processors:</strong> Who are the sub-processors, and are any outside the EU?</li>
+<li><strong>Keys:</strong> Who holds the encryption keys, and can you retain custody?</li>
+<li><strong>Access:</strong> Who can access your telemetry, from where, and under what controls?</li>
+<li><strong>Lawful access:</strong> Could any parent or affiliate be compelled to disclose your data under non-EU law?</li>
+<li><strong>Evidence:</strong> Can the provider document AI transparency, data flows and retention to support GDPR, DORA and NIS2 obligations?</li>
+</ul>
+
+<h2>How a sovereign SOC is built by design</h2>
+<p>Sovereignty cannot be retrofitted with a contractual clause; it has to be an architectural choice. A <strong>sovereign SOC</strong> keeps ingestion, storage, analytics and — critically — AI inference inside the chosen EU region, run by an EU-governed entity, with a disclosed EU-scoped sub-processor chain and EU-held encryption keys.</p>
+<p>Nordic SOC is built on this principle. Everything, including the AI, runs and stays inside the EU region the customer chooses. The <strong>Vokter</strong> AI SOC applies this across its modes: <a href="/vokter-autonomous.html">Autonomous</a> for SIEM-less, AI-driven detection and response; Hybrid to run on your existing stack; and Guardian for AI combined with 24/7 Nordic analysts. Because the platform is EU-sovereign by design, the answer to <em>where does SOC data go</em> is unambiguous — it stays in your chosen EU region, and so does the AI that reasons over it. For background on the company and its independence, see the <a href="/about.html">about page</a>, and to discuss a specific environment, <a href="/contact.html">get in touch</a>.</p>
+<p>Sovereignty also intersects with adjacent compliance work. Financial entities weighing operational-resilience duties should read our note on <a href="/blog.php?slug=dora-compliance-soc">DORA compliance and the SOC</a>, and any organisation comparing vendors will find a structured approach in <a href="/blog.php?slug=choosing-ai-soc-provider-europe">choosing an AI-SOC provider in Europe</a>.</p>
+
+<h2>Conclusion</h2>
+<p>EU data sovereignty in security operations is ultimately about control: keeping the most revealing data in your organisation, and the AI that interprets it, under EU jurisdiction and EU law. Data residency is a starting point, not the destination. As GDPR, DORA, NIS2 and the EU AI Act's transparency obligations converge, the providers worth trusting are those that can show — not merely assert — that data and AI processing stay inside the EU region you choose.</p>

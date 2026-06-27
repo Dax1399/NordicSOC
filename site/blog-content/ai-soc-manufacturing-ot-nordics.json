@@ -1,0 +1,38 @@
+{
+  "title": "AI SOC for Manufacturing and OT Security in the Nordics",
+  "slug": "ai-soc-manufacturing-ot-nordics",
+  "meta_title": "OT Security Nordics: AI SOC Guide | Nordic SOC",
+  "meta_description": "Why OT security matters for Nordic manufacturers: the threat landscape, IT/OT convergence, NIS2, and how an AI SOC delivers continuous, safe, reversible coverage.",
+  "excerpt": "Nordic manufacturers face rising OT risk as plant systems connect to corporate networks. This guide covers the OT threat landscape, IT/OT convergence, NIS2, and how an AI SOC delivers continuous, safe, reversible coverage.",
+  "focus_keyword": "OT security Nordics",
+  "secondary_keywords": ["manufacturing cybersecurity", "OT SOC", "IT/OT convergence", "industrial control systems security"],
+  "category": "Nordics",
+  "tags": ["OT security", "manufacturing", "industrial control systems", "IT/OT convergence", "NIS2", "AI SOC"],
+  "author": "Nordic SOC",
+  "date": "2026-05-28",
+  "reading_time": "9 min",
+  "hero_image": "",
+  "hero_image_alt": "Industrial control room overseeing OT security monitoring at a Nordic manufacturing plant",
+  "faq": [
+    {
+      "q": "Why does OT security matter for Nordic manufacturers?",
+      "a": "Operational technology controls physical processes such as production lines and plant equipment, so a security incident can halt production, damage equipment, or threaten safety, not just expose data. As Nordic manufacturers connect once-isolated OT systems to corporate networks for efficiency, they expose legacy control systems to threats that were previously confined to IT, making continuous OT monitoring essential."
+    },
+    {
+      "q": "What is IT/OT convergence and why does it raise risk?",
+      "a": "IT/OT convergence is the merging of corporate information technology with operational technology, so plant data flows into enterprise systems and business systems can reach into production. It improves visibility and efficiency, but it expands the attack surface: a foothold in IT can become a path into OT, and control systems that lack authentication or encryption become reachable from connected networks."
+    },
+    {
+      "q": "Why do traditional IT SOCs struggle with OT environments?",
+      "a": "Traditional IT SOCs often lack awareness of specialised industrial protocols and OT asset context, and they tend to prioritise data confidentiality over availability and safety. Their default response of isolating or shutting down systems, and routine active vulnerability scanning, can disrupt fragile control devices and cause the very production or safety incident they aim to prevent."
+    },
+    {
+      "q": "How should OT environments be monitored safely?",
+      "a": "OT monitoring favours passive, non-intrusive techniques that observe network traffic without injecting packets into fragile devices, combined with accurate asset discovery and awareness of the Purdue model levels. Attention focuses on the boundary between enterprise IT and operations, where convergence-driven threats most often cross, so anomalies can be interpreted in terms of their potential physical impact."
+    },
+    {
+      "q": "Does NIS2 apply to manufacturing in the Nordics?",
+      "a": "Yes. NIS2, adopted in 2022, brings many manufacturing and critical-infrastructure entities into scope as essential or important entities, with obligations for risk management, incident detection and handling, supply-chain security, and structured incident notification. Because NIS2 is a directive, member states transpose it into national law, so Nordic operators should confirm their precise obligations under each relevant national regime."
+    }
+  ]
+}

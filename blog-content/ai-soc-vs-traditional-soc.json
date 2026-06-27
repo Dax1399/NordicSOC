@@ -1,0 +1,38 @@
+{
+  "title": "AI SOC vs Traditional SOC: What Actually Changes",
+  "slug": "ai-soc-vs-traditional-soc",
+  "meta_title": "AI SOC vs Traditional SOC | Nordic SOC",
+  "meta_description": "AI SOC vs traditional SOC compared across detection, triage, investigation, response, staffing, cost and compliance. See what actually changes.",
+  "excerpt": "A balanced comparison of the AI SOC and traditional SOC models across detection, alert triage, investigation, response, staffing, cost and compliance, with a clear side-by-side table.",
+  "focus_keyword": "AI SOC vs traditional SOC",
+  "secondary_keywords": ["traditional SOC limitations", "SOC automation", "alert triage", "mean time to respond"],
+  "category": "AI SOC",
+  "tags": ["AI SOC", "traditional SOC", "SOC automation", "alert triage", "mean time to respond", "compliance"],
+  "author": "Nordic SOC",
+  "date": "2026-06-23",
+  "reading_time": "7 min",
+  "hero_image": "",
+  "hero_image_alt": "Comparison of an AI SOC and a traditional SOC operating model",
+  "faq": [
+    {
+      "q": "What is the difference between an AI SOC and a traditional SOC?",
+      "a": "Both detect and respond to threats, but a traditional SOC relies on human analysts to triage, enrich and investigate every alert, while an AI SOC uses machine reasoning to triage and decide at scale and escalates only cases that need human judgement. The practical effect is faster, more consistent decisions and a lower mean time to respond."
+    },
+    {
+      "q": "Does an AI SOC replace security analysts?",
+      "a": "No. An AI SOC reallocates analyst attention rather than removing it. The AI handles high-volume, repeatable work such as triage and enrichment, while skilled analysts focus on complex investigations, threat hunting and accountability for high-impact decisions."
+    },
+    {
+      "q": "How does an AI SOC reduce mean time to respond?",
+      "a": "It assesses and scores every alert automatically, assembles investigation context across data sources in seconds, and can contain a threat or escalate with a complete case file within defined guardrails. Removing manual triage and pivoting steps compresses the time from detection to response."
+    },
+    {
+      "q": "Is an AI SOC suitable for organisations without a SIEM or security team?",
+      "a": "Yes. A SIEM-less deployment such as Vokter Autonomous uses existing endpoint telemetry to triage, score and contain threats, issuing a daily report and auto-tickets, so organisations without a central platform or team can still run effective operations."
+    },
+    {
+      "q": "How does an AI SOC help with EU compliance?",
+      "a": "An AI SOC produces a consistent, time-stamped audit trail of every alert and decision, which supports evidence requirements under frameworks such as DORA, NIS2 and the EU AI Act, and is simpler than reconstructing activity from manual analyst notes."
+    }
+  ]
+}

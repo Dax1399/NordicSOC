@@ -1,0 +1,353 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DORA Compliance SOC Requirements | Nordic SOC</title>
+<meta name="description" content="What DORA requires of your SOC: ICT risk management, incident classification and reporting timelines, testing, third-party risk and audit-ready evidence.">
+<link rel="canonical" href="https://nordicsoc.com/insights/dora-compliance-soc/">
+<meta property="og:title" content="DORA Compliance: What Your SOC Must Deliver"><meta property="og:description" content="What DORA requires of your SOC: ICT risk management, incident classification and reporting timelines, testing, third-party risk and audit-ready evidence."><meta property="og:type" content="article"><meta property="og:url" content="https://nordicsoc.com/insights/dora-compliance-soc/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap" rel="stylesheet">
+<style>/* ============================================================
+   NORDIC SOC · Vokter — shared styles for PHP pages
+   (Insights index + single blog). Matches the static site.
+   Navy #142E4A · Orchid Green #BCD153 · Charcoal #0E1A1F
+   ============================================================ */
+:root{
+  --white:#FFFFFF; --alt:#F6F8FB; --charcoal:#0E1A1F; --navy:#142E4A;
+  --orchid:#BCD153; --orchid-deep:#7C9A2E; --spring:#C9DC7E; --sunset:#5E7A93;
+  --davy:#4A555A; --slate:#9FB3C4; --mist:#E8EEF3; --orange:#E07B3C;
+  --ink:#0E1A1F; --body:#46535f; --muted:#5E7A93;
+  --line:rgba(20,46,74,.10); --line-2:rgba(20,46,74,.16);
+  --shadow:0 18px 44px -28px rgba(20,46,74,.45);
+  --shadow-sm:0 10px 26px -20px rgba(20,46,74,.4);
+  --radius:18px; --radius-sm:14px; --maxw:1180px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:"Google Sans Flex","Google Sans",system-ui,Arial,sans-serif;background:var(--white);
+  color:var(--body);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:clip}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+::selection{background:var(--orchid);color:var(--charcoal)}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,40px)}
+.section{padding:clamp(50px,5vw,76px) 0;position:relative}
+.alt{background:var(--alt)}
+h1,h2,h3,h4{line-height:1.14;font-weight:600;letter-spacing:-.02em;color:var(--ink);text-wrap:pretty}
+h2.title{font-size:clamp(24px,2.8vw,36px);letter-spacing:-.025em}
+.lead{font-size:clamp(16px,1.4vw,18px);color:var(--body);max-width:62ch;margin-top:18px;line-height:1.6;text-wrap:pretty}
+
+.btn{display:inline-flex;align-items:center;gap:9px;justify-content:center;font-family:inherit;font-weight:600;
+  font-size:15.5px;padding:14px 26px;border-radius:999px;cursor:pointer;border:1.6px solid transparent;
+  transition:transform .25s var(--ease),background .25s var(--ease),box-shadow .25s var(--ease),border-color .25s,color .25s;white-space:nowrap}
+.btn svg{width:16px;height:16px;transition:transform .25s var(--ease)}
+.btn:hover svg{transform:translateX(3px)}
+.btn-primary{background:var(--orchid);color:var(--navy);box-shadow:0 12px 26px -14px rgba(124,154,46,.7)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 36px -14px rgba(124,154,46,.85)}
+.btn-outline{background:transparent;color:var(--navy);border-color:var(--line-2)}
+.btn-outline:hover{border-color:var(--navy);background:rgba(20,46,74,.04)}
+.on-dark .btn-outline{color:#fff;border-color:rgba(255,255,255,.5)}
+.on-dark .btn-outline:hover{background:rgba(255,255,255,.1);border-color:#fff}
+
+/* NAV */
+header.nav{position:fixed;inset:0 0 auto 0;z-index:100;background:#fff;border-bottom:1px solid var(--line);transition:box-shadow .3s,border-color .3s}
+header.nav.scrolled{box-shadow:0 6px 24px -18px rgba(20,46,74,.5)}
+.nav-inner{max-width:var(--maxw);margin:0 auto;padding:14px clamp(20px,5vw,40px);display:flex;align-items:center;gap:28px}
+.logo-nsoc{height:38px;width:auto}
+.brand{flex-shrink:0;display:flex;align-items:center}
+.nav-links{display:flex;gap:2px;margin-left:auto;align-items:center}
+.nav-links a{font-size:15px;color:var(--navy);padding:9px 14px;border-radius:8px;transition:color .2s,background .2s;font-weight:500}
+.nav-links a:hover{color:var(--orchid-deep);background:rgba(20,46,74,.04)}
+.nav-links a.active{color:var(--orchid-deep)}
+.nav-item{position:relative}
+.nav-item::after{content:"";position:absolute;top:100%;left:0;right:0;height:12px}
+.nav-trigger{display:inline-flex;align-items:center;gap:6px;font-family:inherit;font-size:15px;font-weight:500;color:var(--navy);background:none;border:none;cursor:pointer;padding:9px 14px;border-radius:8px;transition:color .2s,background .2s}
+.nav-trigger svg{width:13px;height:13px;transition:transform .25s var(--ease)}
+.nav-item:hover .nav-trigger,.nav-item:focus-within .nav-trigger{color:var(--orchid-deep);background:rgba(20,46,74,.04)}
+.nav-item:hover .nav-trigger svg,.nav-item:focus-within .nav-trigger svg{transform:rotate(180deg)}
+.drop{position:absolute;top:calc(100% + 12px);left:0;min-width:206px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 20px 44px -22px rgba(20,46,74,.5);padding:8px;display:flex;flex-direction:column;gap:2px;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .2s var(--ease),transform .2s var(--ease),visibility .2s}
+.nav-item:hover .drop,.nav-item:focus-within .drop{opacity:1;visibility:visible;transform:none}
+.drop a{font-size:14.5px;color:var(--navy);padding:10px 12px;border-radius:8px;transition:background .2s,color .2s;font-weight:500}
+.drop a:hover{background:var(--alt);color:var(--orchid-deep)}
+.nav-cta{margin-left:24px;display:flex;align-items:center;gap:10px}
+.nav-cta .btn{padding:11px 20px;font-size:14.5px}
+.menu-toggle{display:none;background:none;border:1px solid var(--line-2);border-radius:10px;width:44px;height:44px;cursor:pointer;color:var(--navy);align-items:center;justify-content:center}
+.menu-toggle svg{width:22px;height:22px}
+.mobile-menu{position:fixed;inset:0;z-index:99;background:rgba(255,255,255,.98);backdrop-filter:blur(8px);display:none;flex-direction:column;padding:96px 30px 40px;gap:4px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:19px;color:var(--navy);padding:16px 4px;border-bottom:1px solid var(--line);font-weight:500}
+.mobile-menu .btn{margin-top:22px}
+
+/* PAGE HERO (compact, dark) */
+.phero{position:relative;text-align:left;padding:142px 0 60px;overflow:hidden;color:#fff}
+.phero-bg{position:absolute;inset:0;z-index:0;background:url("/assets/hero-mosaic.png") center/cover no-repeat;background-color:#0b162f}
+.phero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(9,16,30,.62),rgba(9,16,30,.45) 60%,rgba(9,16,30,.55))}
+.phero .wrap{position:relative;z-index:2}
+.phero h1{color:#fff;font-size:clamp(32px,4vw,50px);font-weight:600;letter-spacing:-.035em;max-width:20ch}
+.phero h1 .accent{color:var(--orchid)}
+.phero p.sub{margin-top:18px;font-size:clamp(16px,1.4vw,19px);color:#EAF1F8;max-width:60ch;line-height:1.55;text-wrap:pretty}
+.eyebrow{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--orchid);font-weight:600;margin-bottom:16px}
+
+/* FILTERS */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 28px}
+.filter{font-size:13.5px;font-weight:600;color:var(--navy);background:#fff;border:1px solid var(--line-2);padding:8px 16px;border-radius:999px;cursor:pointer;transition:all .2s}
+.filter:hover{border-color:var(--navy)}
+.filter.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+
+/* CARD GRID */
+.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.pcard{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:transform .35s var(--ease),box-shadow .35s,border-color .35s}
+.pcard:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--line-2)}
+.pcard .thumb{height:150px;background:linear-gradient(135deg,#0b162f,#1d3a5f 55%,#3d5a3a);position:relative;overflow:hidden;flex-shrink:0}
+.pcard .thumb img{width:100%;height:100%;object-fit:cover}
+.pcard .thumb .cat{position:absolute;top:12px;left:12px;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--navy);background:var(--orchid);padding:5px 11px;border-radius:999px}
+.pcard .pbody{padding:18px 20px 20px;display:flex;flex-direction:column;flex-grow:1}
+.pcard h3{font-size:16.5px;line-height:1.32;color:var(--ink);margin-bottom:8px}
+.pcard p{font-size:14px;color:var(--body);line-height:1.5;flex-grow:1;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.pcard .pmeta{display:flex;gap:14px;align-items:center;margin-top:16px;font-size:12.5px;color:var(--muted)}
+.pcard .pmeta .dot{width:3px;height:3px;border-radius:50%;background:var(--slate)}
+.pcard .more{margin-top:14px;font-size:14px;font-weight:600;color:var(--orchid-deep);display:inline-flex;align-items:center;gap:7px}
+.pcard .more svg{width:15px;height:15px;transition:transform .25s var(--ease)}
+.pcard:hover .more svg{transform:translateX(4px)}
+.empty{grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--muted);font-size:16px}
+
+/* PAGINATION */
+.pager{display:flex;justify-content:center;gap:10px;margin-top:48px}
+.pager a,.pager span{min-width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;border-radius:10px;border:1px solid var(--line-2);font-weight:600;font-size:14.5px;color:var(--navy);padding:0 14px}
+.pager a:hover{border-color:var(--navy)}
+.pager .cur{background:var(--navy);color:#fff;border-color:var(--navy)}
+.pager .disabled{opacity:.4;pointer-events:none}
+
+/* ARTICLE */
+.article-layout{display:grid;grid-template-columns:minmax(0,1fr) 240px;gap:clamp(32px,4vw,56px);align-items:start;max-width:1060px;margin:0 auto}
+.article-layout .article{max-width:none;margin:0}
+.article-solo{max-width:800px;margin:0 auto}
+.article{max-width:760px;margin:0 auto}
+.toc{position:sticky;top:104px}
+.toc h4{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.toc ul{list-style:none;display:flex;flex-direction:column;gap:11px;border-left:2px solid var(--line);padding-left:16px}
+.toc ul{position:relative}
+.toc a{font-size:14px;color:var(--body);line-height:1.45;transition:color .2s;display:block}
+.toc a:hover{color:var(--orchid-deep)}
+.toc a.active{color:var(--navy);font-weight:600}
+.toc li{position:relative}
+.toc li.active::before{content:"";position:absolute;left:-17px;top:2px;bottom:2px;width:2px;background:var(--orchid)}
+.art-cat{font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--orchid-deep);margin-bottom:14px}
+.article h1{font-size:clamp(28px,3.6vw,44px);letter-spacing:-.03em;line-height:1.1}
+.art-meta{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:20px;font-size:14px;color:var(--muted)}
+.art-meta .dot{width:3px;height:3px;border-radius:50%;background:var(--slate)}
+.art-hero{margin:34px 0;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);aspect-ratio:16/9;background:linear-gradient(135deg,#0b162f,#1d3a5f 55%,#3d5a3a)}
+.art-hero img{width:100%;height:100%;object-fit:cover}
+.art-body{font-size:17px;color:var(--davy);line-height:1.72}
+.art-body h2{font-size:clamp(22px,2.4vw,28px);color:var(--ink);margin:38px 0 14px;letter-spacing:-.02em;scroll-margin-top:96px}
+.art-body h3{font-size:20px;color:var(--ink);margin:28px 0 10px}
+.art-body p{margin:0 0 18px}
+.art-body a{color:var(--orchid-deep);font-weight:600;text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px}
+.art-body a:hover{color:var(--navy)}
+.art-body ul,.art-body ol{margin:0 0 18px;padding-left:22px}
+.art-body li{margin:0 0 9px}
+.art-body strong{color:var(--navy);font-weight:600}
+.art-body blockquote{margin:24px 0;padding:16px 22px;border-left:3px solid var(--orchid);background:var(--alt);border-radius:0 10px 10px 0;color:var(--ink);font-size:18px}
+.art-body table{width:100%;border-collapse:collapse;margin:22px 0;font-size:15px}
+.art-body th,.art-body td{border:1px solid var(--line);padding:11px 14px;text-align:left;vertical-align:top}
+.art-body th{background:var(--alt);color:var(--navy);font-weight:600}
+.art-body .takeaways{margin:28px 0;padding:22px 24px;border:1px solid var(--line);border-left:3px solid var(--orchid);border-radius:var(--radius-sm);background:var(--alt)}
+.art-body .takeaways h4{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--orchid-deep);margin-bottom:12px}
+.art-body .takeaways ul{margin:0;padding-left:20px}
+.art-body .takeaways li{font-size:15px;color:var(--body)}
+.art-body .faq{margin-top:40px}
+.art-body .faq h2{margin-bottom:8px}
+.art-body details{border:1px solid var(--line);border-radius:var(--radius-sm);background:#fff;overflow:hidden;margin-bottom:12px}
+.art-body details[open]{border-color:var(--line-2);box-shadow:var(--shadow-sm)}
+.art-body summary{list-style:none;cursor:pointer;padding:15px 20px;font-size:16.5px;font-weight:600;color:var(--ink);display:flex;justify-content:space-between;gap:16px}
+.art-body summary::-webkit-details-marker{display:none}
+.art-body summary::after{content:"+";color:var(--orchid-deep);font-weight:600;font-size:20px;line-height:1}
+.art-body details[open] summary::after{content:"\2013"}
+.art-body details .a{padding:0 20px 18px;font-size:15.5px;color:var(--body)}
+.art-cta{margin:48px 0 0;padding:clamp(26px,4vw,40px);border-radius:var(--radius);background:linear-gradient(160deg,#142E4A,#0b162f);color:#fff;text-align:center}
+.art-cta h3{color:#fff;font-size:clamp(20px,2.4vw,26px)}
+.art-cta p{color:#cfe0c6;margin:12px auto 0;max-width:46ch;font-size:15.5px}
+.art-cta .btn{margin-top:22px}
+
+/* RELATED */
+.related{border-top:1px solid var(--line);margin-top:60px;padding-top:44px}
+.related h2{font-size:24px;margin-bottom:24px}
+
+/* FOOTER */
+footer{background:var(--charcoal);color:#cdd9e2;padding:clamp(56px,7vw,78px) 0 34px}
+.foot-top{display:grid;grid-template-columns:1.5fr 1fr 1.5fr;gap:44px}
+.foot-brand .logo-nsoc{height:40px;margin-bottom:16px}
+.foot-brand p{font-size:14px;color:#9FB3C4;max-width:34ch}
+.foot-contact{font-size:14px;margin-top:18px;display:flex;flex-direction:column;gap:10px}
+.foot-contact-item{display:flex;align-items:flex-start;gap:9px;color:#9FB3C4;text-decoration:none;transition:color .2s}
+.foot-contact-item svg{flex-shrink:0;margin-top:2px;opacity:.75}
+.foot-contact-item:hover{color:var(--orchid)}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:4px}
+.foot-col a{font-size:14.5px;color:#9FB3C4;transition:color .2s}
+.foot-col a:hover{color:#fff}
+.foot-offices h5{font-size:14.5px;font-weight:600;color:var(--orchid);margin:0 0 16px}
+.foot-offices ul{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:12px 20px}
+.foot-offices li{font-size:14.5px;color:#9FB3C4;white-space:nowrap}
+.foot-bottom{margin-top:48px;padding-top:24px;border-top:1px solid rgba(159,179,196,.16);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--sunset)}
+.foot-legal{display:flex;gap:22px}
+.foot-legal a{color:var(--sunset);transition:color .2s}
+.foot-legal a:hover{color:var(--orchid)}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+@media (max-width:1024px){
+  .nav-links{display:none}.menu-toggle{display:flex}
+  .posts{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:860px){
+  .foot-top{grid-template-columns:1fr 1fr;gap:30px}
+  .article-layout{grid-template-columns:1fr;max-width:800px}
+  .toc{display:none}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .posts{grid-template-columns:1fr}
+}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","@id":"https://nordicsoc.com/insights/dora-compliance-soc/#article","headline":"DORA Compliance: What Your SOC Must Deliver","description":"What DORA requires of your SOC: ICT risk management, incident classification and reporting timelines, testing, third-party risk and audit-ready evidence.","datePublished":"2026-06-13","dateModified":"2026-06-13","author":{"@type":"Organization","name":"Nordic SOC"},"publisher":{"@type":"Organization","name":"Nordic SOC","url":"https://nordicsoc.com"},"mainEntityOfPage":"https://nordicsoc.com/insights/dora-compliance-soc/","articleSection":"Compliance","inLanguage":"en","keywords":"DORA compliance SOC"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nordicsoc.com/"},{"@type":"ListItem","position":2,"name":"Insights","item":"https://nordicsoc.com/insights/"},{"@type":"ListItem","position":3,"name":"DORA Compliance: What Your SOC Must Deliver","item":"https://nordicsoc.com/insights/dora-compliance-soc/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"When does DORA apply?","acceptedAnswer":{"@type":"Answer","text":"DORA, the Digital Operational Resilience Act (Regulation (EU) 2022/2554), applies from 17 January 2025. It is a directly applicable EU regulation, meaning financial entities must comply without waiting for national transposition."}},{"@type":"Question","name":"Who does DORA cover?","acceptedAnswer":{"@type":"Answer","text":"DORA covers a broad range of financial entities, including banks, insurers, investment firms, payment institutions and crypto-asset service providers, as well as the critical ICT third-party providers that supply services to them."}},{"@type":"Question","name":"What must a SOC deliver for DORA incident reporting?","acceptedAnswer":{"@type":"Answer","text":"A SOC must consistently detect and classify incidents against DORA criteria and produce initial, intermediate and final reports to the competent authority within regulator-defined timelines, supported by a complete, time-stamped incident timeline."}},{"@type":"Question","name":"How does an AI SOC help with DORA compliance?","acceptedAnswer":{"@type":"Answer","text":"An AI SOC provides continuous detection, consistent classification and automatically generated, audit-ready evidence. This reduces reporting latency and ensures the trail DORA expects is captured as events unfold rather than reconstructed afterwards."}},{"@type":"Question","name":"How does DORA relate to NIS2?","acceptedAnswer":{"@type":"Answer","text":"NIS2 is a broad cross-sector cybersecurity directive, while DORA is the sector-specific, directly applicable regulation for financial services. Entities subject to both benefit from aligning incident classification and reporting processes across the two frameworks."}}]}]}</script></head><body>
+<header class="nav" id="nav"><div class="nav-inner">
+  <a class="brand" href="/" aria-label="Nordic SOC home"><img class="logo-nsoc" src="/assets/nordic-soc-navy.svg" alt="Nordic SOC"></a>
+  <nav class="nav-links">
+    <div class="nav-item"><button class="nav-trigger" aria-haspopup="true">Vokter Modes <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="drop"><a href="/vokter-autonomous/">Autonomous</a><a href="/vokter-hybrid/">Hybrid</a><a href="/vokter-guardian/">Guardian</a></div></div>
+    <a href="/partner-program/">Partner Program</a>
+    <a href="/insights/" class="active">Insights</a>
+    <a href="/about-us/">About Us</a>
+  </nav>
+  <div class="nav-cta"><a href="/contact-us/" class="btn btn-primary">Contact Us</a></div>
+  <button class="menu-toggle" id="menuToggle" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round"/></svg></button>
+</div></header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/vokter-autonomous/">Vokter Autonomous</a><a href="/vokter-hybrid/">Vokter Hybrid</a><a href="/vokter-guardian/">Vokter Guardian</a>
+  <a href="/partner-program/">Partner Program</a><a href="/insights/">Insights</a><a href="/about-us/">About Us</a>
+  <a href="/contact-us/" class="btn btn-primary">Contact Us</a>
+</div>
+<main id="top"><article class="section" style="padding-top:128px"><div class="wrap">
+  <div class="article-layout">
+  <div class="article">
+  <h1>DORA Compliance: What Your SOC Must Deliver</h1>
+  <div class="art-hero"></div>
+  <div class="art-body"><p>DORA compliance for your SOC means proving, with evidence, that your security operations can detect, classify, report and withstand ICT disruptions. The Digital Operational Resilience Act requires financial entities to manage ICT risk continuously, report major incidents to regulators within defined timelines, test their resilience, and govern third-party ICT providers. In practice, your SOC must produce structured incident records, classification decisions, audit-ready reporting and a defensible trail of every detection and response action. This article explains what DORA expects of security operations and how a modern, AI-driven SOC delivers it.</p>
+
+<p>DORA (Regulation (EU) 2022/2554) applies from 17 January 2025. It is an EU regulation that harmonises digital operational resilience requirements across banks, insurers, investment firms, payment institutions, crypto-asset service providers and many other financial entities, as well as the critical ICT third-party providers that serve them. Where NIS2 sets a broad cybersecurity baseline across sectors, DORA is the sector-specific, directly applicable rulebook for financial services.</p>
+
+<div class="takeaways"><h4>Key takeaways</h4><ul><li>DORA applies from 17 January 2025 as a directly applicable EU regulation for financial entities and their critical ICT third-party providers.</li><li>Your SOC must deliver continuous ICT risk monitoring, consistent incident classification, and initial, intermediate and final incident reports within regulator-defined timelines.</li><li>Resilience testing, third-party ICT risk visibility, and tamper-evident audit trails are core SOC deliverables, not optional extras.</li><li>An AI SOC reduces detection and reporting latency while generating audit-ready evidence automatically.</li><li>EU-sovereign delivery keeps incident data and logs within EU jurisdiction, supporting DORA and data-residency expectations.</li></ul></div>
+
+<h2 id="what-does-dora-require-for-soc-operations">What does DORA require for SOC operations?</h2>
+<p>DORA is built around several pillars that together define operational resilience for financial entities. Each pillar translates into concrete expectations for security operations. A SOC is no longer judged only on whether it stops attacks; under DORA it must also demonstrate, on demand, that its processes are governed, repeatable and evidenced.</p>
+
+<p>The five pillars most relevant to a SOC are ICT risk management, ICT-related incident management and reporting, digital operational resilience testing, ICT third-party risk management, and information sharing. The table below maps each pillar to what your SOC must deliver.</p>
+
+<table>
+<thead><tr><th>DORA pillar</th><th>What your SOC must deliver</th></tr></thead>
+<tbody>
+<tr><td>ICT risk management</td><td>Continuous monitoring of ICT assets, documented detection logic, and a governed framework for identifying, protecting and responding to threats.</td></tr>
+<tr><td>Incident management and reporting</td><td>Consistent detection, classification of major incidents, and initial, intermediate and final reports to the competent authority within defined timelines.</td></tr>
+<tr><td>Operational resilience testing</td><td>Evidence from regular testing, including threat-led penetration testing for significant entities, with findings tracked to remediation.</td></tr>
+<tr><td>ICT third-party risk</td><td>Visibility of supplier-related activity, monitoring of third-party access, and incident handling that spans the supply chain.</td></tr>
+<tr><td>Information sharing</td><td>Structured threat intelligence handling and the ability to contribute to and consume shared cyber-threat information.</td></tr>
+</tbody>
+</table>
+
+<h2 id="ict-risk-management-what-your-soc-must-monitor">ICT risk management: what your SOC must monitor</h2>
+<p>The Digital Operational Resilience Act places ICT risk management at the centre of operational resilience. DORA expects financial entities to maintain a sound, documented ICT risk-management framework and to monitor the security of their ICT systems continuously. For a SOC, this means full visibility across endpoints, identity, cloud workloads, network and critical applications, with detection logic that is documented and maintained rather than ad hoc.</p>
+
+<p>Continuous monitoring is the practical heart of this requirement. Your SOC must collect and correlate telemetry around the clock, surface anomalies quickly, and ensure that nothing material goes unobserved. This is where alert volume becomes a compliance issue as well as an operational one: undetected or de-prioritised alerts undermine the assurance DORA expects. AI-driven triage helps by handling high alert volumes consistently and reducing the risk that a genuine threat is lost in noise. See our note on <a href="/insights/ai-alert-triage-alert-fatigue/">AI alert triage and alert fatigue</a> for how this works in practice.</p>
+
+<h2 id="dora-incident-reporting-detection-classification-and-timelin">DORA incident reporting: detection, classification and timelines</h2>
+<p>Incident management is the pillar where SOC capability is most visible to regulators. DORA requires financial entities to detect ICT-related incidents, classify them against defined criteria, and report major incidents to the relevant competent authority. Reporting follows a staged model: an initial notification, one or more intermediate updates as the situation develops, and a final report once root cause and remediation are understood, each within regulator-defined timelines.</p>
+
+<p>To meet this, your SOC must deliver three things reliably:</p>
+<ul>
+<li><strong>Consistent detection and classification.</strong> Every incident must be assessed against severity and impact criteria using a repeatable method, so that the decision to classify something as "major" is defensible and documented.</li>
+<li><strong>Timely, structured reporting.</strong> The SOC must produce initial, intermediate and final DORA incident reporting outputs with the data fields regulators expect, on the clock, without scrambling to reconstruct events after the fact.</li>
+<li><strong>A complete timeline.</strong> Detection time, classification decisions, escalation steps and containment actions must be captured automatically so the reporting narrative is accurate and verifiable.</li>
+</ul>
+
+<p>This staged reporting model is similar in spirit to obligations under NIS2, and entities subject to both frameworks benefit from aligning their processes. Our <a href="/insights/nis2-soc-checklist/">NIS2 SOC checklist</a> covers the overlap in more detail.</p>
+
+<h2 id="how-a-dora-compliance-soc-handles-testing-and-third-party-ri">How a DORA compliance SOC handles testing and third-party risk</h2>
+<p>Operational resilience under DORA is not only about responding to incidents; it is about proving the response will work. DORA requires a programme of digital operational resilience testing, ranging from routine vulnerability assessment to threat-led penetration testing for significant entities. Your SOC supports this by providing the detection telemetry that tests exercise, validating that simulated attacks are seen and handled, and tracking findings through to remediation with evidence at each step.</p>
+
+<p>Third-party ICT risk is equally central. Financial entities depend on external providers for core ICT services, and DORA holds entities accountable for monitoring and managing that dependency. A DORA compliance SOC must therefore extend visibility beyond the perimeter: monitoring third-party and remote access, watching for supply-chain indicators, and ensuring incidents that originate with or traverse a provider are detected, classified and reported in the same disciplined way as internal events.</p>
+
+<h2 id="evidence-and-audit-trails-the-soc-s-compliance-output">Evidence and audit trails: the SOC's compliance output</h2>
+<p>Underpinning every DORA pillar is the need for evidence. A regulator, auditor or internal risk function should be able to ask "show me" and receive a clear, tamper-evident record. For security operations this means your SOC must produce, as a routine by-product of its work:</p>
+<ul>
+<li>A time-stamped record of every alert, detection and decision.</li>
+<li>Classification rationale for each incident, mapped to DORA criteria.</li>
+<li>The full sequence of response and containment actions, including who or what performed them.</li>
+<li>Reporting artefacts aligned to the initial, intermediate and final stages.</li>
+<li>Evidence linking testing findings to remediation.</li>
+</ul>
+
+<p>Manual SOCs often struggle here, because evidence is reconstructed after the fact from disparate tools. An audit-ready SOC instead captures the trail as events unfold. This is also where <a href="/insights/mitre-attack-automated-investigation/">MITRE ATT&CK automated investigation</a> adds value: mapping activity to a recognised framework gives auditors and analysts a consistent, explainable account of what happened.</p>
+
+<h2 id="how-an-ai-soc-delivers-dora-compliance">How an AI SOC delivers DORA compliance</h2>
+<p>A modern AI SOC is well suited to DORA because the regulation rewards speed, consistency and documentation, which are exactly the qualities automation provides. AI handles the high-volume detection and triage work continuously, applies classification logic uniformly, and records each step automatically, producing audit-ready evidence without analysts having to assemble it manually.</p>
+
+<p>Nordic SOC delivers this through <strong>Vokter</strong>, our AI SOC, with DORA- and NIS2-aligned evidence and reporting built into the service. <a href="/vokter-guardian/">Vokter Guardian</a> combines AI that handles the large majority of detection and triage with named Nordic analysts available 24/7 for threat hunting, forensics and incident leadership under a defined SLA, an arrangement well suited to financial entities that need both speed and human accountability for major incidents. Crucially for DORA, delivery is EU-sovereign: incident data, logs and reporting stay within EU jurisdiction, supporting both the regulation and broader <a href="/insights/eu-data-sovereignty-soc/">EU data sovereignty</a> expectations.</p>
+
+<p>For organisations evaluating providers, the key question is whether the SOC produces the evidence DORA demands as a standard output, not as a bespoke project after each incident. You can learn more <a href="/about-us/">about Nordic SOC</a> or <a href="/contact-us/">contact our team</a> to discuss DORA-aligned security operations.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+<p>DORA reframes the SOC as an evidence-producing function as much as a defensive one. From 17 January 2025, financial entities must demonstrate continuous ICT risk monitoring, consistent incident classification, staged reporting within regulator-defined timelines, resilience testing, third-party oversight and a complete audit trail. A modern AI SOC meets these expectations by combining fast, consistent detection with automatically generated, audit-ready evidence, delivered within EU jurisdiction. The result is operational resilience that can be both achieved and proven.</p>
+
+  <div class="faq"><h2>Frequently asked questions</h2><details><summary>When does DORA apply?</summary><div class="a">DORA, the Digital Operational Resilience Act (Regulation (EU) 2022/2554), applies from 17 January 2025. It is a directly applicable EU regulation, meaning financial entities must comply without waiting for national transposition.</div></details><details><summary>Who does DORA cover?</summary><div class="a">DORA covers a broad range of financial entities, including banks, insurers, investment firms, payment institutions and crypto-asset service providers, as well as the critical ICT third-party providers that supply services to them.</div></details><details><summary>What must a SOC deliver for DORA incident reporting?</summary><div class="a">A SOC must consistently detect and classify incidents against DORA criteria and produce initial, intermediate and final reports to the competent authority within regulator-defined timelines, supported by a complete, time-stamped incident timeline.</div></details><details><summary>How does an AI SOC help with DORA compliance?</summary><div class="a">An AI SOC provides continuous detection, consistent classification and automatically generated, audit-ready evidence. This reduces reporting latency and ensures the trail DORA expects is captured as events unfold rather than reconstructed afterwards.</div></details><details><summary>How does DORA relate to NIS2?</summary><div class="a">NIS2 is a broad cross-sector cybersecurity directive, while DORA is the sector-specific, directly applicable regulation for financial services. Entities subject to both benefit from aligning incident classification and reporting processes across the two frameworks.</div></details></div>
+  <div class="art-cta"><h3>See Vokter on your own alerts</h3><p>Book a walkthrough with our Nordic team and watch the AI SOC triage, investigate and contain — in seconds.</p><a href="/contact-us/" class="btn btn-primary">Request a demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+  </div>
+  <div class="related"><h2>More insights</h2><div class="posts"><a class="pcard reveal" data-cat="Compliance" href="/insights/nis2-soc-checklist/">
+  <div class="thumb"></div>
+  <div class="pbody"><h3>NIS2 and Your SOC: A Practical Compliance Checklist</h3><p>What does NIS2 require of your SOC? A practical checklist covering scope, risk-management measures, incident reporting, supply-chain security and evidence, and how an AI SOC supports faster detection and accurate, audit-ready reporting.</p>
+  <span class="more">Read article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></a>
+<a class="pcard reveal" data-cat="Compliance" href="/insights/eu-data-sovereignty-soc/">
+  <div class="thumb"></div>
+  <div class="pbody"><h3>EU Data Sovereignty in Security Operations: Why It Matters</h3><p>EU data sovereignty means your SOC data and the AI processing it stay under EU jurisdiction and law. Learn how it differs from data residency and what to verify with a provider.</p>
+  <span class="more">Read article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></a>
+<a class="pcard reveal" data-cat="AI SOC" href="/insights/what-is-an-ai-soc/">
+  <div class="thumb"></div>
+  <div class="pbody"><h3>What Is an AI SOC? Autonomous Security Operations Explained</h3><p>An AI SOC uses artificial intelligence to autonomously triage, investigate, contain and report on threats. This pillar guide explains how it works, how it differs from a traditional SOC, where humans fit, and what to evaluate.</p>
+  <span class="more">Read article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></a></div></div>
+  </div>
+  <aside class="toc"><h4>On this page</h4><ul><li><a href="#what-does-dora-require-for-soc-operations">What does DORA require for SOC operations?</a></li><li><a href="#ict-risk-management-what-your-soc-must-monitor">ICT risk management: what your SOC must monitor</a></li><li><a href="#dora-incident-reporting-detection-classification-and-timelin">DORA incident reporting: detection, classification and timelines</a></li><li><a href="#how-a-dora-compliance-soc-handles-testing-and-third-party-ri">How a DORA compliance SOC handles testing and third-party risk</a></li><li><a href="#evidence-and-audit-trails-the-soc-s-compliance-output">Evidence and audit trails: the SOC's compliance output</a></li><li><a href="#how-an-ai-soc-delivers-dora-compliance">How an AI SOC delivers DORA compliance</a></li><li><a href="#conclusion">Conclusion</a></li></ul></aside>
+  </div>
+</div></article></main>
+<footer><div class="wrap"><div class="foot-top">
+  <div class="foot-brand"><img class="logo-nsoc" src="/assets/nordic-soc-white.svg" alt="Nordic SOC">
+    <p>Managed security operations for the Nordics — powered by Vokter, our EU-sovereign AI SOC.</p>
+    <div class="foot-contact">
+      <a href="tel:+46733690899" class="foot-contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.72a16 16 0 006.29 6.29l1.25-1.25a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> +46 733 690899</a>
+      <a href="mailto:consult@gsecurelabs.com" class="foot-contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg> consult@gsecurelabs.com</a>
+      <span class="foot-contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Isafjordsgatan 30A, 16440 Kista, Sweden</span>
+    </div></div>
+  <div class="foot-col"><ul>
+    <li><a href="/vokter-autonomous/">Vokter Autonomous</a></li><li><a href="/vokter-hybrid/">Vokter Hybrid</a></li>
+    <li><a href="/vokter-guardian/">Vokter Guardian</a></li><li><a href="/partner-program/">Partner Program</a></li>
+    <li><a href="/insights/">Insights</a></li><li><a href="/about-us/">About Us</a></li><li><a href="/contact-us/">Contact Us</a></li>
+  </ul></div>
+  <div class="foot-offices"><h5>Global Offices:</h5><ul>
+    <li>Belgium</li><li>Canada</li><li>Denmark</li><li>Finland</li><li>France</li><li>Germany</li><li>India</li><li>Iceland</li><li>Norway</li><li>South Africa</li><li>The Netherlands</li><li>UAE</li><li>UK</li><li>USA</li>
+  </ul></div>
+  </div>
+  <div class="foot-bottom"><div class="foot-legal"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a></div><span>&copy; 2026 Nordic SOC. All rights reserved.</span></div>
+</div></footer>
+<script>
+const nav=document.getElementById('nav');const os=()=>nav.classList.toggle('scrolled',window.scrollY>16);os();addEventListener('scroll',os,{passive:true});
+const t=document.getElementById('menuToggle'),m=document.getElementById('mobileMenu');
+if(t&&m){t.onclick=()=>m.classList.toggle('open');m.querySelectorAll('a').forEach(a=>a.onclick=()=>m.classList.remove('open'));}
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}}),{threshold:.1,rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const fb=document.querySelectorAll('.filter');
+if(fb.length){fb.forEach(b=>b.onclick=()=>{fb.forEach(x=>x.classList.remove('active'));b.classList.add('active');const c=b.dataset.cat;document.querySelectorAll('.pcard').forEach(k=>{k.style.display=(c==='all'||k.dataset.cat===c)?'':'none';});});}
+const tl={};document.querySelectorAll('.toc a').forEach(a=>tl[a.getAttribute('href').slice(1)]=a);
+const hd=[...document.querySelectorAll('.art-body h2[id]')];
+if(hd.length&&Object.keys(tl).length){const spy=()=>{const L=Math.max(110,innerHeight*0.28);let c=hd[0];for(const h of hd){if(h.getBoundingClientRect().top<=L)c=h;else break;}for(const k in tl){tl[k].classList.remove('active');tl[k].parentElement.classList.remove('active');}if(c&&tl[c.id]){tl[c.id].classList.add('active');tl[c.id].parentElement.classList.add('active');}};addEventListener('scroll',spy,{passive:true});addEventListener('resize',spy,{passive:true});spy();}
+</script>
+</body></html>

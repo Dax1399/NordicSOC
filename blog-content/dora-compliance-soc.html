@@ -1,0 +1,65 @@
+<p>DORA compliance for your SOC means proving, with evidence, that your security operations can detect, classify, report and withstand ICT disruptions. The Digital Operational Resilience Act requires financial entities to manage ICT risk continuously, report major incidents to regulators within defined timelines, test their resilience, and govern third-party ICT providers. In practice, your SOC must produce structured incident records, classification decisions, audit-ready reporting and a defensible trail of every detection and response action. This article explains what DORA expects of security operations and how a modern, AI-driven SOC delivers it.</p>
+
+<p>DORA (Regulation (EU) 2022/2554) applies from 17 January 2025. It is an EU regulation that harmonises digital operational resilience requirements across banks, insurers, investment firms, payment institutions, crypto-asset service providers and many other financial entities, as well as the critical ICT third-party providers that serve them. Where NIS2 sets a broad cybersecurity baseline across sectors, DORA is the sector-specific, directly applicable rulebook for financial services.</p>
+
+<div class="takeaways"><h4>Key takeaways</h4><ul><li>DORA applies from 17 January 2025 as a directly applicable EU regulation for financial entities and their critical ICT third-party providers.</li><li>Your SOC must deliver continuous ICT risk monitoring, consistent incident classification, and initial, intermediate and final incident reports within regulator-defined timelines.</li><li>Resilience testing, third-party ICT risk visibility, and tamper-evident audit trails are core SOC deliverables, not optional extras.</li><li>An AI SOC reduces detection and reporting latency while generating audit-ready evidence automatically.</li><li>EU-sovereign delivery keeps incident data and logs within EU jurisdiction, supporting DORA and data-residency expectations.</li></ul></div>
+
+<h2>What does DORA require for SOC operations?</h2>
+<p>DORA is built around several pillars that together define operational resilience for financial entities. Each pillar translates into concrete expectations for security operations. A SOC is no longer judged only on whether it stops attacks; under DORA it must also demonstrate, on demand, that its processes are governed, repeatable and evidenced.</p>
+
+<p>The five pillars most relevant to a SOC are ICT risk management, ICT-related incident management and reporting, digital operational resilience testing, ICT third-party risk management, and information sharing. The table below maps each pillar to what your SOC must deliver.</p>
+
+<table>
+<thead><tr><th>DORA pillar</th><th>What your SOC must deliver</th></tr></thead>
+<tbody>
+<tr><td>ICT risk management</td><td>Continuous monitoring of ICT assets, documented detection logic, and a governed framework for identifying, protecting and responding to threats.</td></tr>
+<tr><td>Incident management and reporting</td><td>Consistent detection, classification of major incidents, and initial, intermediate and final reports to the competent authority within defined timelines.</td></tr>
+<tr><td>Operational resilience testing</td><td>Evidence from regular testing, including threat-led penetration testing for significant entities, with findings tracked to remediation.</td></tr>
+<tr><td>ICT third-party risk</td><td>Visibility of supplier-related activity, monitoring of third-party access, and incident handling that spans the supply chain.</td></tr>
+<tr><td>Information sharing</td><td>Structured threat intelligence handling and the ability to contribute to and consume shared cyber-threat information.</td></tr>
+</tbody>
+</table>
+
+<h2>ICT risk management: what your SOC must monitor</h2>
+<p>The Digital Operational Resilience Act places ICT risk management at the centre of operational resilience. DORA expects financial entities to maintain a sound, documented ICT risk-management framework and to monitor the security of their ICT systems continuously. For a SOC, this means full visibility across endpoints, identity, cloud workloads, network and critical applications, with detection logic that is documented and maintained rather than ad hoc.</p>
+
+<p>Continuous monitoring is the practical heart of this requirement. Your SOC must collect and correlate telemetry around the clock, surface anomalies quickly, and ensure that nothing material goes unobserved. This is where alert volume becomes a compliance issue as well as an operational one: undetected or de-prioritised alerts undermine the assurance DORA expects. AI-driven triage helps by handling high alert volumes consistently and reducing the risk that a genuine threat is lost in noise. See our note on <a href="/blog.php?slug=ai-alert-triage-alert-fatigue">AI alert triage and alert fatigue</a> for how this works in practice.</p>
+
+<h2>DORA incident reporting: detection, classification and timelines</h2>
+<p>Incident management is the pillar where SOC capability is most visible to regulators. DORA requires financial entities to detect ICT-related incidents, classify them against defined criteria, and report major incidents to the relevant competent authority. Reporting follows a staged model: an initial notification, one or more intermediate updates as the situation develops, and a final report once root cause and remediation are understood, each within regulator-defined timelines.</p>
+
+<p>To meet this, your SOC must deliver three things reliably:</p>
+<ul>
+<li><strong>Consistent detection and classification.</strong> Every incident must be assessed against severity and impact criteria using a repeatable method, so that the decision to classify something as "major" is defensible and documented.</li>
+<li><strong>Timely, structured reporting.</strong> The SOC must produce initial, intermediate and final DORA incident reporting outputs with the data fields regulators expect, on the clock, without scrambling to reconstruct events after the fact.</li>
+<li><strong>A complete timeline.</strong> Detection time, classification decisions, escalation steps and containment actions must be captured automatically so the reporting narrative is accurate and verifiable.</li>
+</ul>
+
+<p>This staged reporting model is similar in spirit to obligations under NIS2, and entities subject to both frameworks benefit from aligning their processes. Our <a href="/blog.php?slug=nis2-soc-checklist">NIS2 SOC checklist</a> covers the overlap in more detail.</p>
+
+<h2>How a DORA compliance SOC handles testing and third-party risk</h2>
+<p>Operational resilience under DORA is not only about responding to incidents; it is about proving the response will work. DORA requires a programme of digital operational resilience testing, ranging from routine vulnerability assessment to threat-led penetration testing for significant entities. Your SOC supports this by providing the detection telemetry that tests exercise, validating that simulated attacks are seen and handled, and tracking findings through to remediation with evidence at each step.</p>
+
+<p>Third-party ICT risk is equally central. Financial entities depend on external providers for core ICT services, and DORA holds entities accountable for monitoring and managing that dependency. A DORA compliance SOC must therefore extend visibility beyond the perimeter: monitoring third-party and remote access, watching for supply-chain indicators, and ensuring incidents that originate with or traverse a provider are detected, classified and reported in the same disciplined way as internal events.</p>
+
+<h2>Evidence and audit trails: the SOC's compliance output</h2>
+<p>Underpinning every DORA pillar is the need for evidence. A regulator, auditor or internal risk function should be able to ask "show me" and receive a clear, tamper-evident record. For security operations this means your SOC must produce, as a routine by-product of its work:</p>
+<ul>
+<li>A time-stamped record of every alert, detection and decision.</li>
+<li>Classification rationale for each incident, mapped to DORA criteria.</li>
+<li>The full sequence of response and containment actions, including who or what performed them.</li>
+<li>Reporting artefacts aligned to the initial, intermediate and final stages.</li>
+<li>Evidence linking testing findings to remediation.</li>
+</ul>
+
+<p>Manual SOCs often struggle here, because evidence is reconstructed after the fact from disparate tools. An audit-ready SOC instead captures the trail as events unfold. This is also where <a href="/blog.php?slug=mitre-attack-automated-investigation">MITRE ATT&CK automated investigation</a> adds value: mapping activity to a recognised framework gives auditors and analysts a consistent, explainable account of what happened.</p>
+
+<h2>How an AI SOC delivers DORA compliance</h2>
+<p>A modern AI SOC is well suited to DORA because the regulation rewards speed, consistency and documentation, which are exactly the qualities automation provides. AI handles the high-volume detection and triage work continuously, applies classification logic uniformly, and records each step automatically, producing audit-ready evidence without analysts having to assemble it manually.</p>
+
+<p>Nordic SOC delivers this through <strong>Vokter</strong>, our AI SOC, with DORA- and NIS2-aligned evidence and reporting built into the service. <a href="/vokter-guardian.html">Vokter Guardian</a> combines AI that handles the large majority of detection and triage with named Nordic analysts available 24/7 for threat hunting, forensics and incident leadership under a defined SLA, an arrangement well suited to financial entities that need both speed and human accountability for major incidents. Crucially for DORA, delivery is EU-sovereign: incident data, logs and reporting stay within EU jurisdiction, supporting both the regulation and broader <a href="/blog.php?slug=eu-data-sovereignty-soc">EU data sovereignty</a> expectations.</p>
+
+<p>For organisations evaluating providers, the key question is whether the SOC produces the evidence DORA demands as a standard output, not as a bespoke project after each incident. You can learn more <a href="/about.html">about Nordic SOC</a> or <a href="/contact.html">contact our team</a> to discuss DORA-aligned security operations.</p>
+
+<h2>Conclusion</h2>
+<p>DORA reframes the SOC as an evidence-producing function as much as a defensive one. From 17 January 2025, financial entities must demonstrate continuous ICT risk monitoring, consistent incident classification, staged reporting within regulator-defined timelines, resilience testing, third-party oversight and a complete audit trail. A modern AI SOC meets these expectations by combining fast, consistent detection with automatically generated, audit-ready evidence, delivered within EU jurisdiction. The result is operational resilience that can be both achieved and proven.</p>

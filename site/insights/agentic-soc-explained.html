@@ -1,0 +1,340 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agentic SOC: How AI Agents Run SecOps | Nordic SOC</title>
+<meta name="description" content="An agentic SOC uses AI agents to triage, investigate and act on alerts within guardrails. Learn how it differs from SOAR, the workflow, oversight and EU AI Act.">
+<link rel="canonical" href="https://nordicsoc.com/insights/agentic-soc-explained/">
+<meta property="og:title" content="Agentic SOC: How AI Agents Run Security Operations"><meta property="og:description" content="An agentic SOC uses AI agents to triage, investigate and act on alerts within guardrails. Learn how it differs from SOAR, the workflow, oversight and EU AI Act."><meta property="og:type" content="article"><meta property="og:url" content="https://nordicsoc.com/insights/agentic-soc-explained/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap" rel="stylesheet">
+<style>/* ============================================================
+   NORDIC SOC · Vokter — shared styles for PHP pages
+   (Insights index + single blog). Matches the static site.
+   Navy #142E4A · Orchid Green #BCD153 · Charcoal #0E1A1F
+   ============================================================ */
+:root{
+  --white:#FFFFFF; --alt:#F6F8FB; --charcoal:#0E1A1F; --navy:#142E4A;
+  --orchid:#BCD153; --orchid-deep:#7C9A2E; --spring:#C9DC7E; --sunset:#5E7A93;
+  --davy:#4A555A; --slate:#9FB3C4; --mist:#E8EEF3; --orange:#E07B3C;
+  --ink:#0E1A1F; --body:#46535f; --muted:#5E7A93;
+  --line:rgba(20,46,74,.10); --line-2:rgba(20,46,74,.16);
+  --shadow:0 18px 44px -28px rgba(20,46,74,.45);
+  --shadow-sm:0 10px 26px -20px rgba(20,46,74,.4);
+  --radius:18px; --radius-sm:14px; --maxw:1180px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:"Google Sans Flex","Google Sans",system-ui,Arial,sans-serif;background:var(--white);
+  color:var(--body);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:clip}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+::selection{background:var(--orchid);color:var(--charcoal)}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,40px)}
+.section{padding:clamp(50px,5vw,76px) 0;position:relative}
+.alt{background:var(--alt)}
+h1,h2,h3,h4{line-height:1.14;font-weight:600;letter-spacing:-.02em;color:var(--ink);text-wrap:pretty}
+h2.title{font-size:clamp(24px,2.8vw,36px);letter-spacing:-.025em}
+.lead{font-size:clamp(16px,1.4vw,18px);color:var(--body);max-width:62ch;margin-top:18px;line-height:1.6;text-wrap:pretty}
+
+.btn{display:inline-flex;align-items:center;gap:9px;justify-content:center;font-family:inherit;font-weight:600;
+  font-size:15.5px;padding:14px 26px;border-radius:999px;cursor:pointer;border:1.6px solid transparent;
+  transition:transform .25s var(--ease),background .25s var(--ease),box-shadow .25s var(--ease),border-color .25s,color .25s;white-space:nowrap}
+.btn svg{width:16px;height:16px;transition:transform .25s var(--ease)}
+.btn:hover svg{transform:translateX(3px)}
+.btn-primary{background:var(--orchid);color:var(--navy);box-shadow:0 12px 26px -14px rgba(124,154,46,.7)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 36px -14px rgba(124,154,46,.85)}
+.btn-outline{background:transparent;color:var(--navy);border-color:var(--line-2)}
+.btn-outline:hover{border-color:var(--navy);background:rgba(20,46,74,.04)}
+.on-dark .btn-outline{color:#fff;border-color:rgba(255,255,255,.5)}
+.on-dark .btn-outline:hover{background:rgba(255,255,255,.1);border-color:#fff}
+
+/* NAV */
+header.nav{position:fixed;inset:0 0 auto 0;z-index:100;background:#fff;border-bottom:1px solid var(--line);transition:box-shadow .3s,border-color .3s}
+header.nav.scrolled{box-shadow:0 6px 24px -18px rgba(20,46,74,.5)}
+.nav-inner{max-width:var(--maxw);margin:0 auto;padding:14px clamp(20px,5vw,40px);display:flex;align-items:center;gap:28px}
+.logo-nsoc{height:38px;width:auto}
+.brand{flex-shrink:0;display:flex;align-items:center}
+.nav-links{display:flex;gap:2px;margin-left:auto;align-items:center}
+.nav-links a{font-size:15px;color:var(--navy);padding:9px 14px;border-radius:8px;transition:color .2s,background .2s;font-weight:500}
+.nav-links a:hover{color:var(--orchid-deep);background:rgba(20,46,74,.04)}
+.nav-links a.active{color:var(--orchid-deep)}
+.nav-item{position:relative}
+.nav-item::after{content:"";position:absolute;top:100%;left:0;right:0;height:12px}
+.nav-trigger{display:inline-flex;align-items:center;gap:6px;font-family:inherit;font-size:15px;font-weight:500;color:var(--navy);background:none;border:none;cursor:pointer;padding:9px 14px;border-radius:8px;transition:color .2s,background .2s}
+.nav-trigger svg{width:13px;height:13px;transition:transform .25s var(--ease)}
+.nav-item:hover .nav-trigger,.nav-item:focus-within .nav-trigger{color:var(--orchid-deep);background:rgba(20,46,74,.04)}
+.nav-item:hover .nav-trigger svg,.nav-item:focus-within .nav-trigger svg{transform:rotate(180deg)}
+.drop{position:absolute;top:calc(100% + 12px);left:0;min-width:206px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 20px 44px -22px rgba(20,46,74,.5);padding:8px;display:flex;flex-direction:column;gap:2px;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .2s var(--ease),transform .2s var(--ease),visibility .2s}
+.nav-item:hover .drop,.nav-item:focus-within .drop{opacity:1;visibility:visible;transform:none}
+.drop a{font-size:14.5px;color:var(--navy);padding:10px 12px;border-radius:8px;transition:background .2s,color .2s;font-weight:500}
+.drop a:hover{background:var(--alt);color:var(--orchid-deep)}
+.nav-cta{margin-left:24px;display:flex;align-items:center;gap:10px}
+.nav-cta .btn{padding:11px 20px;font-size:14.5px}
+.menu-toggle{display:none;background:none;border:1px solid var(--line-2);border-radius:10px;width:44px;height:44px;cursor:pointer;color:var(--navy);align-items:center;justify-content:center}
+.menu-toggle svg{width:22px;height:22px}
+.mobile-menu{position:fixed;inset:0;z-index:99;background:rgba(255,255,255,.98);backdrop-filter:blur(8px);display:none;flex-direction:column;padding:96px 30px 40px;gap:4px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:19px;color:var(--navy);padding:16px 4px;border-bottom:1px solid var(--line);font-weight:500}
+.mobile-menu .btn{margin-top:22px}
+
+/* PAGE HERO (compact, dark) */
+.phero{position:relative;text-align:left;padding:142px 0 60px;overflow:hidden;color:#fff}
+.phero-bg{position:absolute;inset:0;z-index:0;background:url("/assets/hero-mosaic.png") center/cover no-repeat;background-color:#0b162f}
+.phero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(9,16,30,.62),rgba(9,16,30,.45) 60%,rgba(9,16,30,.55))}
+.phero .wrap{position:relative;z-index:2}
+.phero h1{color:#fff;font-size:clamp(32px,4vw,50px);font-weight:600;letter-spacing:-.035em;max-width:20ch}
+.phero h1 .accent{color:var(--orchid)}
+.phero p.sub{margin-top:18px;font-size:clamp(16px,1.4vw,19px);color:#EAF1F8;max-width:60ch;line-height:1.55;text-wrap:pretty}
+.eyebrow{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--orchid);font-weight:600;margin-bottom:16px}
+
+/* FILTERS */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 28px}
+.filter{font-size:13.5px;font-weight:600;color:var(--navy);background:#fff;border:1px solid var(--line-2);padding:8px 16px;border-radius:999px;cursor:pointer;transition:all .2s}
+.filter:hover{border-color:var(--navy)}
+.filter.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+
+/* CARD GRID */
+.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.pcard{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:transform .35s var(--ease),box-shadow .35s,border-color .35s}
+.pcard:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--line-2)}
+.pcard .thumb{height:150px;background:linear-gradient(135deg,#0b162f,#1d3a5f 55%,#3d5a3a);position:relative;overflow:hidden;flex-shrink:0}
+.pcard .thumb img{width:100%;height:100%;object-fit:cover}
+.pcard .thumb .cat{position:absolute;top:12px;left:12px;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--navy);background:var(--orchid);padding:5px 11px;border-radius:999px}
+.pcard .pbody{padding:18px 20px 20px;display:flex;flex-direction:column;flex-grow:1}
+.pcard h3{font-size:16.5px;line-height:1.32;color:var(--ink);margin-bottom:8px}
+.pcard p{font-size:14px;color:var(--body);line-height:1.5;flex-grow:1;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.pcard .pmeta{display:flex;gap:14px;align-items:center;margin-top:16px;font-size:12.5px;color:var(--muted)}
+.pcard .pmeta .dot{width:3px;height:3px;border-radius:50%;background:var(--slate)}
+.pcard .more{margin-top:14px;font-size:14px;font-weight:600;color:var(--orchid-deep);display:inline-flex;align-items:center;gap:7px}
+.pcard .more svg{width:15px;height:15px;transition:transform .25s var(--ease)}
+.pcard:hover .more svg{transform:translateX(4px)}
+.empty{grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--muted);font-size:16px}
+
+/* PAGINATION */
+.pager{display:flex;justify-content:center;gap:10px;margin-top:48px}
+.pager a,.pager span{min-width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;border-radius:10px;border:1px solid var(--line-2);font-weight:600;font-size:14.5px;color:var(--navy);padding:0 14px}
+.pager a:hover{border-color:var(--navy)}
+.pager .cur{background:var(--navy);color:#fff;border-color:var(--navy)}
+.pager .disabled{opacity:.4;pointer-events:none}
+
+/* ARTICLE */
+.article-layout{display:grid;grid-template-columns:minmax(0,1fr) 240px;gap:clamp(32px,4vw,56px);align-items:start;max-width:1060px;margin:0 auto}
+.article-layout .article{max-width:none;margin:0}
+.article-solo{max-width:800px;margin:0 auto}
+.article{max-width:760px;margin:0 auto}
+.toc{position:sticky;top:104px}
+.toc h4{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.toc ul{list-style:none;display:flex;flex-direction:column;gap:11px;border-left:2px solid var(--line);padding-left:16px}
+.toc ul{position:relative}
+.toc a{font-size:14px;color:var(--body);line-height:1.45;transition:color .2s;display:block}
+.toc a:hover{color:var(--orchid-deep)}
+.toc a.active{color:var(--navy);font-weight:600}
+.toc li{position:relative}
+.toc li.active::before{content:"";position:absolute;left:-17px;top:2px;bottom:2px;width:2px;background:var(--orchid)}
+.art-cat{font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--orchid-deep);margin-bottom:14px}
+.article h1{font-size:clamp(28px,3.6vw,44px);letter-spacing:-.03em;line-height:1.1}
+.art-meta{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:20px;font-size:14px;color:var(--muted)}
+.art-meta .dot{width:3px;height:3px;border-radius:50%;background:var(--slate)}
+.art-hero{margin:34px 0;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);aspect-ratio:16/9;background:linear-gradient(135deg,#0b162f,#1d3a5f 55%,#3d5a3a)}
+.art-hero img{width:100%;height:100%;object-fit:cover}
+.art-body{font-size:17px;color:var(--davy);line-height:1.72}
+.art-body h2{font-size:clamp(22px,2.4vw,28px);color:var(--ink);margin:38px 0 14px;letter-spacing:-.02em;scroll-margin-top:96px}
+.art-body h3{font-size:20px;color:var(--ink);margin:28px 0 10px}
+.art-body p{margin:0 0 18px}
+.art-body a{color:var(--orchid-deep);font-weight:600;text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px}
+.art-body a:hover{color:var(--navy)}
+.art-body ul,.art-body ol{margin:0 0 18px;padding-left:22px}
+.art-body li{margin:0 0 9px}
+.art-body strong{color:var(--navy);font-weight:600}
+.art-body blockquote{margin:24px 0;padding:16px 22px;border-left:3px solid var(--orchid);background:var(--alt);border-radius:0 10px 10px 0;color:var(--ink);font-size:18px}
+.art-body table{width:100%;border-collapse:collapse;margin:22px 0;font-size:15px}
+.art-body th,.art-body td{border:1px solid var(--line);padding:11px 14px;text-align:left;vertical-align:top}
+.art-body th{background:var(--alt);color:var(--navy);font-weight:600}
+.art-body .takeaways{margin:28px 0;padding:22px 24px;border:1px solid var(--line);border-left:3px solid var(--orchid);border-radius:var(--radius-sm);background:var(--alt)}
+.art-body .takeaways h4{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--orchid-deep);margin-bottom:12px}
+.art-body .takeaways ul{margin:0;padding-left:20px}
+.art-body .takeaways li{font-size:15px;color:var(--body)}
+.art-body .faq{margin-top:40px}
+.art-body .faq h2{margin-bottom:8px}
+.art-body details{border:1px solid var(--line);border-radius:var(--radius-sm);background:#fff;overflow:hidden;margin-bottom:12px}
+.art-body details[open]{border-color:var(--line-2);box-shadow:var(--shadow-sm)}
+.art-body summary{list-style:none;cursor:pointer;padding:15px 20px;font-size:16.5px;font-weight:600;color:var(--ink);display:flex;justify-content:space-between;gap:16px}
+.art-body summary::-webkit-details-marker{display:none}
+.art-body summary::after{content:"+";color:var(--orchid-deep);font-weight:600;font-size:20px;line-height:1}
+.art-body details[open] summary::after{content:"\2013"}
+.art-body details .a{padding:0 20px 18px;font-size:15.5px;color:var(--body)}
+.art-cta{margin:48px 0 0;padding:clamp(26px,4vw,40px);border-radius:var(--radius);background:linear-gradient(160deg,#142E4A,#0b162f);color:#fff;text-align:center}
+.art-cta h3{color:#fff;font-size:clamp(20px,2.4vw,26px)}
+.art-cta p{color:#cfe0c6;margin:12px auto 0;max-width:46ch;font-size:15.5px}
+.art-cta .btn{margin-top:22px}
+
+/* RELATED */
+.related{border-top:1px solid var(--line);margin-top:60px;padding-top:44px}
+.related h2{font-size:24px;margin-bottom:24px}
+
+/* FOOTER */
+footer{background:var(--charcoal);color:#cdd9e2;padding:clamp(56px,7vw,78px) 0 34px}
+.foot-top{display:grid;grid-template-columns:1.5fr 1fr 1.5fr;gap:44px}
+.foot-brand .logo-nsoc{height:40px;margin-bottom:16px}
+.foot-brand p{font-size:14px;color:#9FB3C4;max-width:34ch}
+.foot-contact{font-size:14px;margin-top:18px;display:flex;flex-direction:column;gap:10px}
+.foot-contact-item{display:flex;align-items:flex-start;gap:9px;color:#9FB3C4;text-decoration:none;transition:color .2s}
+.foot-contact-item svg{flex-shrink:0;margin-top:2px;opacity:.75}
+.foot-contact-item:hover{color:var(--orchid)}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:4px}
+.foot-col a{font-size:14.5px;color:#9FB3C4;transition:color .2s}
+.foot-col a:hover{color:#fff}
+.foot-offices h5{font-size:14.5px;font-weight:600;color:var(--orchid);margin:0 0 16px}
+.foot-offices ul{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:12px 20px}
+.foot-offices li{font-size:14.5px;color:#9FB3C4;white-space:nowrap}
+.foot-bottom{margin-top:48px;padding-top:24px;border-top:1px solid rgba(159,179,196,.16);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--sunset)}
+.foot-legal{display:flex;gap:22px}
+.foot-legal a{color:var(--sunset);transition:color .2s}
+.foot-legal a:hover{color:var(--orchid)}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+@media (max-width:1024px){
+  .nav-links{display:none}.menu-toggle{display:flex}
+  .posts{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:860px){
+  .foot-top{grid-template-columns:1fr 1fr;gap:30px}
+  .article-layout{grid-template-columns:1fr;max-width:800px}
+  .toc{display:none}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .posts{grid-template-columns:1fr}
+}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","@id":"https://nordicsoc.com/insights/agentic-soc-explained/#article","headline":"Agentic SOC: How AI Agents Run Security Operations","description":"An agentic SOC uses AI agents to triage, investigate and act on alerts within guardrails. Learn how it differs from SOAR, the workflow, oversight and EU AI Act.","datePublished":"2026-06-18","dateModified":"2026-06-18","author":{"@type":"Organization","name":"Nordic SOC"},"publisher":{"@type":"Organization","name":"Nordic SOC","url":"https://nordicsoc.com"},"mainEntityOfPage":"https://nordicsoc.com/insights/agentic-soc-explained/","articleSection":"AI SOC","inLanguage":"en","keywords":"agentic SOC"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nordicsoc.com/"},{"@type":"ListItem","position":2,"name":"Insights","item":"https://nordicsoc.com/insights/"},{"@type":"ListItem","position":3,"name":"Agentic SOC: How AI Agents Run Security Operations","item":"https://nordicsoc.com/insights/agentic-soc-explained/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is an agentic SOC?","acceptedAnswer":{"@type":"Answer","text":"An agentic SOC is a security operations centre in which AI agents independently triage, enrich, investigate and act on alerts within defined policy guardrails, escalating to human analysts only when judgement or authority is required. The agents reason over context and choose their next step rather than following a fixed script."}},{"@type":"Question","name":"How is an agentic SOC different from SOAR automation?","acceptedAnswer":{"@type":"Answer","text":"SOAR platforms run predetermined if/then playbooks and stall or escalate when a case does not match a rule. An agentic SOC selects its own actions based on the evidence it finds, pivoting across data sources to investigate dynamically. It behaves like a decision-maker rather than a fixed recipe."}},{"@type":"Question","name":"What are the stages of the agentic SOC workflow?","acceptedAnswer":{"@type":"Answer","text":"The workflow follows clear stages: detect a signal, triage its severity, enrich it with context, investigate by forming and testing hypotheses, decide whether activity is malicious, act within guardrails, and document the full reasoning for review and audit."}},{"@type":"Question","name":"How are guardrails and human oversight handled?","acceptedAnswer":{"@type":"Answer","text":"Guardrails define what an agent may do alone, what needs approval, and what is never permitted without a human. High-impact actions are scoped, reversible where possible and subject to policy, while low-impact actions can proceed automatically. Every decision is recorded with its reasoning."}},{"@type":"Question","name":"How does an agentic SOC relate to the EU AI Act?","acceptedAnswer":{"@type":"Answer","text":"EU AI Act transparency obligations applying from August 2026 require certain automated decisions to be explainable. An agentic SOC documents its evidence and decision rationale at every stage, so the audit trail is built into the architecture, supporting both the AI Act and obligations under DORA and NIS2."}}]}]}</script></head><body>
+<header class="nav" id="nav"><div class="nav-inner">
+  <a class="brand" href="/" aria-label="Nordic SOC home"><img class="logo-nsoc" src="/assets/nordic-soc-navy.svg" alt="Nordic SOC"></a>
+  <nav class="nav-links">
+    <div class="nav-item"><button class="nav-trigger" aria-haspopup="true">Vokter Modes <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="drop"><a href="/vokter-autonomous/">Autonomous</a><a href="/vokter-hybrid/">Hybrid</a><a href="/vokter-guardian/">Guardian</a></div></div>
+    <a href="/partner-program/">Partner Program</a>
+    <a href="/insights/" class="active">Insights</a>
+    <a href="/about-us/">About Us</a>
+  </nav>
+  <div class="nav-cta"><a href="/contact-us/" class="btn btn-primary">Contact Us</a></div>
+  <button class="menu-toggle" id="menuToggle" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round"/></svg></button>
+</div></header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/vokter-autonomous/">Vokter Autonomous</a><a href="/vokter-hybrid/">Vokter Hybrid</a><a href="/vokter-guardian/">Vokter Guardian</a>
+  <a href="/partner-program/">Partner Program</a><a href="/insights/">Insights</a><a href="/about-us/">About Us</a>
+  <a href="/contact-us/" class="btn btn-primary">Contact Us</a>
+</div>
+<main id="top"><article class="section" style="padding-top:128px"><div class="wrap">
+  <div class="article-layout">
+  <div class="article">
+  <h1>Agentic SOC: How AI Agents Run Security Operations</h1>
+  <div class="art-hero"></div>
+  <div class="art-body"><p>An <strong>agentic SOC</strong> is a security operations centre in which AI agents independently triage, enrich, investigate and act on alerts within defined policy guardrails, escalating to human analysts only when judgement or authority is required. Unlike fixed automation scripts, these agents reason over context, choose their next step, and follow an investigation wherever the evidence leads. The result is a security operations model where the bulk of routine detection and response work is carried out by software that behaves less like a rule and more like a junior analyst. This article explains how the agentic SOC works, how it differs from traditional automation, and why it has become the dominant architectural direction for modern security operations.</p>
+
+<h2 id="what-is-an-agentic-soc">What is an agentic SOC?</h2>
+<p>The term agentic refers to AI systems that can pursue a goal across multiple steps, making decisions at each stage rather than executing a single pre-programmed instruction. In a security context, an agentic SOC applies this capability to the alert lifecycle. When a detection fires, an AI agent does not simply forward it to a queue. It interprets the alert, gathers the surrounding evidence, forms a hypothesis about whether the activity is malicious, tests that hypothesis against further data, and then either resolves the alert, contains the threat, or hands a structured case to a human.</p>
+<p>This matters because the volume of alerts in a typical environment far exceeds what human teams can examine. Most alerts are benign or low priority, yet each still demands attention. Agentic AI in cybersecurity addresses this by giving every alert a genuine investigation, not just a rule match, at a scale and speed that human staffing cannot reach.</p>
+
+<h2 id="how-does-an-agentic-soc-differ-from-soar-and-traditional-aut">How does an agentic SOC differ from SOAR and traditional automation?</h2>
+<p>Security teams have automated parts of their work for years through SOAR platforms and scripted playbooks. The difference between that approach and an agentic SOC is the difference between a fixed recipe and a decision-maker. A SOAR playbook executes a predetermined sequence: if condition A, perform action B. It cannot deviate, reason about an unusual case, or decide that the evidence points somewhere the author never anticipated. When reality does not match the playbook, the case stalls or escalates by default.</p>
+<p>An agentic system, by contrast, selects its own actions based on what it finds. It can pivot from an endpoint alert to identity data to network telemetry because the investigation warranted it, not because a branch was hard-coded for that path. This makes autonomous alert triage adaptive rather than brittle.</p>
+
+<table>
+  <thead>
+    <tr><th>Dimension</th><th>Traditional automation / SOAR</th><th>Agentic SOC</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Decision model</td><td>Pre-defined if/then playbooks</td><td>Goal-driven reasoning at each step</td></tr>
+    <tr><td>Handling novel cases</td><td>Escalates or stalls when no rule matches</td><td>Investigates dynamically using available evidence</td></tr>
+    <tr><td>Investigation depth</td><td>Fixed enrichment steps</td><td>Pursues evidence across data sources as needed</td></tr>
+    <tr><td>Maintenance</td><td>Playbooks require constant manual tuning</td><td>Adapts to context with policy-level oversight</td></tr>
+    <tr><td>Output</td><td>Enriched ticket for human review</td><td>Resolved alert or structured case with reasoning</td></tr>
+  </tbody>
+</table>
+
+<div class="takeaways"><h4>Key takeaways</h4><ul><li>An agentic SOC uses AI agents that triage, enrich, investigate and act on alerts within policy guardrails, escalating to humans by exception.</li><li>It differs from SOAR and scripted automation by reasoning over context and choosing its own next step rather than following fixed playbooks.</li><li>The agent workflow follows clear stages: detect, triage, enrich, investigate, decide, act and document.</li><li>Guardrails and human oversight keep high-impact actions reversible, scoped and approvable, with a full decision trail.</li><li>EU AI Act transparency obligations applying from August 2026 reinforce the need for explainable automated decisions, which agentic systems are built to provide.</li></ul></div>
+
+<h2 id="the-agentic-soc-workflow-how-ai-agents-run-security-operatio">The agentic SOC workflow: how AI agents run security operations</h2>
+<p>The work of an agentic SOC can be understood as a repeatable sequence of stages. Each stage is something a human analyst would otherwise perform manually, now carried out by an AI SOC analyst that documents its reasoning as it goes.</p>
+<ul>
+  <li><strong>Detect:</strong> a signal arrives from an endpoint, identity provider, network sensor or log source.</li>
+  <li><strong>Triage:</strong> the agent assesses severity, deduplicates against related signals and decides whether the alert merits deeper work.</li>
+  <li><strong>Enrich:</strong> it gathers context such as asset criticality, user behaviour, threat intelligence and historical activity.</li>
+  <li><strong>Investigate:</strong> it forms and tests hypotheses, pivoting across data sources and mapping observed behaviour to known adversary techniques.</li>
+  <li><strong>Decide:</strong> it reaches a conclusion: benign, suspicious or malicious, with a confidence assessment.</li>
+  <li><strong>Act:</strong> within its guardrails, it resolves the alert, takes a contained response action, or escalates a structured case to a human.</li>
+  <li><strong>Document:</strong> it records the full chain of reasoning and evidence so the decision can be reviewed and audited.</li>
+</ul>
+<p>This is the practical meaning of AI agents in cybersecurity: not a single model answering a question, but a coordinated workflow that mirrors how a skilled analyst actually thinks and works.</p>
+
+<h2 id="guardrails-and-human-oversight-in-an-agentic-soc">Guardrails and human oversight in an agentic SOC</h2>
+<p>Autonomy without constraint is unacceptable in security operations, where a wrong action can disrupt a business as severely as the threat it was meant to stop. An agentic SOC is therefore defined as much by its guardrails as by its capabilities. Guardrails specify what an agent may do on its own, what requires approval, and what is never permitted without a human decision.</p>
+<p>In practice this means high-impact actions, such as isolating a critical server or disabling a privileged account, are scoped, reversible where possible, and subject to policy. Lower-impact actions, such as closing a confirmed false positive or isolating a single non-critical endpoint, can proceed automatically because the blast radius is small and the action is recoverable. Human oversight is preserved through clear escalation paths, approval gates for sensitive operations, and a complete record of every decision the agent made and why. This is the foundation of <a href="/insights/autonomous-containment-safe/">safe autonomous containment</a>: the goal is fast action that remains accountable and within defined limits.</p>
+
+<h2 id="agentic-ai-security-and-the-eu-ai-act-transparency-obligatio">Agentic AI security and the EU AI Act transparency obligations</h2>
+<p>Explainability is not only good practice; it is becoming a regulatory expectation. The EU AI Act introduces transparency obligations that apply from August 2026, requiring that certain automated decisions be explainable and that organisations can account for how those decisions were reached. For security leaders, this places a clear demand on any system that takes automated action: it must be able to show its reasoning.</p>
+<p>Agentic AI security aligns naturally with this requirement. Because each agent documents its investigation, evidence and decision rationale at every stage, the audit trail is a built-in property of the architecture rather than an afterthought. This complements existing obligations under <a href="/insights/dora-compliance-soc/">DORA, in force since 17 January 2025</a>, and the operational expectations introduced by NIS2, adopted in 2022. An agentic SOC that records its reasoning makes regulatory demonstration of control far more tractable than opaque automation ever could.</p>
+
+<h2 id="why-the-agentic-soc-is-the-current-architectural-direction">Why the agentic SOC is the current architectural direction</h2>
+<p>The shift towards agentic operations is driven by a structural mismatch: alert volumes and attacker speed continue to rise, while skilled analysts remain scarce and expensive. Scripted automation reduced some of the load but could not investigate, and adding more analysts does not scale economically or sustainably. An architecture in which AI agents perform the investigative work, supervised by humans who concentrate on judgement, complex cases and strategy, resolves that mismatch directly. It is a continuation of the broader move described in <a href="/insights/what-is-an-ai-soc/">what an AI SOC is</a>, taken to the point where the AI is an active operator rather than an assistant.</p>
+<p>Vokter applies this model in practice. In its <a href="/vokter-autonomous/">Autonomous mode</a>, AI agents run the full triage and response workflow without requiring a SIEM or an in-house team, operating directly from endpoint or event-collector telemetry. In <a href="/vokter-guardian/">Guardian mode</a>, the same agentic engine handles the large majority of detection and response work, while named Nordic analysts take on critical cases, threat hunting and forensics under a defined service level agreement. The agentic SOC is not a single product feature; it is the operating model, with the degree of human involvement chosen to match each organisation's risk appetite and resources. Organisations evaluating the model can <a href="/contact-us/">discuss their requirements</a> against these modes.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+<p>The agentic SOC marks a genuine change in how security operations are run. By giving AI agents the ability to reason, investigate and act within firm guardrails, it brings real investigation to every alert at a scale humans cannot match, while keeping people in control of consequential decisions. As transparency and resilience obligations tighten across the EU, the explainable, documented nature of agentic operations becomes not just an efficiency gain but a compliance advantage. It is, for these reasons, the direction in which modern security operations are now moving.</p>
+
+  <div class="faq"><h2>Frequently asked questions</h2><details><summary>What is an agentic SOC?</summary><div class="a">An agentic SOC is a security operations centre in which AI agents independently triage, enrich, investigate and act on alerts within defined policy guardrails, escalating to human analysts only when judgement or authority is required. The agents reason over context and choose their next step rather than following a fixed script.</div></details><details><summary>How is an agentic SOC different from SOAR automation?</summary><div class="a">SOAR platforms run predetermined if/then playbooks and stall or escalate when a case does not match a rule. An agentic SOC selects its own actions based on the evidence it finds, pivoting across data sources to investigate dynamically. It behaves like a decision-maker rather than a fixed recipe.</div></details><details><summary>What are the stages of the agentic SOC workflow?</summary><div class="a">The workflow follows clear stages: detect a signal, triage its severity, enrich it with context, investigate by forming and testing hypotheses, decide whether activity is malicious, act within guardrails, and document the full reasoning for review and audit.</div></details><details><summary>How are guardrails and human oversight handled?</summary><div class="a">Guardrails define what an agent may do alone, what needs approval, and what is never permitted without a human. High-impact actions are scoped, reversible where possible and subject to policy, while low-impact actions can proceed automatically. Every decision is recorded with its reasoning.</div></details><details><summary>How does an agentic SOC relate to the EU AI Act?</summary><div class="a">EU AI Act transparency obligations applying from August 2026 require certain automated decisions to be explainable. An agentic SOC documents its evidence and decision rationale at every stage, so the audit trail is built into the architecture, supporting both the AI Act and obligations under DORA and NIS2.</div></details></div>
+  <div class="art-cta"><h3>See Vokter on your own alerts</h3><p>Book a walkthrough with our Nordic team and watch the AI SOC triage, investigate and contain — in seconds.</p><a href="/contact-us/" class="btn btn-primary">Request a demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+  </div>
+  <div class="related"><h2>More insights</h2><div class="posts"><a class="pcard reveal" data-cat="AI SOC" href="/insights/what-is-an-ai-soc/">
+  <div class="thumb"></div>
+  <div class="pbody"><h3>What Is an AI SOC? Autonomous Security Operations Explained</h3><p>An AI SOC uses artificial intelligence to autonomously triage, investigate, contain and report on threats. This pillar guide explains how it works, how it differs from a traditional SOC, where humans fit, and what to evaluate.</p>
+  <span class="more">Read article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></a>
+<a class="pcard reveal" data-cat="AI SOC" href="/insights/ai-soc-vs-traditional-soc/">
+  <div class="thumb"></div>
+  <div class="pbody"><h3>AI SOC vs Traditional SOC: What Actually Changes</h3><p>A balanced comparison of the AI SOC and traditional SOC models across detection, alert triage, investigation, response, staffing, cost and compliance, with a clear side-by-side table.</p>
+  <span class="more">Read article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></a>
+<a class="pcard reveal" data-cat="AI SOC" href="/insights/siem-less-soc/">
+  <div class="thumb"></div>
+  <div class="pbody"><h3>Do You Still Need a SIEM? The Rise of the SIEM-less SOC</h3><p>Many organisations can now run effective security operations without a SIEM. We explain what a SIEM does, how a SIEM-less SOC works on EDR/XDR and the Windows Event Collector, and when you still want one.</p>
+  <span class="more">Read article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></a></div></div>
+  </div>
+  <aside class="toc"><h4>On this page</h4><ul><li><a href="#what-is-an-agentic-soc">What is an agentic SOC?</a></li><li><a href="#how-does-an-agentic-soc-differ-from-soar-and-traditional-aut">How does an agentic SOC differ from SOAR and traditional automation?</a></li><li><a href="#the-agentic-soc-workflow-how-ai-agents-run-security-operatio">The agentic SOC workflow: how AI agents run security operations</a></li><li><a href="#guardrails-and-human-oversight-in-an-agentic-soc">Guardrails and human oversight in an agentic SOC</a></li><li><a href="#agentic-ai-security-and-the-eu-ai-act-transparency-obligatio">Agentic AI security and the EU AI Act transparency obligations</a></li><li><a href="#why-the-agentic-soc-is-the-current-architectural-direction">Why the agentic SOC is the current architectural direction</a></li><li><a href="#conclusion">Conclusion</a></li></ul></aside>
+  </div>
+</div></article></main>
+<footer><div class="wrap"><div class="foot-top">
+  <div class="foot-brand"><img class="logo-nsoc" src="/assets/nordic-soc-white.svg" alt="Nordic SOC">
+    <p>Managed security operations for the Nordics — powered by Vokter, our EU-sovereign AI SOC.</p>
+    <div class="foot-contact">
+      <a href="tel:+46733690899" class="foot-contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.72a16 16 0 006.29 6.29l1.25-1.25a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> +46 733 690899</a>
+      <a href="mailto:consult@gsecurelabs.com" class="foot-contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg> consult@gsecurelabs.com</a>
+      <span class="foot-contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Isafjordsgatan 30A, 16440 Kista, Sweden</span>
+    </div></div>
+  <div class="foot-col"><ul>
+    <li><a href="/vokter-autonomous/">Vokter Autonomous</a></li><li><a href="/vokter-hybrid/">Vokter Hybrid</a></li>
+    <li><a href="/vokter-guardian/">Vokter Guardian</a></li><li><a href="/partner-program/">Partner Program</a></li>
+    <li><a href="/insights/">Insights</a></li><li><a href="/about-us/">About Us</a></li><li><a href="/contact-us/">Contact Us</a></li>
+  </ul></div>
+  <div class="foot-offices"><h5>Global Offices:</h5><ul>
+    <li>Belgium</li><li>Canada</li><li>Denmark</li><li>Finland</li><li>France</li><li>Germany</li><li>India</li><li>Iceland</li><li>Norway</li><li>South Africa</li><li>The Netherlands</li><li>UAE</li><li>UK</li><li>USA</li>
+  </ul></div>
+  </div>
+  <div class="foot-bottom"><div class="foot-legal"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a></div><span>&copy; 2026 Nordic SOC. All rights reserved.</span></div>
+</div></footer>
+<script>
+const nav=document.getElementById('nav');const os=()=>nav.classList.toggle('scrolled',window.scrollY>16);os();addEventListener('scroll',os,{passive:true});
+const t=document.getElementById('menuToggle'),m=document.getElementById('mobileMenu');
+if(t&&m){t.onclick=()=>m.classList.toggle('open');m.querySelectorAll('a').forEach(a=>a.onclick=()=>m.classList.remove('open'));}
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}}),{threshold:.1,rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const fb=document.querySelectorAll('.filter');
+if(fb.length){fb.forEach(b=>b.onclick=()=>{fb.forEach(x=>x.classList.remove('active'));b.classList.add('active');const c=b.dataset.cat;document.querySelectorAll('.pcard').forEach(k=>{k.style.display=(c==='all'||k.dataset.cat===c)?'':'none';});});}
+const tl={};document.querySelectorAll('.toc a').forEach(a=>tl[a.getAttribute('href').slice(1)]=a);
+const hd=[...document.querySelectorAll('.art-body h2[id]')];
+if(hd.length&&Object.keys(tl).length){const spy=()=>{const L=Math.max(110,innerHeight*0.28);let c=hd[0];for(const h of hd){if(h.getBoundingClientRect().top<=L)c=h;else break;}for(const k in tl){tl[k].classList.remove('active');tl[k].parentElement.classList.remove('active');}if(c&&tl[c.id]){tl[c.id].classList.add('active');tl[c.id].parentElement.classList.add('active');}};addEventListener('scroll',spy,{passive:true});addEventListener('resize',spy,{passive:true});spy();}
+</script>
+</body></html>
